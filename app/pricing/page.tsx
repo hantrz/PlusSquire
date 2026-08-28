@@ -1,8 +1,60 @@
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
 import Navbar from '../components/Navbar'
 import { Footer } from '../components/Sections'
 
-const plans = [
+const shopifyPlans = [
+  {
+    tag: 'ONE-TIME',
+    name: 'Shopify Starter',
+    price: '$799',
+    period: '',
+    desc: 'For brands that need a conversion-focused theme set up and customized fast.',
+    features: [
+      'Custom theme setup & customization',
+      'Up to 10 product/collection pages',
+      'Mobile-optimized, on-brand design',
+      'Basic app integrations',
+      'Delivered in 2–3 weeks',
+    ],
+    featured: false,
+  },
+  {
+    tag: 'MOST POPULAR',
+    name: 'Shopify Growth',
+    price: '$2,499',
+    period: '',
+    desc: 'A full custom build or migration for brands ready to launch or switch platforms.',
+    features: [
+      'Full custom theme development',
+      'Migration from your current platform (if any)',
+      'Speed & Core Web Vitals optimization',
+      'App integrations & custom features',
+      'Post-launch QA across devices',
+      'Delivered in 4–6 weeks',
+    ],
+    featured: true,
+  },
+  {
+    tag: 'ONGOING',
+    name: 'Shopify Partner',
+    price: '$999',
+    period: '/mo',
+    desc: 'A dedicated Shopify dev on retainer for stores that keep shipping new features.',
+    features: [
+      'Ongoing theme updates & feature requests',
+      'Performance monitoring',
+      'App management & troubleshooting',
+      'Priority bug fixes',
+      'Monthly strategy call',
+    ],
+    featured: false,
+  },
+]
+
+const emailPlans = [
   {
     tag: 'ONE-TIME',
     name: 'Starter',
@@ -50,7 +102,15 @@ const plans = [
   },
 ]
 
+const groups = [
+  { key: 'shopify', label: 'Shopify Development', sub: 'Theme builds, migrations, speed, and ongoing support.', plans: shopifyPlans },
+  { key: 'email', label: 'Email Marketing', sub: 'Design, development, flows, and full-service management.', plans: emailPlans },
+]
+
 export default function PricingPage() {
+  const [active, setActive] = useState('shopify')
+  const activeGroup = groups.find((g) => g.key === active) ?? groups[0]
+
   return (
     <>
       <Navbar />
@@ -65,6 +125,22 @@ export default function PricingPage() {
             text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px;
           }
           .pricing-tag-bar { width: 40px; height: 2px; background: var(--g); border-radius: 2px; }
+
+          /* Tab toggle */
+          .pricing-tabs {
+            display: flex; align-items: center; justify-content: center;
+            gap: 4px; margin: 8px auto 48px; padding: 5px;
+            background: #fff; border: 1px solid var(--border); border-radius: 100px;
+            width: fit-content;
+          }
+          .pricing-tab {
+            padding: 11px 26px; border-radius: 100px; border: none; background: transparent;
+            color: var(--ink3); font-size: 15px; font-weight: 600; font-family: inherit;
+            cursor: pointer; transition: background .18s, color .18s; white-space: nowrap;
+          }
+          .pricing-tab:hover { color: var(--ink); }
+          .pricing-tab.active { background: var(--g); color: #fff; }
+          @media(max-width:480px){ .pricing-tabs { flex-direction: column; width: 100%; border-radius: 16px; } .pricing-tab { width: 100%; } }
 
           /* Grid */
           .pricing-grid {
@@ -147,6 +223,8 @@ export default function PricingPage() {
             font-size: 16px; color: var(--ink3); line-height: 1.7; margin-bottom: 24px;
           }
 
+          .pricing-group-sub { text-align: center; color: var(--ink3); font-size: 15px; margin: -28px 0 40px; }
+
           @media(max-width:1100px){ .pricing-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; } }
         `}</style>
 
@@ -158,8 +236,24 @@ export default function PricingPage() {
               <p className="section-sub">Every project is different. Here&apos;s a starting point.</p>
             </div>
 
+            <div className="pricing-tabs" role="tablist">
+              {groups.map((g) => (
+                <button
+                  key={g.key}
+                  role="tab"
+                  aria-selected={active === g.key}
+                  className={`pricing-tab${active === g.key ? ' active' : ''}`}
+                  onClick={() => setActive(g.key)}
+                >
+                  {g.label}
+                </button>
+              ))}
+            </div>
+
+            <p className="pricing-group-sub">{activeGroup.sub}</p>
+
             <div className="pricing-grid">
-              {plans.map((plan) => (
+              {activeGroup.plans.map((plan) => (
                 <div key={plan.name} className={`pricing-card${plan.featured ? ' featured' : ''}`}>
                   <div className="plan-tag">{plan.tag}</div>
                   <div className="plan-name">{plan.name}</div>

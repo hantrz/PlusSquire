@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
+import { Send } from 'lucide-react'
 
 const ParticlesBackground = dynamic(() => import('./ParticlesBackground'), { ssr: false })
 
@@ -59,12 +60,43 @@ export default function Hero() {
           50%       { opacity: 1; }
         }
 
-        /* Email mockup */
+        /* Storefront + email mockup stack */
         .hero-right { position: relative; transform: scale(0.82); transform-origin: center top; z-index: 1; }
-        .email-card {
+        .stack-visual { position: relative; }
+        .store-card {
+          position: relative; z-index: 1;
           background: #fff; border-radius: 18px;
           box-shadow: 0 28px 72px rgba(0,0,0,.11), 0 4px 12px rgba(0,0,0,.05);
           border: 1px solid rgba(255,255,255,0.08); overflow: hidden;
+        }
+        .store-nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px 0; }
+        .store-logo { display: flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 800; color: var(--ink); }
+        .store-logo-mark { width: 18px; height: 18px; border-radius: 5px; background: var(--g); }
+        .store-nav-links { display: flex; gap: 14px; font-size: 11px; color: var(--ink4); font-weight: 600; }
+        .store-banner {
+          background: linear-gradient(135deg, #1ea672, #17845b);
+          border-radius: 10px; padding: 38px; text-align: center; color: #fff; margin: 16px 20px 0;
+        }
+        .store-banner h3 { font-size: 16px; font-weight: 800; margin-bottom: 3px; color: #fff; letter-spacing: -.01em; }
+        .store-banner p { font-size: 11px; opacity: .82; }
+        .store-products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 16px 20px 58px; }
+        .store-prod { background: var(--soft); border-radius: 8px; padding: 10px 8px; text-align: center; }
+        .store-thumb { height: 142px; border-radius: 6px; background: var(--gl); display: flex; align-items: center; justify-content: center; font-size: 32px; margin-bottom: 6px; }
+        .store-prod strong { font-size: 11px; color: var(--ink); font-weight: 700; display: block; }
+        .store-cart-badge {
+          position: absolute; top: 14px; right: 20px; z-index: 2;
+          background: var(--g); color: #fff; border-radius: 50%;
+          width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;
+          font-size: 10px; font-weight: 800; box-shadow: 0 4px 10px rgba(30,166,114,.4);
+        }
+        .email-card {
+          background: #fff; border-radius: 16px;
+          box-shadow: 0 20px 50px rgba(0,0,0,.16), 0 4px 12px rgba(0,0,0,.06);
+          border: 1px solid rgba(255,255,255,0.08); overflow: hidden;
+        }
+        .email-float {
+          position: absolute; z-index: 2;
+          width: 48%; right: -6%; bottom: 20px;
         }
         .ec-topbar {
           background: var(--soft); border-bottom: 1px solid var(--border);
@@ -90,14 +122,14 @@ export default function Hero() {
         .ec-footer { border-top: 1px solid var(--border); padding-top: 12px; text-align: center; font-size: 11px; color: var(--ink4); line-height: 1.9; }
         .ec-footer a { color: var(--g); text-decoration: none; }
         .chip {
-          position: absolute; background: #fff;
+          position: absolute; background: #fff; z-index: 5;
           border: 1px solid rgba(255,255,255,0.15); border-radius: 12px;
           padding: 10px 14px; box-shadow: 0 8px 24px rgba(0,0,0,.09);
           display: flex; align-items: center; gap: 10px;
           font-size: 13px; font-weight: 500; white-space: nowrap;
         }
         .chip-top { top: -18px; right: -18px; }
-        .chip-bot { bottom: 24px; left: -28px; }
+        .chip-bot { bottom: -10px; left: -20px; }
         .chip-val { font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 800; color: var(--g); line-height: 1; }
         .chip-lbl { font-size: 11px; color: var(--ink4); }
         .chip-ico { font-size: 22px; }
@@ -215,10 +247,10 @@ export default function Hero() {
               Shopify Partner &middot; Klaviyo Certified
             </div>
             <div className="h1-glow-wrap">
-              <h1>Your Shopify store and your email list<br />are both sitting on <em>untapped revenue.</em><br /><span className="h1-punch">We fix both.</span></h1>
+              <h1>Your Shopify store and<br />email list are both sitting<br />on <em>untapped revenue.</em><br /><span className="h1-punch">We fix both.</span></h1>
             </div>
             <p className="hero-desc">
-              Shopify development and email marketing under one roof — pixel-perfect builds, revenue-driving flows, and growth systems for eCommerce brands ready to scale.
+              Shopify development and email marketing under one roof: pixel-perfect builds, revenue-driving flows, and growth systems for eCommerce brands ready to scale.
             </p>
             <div className="hero-btns">
               <Link href="#contact" className="btn-primary">
@@ -242,50 +274,65 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right — Email Mockup */}
+          {/* Right — Shopify storefront + email flow mockup */}
           <div className="hero-right">
             <div className="chip chip-top">
               <div>
-                <div className="chip-val">+42%</div>
-                <div className="chip-lbl">Revenue lift</div>
+                <div className="chip-val">150+</div>
+                <div className="chip-lbl">Stores launched</div>
               </div>
-              <div className="chip-ico">📈</div>
+              <div className="chip-ico">🛍️</div>
             </div>
-            <div className="email-card">
-              <div className="ec-topbar">
-                <span className="tc-r" /><span className="tc-y" /><span className="tc-g" />
-                <div className="ec-urlbar" />
+            <div className="stack-visual">
+              <div className="store-card">
+                <div className="ec-topbar">
+                  <span className="tc-r" /><span className="tc-y" /><span className="tc-g" />
+                  <div className="ec-urlbar" />
+                </div>
+                <div className="store-cart-badge">2</div>
+                <div className="store-nav">
+                  <div className="store-logo"><span className="store-logo-mark" />Storefront</div>
+                  <div className="store-nav-links"><span>Shop</span><span>New</span><span>Sale</span></div>
+                </div>
+                <div className="store-banner">
+                  <h3>✨ New Collection</h3>
+                  <p>Built &amp; launched in 4 weeks</p>
+                </div>
+                <div className="store-products">
+                  <div className="store-prod">
+                    <div className="store-thumb">👟</div>
+                    <strong>$79</strong>
+                  </div>
+                  <div className="store-prod">
+                    <div className="store-thumb">🎒</div>
+                    <strong>$49</strong>
+                  </div>
+                  <div className="store-prod">
+                    <div className="store-thumb">👕</div>
+                    <strong>$35</strong>
+                  </div>
+                </div>
               </div>
-              <div className="ec-body">
-                <div className="ec-banner">
-                  <h3>🎉 Black Friday Sale</h3>
-                  <p>Up to 50% off — Today only</p>
+              <div className="email-card email-float">
+                <div className="ec-topbar">
+                  <span className="tc-r" /><span className="tc-y" /><span className="tc-g" />
                 </div>
-                <div className="ec-products">
-                  <div className="ec-prod">
-                    <div className="ec-thumb">👟</div>
-                    <p>Running Shoes</p>
-                    <strong>$79 <span style={{textDecoration:'line-through',color:'#94a3b8',fontSize:'11px',fontWeight:400}}>$159</span></strong>
-                    <div className="ec-cta">Shop Now</div>
+                <div className="ec-body" style={{ padding: '16px' }}>
+                  <div className="ec-banner" style={{ padding: '14px', marginBottom: '10px' }}>
+                    <h3 style={{ fontSize: '14px' }}>🎉 Order Confirmed</h3>
+                    <p>Post-purchase flow triggered</p>
                   </div>
-                  <div className="ec-prod">
-                    <div className="ec-thumb">🎒</div>
-                    <p>Backpack Pro</p>
-                    <strong>$49 <span style={{textDecoration:'line-through',color:'#94a3b8',fontSize:'11px',fontWeight:400}}>$99</span></strong>
-                    <div className="ec-cta">Shop Now</div>
+                  <div className="ec-footer" style={{ fontSize: '10px' }}>
+                    Sent automatically via Klaviyo
                   </div>
-                </div>
-                <div className="ec-footer">
-                  You received this email because you subscribed.<br />
-                  <a href="#">Unsubscribe</a> · <a href="#">View in browser</a>
                 </div>
               </div>
             </div>
             <div className="chip chip-bot">
-              <div className="chip-ico">💌</div>
+              <div className="chip-ico" style={{ display: 'flex', color: 'var(--g)' }}><Send size={20} strokeWidth={2} /></div>
               <div>
-                <div className="chip-val">7,000+</div>
-                <div className="chip-lbl">Templates built</div>
+                <div className="chip-val">1,000+</div>
+                <div className="chip-lbl">Flows built</div>
               </div>
             </div>
           </div>
@@ -295,10 +342,10 @@ export default function Hero() {
         <div className="hero-stats-bar">
           <div className="hero-stats-inner">
             {[
-              { num: '10–40%',  lbl: 'Average revenue lift for our clients' },
-              { num: '14 days', lbl: 'Average time to first results' },
-              { num: '11.7x',   lbl: 'Average ROI in first 90 days' },
-              { num: '2+ years',lbl: 'Average client partnership duration' },
+              { num: '13+ years', lbl: 'Shopify and email experience' },
+              { num: '40%',       lbl: 'Faster Shopify store load time' },
+              { num: '10–40%',    lbl: 'Average revenue lift for our clients' },
+              { num: '3+ years',  lbl: 'Average client partnership duration' },
             ].map((s) => (
               <div key={s.lbl} className="hs-item">
                 <div className="hs-wave" />
