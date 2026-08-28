@@ -15,8 +15,8 @@ const plusJakarta = Plus_Jakarta_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'PlusSquire — Shopify Engineering, Email Flows & Growth Systems',
-  description: 'Shopify development and email marketing under one roof — pixel-perfect builds, revenue-driving flows, and growth systems for eCommerce brands ready to scale.',
+  title: 'PlusSquire: Shopify Engineering, Email Flows & Growth Systems',
+  description: 'Shopify development and email marketing under one roof: pixel-perfect builds, revenue-driving flows, and growth systems for eCommerce brands ready to scale.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -2,24 +2,24 @@ import Link from 'next/link'
 
 const cases = [
   {
+    tag: 'eCommerce · Shopify',
+    title: 'Full Shopify rebuild lifted conversion 24% for a skincare brand',
+    body: 'Migrated from a legacy platform to a custom Shopify theme built for speed and mobile conversion, with a streamlined checkout and Core Web Vitals tuned from the ground up.',
+    metrics: [{ val: '+24%', lbl: 'Conversion Rate' }, { val: '1.8s', lbl: 'Load Time' }, { val: '−31%', lbl: 'Cart Abandonment' }],
+    featured: true,
+  },
+  {
     tag: 'eCommerce · Klaviyo',
     title: '42% email revenue lift for a DTC fashion brand',
     body: "Rebuilt their entire Klaviyo automation stack: welcome series, abandoned cart, and post-purchase flows from the ground up with a data-led approach that turned automations into their #1 revenue channel.",
     metrics: [{ val: '+42%', lbl: 'Email Revenue' }, { val: '3.8×', lbl: 'Flow ROI' }, { val: '58%', lbl: 'Open Rate' }],
-    featured: true,
-  },
-  {
-    tag: 'SaaS · HubSpot',
-    title: 'Onboarding redesign reduced churn for a B2B SaaS',
-    body: 'Rebuilt a 12-email HTML onboarding sequence focused on activation milestones, cutting early churn and significantly improving 30-day retention.',
-    metrics: [{ val: '−28%', lbl: 'Churn' }, { val: '+61%', lbl: 'Activation' }],
     featured: false,
   },
   {
-    tag: 'Retail · Mailchimp',
-    title: '£92K from 8 holiday emails for a UK retail chain',
-    body: 'Designed and deployed 8 seasonal campaigns across Black Friday, Christmas, and New Year with sharp copy, mobile-first design, and an avg 4.2% CTR.',
-    metrics: [{ val: '£92K', lbl: 'Revenue Generated' }, { val: '4.2%', lbl: 'Avg CTR' }],
+    tag: 'eCommerce · Shopify + Klaviyo',
+    title: 'New Shopify store and Klaviyo flows drove 3.5× revenue in year one',
+    body: 'Built the Shopify store from scratch and layered in a full Klaviyo flow suite, welcome series, abandoned cart, and post-purchase, turning day-one launch traffic into a repeatable revenue engine.',
+    metrics: [{ val: '3.5×', lbl: 'Revenue Growth' }, { val: '38%', lbl: 'Email-Attributed Revenue' }],
     featured: false,
   },
 ]
@@ -41,6 +41,7 @@ export default function CaseStudies() {
     <>
       <style>{`
         .cases { background: #fff; padding: 96px 0; }
+        .cases .section-sub { white-space: nowrap; max-width: none; }
         .cases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
         .case-card {
           border: 1px solid var(--border); border-radius: 18px;
@@ -104,7 +105,7 @@ export default function CaseStudies() {
         <div className="wrap">
           <div className="sh-row">
             <h2>Real clients. Real revenue. <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>Real results.</em></h2>
-            <p className="section-sub">From Klaviyo flows to full campaign strategies. Here&apos;s what we&apos;ve delivered for real brands.</p>
+            <p className="section-sub">From Shopify builds to Klaviyo flows. Here&apos;s what we&apos;ve delivered for real brands.</p>
           </div>
           <div className="cases-grid">
             {cases.map((c) => (

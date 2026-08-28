@@ -301,7 +301,7 @@ export function CtaBand() {
       <div className="cta-band">
         <div className="wrap">
           <div className="cta-inner">
-            <h2>Ready to turn your email list<br />into your <em>best sales channel?</em></h2>
+            <h2>Ready to turn your store and inbox<br />into your <em>best sales channel?</em></h2>
             <Link href="#contact" className="btn-cta-white">Let&apos;s Talk →</Link>
           </div>
         </div>
@@ -342,7 +342,7 @@ export function Contact() {
           <div className="contact-grid">
             <div className="contact-left">
               <h2>Let&apos;s build something<br /><em>great together.</em></h2>
-              <p>Whether you need a single template or a full email program overhaul, we&apos;d love to hear about your project. We typically respond within 24 hours.</p>
+              <p>Whether it&apos;s a Shopify build or an email program overhaul, we&apos;d love to hear about your project. We typically respond within 24 hours.</p>
               <div className="cinfo">
                 <div className="cinfo-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg></div>
                 hello@plussquire.com
@@ -379,12 +379,12 @@ export function Contact() {
                 <label>Service Needed</label>
                 <select>
                   <option value="">Select a service...</option>
-                  {['Shopify Theme Development','Shopify Migration','Shopify Speed Optimization','Shopify App & Custom Features','Email Design','Email Development','Email Campaigns','Email Automations','Sign-Up Forms','SMS Campaigns','Klaviyo Account Set-Up','Account Audit'].map(s => (
+                  {['Shopify Theme Development','Shopify Migration','Shopify Speed Optimization','Shopify App & Custom Features','Klaviyo Setup','Flow Setup','Account Audit','Sign-Up Forms','SMS Campaigns','Email Design','Email Development','Email Campaigns','Email Automations'].map(s => (
                     <option key={s}>{s}</option>
                   ))}
                 </select>
               </div>
-              <div className="fg"><label>Message</label><textarea placeholder="Tell us about your project, current ESP, and goals..." /></div>
+              <div className="fg"><label>Message</label><textarea placeholder="Tell us about your project, current setup, and goals..." /></div>
               <button className="form-submit">Send Message →</button>
             </div>
           </div>
@@ -439,7 +439,7 @@ export function Footer() {
             <div className="fcol">
               <h4>Services</h4>
               <ul>
-                {['Shopify Development','Shopify Migration','Email Design','Email Automations','Klaviyo Set-Up'].map(s => (
+                {['Shopify Theme Development','Shopify Migration','Klaviyo Setup','Email Design','Email Automations'].map(s => (
                   <li key={s}><Link href="/services">{s}</Link></li>
                 ))}
               </ul>

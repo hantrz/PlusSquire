@@ -2,9 +2,9 @@ import Link from 'next/link'
 
 const reasons = [
   { num: '01', title: 'Design, Dev & Automation Under One Roof', body: 'Unlike most agencies, we handle everything in-house: Shopify builds, pixel-perfect HTML, revenue-driving flows, and full automation setup. No handoffs. No miscommunication. Figma to inbox, start to finish.' },
-  { num: '02', title: '13+ Years, 800+ Projects Delivered', body: 'We have built and delivered 800+ projects across every type of email: campaigns, transactional, flows, and full automation series. That depth means fewer mistakes and faster results.' },
+  { num: '02', title: '13+ Years, 800+ Projects Delivered', body: 'We have built and delivered 800+ projects across Shopify builds and every type of email: campaigns, transactional, flows, and full automation series. That depth means fewer mistakes and faster results.' },
   { num: '03', title: 'Your Email Looks Perfect. Everywhere.', body: 'Gmail, Outlook, Apple Mail, Samsung Mail. Your emails will render flawlessly everywhere. We test across 50+ client and device combinations before every send.' },
-  { num: '04', title: 'Revenue-First Approach', body: 'Every decision we make, subject lines, flow logic, send timing, is driven by one question: will this make our client more money? Every email we build is designed to make you money.' },
+  { num: '04', title: 'Revenue-First Approach', body: 'Every decision we make, from Shopify UX and page speed to subject lines, flow logic, and send timing, is driven by one question: will this make our client more money? Everything we build is designed to make you money.' },
 ]
 
 export default function Why() {
@@ -87,7 +87,7 @@ export default function Why() {
         <div className="wrap">
           <div className="sh-row">
             <h2>More than an agency:<br />we&apos;re your <em>growth team.</em></h2>
-            <p className="section-sub">Most email agencies don&apos;t touch Shopify. Most Shopify devs don&apos;t touch email.<br />We do both — strategy, design, development and automation, under one roof.</p>
+            <p className="section-sub">Most email agencies don&apos;t touch Shopify. Most Shopify devs don&apos;t touch email.<br />We do both: strategy, design, development and automation, under one roof.</p>
           </div>
           <div className="why-grid">
             {reasons.map((r) => (
@@ -101,7 +101,7 @@ export default function Why() {
               <div className="why-full-inner">
                 <div className="why-full-text">
                   <h3>Stop juggling 3 vendors. We handle it all.</h3>
-                  <p>Shopify development, email strategy, design, and automations — all under one roof.<br />Stop coordinating between your designer, developer, and strategist.</p>
+                  <p>Shopify development, email strategy, design, and automations, all under one roof.<br />Stop coordinating between your designer, developer, and strategist.</p>
                 </div>
                 <div className="why-full-btn">
                   <Link href="#contact" className="btn-white-sm">Work With Us →</Link>

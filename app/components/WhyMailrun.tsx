@@ -5,7 +5,7 @@ const rows = [
   },
   {
     pro: 'Strategy built around your revenue goals, not vanity metrics',
-    con: "Monthly reports full of open rates that don't move the needle",
+    con: "Monthly reports full of vanity metrics that don't move the needle",
   },
   {
     pro: 'We only take clients we know we can grow',
@@ -17,28 +17,28 @@ const rows = [
   },
   {
     pro: 'Every campaign tied to actual revenue impact',
-    con: 'Click rates and impressions with no business context',
+    con: 'Clicks and impressions with no business context',
   },
   {
-    pro: 'Full-stack execution: copy, design, flows, and strategy',
+    pro: 'Full-stack execution: Shopify dev, copy, design, flows, and strategy',
     con: 'Siloed specialists who never talk to each other',
   },
 ]
 
 const goodFit = [
-  'Established brand ready to scale email revenue',
+  'Established brand ready to scale revenue across their store and inbox',
   'Values long-term partnership over cheap one-off work',
   'Wants a team that thinks, not just executes',
   'Open to honest strategy conversations',
-  'Focused on business growth, not just email metrics',
+  'Focused on business growth, not just vanity metrics',
 ]
 
 const notFit = [
   'Looking for the cheapest option available',
   'Needs results overnight with no strategy budget',
   'Wants someone who just says yes to everything',
-  'Not ready to invest in email as a revenue channel',
-  'Prefers to micromanage every single email',
+  'Not ready to invest in their store and inbox as revenue channels',
+  'Prefers to micromanage every single deliverable',
 ]
 
 export default function WhySquire() {
@@ -72,7 +72,7 @@ export default function WhySquire() {
         .wm-table-wrap {
           overflow-x: auto;
           border-radius: 20px;
-          background: #2e3f55;
+          background: var(--dark2);
           padding-bottom: 32px;
           margin-bottom: 32px;
         }
@@ -82,7 +82,7 @@ export default function WhySquire() {
           min-width: 520px;
         }
         .wm-table thead tr {
-          background: #1e293b;
+          background: var(--dark);
         }
         .wm-table thead th {
           padding: 18px 28px;
@@ -92,13 +92,13 @@ export default function WhySquire() {
           width: 50%;
         }
         .wm-table thead th:first-child {
-          border-right: 1px solid #334155;
+          border-right: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .wm-th-pro { color: #4ade80; }
-        .wm-th-con { color: #94a3b8; }
+        .wm-th-pro { color: var(--g); }
+        .wm-th-con { color: var(--ink4); }
         .wm-table tbody tr {
           border-top: 1px solid rgba(255, 255, 255, 0.1);
-          background: #2e3f55;
+          background: var(--dark2);
         }
         .wm-table tbody td {
           padding: 16px 28px;
@@ -111,19 +111,19 @@ export default function WhySquire() {
         }
         .wm-table tbody td:first-child {
           color: #e2e8f0;
-          border-right: 1px solid #1e293b;
+          border-right: 1px solid rgba(255, 255, 255, 0.08);
         }
         .wm-table tbody td:last-child {
-          color: #94a3b8;
+          color: var(--ink4);
         }
         .wm-check {
-          color: #16a34a;
+          color: var(--g);
           font-weight: 700;
           margin-right: 8px;
           flex-shrink: 0;
         }
         .wm-cross {
-          color: #ef4444;
+          color: #c2645f;
           font-weight: 700;
           margin-right: 8px;
           flex-shrink: 0;
@@ -145,20 +145,20 @@ export default function WhySquire() {
           padding: 28px 28px 32px;
         }
         .wm-card-good {
-          background: linear-gradient(135deg, #052e16, #14532d);
-          border: 1px solid #16a34a44;
+          background: linear-gradient(135deg, #0c2b1f, #123c2b);
+          border: 1px solid rgba(30, 166, 114, .3);
         }
         .wm-card-bad {
-          background: linear-gradient(135deg, #1c0a0a, #2d1414);
-          border: 1px solid #ef444422;
+          background: linear-gradient(135deg, #201412, #2c1a17);
+          border: 1px solid rgba(194, 101, 95, .3);
         }
         .wm-card-title {
           font-size: 1.0625rem;
           font-weight: 700;
           margin: 0 0 18px;
         }
-        .wm-card-good .wm-card-title { color: #16a34a; }
-        .wm-card-bad  .wm-card-title { color: #ef4444; }
+        .wm-card-good .wm-card-title { color: var(--g); }
+        .wm-card-bad  .wm-card-title { color: #c2645f; }
         .wm-card ul {
           list-style: none;
           margin: 0;
@@ -176,13 +176,13 @@ export default function WhySquire() {
           line-height: 1.5;
         }
         .wm-bullet-good {
-          color: #16a34a;
+          color: var(--g);
           font-weight: 700;
           flex-shrink: 0;
           margin-top: 1px;
         }
         .wm-bullet-bad {
-          color: #ef4444;
+          color: #c2645f;
           font-weight: 700;
           flex-shrink: 0;
           margin-top: 1px;

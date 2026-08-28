@@ -4,22 +4,22 @@ const cards = [
   {
     icon: LayoutGrid,
     title: 'Full Ownership, Zero Headache',
-    body: 'No briefing. No follow-ups. No micromanaging. We take complete ownership of your email channel from strategy to execution — you stay focused on growing your business.',
+    body: 'No briefing. No follow-ups. No micromanaging. We take complete ownership of your Shopify store and email channel from strategy to execution, so you stay focused on growing your business.',
   },
   {
     icon: Zap,
     title: 'Fast Wins, Then Scale',
-    body: "We don't wait for perfection. We launch fast, track what works, and double down on results. You'll see real revenue impact within weeks — not months.",
+    body: "We don't wait for perfection. We launch fast, track what works, and double down on results. You'll see real revenue impact within weeks, not months.",
   },
   {
     icon: CheckCircle,
     title: 'Results or We Walk',
-    body: "We tie our work to your numbers. If the results aren't there, you're free to leave — no lock-in contracts, no fine print, no excuses.",
+    body: "We tie our work to your numbers. If the results aren't there, you're free to leave: no lock-in contracts, no fine print, no excuses.",
   },
   {
     icon: Globe,
     title: 'Your Entire Funnel, Covered',
-    body: "From lead capture to post-purchase retention — we connect every touchpoint. Your store and your inbox aren't separate tactics here, they're one revenue system.",
+    body: "From lead capture to post-purchase retention, we connect every touchpoint. Your store and your inbox aren't separate tactics here, they're one revenue system.",
   },
 ]
 
@@ -118,7 +118,7 @@ export default function NotJustEmail() {
               <span className="nje-headline-green">&ldquo;tasks&rdquo;</span>
             </h2>
             <p className="nje-subheadline">
-              You&apos;re investing in a revenue engine — for your store and your inbox.
+              You&apos;re investing in a revenue engine for your store and your inbox.
             </p>
           </div>
 
