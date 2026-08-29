@@ -125,6 +125,11 @@ export default function Navbar() {
           font-family: 'Inter', sans-serif;
           font-weight: 800; font-size: 21px; color: var(--gd);
         }
+        .nav-links {
+          display: flex; align-items: center; gap: 2px;
+          list-style: none; white-space: nowrap;
+          flex: 1; justify-content: center; margin: 0 auto;
+        }
         .nav-links > li {
           position: relative;
         }
@@ -278,13 +283,15 @@ export default function Navbar() {
           cursor: pointer; padding: 8px; color: #1a1a1a;
         }
         .mobile-menu {
-          display: none; position: fixed; top: 68px; left: 0; right: 0;
+          display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0;
           background: #fff; border-bottom: 1px solid var(--border);
-          padding: 16px var(--px); z-index: 9998;
+          padding: 16px var(--px) 32px; z-index: 9998;
           flex-direction: column; gap: 4px;
+          overflow-y: auto;
         }
         .mobile-menu.open { display: flex; }
         .mobile-menu a {
+          display: block;
           padding: 10px 14px; border-radius: 8px;
           color: var(--ink2); font-size: 16px; font-weight: 500;
           text-decoration: none;
@@ -305,7 +312,7 @@ export default function Navbar() {
           </Link>
 
           {/* Center links */}
-          <ul className="nav-links" style={{display:'flex', alignItems:'center', gap:'2px', listStyle:'none', whiteSpace:'nowrap', flex:'1', justifyContent:'center', margin:'0 auto'}}>
+          <ul className="nav-links">
             <li><a href="/">Features</a></li>
             <li>
               <a href="#services">
@@ -386,6 +393,7 @@ export default function Navbar() {
       {/* Mobile menu */}
       <div className={`mobile-menu ${mobileOpen ? 'open' : ''}`}>
         <Link href="/" onClick={() => setMobileOpen(false)}>Features</Link>
+        <Link href="/pricing" onClick={() => setMobileOpen(false)}>Pricing</Link>
         {serviceCategories.map((cat) => (
           <div key={cat.label}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 14px 2px', fontSize: '12px', fontWeight: 700, letterSpacing: '.06em', textTransform: 'uppercase', color: 'var(--ink4)' }}>
@@ -409,7 +417,6 @@ export default function Navbar() {
             {item.label}
           </Link>
         ))}
-        <Link href="/pricing" onClick={() => setMobileOpen(false)}>Pricing</Link>
       </div>
     </>
   )

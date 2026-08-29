@@ -34,7 +34,7 @@ const particlesOptions = {
       straight: false,
       outModes: { default: 'bounce' as const },
     },
-    number: { value: 140, density: { enable: false } },
+    number: { value: 140, density: { enable: true, width: 1920, height: 1080 } },
     opacity: { value: 0.2 },
     shape: { type: 'circle' },
     size: { value: { min: 1, max: 3 } },
@@ -52,6 +52,17 @@ export default function ParticlesBackground() {
   useEffect(() => {
     initParticlesEngine(particlesInit).then(() => setEngineReady(true))
   }, [particlesInit])
+
+  // The hero's height depends on how its text content wraps (varies a lot on
+  // mobile), which settles AFTER this component's first paint. tsParticles
+  // only re-measures its canvas on a window "resize" event, so without this
+  // nudge it keeps the canvas sized to the pre-layout height and the particle
+  // field ends up squashed into just the top of the section on phones.
+  useEffect(() => {
+    if (!engineReady) return
+    const t = setTimeout(() => window.dispatchEvent(new Event('resize')), 350)
+    return () => clearTimeout(t)
+  }, [engineReady])
 
   if (!engineReady) return null
 

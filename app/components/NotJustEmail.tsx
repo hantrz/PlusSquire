@@ -50,8 +50,11 @@ export default function NotJustEmail() {
           font-size: 1.125rem;
           color: #6b7280;
           margin: 0 auto;
-          white-space: nowrap;
+          max-width: 480px;
           line-height: 1.6;
+        }
+        @media(min-width:768px) {
+          .nje-subheadline { white-space: nowrap; max-width: none; }
         }
         .nje-grid {
           display: grid;

@@ -68,7 +68,10 @@ export default function WhySquire() {
           line-height: 1.6;
         }
 
-        /* Table */
+        /* Table (built from divs + CSS grid, not <table> markup, so the
+           mobile "stacked card" layout below doesn't hit the Safari/WebKit
+           quirk where border-radius + overflow:hidden fail to clip a
+           display:block'd <tr>) */
         .wm-table-wrap {
           overflow-x: auto;
           border-radius: 20px;
@@ -78,42 +81,35 @@ export default function WhySquire() {
         }
         .wm-table {
           width: 100%;
-          border-collapse: collapse;
           min-width: 520px;
         }
-        .wm-table thead tr {
+        .wm-thead {
+          display: grid; grid-template-columns: 1fr 1fr;
           background: var(--dark);
         }
-        .wm-table thead th {
+        .wm-th-pro, .wm-th-con {
           padding: 18px 28px;
           font-size: 1rem;
           font-weight: 700;
-          text-align: left;
-          width: 50%;
         }
-        .wm-table thead th:first-child {
-          border-right: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .wm-th-pro { color: var(--g); }
+        .wm-th-pro { color: var(--g); border-right: 1px solid rgba(255, 255, 255, 0.08); }
         .wm-th-con { color: var(--ink4); }
-        .wm-table tbody tr {
+        .wm-row {
+          display: grid; grid-template-columns: 1fr 1fr;
           border-top: 1px solid rgba(255, 255, 255, 0.1);
           background: var(--dark2);
         }
-        .wm-table tbody td {
+        .wm-row:last-child { padding-bottom: 5px; }
+        .wm-td {
           padding: 16px 28px;
           font-size: 0.9375rem;
           line-height: 1.6;
-          vertical-align: top;
         }
-        .wm-table tbody tr:last-child td {
-          padding-bottom: 5px;
-        }
-        .wm-table tbody td:first-child {
+        .wm-td-pro {
           color: #e2e8f0;
           border-right: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .wm-table tbody td:last-child {
+        .wm-td-con {
           color: var(--ink4);
         }
         .wm-check {
@@ -192,8 +188,28 @@ export default function WhySquire() {
           .wm-section { padding: 64px 0; }
           .wm-cards { grid-template-columns: 1fr; }
           .wm-card { padding: 22px 20px 26px; }
-          .wm-table thead th,
-          .wm-table tbody td { padding: 14px 16px; }
+
+          /* Stack the comparison table into cards instead of a scrolling table */
+          .wm-table-wrap { overflow-x: visible; padding-bottom: 16px; }
+          .wm-table { min-width: 0; }
+          .wm-thead { display: none; }
+          .wm-row {
+            display: block;
+            border-top: none; border-radius: 12px; overflow: hidden;
+            margin: 0 16px 12px;
+          }
+          .wm-row:last-child { margin-bottom: 0; }
+          .wm-td { display: block; padding: 14px 16px; }
+          .wm-td-pro, .wm-td-con { border-right: none; }
+          .wm-row + .wm-row { border-top: 1px solid rgba(255, 255, 255, 0.08); }
+          .wm-td::before {
+            content: attr(data-label);
+            display: block; font-size: 10px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: .06em;
+            margin-bottom: 6px; opacity: .7;
+          }
+          .wm-td-pro::before { color: var(--g); }
+          .wm-td-con::before { color: var(--ink4); }
         }
       `}</style>
 
@@ -207,32 +223,28 @@ export default function WhySquire() {
           </div>
 
           <div className="wm-table-wrap">
-            <table className="wm-table">
-              <thead>
-                <tr>
-                  <th className="wm-th-pro">✓&nbsp; PlusSquire</th>
-                  <th className="wm-th-con">✗&nbsp; Other Agencies</th>
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((row, i) => (
-                  <tr key={i}>
-                    <td>
-                      <span className="wm-cell">
-                        <span className="wm-check">✓</span>
-                        {row.pro}
-                      </span>
-                    </td>
-                    <td>
-                      <span className="wm-cell">
-                        <span className="wm-cross">✗</span>
-                        {row.con}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <div className="wm-table">
+              <div className="wm-thead">
+                <div className="wm-th-pro">✓&nbsp; PlusSquire</div>
+                <div className="wm-th-con">✗&nbsp; Other Agencies</div>
+              </div>
+              {rows.map((row, i) => (
+                <div className="wm-row" key={i}>
+                  <div className="wm-td wm-td-pro" data-label="✓ PlusSquire">
+                    <span className="wm-cell">
+                      <span className="wm-check">✓</span>
+                      {row.pro}
+                    </span>
+                  </div>
+                  <div className="wm-td wm-td-con" data-label="✗ Other Agencies">
+                    <span className="wm-cell">
+                      <span className="wm-cross">✗</span>
+                      {row.con}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="wm-cards">

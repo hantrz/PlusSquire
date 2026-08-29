@@ -80,6 +80,7 @@ export default function Why() {
           .why-full-inner { flex-direction: column; align-items: flex-start; }
           .why-full-text { min-width: unset; width: 100%; }
           .why-full p { max-width: 100%; }
+          .why-full-br { display: none; }
         }
       `}</style>
 
@@ -101,7 +102,7 @@ export default function Why() {
               <div className="why-full-inner">
                 <div className="why-full-text">
                   <h3>Stop juggling 3 vendors. We handle it all.</h3>
-                  <p>Shopify development, email strategy, design, and automations, all under one roof.<br />Stop coordinating between your designer, developer, and strategist.</p>
+                  <p>Shopify development, email strategy, design, and automations, all under one roof.<br className="why-full-br" />Stop coordinating between your designer, developer, and strategist.</p>
                 </div>
                 <div className="why-full-btn">
                   <Link href="#contact" className="btn-white-sm">Work With Us →</Link>

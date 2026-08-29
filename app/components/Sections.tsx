@@ -296,12 +296,12 @@ export function CtaBand() {
         .cta-band h2 em { font-style: normal; color: rgba(255,255,255,.65); }
         .btn-cta-white { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.7); padding: 14px 32px; border-radius: 9px; font-size: 15px; font-weight: 700; text-decoration: none; flex-shrink: 0; white-space: nowrap; transition: border-color .18s, background .18s, transform .18s; position: relative; z-index: 1; }
         .btn-cta-white:hover { transform: translateY(-2px); border-color: #fff; background: rgba(255,255,255,0.12); }
-        @media(max-width:768px){ .cta-band { padding: 60px 0; } }
+        @media(max-width:768px){ .cta-band { padding: 60px 0; } .cta-band .cta-br { display: none; } }
       `}</style>
       <div className="cta-band">
         <div className="wrap">
           <div className="cta-inner">
-            <h2>Ready to turn your store and inbox<br />into your <em>best sales channel?</em></h2>
+            <h2>Ready to turn your store and inbox<br className="cta-br" />into your <em>best sales channel?</em></h2>
             <Link href="#contact" className="btn-cta-white">Let&apos;s Talk →</Link>
           </div>
         </div>

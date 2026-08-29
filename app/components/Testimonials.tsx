@@ -195,12 +195,16 @@ export default function Testimonials() {
         @media(max-width:768px){
           .testi-card { flex-basis: 280px; max-width: 280px; }
         }
+        .testi-h-br { display: none; }
+        @media(max-width:640px){
+          .testi-h-br { display: inline; }
+        }
       `}</style>
 
       <section className="testimonials">
         <div className="wrap">
           <div className="sh-row">
-            <h2>What our clients <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>actually say.</em></h2>
+            <h2>What our clients<br className="testi-h-br" /> <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>actually say.</em></h2>
             <p className="section-sub">Brands trust us with their store and their inbox. Here&apos;s what they say.</p>
           </div>
 

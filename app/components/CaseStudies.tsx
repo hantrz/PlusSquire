@@ -41,7 +41,9 @@ export default function CaseStudies() {
     <>
       <style>{`
         .cases { background: #fff; padding: 96px 0; }
-        .cases .section-sub { white-space: nowrap; max-width: none; }
+        @media(min-width:768px) {
+          .cases .section-sub { white-space: nowrap; max-width: none; }
+        }
         .cases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
         .case-card {
           border: 1px solid var(--border); border-radius: 18px;

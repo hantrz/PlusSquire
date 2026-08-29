@@ -232,6 +232,11 @@ export default function Hero() {
           .hero-stats-inner { flex-wrap: wrap; }
           .hs-item { flex: 1 1 calc(50% - 6px); }
         }
+        @media(max-width:640px){
+          .hero h1 { font-size: 32px; }
+          .h1-punch { font-size: 34px; display: inline; }
+          .hero-br { display: none; }
+        }
       `}</style>
 
       <div className="hero">
@@ -247,7 +252,7 @@ export default function Hero() {
               Shopify Partner &middot; Klaviyo Certified
             </div>
             <div className="h1-glow-wrap">
-              <h1>Your Shopify store and<br />email list are both sitting<br />on <em>untapped revenue.</em><br /><span className="h1-punch">We fix both.</span></h1>
+              <h1>Your Shopify store and <br className="hero-br" />email list are both sitting <br className="hero-br" />on <em>untapped revenue.</em><br className="hero-br" /> <span className="h1-punch">We fix both.</span></h1>
             </div>
             <p className="hero-desc">
               Shopify development and email marketing under one roof: pixel-perfect builds, revenue-driving flows, and growth systems for eCommerce brands ready to scale.
