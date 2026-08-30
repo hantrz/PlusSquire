@@ -324,8 +324,14 @@ export function Contact() {
         .cal-block { margin-top: 36px; background: var(--soft); border: 1px solid var(--border); border-radius: 14px; padding: 28px; }
         .cal-block h4 { font-size: 16px; margin-bottom: 8px; color: var(--ink); }
         .cal-block p { font-size: 14px; color: var(--ink3); margin-bottom: 18px; }
-        .btn-cal { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: #fff; padding: 12px 22px; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none; transition: background .18s; }
+        .cal-btns { display: flex; gap: 10px; }
+        .cal-btns > a { flex: 1 1 0; }
+        .btn-cal { display: inline-flex; align-items: center; justify-content: center; text-align: center; gap: 7px; background: var(--ink); color: #fff; padding: 12px 14px; border-radius: 8px; font-size: 13.5px; font-weight: 600; text-decoration: none; transition: background .18s; }
         .btn-cal:hover { background: var(--ink2); }
+        .btn-whatsapp { display: inline-flex; align-items: center; justify-content: center; text-align: center; gap: 7px; background: var(--g); color: #fff; padding: 12px 14px; border-radius: 8px; font-size: 13.5px; font-weight: 600; text-decoration: none; transition: background .18s; }
+        .btn-whatsapp:hover { background: var(--gd); }
+        .btn-cal svg, .btn-whatsapp svg { flex-shrink: 0; }
+        @media(max-width:480px){ .cal-btns { flex-direction: column; } }
         .contact-form { background: var(--soft); border: 1px solid var(--border); border-radius: 20px; padding: 40px; height: 100%; box-sizing: border-box; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
         .fg { display: flex; flex-direction: column; gap: 7px; margin-bottom: 14px; }
@@ -362,10 +368,16 @@ export function Contact() {
               <div className="cal-block">
                 <h4>📅 Prefer to talk first?</h4>
                 <p>Book a free 30-minute discovery call, no commitment, just a quick chat to see if we&apos;re a good fit.</p>
-                <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" className="btn-cal">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                  Book a Free Discovery Call
-                </a>
+                <div className="cal-btns">
+                  <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" className="btn-cal">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Book a Free Discovery Call
+                  </a>
+                  <a href="https://wa.me/8801919130859" target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.05 2zm5.8 14.1c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.11.11-1.79-.11a16.7 16.7 0 0 1-1.6-.6c-2.82-1.22-4.66-4.07-4.8-4.26-.14-.19-1.15-1.53-1.15-2.92 0-1.39.73-2.07.99-2.35.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.15.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.72 1.19 1.55 1.93 1.06.95 1.96 1.24 2.24 1.38.28.14.44.12.61-.07.17-.19.71-.83.9-1.11.19-.28.38-.24.64-.14.26.09 1.66.78 1.94.92.28.14.47.21.54.33.07.12.07.68-.17 1.36z"/></svg>
+                    Urgent? Chat on WhatsApp
+                  </a>
+                </div>
               </div>
             </div>
             <div className="contact-form">

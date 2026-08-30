@@ -373,6 +373,7 @@ export default function Navbar() {
               </div>
             </li>
             <li><Link href="/pricing">Pricing</Link></li>
+            <li><Link href="/faq">FAQ</Link></li>
           </ul>
 
           {/* Right CTA */}
@@ -395,6 +396,7 @@ export default function Navbar() {
       <div className={`mobile-menu ${mobileOpen ? 'open' : ''}`}>
         <Link href="/" onClick={() => setMobileOpen(false)}>Features</Link>
         <Link href="/pricing" onClick={() => setMobileOpen(false)}>Pricing</Link>
+        <Link href="/faq" onClick={() => setMobileOpen(false)}>FAQ</Link>
         {serviceCategories.map((cat) => (
           <div key={cat.label}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 14px 2px', fontSize: '12px', fontWeight: 700, letterSpacing: '.06em', textTransform: 'uppercase', color: 'var(--ink4)' }}>
