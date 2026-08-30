@@ -4,7 +4,15 @@ import { Footer } from '../../components/Sections'
 import {
   CheckCircle2, RefreshCw, TrendingUp, DollarSign,
   ShoppingBag, Star, Repeat, MessageSquare, Megaphone,
+  Settings2, ShieldCheck, Paintbrush, ListChecks,
 } from 'lucide-react'
+
+const foundationItems = [
+  { icon: Settings2,   label: 'Account Structure' },
+  { icon: ShieldCheck, label: 'Domain Authentication' },
+  { icon: Paintbrush,  label: 'Branding & Templates' },
+  { icon: ListChecks,  label: 'Lists & Properties' },
+]
 
 const integrationNodes = [
   { icon: ShoppingBag,    label: 'Shopify',       x: 50, y: 8 },
@@ -67,9 +75,18 @@ export default function KlaviyoSetupPage() {
             .ksp-hero-card { max-width: 520px; }
           }
 
-          /* Feature sections: text one side, visual the other, alternating */
-          .ksp-feature { padding: 72px 0; border-bottom: 1px solid var(--border); }
-          .ksp-feature:last-of-type { border-bottom: none; }
+          /* Feature sections: text one side, visual the other, alternating.
+             Sections are told apart with a subtle background tint instead
+             of borders — cleaner, and it reads better as one continuous
+             page instead of a stack of boxed-off blocks. */
+          .ksp-feature { padding: 72px 0; }
+          .ksp-feature-alt { background: var(--soft); }
+          /* Panels that normally sit on soft background flip to white when
+             their section is the alternate (soft) one, so they still read
+             as a distinct panel instead of blending into the section bg */
+          .ksp-feature-alt .ksp-migrate-viz,
+          .ksp-feature-alt .ksp-chart-viz,
+          .ksp-feature-alt .ksp-foundation-viz { background: #fff; }
           .ksp-feature-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 56px; align-items: center; }
           .ksp-feature-tag { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--g); margin-bottom: 12px; }
           .ksp-feature h2 { font-size: clamp(24px, 2.4vw, 30px); color: var(--ink); margin-bottom: 14px; }
@@ -81,6 +98,21 @@ export default function KlaviyoSetupPage() {
           @media(max-width:900px){
             .ksp-feature-grid { grid-template-columns: 1fr; }
           }
+
+          /* New account foundation grid */
+          .ksp-foundation-viz {
+            background: var(--soft); border-radius: 16px; padding: 24px;
+            display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px;
+          }
+          .ksp-foundation-card {
+            background: #fff; border: 1px solid var(--border); border-radius: 12px;
+            padding: 22px 14px; text-align: center;
+          }
+          .ksp-foundation-ico {
+            width: 40px; height: 40px; border-radius: 10px; background: var(--gl); color: var(--g);
+            display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;
+          }
+          .ksp-foundation-card span { font-size: 12.5px; font-weight: 700; color: var(--ink2); line-height: 1.3; }
 
           /* Migration diagram */
           .ksp-migrate-viz {
@@ -161,6 +193,9 @@ export default function KlaviyoSetupPage() {
           .ksp-step h3 { font-size: 17px; color: var(--ink); margin-bottom: 8px; }
           .ksp-step p { font-size: 14px; color: var(--ink3); line-height: 1.7; }
           @media(max-width:900px){ .ksp-steps-grid { grid-template-columns: 1fr; } }
+
+          .ksp-bottom { text-align: center; padding: 64px 0 96px; }
+          .ksp-bottom p { color: var(--ink3); font-size: 16px; margin-bottom: 24px; }
         `}</style>
 
         <section className="ksp-hero">
@@ -199,6 +234,36 @@ export default function KlaviyoSetupPage() {
         <section className="ksp-feature">
           <div className="wrap ksp-feature-grid">
             <div>
+              <div className="ksp-feature-tag">New Account Setup</div>
+              <h2>Starting from zero? We build the foundation right.</h2>
+              <p className="ksp-feature-sub">No history to untangle, but plenty to get right from the start: proper list structure, a verified sending domain, and an account built to scale instead of getting rebuilt in six months.</p>
+              <ul>
+                <li><Settings2 size={17} /> Account structure, lists, and custom properties set up the right way from day one</li>
+                <li><Settings2 size={17} /> Sending domain fully authenticated (SPF, DKIM, DMARC) so your first email lands in the inbox</li>
+                <li><Settings2 size={17} /> Branded templates and sign-up forms ready before your first campaign goes out</li>
+              </ul>
+            </div>
+            <div className="ksp-foundation-viz">
+              {foundationItems.map((f) => (
+                <div key={f.label} className="ksp-foundation-card">
+                  <div className="ksp-foundation-ico"><f.icon size={19} strokeWidth={1.75} /></div>
+                  <span>{f.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="ksp-feature ksp-feature-alt">
+          <div className="wrap ksp-feature-grid">
+            <div className="ksp-migrate-viz">
+              <div className="ksp-migrate-box"><span>From</span><strong>Old Platform</strong></div>
+              <svg className="ksp-migrate-arrow" width="28" height="16" viewBox="0 0 28 16" fill="none">
+                <path d="M0 8H26M26 8L19 1M26 8L19 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <div className="ksp-migrate-box"><span>To</span><strong>Klaviyo</strong></div>
+            </div>
+            <div>
               <div className="ksp-feature-tag">List Migration</div>
               <h2>Moving platforms? Nothing gets lost on the way.</h2>
               <p className="ksp-feature-sub">If you're coming from Mailchimp, Omnisend, or anywhere else, your list, history, and segments move over clean, not just copy-pasted.</p>
@@ -208,18 +273,21 @@ export default function KlaviyoSetupPage() {
                 <li><RefreshCw size={17} /> Full historical data preserved so your flows keep the context they need</li>
               </ul>
             </div>
-            <div className="ksp-migrate-viz">
-              <div className="ksp-migrate-box"><span>From</span><strong>Old Platform</strong></div>
-              <svg className="ksp-migrate-arrow" width="28" height="16" viewBox="0 0 28 16" fill="none">
-                <path d="M0 8H26M26 8L19 1M26 8L19 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              <div className="ksp-migrate-box"><span>To</span><strong>Klaviyo</strong></div>
-            </div>
           </div>
         </section>
 
         <section className="ksp-feature">
           <div className="wrap ksp-feature-grid">
+            <div>
+              <div className="ksp-feature-tag">Integrations</div>
+              <h2>Every tool you already use, connected properly.</h2>
+              <p className="ksp-feature-sub">Klaviyo is only as good as the data flowing into it. We connect your full stack so nothing is guessed at.</p>
+              <ul>
+                <li><CheckCircle2 size={17} /> Shopify, reviews, subscriptions, and support tools synced in</li>
+                <li><CheckCircle2 size={17} /> Events fire at the right time so flows react to real behavior</li>
+                <li><CheckCircle2 size={17} /> Richer segmentation from day one, because the data is actually there</li>
+              </ul>
+            </div>
             <div className="ksp-hub-viz">
               <svg className="ksp-hub-lines" viewBox="0 0 100 100">
                 {integrationNodes.map((n) => (
@@ -234,31 +302,11 @@ export default function KlaviyoSetupPage() {
                 </div>
               ))}
             </div>
-            <div>
-              <div className="ksp-feature-tag">Integrations</div>
-              <h2>Every tool you already use, connected properly.</h2>
-              <p className="ksp-feature-sub">Klaviyo is only as good as the data flowing into it. We connect your full stack so nothing is guessed at.</p>
-              <ul>
-                <li><CheckCircle2 size={17} /> Shopify, reviews, subscriptions, and support tools synced in</li>
-                <li><CheckCircle2 size={17} /> Events fire at the right time so flows react to real behavior</li>
-                <li><CheckCircle2 size={17} /> Richer segmentation from day one, because the data is actually there</li>
-              </ul>
-            </div>
           </div>
         </section>
 
-        <section className="ksp-feature">
+        <section className="ksp-feature ksp-feature-alt">
           <div className="wrap ksp-feature-grid">
-            <div>
-              <div className="ksp-feature-tag">Account Warm-Up</div>
-              <h2>Deliverability protected from the very first send.</h2>
-              <p className="ksp-feature-sub">A new account (or a big list import) can tank your inbox placement if you send too much, too soon. We ramp it up on a schedule instead.</p>
-              <ul>
-                <li><TrendingUp size={17} /> Sending volume increased gradually, not all at once</li>
-                <li><TrendingUp size={17} /> Domain and sender reputation protected during ramp-up</li>
-                <li><TrendingUp size={17} /> A strong inbox placement foundation before your first big campaign</li>
-              </ul>
-            </div>
             <div className="ksp-chart-viz">
               <div className="ksp-chart-bars">
                 <div className="ksp-chart-bar" style={{ height: '18%' }} />
@@ -273,11 +321,31 @@ export default function KlaviyoSetupPage() {
               </div>
               <div className="ksp-chart-tag"><TrendingUp size={14} /> Deliverability Protected</div>
             </div>
+            <div>
+              <div className="ksp-feature-tag">Account Warm-Up</div>
+              <h2>Deliverability protected from the very first send.</h2>
+              <p className="ksp-feature-sub">A new account (or a big list import) can tank your inbox placement if you send too much, too soon. We ramp it up on a schedule instead.</p>
+              <ul>
+                <li><TrendingUp size={17} /> Sending volume increased gradually, not all at once</li>
+                <li><TrendingUp size={17} /> Domain and sender reputation protected during ramp-up</li>
+                <li><TrendingUp size={17} /> A strong inbox placement foundation before your first big campaign</li>
+              </ul>
+            </div>
           </div>
         </section>
 
         <section className="ksp-feature">
           <div className="wrap ksp-feature-grid">
+            <div>
+              <div className="ksp-feature-tag">Cost Minimization</div>
+              <h2>A cleaner list costs less, and performs better.</h2>
+              <p className="ksp-feature-sub">Klaviyo bills by profile count. Cleaning out dead weight before migration often pays for the whole project.</p>
+              <ul>
+                <li><DollarSign size={17} /> Unengaged and duplicate profiles removed before they cost you monthly</li>
+                <li><DollarSign size={17} /> Smaller, cleaner list with better open and click rates across the board</li>
+                <li><DollarSign size={17} /> Typical savings land in the thousands per year, not just a one-time cleanup</li>
+              </ul>
+            </div>
             <div className="ksp-cost-viz">
               <div className="ksp-cost-card">
                 <span>Before</span>
@@ -292,16 +360,6 @@ export default function KlaviyoSetupPage() {
                 <div className="ksp-cost-num">52,000</div>
                 <div className="ksp-cost-sub">profiles · $395/mo</div>
               </div>
-            </div>
-            <div>
-              <div className="ksp-feature-tag">Cost Minimization</div>
-              <h2>A cleaner list costs less, and performs better.</h2>
-              <p className="ksp-feature-sub">Klaviyo bills by profile count. Cleaning out dead weight before migration often pays for the whole project.</p>
-              <ul>
-                <li><DollarSign size={17} /> Unengaged and duplicate profiles removed before they cost you monthly</li>
-                <li><DollarSign size={17} /> Smaller, cleaner list with better open and click rates across the board</li>
-                <li><DollarSign size={17} /> Typical savings land in the thousands per year, not just a one-time cleanup</li>
-              </ul>
             </div>
           </div>
         </section>
@@ -341,7 +399,7 @@ export default function KlaviyoSetupPage() {
           </div>
         </section>
 
-        <div className="svp-bottom">
+        <div className="ksp-bottom">
           <p>Ready to get your Klaviyo account set up right?</p>
           <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
         </div>
