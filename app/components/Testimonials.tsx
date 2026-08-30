@@ -21,7 +21,7 @@ const testimonials = [
   },
   {
     quote: "Set up our entire Klaviyo account from scratch. Every flow, segment, and integration was done perfectly. Our abandoned cart recovery alone paid back the entire project cost in the first week.",
-    name: 'Priya M.', role: 'Founder, eCommerce Store', source: '⭐ Upwork', avatar: '👩‍💼', category: 'Klaviyo Setup',
+    name: 'Priya M.', role: 'Founder, eCommerce Store', source: '⭐ Upwork', avatar: '👩‍💼', category: 'Klaviyo Account Setup',
   },
   {
     quote: "Handled both our Shopify migration and Klaviyo setup end-to-end, one team, zero handoffs, and it just worked from day one. Exactly the kind of full-stack partner we were looking for.",

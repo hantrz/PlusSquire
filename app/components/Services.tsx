@@ -32,8 +32,8 @@ const serviceCategories = [
     id: 'klaviyo-management',
     label: 'Klaviyo Management',
     icon: KlaviyoIcon,
-    summary: 'Klaviyo Setup, Flow Setup, Account Audit, Sign-Up Forms & SMS Campaigns.',
-    count: '5 services',
+    summary: 'Klaviyo Account Setup, Flow Setup, Account Audit, Sign-Up Forms & SMS Campaigns.',
+    count: '6 services',
   },
   {
     id: 'email-marketing',

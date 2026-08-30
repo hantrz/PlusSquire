@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Navbar from '../components/Navbar'
 import { Footer } from '../components/Sections'
-import { ShoppingBag, RefreshCw, Gauge, Puzzle, Paintbrush, FileCode, Send, Zap, ClipboardList, Smartphone, Settings2, SearchCheck, Workflow } from 'lucide-react'
+import { ShoppingBag, RefreshCw, Gauge, Puzzle, Paintbrush, FileCode, Send, Zap, ClipboardList, Smartphone, Settings2, SearchCheck, Workflow, BarChart3 } from 'lucide-react'
 
 function ShopifyIcon({ size = 24 }: { size?: number }) {
   return (
@@ -38,11 +38,12 @@ const serviceCategories = [
     sub: 'Full-account setup, flow builds, audits, and forms, engineered to turn your list into revenue.',
     icon: KlaviyoIcon,
     items: [
-      { icon: Settings2,     title: 'Klaviyo Setup',      desc: 'Full platform onboarding: list migration, integrations, DNS, and flow architecture.',                href: '/services/klaviyo-setup' },
+      { icon: Settings2,     title: 'Klaviyo Account Setup', desc: 'Full platform onboarding: list migration, integrations, DNS, and flow architecture.',                href: '/services/klaviyo-setup' },
       { icon: Workflow,      title: 'Flow Setup',         desc: 'Custom Klaviyo flow builds: welcome series, abandoned cart, post-purchase, and win-back sequences engineered for revenue.', href: '/services/flow-setup' },
       { icon: SearchCheck,   title: 'Account Audit',      desc: 'Comprehensive review of your email program with a prioritised action plan.',                          href: '/services/account-audit' },
       { icon: ClipboardList, title: 'Sign-Up Forms',      desc: 'High-converting pop-ups and embedded forms integrated with your platform.',                           href: '/services/sign-up-forms' },
       { icon: Smartphone,    title: 'SMS Campaigns',      desc: 'SMS flows that drive urgency and recover lost revenue alongside your email program.',                 href: '/services/sms-campaigns' },
+      { icon: BarChart3,     title: 'Reporting & Improvement', desc: 'Clear performance reporting paired with continuous testing and optimization to keep results improving month over month.', href: '/services/reporting-improvement' },
     ],
   },
   {
@@ -64,16 +65,16 @@ const serviceCategories = [
 // shares one fixed x (columns) or y (rows) coordinate so the boxes line up
 // in a straight, evenly-spaced edge instead of zig-zagging.
 const svphNodes = [
-  { title: 'Shopify Theme Development',      icon: ShoppingBag,   href: '#shopify-engineering', x: 34, y: 11 },
-  { title: 'Shopify Migration',              icon: RefreshCw,     href: '#shopify-engineering', x: 66, y: 11 },
-  { title: 'Shopify Speed Optimization',      icon: Gauge,         href: '#shopify-engineering', x: 86, y: 30 },
-  { title: 'Shopify App & Custom Features',   icon: Puzzle,        href: '#shopify-engineering', x: 86, y: 50 },
-  { title: 'Klaviyo Account Setup & Audit',   icon: Settings2,     href: '#klaviyo-management',  x: 86, y: 70 },
-  { title: 'Flow Setup',                      icon: Workflow,      href: '#klaviyo-management',  x: 66, y: 89 },
-  { title: 'Sign-Up Forms',                   icon: ClipboardList, href: '#klaviyo-management',  x: 34, y: 89 },
-  { title: 'SMS Campaigns',                   icon: Smartphone,    href: '#klaviyo-management',  x: 14, y: 70 },
-  { title: 'Email Campaigns',                 icon: Send,          href: '#email-marketing',     x: 14, y: 50 },
-  { title: 'Email Design & Development',      icon: Paintbrush,    href: '#email-marketing',     x: 14, y: 30 },
+  { title: 'Shopify Theme Development',      icon: ShoppingBag,   href: '/services/shopify-theme-development', x: 34, y: 11 },
+  { title: 'Shopify Migration',              icon: RefreshCw,     href: '/services/shopify-migration', x: 66, y: 11 },
+  { title: 'Shopify Speed Optimization',      icon: Gauge,         href: '/services/shopify-speed-optimization', x: 86, y: 30 },
+  { title: 'Shopify App & Custom Features',   icon: Puzzle,        href: '/services/shopify-custom-features', x: 86, y: 50 },
+  { title: 'Klaviyo Account Setup & Audit',   icon: Settings2,     href: '/services/klaviyo-setup',  x: 86, y: 70 },
+  { title: 'Flow Setup',                      icon: Workflow,      href: '/services/flow-setup',  x: 66, y: 89 },
+  { title: 'Sign-Up Forms',                   icon: ClipboardList, href: '/services/sign-up-forms',  x: 34, y: 89 },
+  { title: 'SMS Campaigns',                   icon: Smartphone,    href: '/services/sms-campaigns',  x: 14, y: 70 },
+  { title: 'Email Campaigns',                 icon: Send,          href: '/services/email-campaigns',     x: 14, y: 50 },
+  { title: 'Email Design & Development',      icon: Paintbrush,    href: '/services/email-design',     x: 14, y: 30 },
 ]
 
 export default function ServicesPage() {
@@ -158,15 +159,21 @@ export default function ServicesPage() {
             flex-shrink: 0;
           }
           .svp-cat-title { font-size: clamp(24px, 2.6vw, 32px); font-weight: 800; color: var(--ink); margin: 0; }
-          .svp-cat-sub { color: var(--ink3); font-size: 15.5px; line-height: 1.75; max-width: 640px; margin: 0 0 36px; }
+          .svp-cat-sub { color: var(--ink3); font-size: 15.5px; line-height: 1.75; max-width: 100%; white-space: nowrap; margin: 0 0 36px; }
+          @media(max-width:900px){ .svp-cat-sub { white-space: normal; } }
 
           .svp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+          /* Shopify Engineering and Email Marketing have exactly 4 items —
+             give those two a 4-across row instead of wrapping 3+1. Klaviyo
+             Management (5 items) keeps the default 3-column wrap. */
+          .svp-grid-4 { grid-template-columns: repeat(4, 1fr); }
 
           .svp-card {
             background: #fff; border: 1px solid var(--border); border-radius: 14px;
-            padding: 30px 26px; transition: box-shadow .22s, transform .22s;
+            padding: 30px 26px; transition: box-shadow .22s, transform .22s, border-color .22s;
+            display: block; text-decoration: none; color: inherit; cursor: pointer;
           }
-          .svp-card:hover { box-shadow: 0 10px 32px rgba(0,0,0,.07); transform: translateY(-3px); }
+          .svp-card:hover { box-shadow: 0 10px 32px rgba(0,0,0,.07); transform: translateY(-3px); border-color: var(--gm); }
           .svp-ico {
             width: 44px; height: 44px; background: var(--gl); color: var(--g);
             border-radius: 10px; display: flex; align-items: center; justify-content: center;
@@ -178,8 +185,8 @@ export default function ServicesPage() {
           .svp-bottom { text-align: center; padding: 64px 0 96px; }
           .svp-bottom p { color: var(--ink3); font-size: 16px; margin-bottom: 24px; }
 
-          @media(max-width:1100px){ .svp-grid { grid-template-columns: repeat(2, 1fr); } }
-          @media(max-width:640px){ .svp-grid { grid-template-columns: 1fr; } }
+          @media(max-width:1100px){ .svp-grid, .svp-grid-4 { grid-template-columns: repeat(2, 1fr); } }
+          @media(max-width:640px){ .svp-grid, .svp-grid-4 { grid-template-columns: 1fr; } }
         `}</style>
 
         <section className="svph-hero">
@@ -239,13 +246,13 @@ export default function ServicesPage() {
                 <h2 className="svp-cat-title">{cat.label}</h2>
               </div>
               <p className="svp-cat-sub">{cat.sub}</p>
-              <div className="svp-grid">
+              <div className={`svp-grid ${cat.items.length === 4 ? 'svp-grid-4' : ''}`}>
                 {cat.items.map((s) => (
-                  <div key={s.href} className="svp-card">
+                  <Link key={s.href} href={s.href} className="svp-card">
                     <div className="svp-ico"><s.icon size={20} strokeWidth={1.75} /></div>
                     <h3>{s.title}</h3>
                     <p>{s.desc}</p>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>

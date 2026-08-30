@@ -379,7 +379,7 @@ export function Contact() {
                 <label>Service Needed</label>
                 <select>
                   <option value="">Select a service...</option>
-                  {['Shopify Theme Development','Shopify Migration','Shopify Speed Optimization','Shopify App & Custom Features','Klaviyo Setup','Flow Setup','Account Audit','Sign-Up Forms','SMS Campaigns','Email Design','Email Development','Email Campaigns','Email Automations'].map(s => (
+                  {['Shopify Theme Development','Shopify Migration','Shopify Speed Optimization','Shopify App & Custom Features','Klaviyo Account Setup','Flow Setup','Account Audit','Sign-Up Forms','SMS Campaigns','Reporting & Improvement','Email Design','Email Development','Email Campaigns','Email Automations'].map(s => (
                     <option key={s}>{s}</option>
                   ))}
                 </select>
@@ -439,7 +439,7 @@ export function Footer() {
             <div className="fcol">
               <h4>Services</h4>
               <ul>
-                {['Shopify Theme Development','Shopify Migration','Klaviyo Setup','Email Design','Email Automations'].map(s => (
+                {['Shopify Theme Development','Shopify Migration','Klaviyo Account Setup','Email Design','Email Automations'].map(s => (
                   <li key={s}><Link href="/services">{s}</Link></li>
                 ))}
               </ul>
