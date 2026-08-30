@@ -1,3 +1,6 @@
+'use client'
+
+import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { Send } from 'lucide-react'
 
@@ -42,14 +45,76 @@ const serviceCategories = [
 ]
 
 export default function Services() {
+  const sectionRef = useRef<HTMLElement>(null)
+
+  // Scroll-triggered reveal: the header and each card fade/slide into place
+  // (staggered) the moment the section enters view, instead of just sitting
+  // there statically as the page scrolls past it.
+  useEffect(() => {
+    const section = sectionRef.current
+    if (!section) return
+    const targets = section.querySelectorAll<HTMLElement>('.svc-reveal')
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+            io.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.3, rootMargin: '-10% 0px -20% 0px' }
+    )
+    targets.forEach((el) => io.observe(el))
+    return () => io.disconnect()
+  }, [])
+
   return (
     <>
       <style>{`
-        .services { background: var(--soft); padding: 96px 0; }
+        .services { background: var(--soft); padding: 96px 0; position: relative; overflow: hidden; }
+
+        /* Soft glow accents so the section reads as its own moment, not
+           another flat block in the scroll */
+        .services::before, .services::after {
+          content: ''; position: absolute; border-radius: 50%;
+          filter: blur(90px); pointer-events: none; z-index: 0;
+        }
+        .services::before {
+          width: 440px; height: 440px; top: -140px; right: -100px;
+          background: radial-gradient(circle, rgba(30,166,114,.16), transparent 70%);
+        }
+        .services::after {
+          width: 380px; height: 380px; bottom: -120px; left: -80px;
+          background: radial-gradient(circle, rgba(30,166,114,.10), transparent 70%);
+        }
+        .services .wrap { position: relative; z-index: 1; }
 
         .svc-grid {
           display: grid; grid-template-columns: repeat(3,1fr);
           gap: 24px;
+        }
+
+        /* Scroll reveal */
+        .svc-reveal {
+          opacity: 0; transform: translateY(28px);
+          transition: opacity 1.3s cubic-bezier(.19,1,.22,1), transform 1.3s cubic-bezier(.19,1,.22,1);
+          transition-delay: var(--d, 0s);
+        }
+        .svc-reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+        /* Side cards fly in from the left/right instead of just fading up,
+           so the motion actually registers on scroll */
+        .svc-reveal.svc-from-left { transform: translateX(-130px); }
+        .svc-reveal.svc-from-left.is-visible { transform: translateX(0); }
+        .svc-reveal.svc-from-right { transform: translateX(130px); }
+        .svc-reveal.svc-from-right.is-visible { transform: translateX(0); }
+        @media(max-width:900px){
+          .svc-reveal.svc-from-left { transform: translateX(-60px); }
+          .svc-reveal.svc-from-right { transform: translateX(60px); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .svc-reveal { opacity: 1; transform: none; transition: none; }
         }
 
         /* Cards */
@@ -57,7 +122,7 @@ export default function Services() {
           position: relative; overflow: hidden;
           background: #fff; padding: 40px 32px;
           border: 1px solid var(--border); border-radius: 16px;
-          cursor: pointer; transition: all 0.3s ease;
+          cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
           text-decoration: none; display: block;
         }
         /* Animated green top border bar */
@@ -68,8 +133,8 @@ export default function Services() {
         }
         .svc-card:hover::before { width: 100%; }
         .svc-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 8px 30px rgba(30, 166, 114, 0.2);
+          transform: translateY(-6px) scale(1.015);
+          box-shadow: 0 12px 36px rgba(30, 166, 114, 0.22);
           background: #f8fefb;
         }
 
@@ -77,7 +142,9 @@ export default function Services() {
           width: 56px; height: 56px; background: var(--gl);
           border-radius: 14px; display: flex; align-items: center;
           justify-content: center; margin-bottom: 22px; color: var(--g);
+          transition: transform 0.35s ease, background 0.35s ease, color 0.35s ease;
         }
+        .svc-card:hover .svc-ico { background: var(--g); color: #fff; transform: scale(1.08) rotate(-4deg); }
         .svc-count {
           font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
           color: var(--g); margin-bottom: 8px;
@@ -93,16 +160,21 @@ export default function Services() {
         @media(max-width:900px){ .svc-grid { grid-template-columns: 1fr; } }
       `}</style>
 
-      <section className="services" id="services">
+      <section className="services" id="services" ref={sectionRef}>
         <div className="wrap">
-          <div className="sh-row">
+          <div className="sh-row svc-reveal">
             <h2>Full-stack Shopify <br />&amp; email, <em>under one roof.</em></h2>
             <p className="section-sub">From Shopify builds to email flows: every layer, fully covered.</p>
           </div>
 
           <div className="svc-grid">
-            {serviceCategories.map((cat) => (
-              <Link key={cat.id} href={`/services#${cat.id}`} className="svc-card">
+            {serviceCategories.map((cat, i) => (
+              <Link
+                key={cat.id}
+                href={`/services#${cat.id}`}
+                className={`svc-card svc-reveal ${i === 0 ? 'svc-from-left' : i === 2 ? 'svc-from-right' : ''}`}
+                style={{ '--d': `${i * 0.2}s` } as React.CSSProperties}
+              >
                 <div className="svc-ico"><cat.icon size={26} /></div>
                 <div className="svc-count">{cat.count}</div>
                 <h3>{cat.label}</h3>
@@ -112,7 +184,7 @@ export default function Services() {
             ))}
           </div>
 
-          <div className="svc-cta">
+          <div className="svc-cta svc-reveal" style={{ '--d': '0.3s' } as React.CSSProperties}>
             <Link href="/services" className="link-more">All Services →</Link>
           </div>
         </div>

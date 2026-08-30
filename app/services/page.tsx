@@ -59,14 +59,93 @@ const serviceCategories = [
   },
 ]
 
+// The 10 services framed around the hero's radial diagram: 2 across the
+// top, 3 down the right, 2 across the bottom, 3 down the left. Each side
+// shares one fixed x (columns) or y (rows) coordinate so the boxes line up
+// in a straight, evenly-spaced edge instead of zig-zagging.
+const svphNodes = [
+  { title: 'Shopify Theme Development',      icon: ShoppingBag,   href: '#shopify-engineering', x: 34, y: 11 },
+  { title: 'Shopify Migration',              icon: RefreshCw,     href: '#shopify-engineering', x: 66, y: 11 },
+  { title: 'Shopify Speed Optimization',      icon: Gauge,         href: '#shopify-engineering', x: 86, y: 30 },
+  { title: 'Shopify App & Custom Features',   icon: Puzzle,        href: '#shopify-engineering', x: 86, y: 50 },
+  { title: 'Klaviyo Account Setup & Audit',   icon: Settings2,     href: '#klaviyo-management',  x: 86, y: 70 },
+  { title: 'Flow Setup',                      icon: Workflow,      href: '#klaviyo-management',  x: 66, y: 89 },
+  { title: 'Sign-Up Forms',                   icon: ClipboardList, href: '#klaviyo-management',  x: 34, y: 89 },
+  { title: 'SMS Campaigns',                   icon: Smartphone,    href: '#klaviyo-management',  x: 14, y: 70 },
+  { title: 'Email Campaigns',                 icon: Send,          href: '#email-marketing',     x: 14, y: 50 },
+  { title: 'Email Design & Development',      icon: Paintbrush,    href: '#email-marketing',     x: 14, y: 30 },
+]
+
 export default function ServicesPage() {
   return (
     <>
       <Navbar />
       <main style={{ paddingTop: '68px' }}>
         <style>{`
-          .svp-hero { background: var(--soft); padding: 72px 0 56px; text-align: center; }
-          .svp-hero .section-sub { margin: 0 auto; }
+          /* Services hero — same composition as the homepage hero: headline
+             + CTAs on the left, a visual on the right. Here the visual is a
+             radial diagram of services orbiting a central "everything under
+             one roof" hub instead of the storefront/email mockup. */
+          .svph-hero {
+            padding: 64px 0 76px;
+            background:
+              radial-gradient(ellipse at top left, rgba(30, 166, 114, 0.14) 0%, transparent 60%),
+              radial-gradient(ellipse at bottom right, rgba(30, 166, 114, 0.14) 0%, transparent 60%),
+              #ffffff;
+            overflow: hidden; position: relative;
+          }
+          .svph-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+          .svph-left .section-tag::before { display: none; }
+          .svph-left h1 { margin-bottom: 18px; }
+          .svph-left .section-sub { margin-bottom: 32px; max-width: 480px; }
+          .svph-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+          .svph-proof { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink3); }
+
+          /* Radial diagram */
+          .svph-visual { position: relative; width: 100%; max-width: 720px; aspect-ratio: 1 / 1; margin: 0 auto; }
+          .svph-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
+          .svph-hub {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+            width: 27%; aspect-ratio: 1 / 1; border-radius: 50%;
+            background: linear-gradient(135deg, #1ea672, #17845b);
+            color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; gap: 4px; z-index: 2; padding: 8px;
+            box-shadow: 0 20px 50px rgba(30,166,114,.32);
+          }
+          .svph-hub strong { font-size: 12px; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; }
+          .svph-hub p { font-size: 10px; opacity: .85; line-height: 1.35; max-width: 90px; }
+          .svph-hub-tags { display: flex; gap: 5px; margin-top: 6px; }
+          .svph-hub-tags span { background: rgba(255,255,255,.2); padding: 2px 8px; border-radius: 20px; font-size: 9px; font-weight: 700; }
+
+          /* Nodes are real links now — hovering pops them forward so it
+             reads as clickable, not just decorative */
+          .svph-node {
+            position: absolute; transform: translate(-50%,-50%) scale(1);
+            width: 27%; min-width: 155px;
+            background: #fff; border: 1px solid var(--border); border-radius: 12px;
+            padding: 14px 10px; text-align: center; text-decoration: none;
+            box-shadow: 0 8px 22px rgba(15,22,35,.06);
+            z-index: 2; cursor: pointer;
+            transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s ease, border-color .25s ease;
+          }
+          .svph-node:hover {
+            transform: translate(-50%,-50%) scale(1.1) rotate(-10deg);
+            box-shadow: 0 16px 34px rgba(30,166,114,.22);
+            border-color: var(--gm);
+            z-index: 3;
+          }
+          .svph-node-ico {
+            width: 30px; height: 30px; border-radius: 8px; background: var(--gl); color: var(--g);
+            display: flex; align-items: center; justify-content: center; margin: 0 auto 6px;
+            transition: background .25s ease, color .25s ease;
+          }
+          .svph-node:hover .svph-node-ico { background: var(--g); color: #fff; }
+          .svph-node span { font-size: 11px; font-weight: 700; color: var(--ink); line-height: 1.12; display: block; }
+
+          @media(max-width:1100px){
+            .svph-grid { grid-template-columns: 1fr; }
+            .svph-visual { display: none; }
+          }
 
           .svp-category { padding: 72px 0; scroll-margin-top: 96px; border-bottom: 1px solid var(--border); }
           .svp-category:last-of-type { border-bottom: none; }
@@ -103,11 +182,52 @@ export default function ServicesPage() {
           @media(max-width:640px){ .svp-grid { grid-template-columns: 1fr; } }
         `}</style>
 
-        <section className="svp-hero">
-          <div className="wrap">
-            <div className="section-tag" style={{ justifyContent: 'center' }}>Services</div>
-            <h1 style={{ fontSize: 'clamp(36px,4.5vw,56px)' }}>Full-stack Shopify <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>&amp; email.</em></h1>
-            <p className="section-sub">Everything under one roof: Shopify engineering, Klaviyo management, and email marketing.</p>
+        <section className="svph-hero">
+          <div className="wrap svph-grid">
+            <div className="svph-left">
+              <div className="section-tag">Our Services</div>
+              <h1 style={{ fontSize: 'clamp(36px,4.2vw,52px)' }}>Full-stack Shopify <br />&amp; email, <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>under one roof.</em></h1>
+              <p className="section-sub">Everything under one roof: Shopify engineering, Klaviyo management, and email marketing.</p>
+              <div className="svph-btns">
+                <Link href="/#contact" className="btn-primary">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5 3 19 12 5 21 5 3" />
+                  </svg>
+                  Start a Project
+                </Link>
+                <Link href="#shopify-engineering" className="btn-ghost">See All Services →</Link>
+              </div>
+              <div className="svph-proof">
+                <span style={{ color: '#f5a623', fontSize: '15px', letterSpacing: '1px' }}>⭐⭐⭐⭐⭐</span>
+                <span>5.0 · 752 reviews on Upwork</span>
+              </div>
+            </div>
+
+            <div className="svph-visual">
+              <svg className="svph-lines" viewBox="0 0 100 100">
+                {svphNodes.map((n) => (
+                  <line key={n.title} x1="50" y1="50" x2={n.x} y2={n.y} style={{ stroke: '#d9e6e0' }} strokeWidth="0.7" />
+                ))}
+              </svg>
+
+              <div className="svph-hub">
+                <strong>Everything</strong>
+                <p>Managed by PlusSquire</p>
+                <div className="svph-hub-tags"><span>Shopify</span><span>Email</span></div>
+              </div>
+
+              {svphNodes.map((n) => (
+                <Link
+                  key={n.title}
+                  href={n.href}
+                  className="svph-node"
+                  style={{ top: `${n.y}%`, left: `${n.x}%` }}
+                >
+                  <div className="svph-node-ico"><n.icon size={16} strokeWidth={1.75} /></div>
+                  <span>{n.title}</span>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 
