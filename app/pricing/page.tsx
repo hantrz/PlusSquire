@@ -116,7 +116,14 @@ export default function PricingPage() {
       <Navbar />
       <main style={{ paddingTop: '68px' }}>
         <style>{`
-          .pricing { background: var(--soft); padding: 96px 0; }
+          .pricing-hero {
+            padding: 64px 0 56px;
+            background:
+              radial-gradient(ellipse at top left, rgba(30, 166, 114, 0.14) 0%, transparent 60%),
+              radial-gradient(ellipse at bottom right, rgba(30, 166, 114, 0.14) 0%, transparent 60%),
+              #ffffff;
+          }
+          .pricing { background: var(--soft); padding: 56px 0 96px; }
 
           /* Section label */
           .pricing-tag {
@@ -228,14 +235,18 @@ export default function PricingPage() {
           @media(max-width:1100px){ .pricing-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; } }
         `}</style>
 
-        <section className="pricing">
+        <section className="pricing-hero">
           <div className="wrap">
-            <div className="sh-row">
+            <div className="sh-row" style={{ marginBottom: 0 }}>
               <div className="pricing-tag">Pricing<span className="pricing-tag-bar" /></div>
-              <h2>Simple, <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>transparent pricing.</em></h2>
+              <h1 style={{ fontSize: 'clamp(36px,4.5vw,56px)' }}>Simple, <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>transparent pricing.</em></h1>
               <p className="section-sub">Every project is different. Here&apos;s a starting point.</p>
             </div>
+          </div>
+        </section>
 
+        <section className="pricing">
+          <div className="wrap">
             <div className="pricing-tabs" role="tablist">
               {groups.map((g) => (
                 <button
@@ -272,8 +283,8 @@ export default function PricingPage() {
                     ))}
                   </ul>
                   {plan.featured
-                    ? <Link href="#contact" className="btn-plan-fill">Get a Quote →</Link>
-                    : <Link href="#contact" className="btn-plan-outline">Get a Quote →</Link>
+                    ? <Link href="/#contact" className="btn-plan-fill">Get a Quote →</Link>
+                    : <Link href="/#contact" className="btn-plan-outline">Get a Quote →</Link>
                   }
                 </div>
               ))}
@@ -281,7 +292,7 @@ export default function PricingPage() {
 
             <div className="pricing-bottom">
               <p>Not sure which plan fits? Book a free 30-minute call and we&apos;ll figure it out together.</p>
-              <Link href="#contact" className="btn-primary">Book a Free Call →</Link>
+              <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
             </div>
           </div>
         </section>

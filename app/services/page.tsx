@@ -39,7 +39,7 @@ const serviceCategories = [
     icon: KlaviyoIcon,
     items: [
       { icon: Settings2,     title: 'Klaviyo Account Setup', desc: 'Full platform onboarding: list migration, integrations, DNS, and flow architecture.',                href: '/services/klaviyo-setup' },
-      { icon: Workflow,      title: 'Flow Setup',         desc: 'Custom Klaviyo flow builds: welcome series, abandoned cart, post-purchase, and win-back sequences engineered for revenue.', href: '/services/flow-setup' },
+      { icon: Workflow,      title: 'Flow & Campaign Setup', desc: 'Custom Klaviyo flow builds: welcome series, abandoned cart, post-purchase, and win-back sequences engineered for revenue.', href: '/services/flow-setup' },
       { icon: SearchCheck,   title: 'Account Audit',      desc: 'Comprehensive review of your email program with a prioritised action plan.',                          href: '/services/account-audit' },
       { icon: ClipboardList, title: 'Sign-Up Forms',      desc: 'High-converting pop-ups and embedded forms integrated with your platform.',                           href: '/services/sign-up-forms' },
       { icon: Smartphone,    title: 'SMS Campaigns',      desc: 'SMS flows that drive urgency and recover lost revenue alongside your email program.',                 href: '/services/sms-campaigns' },
@@ -169,11 +169,16 @@ export default function ServicesPage() {
           .svp-grid-4 { grid-template-columns: repeat(4, 1fr); }
 
           .svp-card {
-            background: #fff; border: 1px solid var(--border); border-radius: 14px;
+            background: #fff; border: 1px solid var(--border); border-left: 3px solid var(--g); border-radius: 14px;
             padding: 30px 26px; transition: box-shadow .22s, transform .22s, border-color .22s;
             display: block; text-decoration: none; color: inherit; cursor: pointer;
           }
-          .svp-card:hover { box-shadow: 0 10px 32px rgba(0,0,0,.07); transform: translateY(-3px); border-color: var(--gm); }
+          .svp-card:hover {
+            box-shadow: 0 10px 32px rgba(0,0,0,.07);
+            transform: translateY(-3px) rotate(-5deg);
+            border-color: var(--gm);
+            border-left-color: var(--g);
+          }
           .svp-ico {
             width: 44px; height: 44px; background: var(--gl); color: var(--g);
             border-radius: 10px; display: flex; align-items: center; justify-content: center;
@@ -181,6 +186,8 @@ export default function ServicesPage() {
           }
           .svp-card h3 { font-size: 16px; margin-bottom: 8px; color: var(--ink); }
           .svp-card p { color: var(--ink3); font-size: 13.5px; line-height: 1.7; }
+          .svp-card-more { margin-top: 16px; color: var(--g); font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 5px; transition: gap .18s; }
+          .svp-card:hover .svp-card-more { gap: 9px; }
 
           .svp-bottom { text-align: center; padding: 64px 0 96px; }
           .svp-bottom p { color: var(--ink3); font-size: 16px; margin-bottom: 24px; }
@@ -252,6 +259,7 @@ export default function ServicesPage() {
                     <div className="svp-ico"><s.icon size={20} strokeWidth={1.75} /></div>
                     <h3>{s.title}</h3>
                     <p>{s.desc}</p>
+                    <div className="svp-card-more">Learn more →</div>
                   </Link>
                 ))}
               </div>

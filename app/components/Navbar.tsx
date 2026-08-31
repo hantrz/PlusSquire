@@ -63,8 +63,8 @@ const resources = [
 
 const about = [
   { label: 'About Us', href: '/about' },
-  { label: 'Contact', href: '#contact' },
-  { label: 'Privacy Policy', href: '/privacy-policy' },
+  { label: 'Contact Us', href: '/#contact' },
+  { label: 'Privacy Policy', href: '/privacy' },
   { label: 'Terms & Conditions', href: '/terms' },
 ]
 
@@ -249,6 +249,13 @@ export default function Navbar() {
         .cat-row:hover .cat-flyout {
           opacity: 1; visibility: visible; pointer-events: all;
         }
+        .services-view-all {
+          border-top: 1px solid rgba(0,0,0,0.08);
+          margin-top: 6px; padding-top: 6px;
+        }
+        .services-view-all a {
+          justify-content: center; font-weight: 700; color: var(--gd);
+        }
         @media(max-width:1200px){
           .cat-flyout { left: auto; right: 100%; padding-left: 0; padding-right: 12px; }
         }
@@ -316,12 +323,12 @@ export default function Navbar() {
           <ul className="nav-links">
             <li><a href="/">Features</a></li>
             <li>
-              <a href="#services">
+              <Link href="/services">
                 Services
                 <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2">
                   <polyline points="4 6 8 10 12 6" />
                 </svg>
-              </a>
+              </Link>
               <div className="dropdown services-dropdown">
                 {serviceCategories.map((cat) => (
                   <div key={cat.label} className="cat-row">
@@ -340,6 +347,9 @@ export default function Navbar() {
                     </div>
                   </div>
                 ))}
+                <div className="services-view-all">
+                  <Link href="/services">View All Services →</Link>
+                </div>
               </div>
             </li>
             <li>
@@ -379,7 +389,7 @@ export default function Navbar() {
           {/* Right CTA */}
           <div className="nav-right" style={{display:'flex', alignItems:'center', gap:'8px', justifyContent:'flex-end', flex:'0 0 auto'}}>
             <Link href="/portfolio" className="btn-nav-outline">View Work</Link>
-            <Link href="#contact" className="btn-nav-fill">Get in Touch</Link>
+            <Link href="/#contact" className="btn-nav-fill">Get in Touch</Link>
             <button className="hamburger" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 {mobileOpen
@@ -395,21 +405,9 @@ export default function Navbar() {
       {/* Mobile menu */}
       <div className={`mobile-menu ${mobileOpen ? 'open' : ''}`}>
         <Link href="/" onClick={() => setMobileOpen(false)}>Features</Link>
+        <Link href="/services" onClick={() => setMobileOpen(false)}>Services</Link>
         <Link href="/pricing" onClick={() => setMobileOpen(false)}>Pricing</Link>
         <Link href="/faq" onClick={() => setMobileOpen(false)}>FAQ</Link>
-        {serviceCategories.map((cat) => (
-          <div key={cat.label}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 14px 2px', fontSize: '12px', fontWeight: 700, letterSpacing: '.06em', textTransform: 'uppercase', color: 'var(--ink4)' }}>
-              <cat.icon size={16} strokeWidth={2.2} />
-              {cat.label}
-            </div>
-            {cat.items.map((s) => (
-              <Link key={s.href} href={s.href} onClick={() => setMobileOpen(false)}>
-                {s.label}
-              </Link>
-            ))}
-          </div>
-        ))}
         {resources.map((r) => (
           <Link key={r.href} href={r.href} onClick={() => setMobileOpen(false)}>
             {r.label}

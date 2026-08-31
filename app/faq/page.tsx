@@ -13,7 +13,7 @@ const categories = [
     questions: [
       {
         q: 'What does PlusSquire actually do?',
-        a: 'We’re a two-in-one team for eCommerce brands: Shopify development on one side (themes, migrations, speed, custom features) and Klaviyo / email marketing on the other (account setup, flows, campaigns, SMS). Most agencies only offer one of these — we handle both so your store and your email program are built to work together.',
+        a: 'We’re a two-in-one team for eCommerce brands: Shopify development on one side (themes, migrations, speed, custom features) and Klaviyo / email marketing on the other (account setup, flows, campaigns, SMS). Most agencies only offer one of these. We handle both so your store and your email program are built to work together.',
       },
       {
         q: 'How is PlusSquire different from a general web agency or freelancer?',
@@ -21,7 +21,7 @@ const categories = [
       },
       {
         q: 'Do you work with brands outside Shopify or Klaviyo?',
-        a: 'Our core focus is Shopify and Klaviyo since that’s where we can move fastest and guarantee quality. If you’re on a different platform, reach out and tell us your setup — we can usually still help, especially with migrations onto Shopify or Klaviyo.',
+        a: 'Our core focus is Shopify and Klaviyo since that’s where we can move fastest and guarantee quality. If you’re on a different platform, reach out and tell us your setup. We can usually still help, especially with migrations onto Shopify or Klaviyo.',
       },
       {
         q: 'How long does a typical project take?',
@@ -29,7 +29,7 @@ const categories = [
       },
       {
         q: 'Do you offer ongoing support after launch, or is it one-time only?',
-        a: 'Both. Every project ends with a clean handover, but most of our clients keep us on a monthly retainer for continued development, campaign management, or reporting — see the Pricing page for our ongoing plans.',
+        a: 'Both. Every project ends with a clean handover, but most of our clients keep us on a monthly retainer for continued development, campaign management, or reporting. See the Pricing page for our ongoing plans.',
       },
     ],
   },
@@ -39,10 +39,10 @@ const categories = [
     questions: [
       {
         q: 'Can you build a fully custom Shopify theme from a Figma design?',
-        a: 'Yes — pixel-perfect implementation from Figma, PSD, or XD is one of our core services. We build on Shopify’s Online Store 2.0 architecture so your theme stays flexible and easy to update later.',
+        a: 'Yes, pixel-perfect implementation from Figma, PSD, or XD is one of our core services. We build on Shopify’s Online Store 2.0 architecture so your theme stays flexible and easy to update later.',
       },
       {
-        q: 'We’re on another platform — can you migrate to Shopify without losing our SEO rankings?',
+        q: 'We’re on another platform, can you migrate to Shopify without losing our SEO rankings?',
         a: 'Yes. Migrations include a full URL mapping and 301 redirect plan, metadata and structured data parity, and a pre-launch checklist specifically to protect your existing search rankings and historical data.',
       },
       {
@@ -51,11 +51,11 @@ const categories = [
       },
       {
         q: 'Do you build custom Shopify apps, or only work with existing apps?',
-        a: 'Both. We integrate and configure existing apps where they cover your need, and build custom Shopify features or lightweight apps when off-the-shelf options don’t fit — for example a custom product configurator or a unique checkout upsell.',
+        a: 'Both. We integrate and configure existing apps where they cover your need, and build custom Shopify features or lightweight apps when off-the-shelf options don’t fit, for example a custom product configurator or a unique checkout upsell.',
       },
       {
         q: 'Will my theme still work after Shopify releases updates?',
-        a: 'Yes — we build on Shopify’s current theme architecture and standard Liquid conventions rather than hacky workarounds, so your theme stays compatible with platform updates. Clients on a retainer also get proactive fixes if something ever needs adjusting.',
+        a: 'Yes, we build on Shopify’s current theme architecture and standard Liquid conventions rather than hacky workarounds, so your theme stays compatible with platform updates. Clients on a retainer also get proactive fixes if something ever needs adjusting.',
       },
     ],
   },
@@ -64,16 +64,16 @@ const categories = [
     label: 'Email Marketing & Klaviyo',
     questions: [
       {
-        q: 'We already have Klaviyo — can you just audit and optimize it instead of starting over?',
-        a: 'Yes, that’s exactly what our Account Audit service is for. We review your existing flows, segments, and deliverability setup, then fix or rebuild only what’s underperforming — no need to tear down what’s already working.',
+        q: 'We already have Klaviyo, can you just audit and optimize it instead of starting over?',
+        a: 'Yes, that’s exactly what our Account Audit service is for. We review your existing flows, segments, and deliverability setup, then fix or rebuild only what’s underperforming. No need to tear down what’s already working.',
       },
       {
         q: 'What’s the difference between "Account Setup" and "Flow Setup"?',
-        a: 'Account Setup covers the foundation — domain authentication, list structure, branding, and integrations. Flow Setup is the automations built on top of that foundation, like welcome series, abandoned cart, and post-purchase emails. New accounts typically need both; existing accounts often just need flows added or rebuilt.',
+        a: 'Account Setup covers the foundation: domain authentication, list structure, branding, and integrations. Flow Setup is the automations built on top of that foundation, like welcome series, abandoned cart, and post-purchase emails. New accounts typically need both; existing accounts often just need flows added or rebuilt.',
       },
       {
         q: 'How many email flows should a store realistically have running?',
-        a: 'Most healthy stores run somewhere between 6 and 12 core flows — welcome, abandoned cart, browse abandonment, post-purchase, win-back, and a few list-growth or review-request flows. We’ll recommend a set based on your traffic and product type rather than a one-size-fits-all number.',
+        a: 'Most healthy stores run somewhere between 6 and 12 core flows: welcome, abandoned cart, browse abandonment, post-purchase, win-back, and a few list-growth or review-request flows. We’ll recommend a set based on your traffic and product type rather than a one-size-fits-all number.',
       },
       {
         q: 'Do you also handle SMS marketing, or only email?',
@@ -91,14 +91,14 @@ const categories = [
     questions: [
       {
         q: 'Are the prices on your Pricing page fixed, or do they change based on scope?',
-        a: 'The Pricing page shows realistic starting points for the most common project sizes. Your exact quote depends on scope — number of pages, integrations, or flows involved — which we confirm with you before any work begins.',
+        a: 'The Pricing page shows realistic starting points for the most common project sizes. Your exact quote depends on scope (number of pages, integrations, or flows involved), which we confirm with you before any work begins.',
       },
       {
         q: 'Do you require a long-term contract?',
-        a: 'No. One-time projects are just that — one time. Ongoing retainers are billed monthly and can be paused or cancelled with notice; we don’t lock clients into long fixed terms.',
+        a: 'No. One-time projects are just that: one time. Ongoing retainers are billed monthly and can be paused or cancelled with notice; we don’t lock clients into long fixed terms.',
       },
       {
-        q: 'How do payments work — upfront, milestones, or after delivery?',
+        q: 'How do payments work: upfront, milestones, or after delivery?',
         a: 'Most one-time projects are split into a deposit to begin and a final payment at delivery; larger builds may include a mid-project milestone. Retainers are billed monthly in advance.',
       },
       {
@@ -107,7 +107,7 @@ const categories = [
       },
       {
         q: 'What if we’re not happy with the result?',
-        a: 'Every project includes revision rounds before final sign-off, so feedback gets addressed before launch, not after. If something’s still off post-launch, tell us — fixing it is part of the job.',
+        a: 'Every project includes revision rounds before final sign-off, so feedback gets addressed before launch, not after. If something’s still off post-launch, tell us. Fixing it is part of the job.',
       },
     ],
   },
@@ -130,7 +130,14 @@ export default function FAQPage() {
       <Navbar />
       <main style={{ paddingTop: '68px' }}>
         <style>{`
-          .faq { background: var(--soft); padding: 96px 0; }
+          .faq-hero {
+            padding: 64px 0 56px;
+            background:
+              radial-gradient(ellipse at top left, rgba(30, 166, 114, 0.14) 0%, transparent 60%),
+              radial-gradient(ellipse at bottom right, rgba(30, 166, 114, 0.14) 0%, transparent 60%),
+              #ffffff;
+          }
+          .faq { background: var(--soft); padding: 56px 0 96px; }
 
           .faq-tag {
             display: inline-flex; flex-direction: column; align-items: center;
@@ -185,14 +192,18 @@ export default function FAQPage() {
           }
         `}</style>
 
-        <section className="faq">
+        <section className="faq-hero">
           <div className="wrap">
-            <div className="sh-row">
+            <div className="sh-row" style={{ marginBottom: 0 }}>
               <div className="faq-tag">FAQ<span className="faq-tag-bar" /></div>
-              <h2>Questions, <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>answered.</em></h2>
+              <h1 style={{ fontSize: 'clamp(36px,4.5vw,56px)' }}>Questions, <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>answered.</em></h1>
               <p className="section-sub">Everything you need to know before starting a project with PlusSquire.</p>
             </div>
+          </div>
+        </section>
 
+        <section className="faq">
+          <div className="wrap">
             <div className="faq-tabs" role="tablist">
               {categories.map((c) => (
                 <button

@@ -5,7 +5,7 @@ import Clients from './components/Clients'
 import Why from './components/Why'
 import Services from './components/Services'
 import CaseStudies from './components/CaseStudies'
-import WhySquire from './components/WhyMailrun'
+import WhySquire from './components/WhySquire'
 import Testimonials from './components/Testimonials'
 import { CtaBand, Contact, Footer } from './components/Sections'
 
