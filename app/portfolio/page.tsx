@@ -17,7 +17,7 @@ export default function PortfolioPage() {
         `}</style>
         <section className="port-hero">
           <div className="wrap">
-            <div className="sh-row" style={{ marginBottom: 0 }}>
+            <div className="sh-row" style={{ marginBottom: 0 }} data-reveal="up">
               <div className="section-tag" style={{ justifyContent: 'center' }}>Portfolio</div>
               <h1 style={{ fontSize: 'clamp(36px,4.5vw,56px)' }}>Work we&apos;re <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>proud to show.</em></h1>
               <p className="section-sub">A look at the Shopify builds and email programs we&apos;ve shipped for real brands.</p>

@@ -57,3 +57,17 @@ h3{font-size:17px;font-weight:700}
 
 @media(max-width:1100px){:root{--px:40px}}
 @media(max-width:768px){:root{--px:20px}}
+
+/* Scroll-reveal: elements start hidden/offset, animate in once when scrolled into view. */
+[data-reveal]{opacity:0;transition:opacity .7s cubic-bezier(.16,.8,.24,1),transform .7s cubic-bezier(.16,.8,.24,1)}
+[data-reveal="up"]{transform:translateY(36px)}
+[data-reveal="down"]{transform:translateY(-36px)}
+[data-reveal="left"]{transform:translateX(-48px)}
+[data-reveal="right"]{transform:translateX(48px)}
+[data-reveal="zoom"]{transform:scale(.9)}
+[data-reveal="fade"]{transform:none}
+[data-reveal].reveal-in{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  [data-reveal]{transition:none;opacity:1;transform:none}
+}

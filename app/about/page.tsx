@@ -17,7 +17,7 @@ export default function AboutPage() {
         `}</style>
         <section className="abt-hero">
           <div className="wrap">
-            <div className="sh-row" style={{ marginBottom: 0 }}>
+            <div className="sh-row" style={{ marginBottom: 0 }} data-reveal="up">
               <div className="section-tag" style={{ justifyContent: 'center' }}>About Us</div>
               <h1 style={{ fontSize: 'clamp(36px,4.5vw,56px)' }}>The story <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>behind PlusSquire.</em></h1>
               <p className="section-sub">The experience, the numbers, and the person behind every project.</p>

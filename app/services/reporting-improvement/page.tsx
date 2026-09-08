@@ -182,7 +182,7 @@ export default function ReportingImprovementPage() {
 
         <section className="rpi-hero">
           <div className="wrap rpi-hero-grid">
-            <div className="rpi-hero-left">
+            <div className="rpi-hero-left" data-reveal="up">
               <div className="section-tag">Reporting & Improvement</div>
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Clear reporting,<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>and a plan to keep improving it.</em></h1>
               <p className="section-sub">Clear performance reporting paired with continuous testing and optimization to keep results improving month over month.</p>
@@ -201,7 +201,7 @@ export default function ReportingImprovementPage() {
               </div>
             </div>
 
-            <div className="rpi-hero-card">
+            <div className="rpi-hero-card" data-reveal="right" style={{ transitionDelay: '150ms' }}>
               <div className="rpi-hero-card-title">What you get</div>
               <ul>
                 <li><CheckCircle2 size={21} strokeWidth={2} /> A monthly performance report in plain language</li>
@@ -215,7 +215,7 @@ export default function ReportingImprovementPage() {
 
         <section className="rpi-feature">
           <div className="wrap rpi-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="rpi-feature-tag">Monthly Performance Reporting</div>
               <h2>Know exactly how your program is performing.</h2>
               <p className="rpi-feature-sub">Every month you get a clear report on revenue, engagement, and list growth, translated out of raw metrics into plain language.</p>
@@ -225,7 +225,7 @@ export default function ReportingImprovementPage() {
                 <li><ClipboardList size={17} /> Key metrics translated into plain language</li>
               </ul>
             </div>
-            <div className="rpi-chart-viz">
+            <div className="rpi-chart-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               <div className="rpi-chart-bars">
                 {revenueBars.map((b) => (
                   <div key={b.label} className="rpi-chart-bar" style={{ height: `${b.h}%` }} />
@@ -241,7 +241,7 @@ export default function ReportingImprovementPage() {
 
         <section className="rpi-feature rpi-feature-alt">
           <div className="wrap rpi-feature-grid">
-            <div className="rpi-cost-viz" style={{ order: 1 }}>
+            <div className="rpi-cost-viz" data-reveal="zoom" style={{ order: 1 }}>
               <div className="rpi-cost-card">
                 <span>Before Testing</span>
                 <div className="rpi-cost-num">28%</div>
@@ -254,7 +254,7 @@ export default function ReportingImprovementPage() {
                 <div className="rpi-cost-sub">open rate</div>
               </div>
             </div>
-            <div style={{ order: 2 }}>
+            <div data-reveal="up" style={{ order: 2, transitionDelay: '120ms' }}>
               <div className="rpi-feature-tag">A/B Testing Program</div>
               <h2>Every send is a chance to learn something.</h2>
               <p className="rpi-feature-sub">Subject lines, send times, and content are tested continuously, with winning variants rolled into future sends.</p>
@@ -269,7 +269,7 @@ export default function ReportingImprovementPage() {
 
         <section className="rpi-feature">
           <div className="wrap rpi-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="rpi-feature-tag">Deliverability Monitoring</div>
               <h2>Protect the inbox placement your revenue depends on.</h2>
               <p className="rpi-feature-sub">We keep a constant eye on sender reputation and list hygiene, so deliverability issues get caught before they hurt revenue.</p>
@@ -279,7 +279,7 @@ export default function ReportingImprovementPage() {
                 <li><ListChecks size={17} /> List hygiene maintained on an ongoing basis</li>
               </ul>
             </div>
-            <div className="rpi-foundation-viz">
+            <div className="rpi-foundation-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               {monitorItems.map((item) => (
                 <div key={item.label} className="rpi-foundation-card">
                   <div className="rpi-foundation-ico"><item.icon size={20} /></div>
@@ -292,7 +292,7 @@ export default function ReportingImprovementPage() {
 
         <section className="rpi-feature rpi-feature-alt">
           <div className="wrap rpi-feature-grid">
-            <div className="rpi-hub-viz" style={{ order: 1 }}>
+            <div className="rpi-hub-viz" data-reveal="zoom" style={{ order: 1 }}>
               <svg className="rpi-hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
                 {optimizeHubNodes.map((n) => (
                   <line key={n.label} x1="50" y1="50" x2={n.x} y2={n.y} stroke="var(--border)" strokeWidth="1" />
@@ -306,7 +306,7 @@ export default function ReportingImprovementPage() {
                 </div>
               ))}
             </div>
-            <div style={{ order: 2 }}>
+            <div data-reveal="up" style={{ order: 2, transitionDelay: '120ms' }}>
               <div className="rpi-feature-tag">Continuous Flow Optimization</div>
               <h2>Your program should get better every month, not stay static.</h2>
               <p className="rpi-feature-sub">Underperforming flows get identified and rebuilt, and new flows are added as your program matures.</p>
@@ -321,13 +321,13 @@ export default function ReportingImprovementPage() {
 
         <section className="rpi-included">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }} data-reveal="up">
               <h2>What&apos;s <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>included.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Ongoing reporting and optimization to keep results moving forward.</p>
             </div>
             <div className="rpi-included-grid">
-              {included.map((item) => (
-                <div key={item} className="rpi-included-item">
+              {included.map((item, i) => (
+                <div key={item} className="rpi-included-item" data-reveal="up" style={{ transitionDelay: `${i * 60}ms` }}>
                   <CheckCircle2 size={19} strokeWidth={2} />
                   {item}
                 </div>
@@ -338,13 +338,13 @@ export default function ReportingImprovementPage() {
 
         <section className="rpi-steps">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }} data-reveal="up">
               <h2>How it <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>works.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Three steps, repeated every month.</p>
             </div>
             <div className="rpi-steps-grid">
-              {steps.map((s) => (
-                <div key={s.n} className="rpi-step">
+              {steps.map((s, i) => (
+                <div key={s.n} className="rpi-step" data-reveal="up" style={{ transitionDelay: `${i * 100}ms` }}>
                   <div className="rpi-step-num">{s.n}</div>
                   <h3>{s.title}</h3>
                   <p>{s.desc}</p>
@@ -354,7 +354,7 @@ export default function ReportingImprovementPage() {
           </div>
         </section>
 
-        <div className="rpi-bottom">
+        <div className="rpi-bottom" data-reveal="up">
           <p>Ready for reporting and optimization that never stops?</p>
           <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
         </div>

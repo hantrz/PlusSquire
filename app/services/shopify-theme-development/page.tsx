@@ -161,7 +161,7 @@ export default function ShopifyThemeDevelopmentPage() {
 
         <section className="std-hero">
           <div className="wrap std-hero-grid">
-            <div className="std-hero-left">
+            <div className="std-hero-left" data-reveal="up">
               <div className="section-tag">Shopify Theme Development</div>
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Built around your brand,<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>not a generic template.</em></h1>
               <p className="section-sub">Custom, fast, conversion-focused themes designed and built specifically for your products and customers, not a page-builder template with your logo dropped on top.</p>
@@ -180,7 +180,7 @@ export default function ShopifyThemeDevelopmentPage() {
               </div>
             </div>
 
-            <div className="std-hero-card">
+            <div className="std-hero-card" data-reveal="right" style={{ transitionDelay: '150ms' }}>
               <div className="std-hero-card-title">What you get</div>
               <ul>
                 <li><CheckCircle2 size={21} strokeWidth={2} /> Fully custom design, not a theme store template</li>
@@ -194,7 +194,7 @@ export default function ShopifyThemeDevelopmentPage() {
 
         <section className="std-feature">
           <div className="wrap std-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="std-feature-tag">Design & Brand Fit</div>
               <h2>A theme that looks like it was built for you, because it was.</h2>
               <p className="std-feature-sub">We design around your product photography, colors, and voice, not a template&apos;s built-in look.</p>
@@ -204,7 +204,7 @@ export default function ShopifyThemeDevelopmentPage() {
                 <li><ShoppingBag size={17} /> Built around your actual product photography</li>
               </ul>
             </div>
-            <div className="std-foundation-viz">
+            <div className="std-foundation-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               {pageGrid.map((item) => (
                 <div key={item.label} className="std-foundation-card">
                   <div className="std-foundation-ico"><item.icon size={19} /></div>
@@ -217,7 +217,7 @@ export default function ShopifyThemeDevelopmentPage() {
 
         <section className="std-feature std-feature-alt">
           <div className="wrap std-feature-grid">
-            <div className="std-migrate-viz">
+            <div className="std-migrate-viz" data-reveal="zoom">
               <div className="std-migrate-box">
                 <span>Common Approach</span>
                 <strong>Desktop-First Template</strong>
@@ -230,7 +230,7 @@ export default function ShopifyThemeDevelopmentPage() {
                 <strong>Mobile-First Build</strong>
               </div>
             </div>
-            <div>
+            <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="std-feature-tag">Mobile-First Build</div>
               <h2>Built for the device most of your customers are shopping on.</h2>
               <p className="std-feature-sub">More than two-thirds of Shopify traffic is mobile, so we design and test there first, not as an afterthought.</p>
@@ -245,7 +245,7 @@ export default function ShopifyThemeDevelopmentPage() {
 
         <section className="std-feature">
           <div className="wrap std-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="std-feature-tag">Conversion-Focused UX</div>
               <h2>Every step from product page to checkout, designed to reduce friction.</h2>
               <p className="std-feature-sub">Small UX details, like sticky add-to-cart and a streamlined checkout, add up to real revenue.</p>
@@ -255,7 +255,7 @@ export default function ShopifyThemeDevelopmentPage() {
                 <li><Layers size={17} /> Streamlined cart drawer & checkout flow</li>
               </ul>
             </div>
-            <div className="std-cost-viz">
+            <div className="std-cost-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               <div className="std-cost-card">
                 <span>Before</span>
                 <div className="std-cost-num">1.2%</div>
@@ -275,7 +275,7 @@ export default function ShopifyThemeDevelopmentPage() {
 
         <section className="std-feature std-feature-alt">
           <div className="wrap std-feature-grid">
-            <div className="std-chart-viz">
+            <div className="std-chart-viz" data-reveal="zoom">
               <div className="std-chart-bars">
                 <div className="std-chart-bar" style={{ height: '92%' }} />
                 <div className="std-chart-bar" style={{ height: '95%' }} />
@@ -290,7 +290,7 @@ export default function ShopifyThemeDevelopmentPage() {
               </div>
               <span className="std-chart-tag"><Gauge size={13} /> 90+ Lighthouse score</span>
             </div>
-            <div>
+            <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="std-feature-tag">Performance From Day One</div>
               <h2>Fast by default, not fixed later.</h2>
               <p className="std-feature-sub">We build lean from the start, with optimized images, minimal app bloat, and clean code, so speed isn&apos;t a separate project.</p>
@@ -305,13 +305,13 @@ export default function ShopifyThemeDevelopmentPage() {
 
         <section className="std-included">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }} data-reveal="up">
               <h2>What&apos;s <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>included.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Everything needed to take your store from template-looking to genuinely custom.</p>
             </div>
             <div className="std-included-grid">
-              {included.map((item) => (
-                <div key={item} className="std-included-item">
+              {included.map((item, i) => (
+                <div key={item} className="std-included-item" data-reveal="up" style={{ transitionDelay: `${i * 60}ms` }}>
                   <CheckCircle2 size={19} strokeWidth={2} />
                   {item}
                 </div>
@@ -322,13 +322,13 @@ export default function ShopifyThemeDevelopmentPage() {
 
         <section className="std-steps">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }} data-reveal="up">
               <h2>How it <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>works.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Three steps, start to finish.</p>
             </div>
             <div className="std-steps-grid">
-              {steps.map((s) => (
-                <div key={s.n} className="std-step">
+              {steps.map((s, i) => (
+                <div key={s.n} className="std-step" data-reveal="up" style={{ transitionDelay: `${i * 100}ms` }}>
                   <div className="std-step-num">{s.n}</div>
                   <h3>{s.title}</h3>
                   <p>{s.desc}</p>
@@ -338,7 +338,7 @@ export default function ShopifyThemeDevelopmentPage() {
           </div>
         </section>
 
-        <div className="std-bottom">
+        <div className="std-bottom" data-reveal="up">
           <p>Ready for a theme that&apos;s actually built for your store?</p>
           <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
         </div>

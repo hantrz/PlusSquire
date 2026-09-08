@@ -177,7 +177,7 @@ export default function ShopifyCustomFeaturesPage() {
 
         <section className="scf-hero">
           <div className="wrap scf-hero-grid">
-            <div className="scf-hero-left">
+            <div className="scf-hero-left" data-reveal="up">
               <div className="section-tag">Shopify App & Custom Features</div>
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Custom functionality,<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>built exactly the way you need it.</em></h1>
               <p className="section-sub">Custom sections, app integrations, and store functionality your theme doesn&apos;t come with out of the box.</p>
@@ -196,7 +196,7 @@ export default function ShopifyCustomFeaturesPage() {
               </div>
             </div>
 
-            <div className="scf-hero-card">
+            <div className="scf-hero-card" data-reveal="right" style={{ transitionDelay: '150ms' }}>
               <div className="scf-hero-card-title">What you get</div>
               <ul>
                 <li><CheckCircle2 size={21} strokeWidth={2} /> Custom theme sections & blocks</li>
@@ -210,7 +210,7 @@ export default function ShopifyCustomFeaturesPage() {
 
         <section className="scf-feature">
           <div className="wrap scf-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="scf-feature-tag">Custom Sections & Theme Blocks</div>
               <h2>If you can picture it, we can build it into your theme.</h2>
               <p className="scf-feature-sub">Fully custom, merchant-editable sections that give you real control without touching code.</p>
@@ -220,7 +220,7 @@ export default function ShopifyCustomFeaturesPage() {
                 <li><Settings2 size={17} /> Editable by your team in the theme editor</li>
               </ul>
             </div>
-            <div className="scf-foundation-viz">
+            <div className="scf-foundation-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               {sectionsGrid.map((item) => (
                 <div key={item.label} className="scf-foundation-card">
                   <div className="scf-foundation-ico"><item.icon size={19} /></div>
@@ -233,7 +233,7 @@ export default function ShopifyCustomFeaturesPage() {
 
         <section className="scf-feature scf-feature-alt">
           <div className="wrap scf-feature-grid">
-            <div className="scf-hub-viz">
+            <div className="scf-hub-viz" data-reveal="zoom">
               <svg className="scf-hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
                 {integrationNodes.map((n) => (
                   <line key={n.label} x1="50" y1="50" x2={n.x} y2={n.y} stroke="var(--gm)" strokeWidth="1" />
@@ -247,7 +247,7 @@ export default function ShopifyCustomFeaturesPage() {
                 </div>
               ))}
             </div>
-            <div>
+            <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="scf-feature-tag">Third-Party App Integrations</div>
               <h2>Your apps, working together instead of against each other.</h2>
               <p className="scf-feature-sub">We connect the tools you already rely on so data flows correctly across your stack.</p>
@@ -262,7 +262,7 @@ export default function ShopifyCustomFeaturesPage() {
 
         <section className="scf-feature">
           <div className="wrap scf-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="scf-feature-tag">Bespoke Store Functionality</div>
               <h2>Functionality your theme was never built to handle.</h2>
               <p className="scf-feature-sub">Subscriptions, wholesale portals, advanced filtering: built custom when an off-the-shelf app can&apos;t do the job.</p>
@@ -272,7 +272,7 @@ export default function ShopifyCustomFeaturesPage() {
                 <li><Wrench size={17} /> Custom checkout & cart logic (Shopify Plus)</li>
               </ul>
             </div>
-            <div className="scf-cost-viz">
+            <div className="scf-cost-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               <div className="scf-cost-card">
                 <span>Off-The-Shelf App</span>
                 <div className="scf-cost-num">Close, not quite</div>
@@ -292,7 +292,7 @@ export default function ShopifyCustomFeaturesPage() {
 
         <section className="scf-feature scf-feature-alt">
           <div className="wrap scf-feature-grid">
-            <div className="scf-chart-viz">
+            <div className="scf-chart-viz" data-reveal="zoom">
               <div className="scf-chart-bars">
                 <div className="scf-chart-bar" style={{ height: '35%' }} />
                 <div className="scf-chart-bar" style={{ height: '55%' }} />
@@ -307,7 +307,7 @@ export default function ShopifyCustomFeaturesPage() {
               </div>
               <span className="scf-chart-tag"><Wrench size={13} /> Features shipped, on demand</span>
             </div>
-            <div>
+            <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="scf-feature-tag">Ongoing Feature Support</div>
               <h2>As your store grows, your theme grows with it.</h2>
               <p className="scf-feature-sub">New features, new apps, new ideas: we&apos;re here for the ongoing build-out, not just a one-time project.</p>
@@ -322,13 +322,13 @@ export default function ShopifyCustomFeaturesPage() {
 
         <section className="scf-included">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }} data-reveal="up">
               <h2>What&apos;s <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>included.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Everything needed to get custom functionality live and working correctly.</p>
             </div>
             <div className="scf-included-grid">
-              {included.map((item) => (
-                <div key={item} className="scf-included-item">
+              {included.map((item, i) => (
+                <div key={item} className="scf-included-item" data-reveal="up" style={{ transitionDelay: `${i * 60}ms` }}>
                   <CheckCircle2 size={19} strokeWidth={2} />
                   {item}
                 </div>
@@ -339,13 +339,13 @@ export default function ShopifyCustomFeaturesPage() {
 
         <section className="scf-steps">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }} data-reveal="up">
               <h2>How it <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>works.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Three steps, start to finish.</p>
             </div>
             <div className="scf-steps-grid">
-              {steps.map((s) => (
-                <div key={s.n} className="scf-step">
+              {steps.map((s, i) => (
+                <div key={s.n} className="scf-step" data-reveal="up" style={{ transitionDelay: `${i * 100}ms` }}>
                   <div className="scf-step-num">{s.n}</div>
                   <h3>{s.title}</h3>
                   <p>{s.desc}</p>
@@ -355,7 +355,7 @@ export default function ShopifyCustomFeaturesPage() {
           </div>
         </section>
 
-        <div className="scf-bottom">
+        <div className="scf-bottom" data-reveal="up">
           <p>Ready to build the functionality your theme is missing?</p>
           <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
         </div>

@@ -115,7 +115,7 @@ export default function NotJustEmail() {
 
       <section className="nje-section">
         <div className="wrap">
-          <div className="nje-header">
+          <div className="nje-header" data-reveal="up">
             <h2 className="nje-headline">
               You&apos;re not buying{' '}
               <span className="nje-headline-green">&ldquo;tasks&rdquo;</span>
@@ -126,8 +126,8 @@ export default function NotJustEmail() {
           </div>
 
           <div className="nje-grid">
-            {cards.map(({ icon: Icon, title, body }) => (
-              <div key={title} className="nje-card">
+            {cards.map(({ icon: Icon, title, body }, i) => (
+              <div key={title} className="nje-card" data-reveal="up" style={{ transitionDelay: `${i * 100}ms` }}>
                 <div className="nje-icon-wrap">
                   <Icon size={22} color="#fff" strokeWidth={2} />
                 </div>

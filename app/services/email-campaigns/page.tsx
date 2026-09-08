@@ -174,7 +174,7 @@ export default function EmailCampaignsPage() {
 
         <section className="ecp-hero">
           <div className="wrap ecp-hero-grid">
-            <div className="ecp-hero-left">
+            <div className="ecp-hero-left" data-reveal="up">
               <div className="section-tag">Email Campaigns</div>
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Campaigns built<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>to drive real revenue.</em></h1>
               <p className="section-sub">Strategy, copy, design and deployment handled end to end, so every campaign is built to earn opens, clicks and sales, not just fill a calendar slot.</p>
@@ -193,7 +193,7 @@ export default function EmailCampaignsPage() {
               </div>
             </div>
 
-            <div className="ecp-hero-card">
+            <div className="ecp-hero-card" data-reveal="right" style={{ transitionDelay: '150ms' }}>
               <div className="ecp-hero-card-title">What you get</div>
               <ul>
                 <li><CheckCircle2 size={21} strokeWidth={2} /> A campaign calendar tied to your promos & launches</li>
@@ -207,7 +207,7 @@ export default function EmailCampaignsPage() {
 
         <section className="ecp-feature">
           <div className="wrap ecp-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="ecp-feature-tag">Strategy & Planning</div>
               <h2>A calendar built around your business, not a template.</h2>
               <p className="ecp-feature-sub">Promos, newsletters, product launches and flash sales all mapped ahead of time, so every campaign has a purpose and nothing collides with your other marketing.</p>
@@ -217,7 +217,7 @@ export default function EmailCampaignsPage() {
                 <li><Zap size={17} /> Flash sales slotted in without cannibalizing other sends</li>
               </ul>
             </div>
-            <div className="ecp-hub-viz">
+            <div className="ecp-hub-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               <svg className="ecp-hub-lines" viewBox="0 0 100 100">
                 {ecpHubNodes.map((node) => (
                   <line key={node.label} x1="50" y1="50" x2={node.x} y2={node.y} stroke="var(--border)" strokeWidth="1" />
@@ -236,7 +236,7 @@ export default function EmailCampaignsPage() {
 
         <section className="ecp-feature ecp-feature-alt">
           <div className="wrap ecp-feature-grid">
-            <div className="ecp-migrate-viz">
+            <div className="ecp-migrate-viz" data-reveal="zoom">
               <div className="ecp-migrate-box">
                 <span>Before</span>
                 <strong>Generic Subject Line</strong>
@@ -249,7 +249,7 @@ export default function EmailCampaignsPage() {
                 <strong>Tested & Optimized</strong>
               </div>
             </div>
-            <div>
+            <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="ecp-feature-tag">Copy & Testing</div>
               <h2>Copy and subject lines that earn the open.</h2>
               <p className="ecp-feature-sub">We write copy in your brand voice, then A/B test subject lines and preview text so every send keeps improving instead of guessing.</p>
@@ -264,7 +264,7 @@ export default function EmailCampaignsPage() {
 
         <section className="ecp-feature">
           <div className="wrap ecp-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="ecp-feature-tag">Segmentation</div>
               <h2>The right message, to the right list, every time.</h2>
               <p className="ecp-feature-sub">Batch-and-blast sends burn deliverability and annoy subscribers. We segment by behavior and value so VIPs, new buyers and lapsed subscribers each get what's relevant to them.</p>
@@ -274,7 +274,7 @@ export default function EmailCampaignsPage() {
                 <li><RotateCcw size={17} /> Win-back segments kept separate from your core list</li>
               </ul>
             </div>
-            <div className="ecp-foundation-viz">
+            <div className="ecp-foundation-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               {ecpFoundationItems.map((item) => (
                 <div key={item.label} className="ecp-foundation-card">
                   <div className="ecp-foundation-ico"><item.icon size={20} /></div>
@@ -287,7 +287,7 @@ export default function EmailCampaignsPage() {
 
         <section className="ecp-feature ecp-feature-alt">
           <div className="wrap ecp-feature-grid">
-            <div className="ecp-chart-viz">
+            <div className="ecp-chart-viz" data-reveal="zoom">
               <div className="ecp-chart-bars">
                 <div className="ecp-chart-bar" style={{ height: '44%' }} />
                 <div className="ecp-chart-bar" style={{ height: '58%' }} />
@@ -302,7 +302,7 @@ export default function EmailCampaignsPage() {
               </div>
               <div className="ecp-chart-tag"><TrendingUp size={13} /> +42% avg open rate</div>
             </div>
-            <div>
+            <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="ecp-feature-tag">Send-Time & Deliverability</div>
               <h2>Sent at the right moment, landing in the inbox.</h2>
               <p className="ecp-feature-sub">We optimize send times per segment and keep a close eye on deliverability, so campaigns land in the inbox instead of the promotions tab or, worse, spam.</p>
@@ -317,13 +317,13 @@ export default function EmailCampaignsPage() {
 
         <section className="ecp-included">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }} data-reveal="up">
               <h2>What&apos;s <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>included.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Everything needed to turn a calendar slot into a campaign that performs.</p>
             </div>
             <div className="ecp-included-grid">
-              {ecpIncluded.map((item) => (
-                <div key={item} className="ecp-included-item">
+              {ecpIncluded.map((item, i) => (
+                <div key={item} className="ecp-included-item" data-reveal="up" style={{ transitionDelay: `${i * 60}ms` }}>
                   <CheckCircle2 size={19} strokeWidth={2} />
                   {item}
                 </div>
@@ -334,13 +334,13 @@ export default function EmailCampaignsPage() {
 
         <section className="ecp-steps">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }} data-reveal="up">
               <h2>How it <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>works.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Three steps, start to finish.</p>
             </div>
             <div className="ecp-steps-grid">
-              {ecpSteps.map((s) => (
-                <div key={s.n} className="ecp-step">
+              {ecpSteps.map((s, i) => (
+                <div key={s.n} className="ecp-step" data-reveal="up" style={{ transitionDelay: `${i * 100}ms` }}>
                   <div className="ecp-step-num">{s.n}</div>
                   <h3>{s.title}</h3>
                   <p>{s.desc}</p>
@@ -350,7 +350,7 @@ export default function EmailCampaignsPage() {
           </div>
         </section>
 
-        <div className="ecp-bottom">
+        <div className="ecp-bottom" data-reveal="up">
           <p>Ready for campaigns that actually move revenue?</p>
           <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
         </div>

@@ -177,7 +177,7 @@ export default function ShopifyMigrationPage() {
 
         <section className="smg-hero">
           <div className="wrap smg-hero-grid">
-            <div className="smg-hero-left">
+            <div className="smg-hero-left" data-reveal="up">
               <div className="section-tag">Shopify Migration</div>
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Move to Shopify<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>without losing a single order.</em></h1>
               <p className="section-sub">Migrating from WooCommerce, BigCommerce, or another platform: clean data, no downtime, and a design that&apos;s ready to sell from launch day.</p>
@@ -196,7 +196,7 @@ export default function ShopifyMigrationPage() {
               </div>
             </div>
 
-            <div className="smg-hero-card">
+            <div className="smg-hero-card" data-reveal="right" style={{ transitionDelay: '150ms' }}>
               <div className="smg-hero-card-title">What you get</div>
               <ul>
                 <li><CheckCircle2 size={21} strokeWidth={2} /> Every product, customer & order migrated accurately</li>
@@ -210,7 +210,7 @@ export default function ShopifyMigrationPage() {
 
         <section className="smg-feature">
           <div className="wrap smg-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="smg-feature-tag">Zero-Downtime Cutover</div>
               <h2>Launch day, without the disruption.</h2>
               <p className="smg-feature-sub">We plan the cutover so your store keeps taking orders right up until the new site goes live.</p>
@@ -220,7 +220,7 @@ export default function ShopifyMigrationPage() {
                 <li><Link2 size={17} /> DNS & domain switch handled for you</li>
               </ul>
             </div>
-            <div className="smg-migrate-viz">
+            <div className="smg-migrate-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               <div className="smg-migrate-box">
                 <span>Currently On</span>
                 <strong>Old Platform</strong>
@@ -238,7 +238,7 @@ export default function ShopifyMigrationPage() {
 
         <section className="smg-feature smg-feature-alt">
           <div className="wrap smg-feature-grid">
-            <div className="smg-hub-viz">
+            <div className="smg-hub-viz" data-reveal="zoom">
               <svg className="smg-hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
                 {migrationNodes.map((n) => (
                   <line key={n.label} x1="50" y1="50" x2={n.x} y2={n.y} stroke="var(--gm)" strokeWidth="1" />
@@ -252,7 +252,7 @@ export default function ShopifyMigrationPage() {
                 </div>
               ))}
             </div>
-            <div>
+            <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="smg-feature-tag">Full Data Migration</div>
               <h2>Every product, order, and customer, moved accurately.</h2>
               <p className="smg-feature-sub">We migrate your full catalog and historical data, not just whatever fits easily.</p>
@@ -267,7 +267,7 @@ export default function ShopifyMigrationPage() {
 
         <section className="smg-feature">
           <div className="wrap smg-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="smg-feature-tag">Design Parity Or Upgrade</div>
               <h2>Keep what works, or use the move to upgrade.</h2>
               <p className="smg-feature-sub">We can rebuild your current design on Shopify, or use the migration as a chance to modernize it.</p>
@@ -277,7 +277,7 @@ export default function ShopifyMigrationPage() {
                 <li><Wrench size={17} /> Built on a theme structure that&apos;s easy to grow</li>
               </ul>
             </div>
-            <div className="smg-foundation-viz">
+            <div className="smg-foundation-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               {rebuildGrid.map((item) => (
                 <div key={item.label} className="smg-foundation-card">
                   <div className="smg-foundation-ico"><item.icon size={19} /></div>
@@ -290,7 +290,7 @@ export default function ShopifyMigrationPage() {
 
         <section className="smg-feature smg-feature-alt">
           <div className="wrap smg-feature-grid">
-            <div className="smg-chart-viz">
+            <div className="smg-chart-viz" data-reveal="zoom">
               <div className="smg-chart-bars">
                 <div className="smg-chart-bar" style={{ height: '94%' }} />
                 <div className="smg-chart-bar" style={{ height: '96%' }} />
@@ -305,7 +305,7 @@ export default function ShopifyMigrationPage() {
               </div>
               <span className="smg-chart-tag"><ShieldCheck size={13} /> Rankings & traffic protected</span>
             </div>
-            <div>
+            <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="smg-feature-tag">Post-Launch Support</div>
               <h2>We stay through launch week and beyond.</h2>
               <p className="smg-feature-sub">Migrations can surface small issues after go-live, and we&apos;re on call to fix them fast.</p>
@@ -320,13 +320,13 @@ export default function ShopifyMigrationPage() {
 
         <section className="smg-included">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }} data-reveal="up">
               <h2>What&apos;s <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>included.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Everything needed for a clean, complete move to Shopify.</p>
             </div>
             <div className="smg-included-grid">
-              {included.map((item) => (
-                <div key={item} className="smg-included-item">
+              {included.map((item, i) => (
+                <div key={item} className="smg-included-item" data-reveal="up" style={{ transitionDelay: `${i * 60}ms` }}>
                   <CheckCircle2 size={19} strokeWidth={2} />
                   {item}
                 </div>
@@ -337,13 +337,13 @@ export default function ShopifyMigrationPage() {
 
         <section className="smg-steps">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }} data-reveal="up">
               <h2>How it <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>works.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Three steps, start to finish.</p>
             </div>
             <div className="smg-steps-grid">
-              {steps.map((s) => (
-                <div key={s.n} className="smg-step">
+              {steps.map((s, i) => (
+                <div key={s.n} className="smg-step" data-reveal="up" style={{ transitionDelay: `${i * 100}ms` }}>
                   <div className="smg-step-num">{s.n}</div>
                   <h3>{s.title}</h3>
                   <p>{s.desc}</p>
@@ -353,7 +353,7 @@ export default function ShopifyMigrationPage() {
           </div>
         </section>
 
-        <div className="smg-bottom">
+        <div className="smg-bottom" data-reveal="up">
           <p>Ready to move to Shopify without the risk?</p>
           <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
         </div>

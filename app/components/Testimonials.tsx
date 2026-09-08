@@ -203,7 +203,7 @@ export default function Testimonials() {
 
       <section className="testimonials">
         <div className="wrap">
-          <div className="sh-row">
+          <div className="sh-row" data-reveal="up">
             <h2>What our clients<br className="testi-h-br" /> <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>actually say.</em></h2>
             <p className="section-sub">Brands trust us with their store and their inbox. Here&apos;s what they say.</p>
           </div>

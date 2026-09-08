@@ -86,19 +86,19 @@ export default function Why() {
 
       <section className="why">
         <div className="wrap">
-          <div className="sh-row">
+          <div className="sh-row" data-reveal="up">
             <h2>More than an agency:<br />we&apos;re your <em>growth team.</em></h2>
             <p className="section-sub">Most email agencies don&apos;t touch Shopify. Most Shopify devs don&apos;t touch email.<br />We do both: strategy, design, development and automation, under one roof.</p>
           </div>
           <div className="why-grid">
-            {reasons.map((r) => (
-              <div key={r.num} className="why-card">
+            {reasons.map((r, i) => (
+              <div key={r.num} className="why-card" data-reveal="up" style={{ transitionDelay: `${i * 90}ms` }}>
                 <div className="why-num">{r.num}</div>
                 <h3>{r.title}</h3>
                 <p>{r.body}</p>
               </div>
             ))}
-            <div className="why-card why-full">
+            <div className="why-card why-full" data-reveal="up" style={{ transitionDelay: '360ms' }}>
               <div className="why-full-inner">
                 <div className="why-full-text">
                   <h3>Stop juggling 3 vendors. We handle it all.</h3>

@@ -198,7 +198,7 @@ export default function ServicesPage() {
 
         <section className="svph-hero">
           <div className="wrap svph-grid">
-            <div className="svph-left">
+            <div className="svph-left" data-reveal="up">
               <div className="section-tag">Our Services</div>
               <h1 style={{ fontSize: 'clamp(36px,4.2vw,52px)' }}>Full-stack Shopify <br />&amp; email, <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>under one roof.</em></h1>
               <p className="section-sub">Everything under one roof: Shopify engineering, Klaviyo management, and email marketing.</p>
@@ -217,7 +217,7 @@ export default function ServicesPage() {
               </div>
             </div>
 
-            <div className="svph-visual">
+            <div className="svph-visual" data-reveal="zoom" style={{ transitionDelay: '150ms' }}>
               <svg className="svph-lines" viewBox="0 0 100 100">
                 {svphNodes.map((n) => (
                   <line key={n.title} x1="50" y1="50" x2={n.x} y2={n.y} style={{ stroke: '#d9e6e0' }} strokeWidth="0.7" />
@@ -248,14 +248,14 @@ export default function ServicesPage() {
         {serviceCategories.map((cat) => (
           <section key={cat.id} id={cat.id} className="svp-category">
             <div className="wrap">
-              <div className="svp-cat-head">
+              <div className="svp-cat-head" data-reveal="up">
                 <div className="svp-cat-icon"><cat.icon size={26} /></div>
                 <h2 className="svp-cat-title">{cat.label}</h2>
               </div>
-              <p className="svp-cat-sub">{cat.sub}</p>
+              <p className="svp-cat-sub" data-reveal="up">{cat.sub}</p>
               <div className={`svp-grid ${cat.items.length === 4 ? 'svp-grid-4' : ''}`}>
-                {cat.items.map((s) => (
-                  <Link key={s.href} href={s.href} className="svp-card">
+                {cat.items.map((s, i) => (
+                  <Link key={s.href} href={s.href} className="svp-card" data-reveal="up" style={{ transitionDelay: `${i * 80}ms` }}>
                     <div className="svp-ico"><s.icon size={20} strokeWidth={1.75} /></div>
                     <h3>{s.title}</h3>
                     <p>{s.desc}</p>

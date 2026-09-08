@@ -110,7 +110,7 @@ export default function CaseStudiesPage() {
 
         <section className="cs-hero">
           <div className="wrap">
-            <div className="sh-row" style={{ marginBottom: 0 }}>
+            <div className="sh-row" style={{ marginBottom: 0 }} data-reveal="up">
               <div className="section-tag" style={{ justifyContent: 'center' }}>Case Studies</div>
               <h1 style={{ fontSize: 'clamp(36px,4.5vw,56px)' }}>Real clients. Real revenue. <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>Real results.</em></h1>
               <p className="section-sub">Here&apos;s what we&apos;ve delivered for real brands, across Shopify builds and email programs.</p>
@@ -121,8 +121,8 @@ export default function CaseStudiesPage() {
         <section className="cases">
           <div className="wrap">
             <div className="cases-grid">
-              {cases.map((c) => (
-                <Link key={c.title} href="/case-studies" className={`case-card${c.featured ? ' case-featured' : ''}`}>
+              {cases.map((c, i) => (
+                <Link key={c.title} href="/case-studies" className={`case-card${c.featured ? ' case-featured' : ''}`} data-reveal={i === 0 ? 'zoom' : i % 2 ? 'left' : 'right'} style={{ transitionDelay: `${i * 110}ms` }}>
                   <div className="case-body">
                     <div className="case-tag">{c.tag}</div>
                     <h3>{c.title}</h3>

@@ -194,7 +194,7 @@ export default function FAQPage() {
 
         <section className="faq-hero">
           <div className="wrap">
-            <div className="sh-row" style={{ marginBottom: 0 }}>
+            <div className="sh-row" style={{ marginBottom: 0 }} data-reveal="up">
               <div className="faq-tag">FAQ<span className="faq-tag-bar" /></div>
               <h1 style={{ fontSize: 'clamp(36px,4.5vw,56px)' }}>Questions, <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>answered.</em></h1>
               <p className="section-sub">Everything you need to know before starting a project with PlusSquire.</p>
@@ -204,7 +204,7 @@ export default function FAQPage() {
 
         <section className="faq">
           <div className="wrap">
-            <div className="faq-tabs" role="tablist">
+            <div className="faq-tabs" role="tablist" data-reveal="fade">
               {categories.map((c) => (
                 <button
                   key={c.key}
@@ -218,7 +218,7 @@ export default function FAQPage() {
               ))}
             </div>
 
-            <div className="faq-list">
+            <div className="faq-list" data-reveal="up" style={{ transitionDelay: '80ms' }}>
               {activeCategory.questions.map((item, i) => (
                 <div key={item.q} className={`faq-item${openIndex === i ? ' open' : ''}`}>
                   <button
@@ -238,7 +238,7 @@ export default function FAQPage() {
               ))}
             </div>
 
-            <div className="faq-bottom">
+            <div className="faq-bottom" data-reveal="up">
               <p>Still have a question we didn&apos;t cover?</p>
               <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
             </div>

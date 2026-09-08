@@ -215,14 +215,14 @@ export default function WhySquire() {
 
       <section className="wm-section">
         <div className="wrap" style={{maxWidth:'1240px'}}>
-          <div className="wm-header">
+          <div className="wm-header" data-reveal="up">
             <h2 className="wm-headline">Why PlusSquire over everyone else?</h2>
             <p className="wm-subheadline">
               Most agencies look the same on paper. Here&apos;s what actually separates us.
             </p>
           </div>
 
-          <div className="wm-table-wrap">
+          <div className="wm-table-wrap" data-reveal="up" style={{ transitionDelay: '100ms' }}>
             <div className="wm-table">
               <div className="wm-thead">
                 <div className="wm-th-pro">✓&nbsp; PlusSquire</div>
@@ -248,7 +248,7 @@ export default function WhySquire() {
           </div>
 
           <div className="wm-cards">
-            <div className="wm-card wm-card-good">
+            <div className="wm-card wm-card-good" data-reveal="left">
               <p className="wm-card-title">✓ Good Fit</p>
               <ul>
                 {goodFit.map((item) => (
@@ -259,7 +259,7 @@ export default function WhySquire() {
                 ))}
               </ul>
             </div>
-            <div className="wm-card wm-card-bad">
+            <div className="wm-card wm-card-bad" data-reveal="right">
               <p className="wm-card-title">✗ Not a Fit</p>
               <ul>
                 {notFit.map((item) => (

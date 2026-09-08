@@ -174,7 +174,7 @@ export default function EmailDevelopmentPage() {
 
         <section className="edv-hero">
           <div className="wrap edv-hero-grid">
-            <div className="edv-hero-left">
+            <div className="edv-hero-left" data-reveal="up">
               <div className="section-tag">Email Development</div>
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Code that renders<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>the same everywhere.</em></h1>
               <p className="section-sub">Clean, hand-coded HTML/CSS that displays correctly in Gmail, Outlook, Apple Mail, Yahoo and everywhere else your subscribers actually read.</p>
@@ -193,7 +193,7 @@ export default function EmailDevelopmentPage() {
               </div>
             </div>
 
-            <div className="edv-hero-card">
+            <div className="edv-hero-card" data-reveal="right" style={{ transitionDelay: '150ms' }}>
               <div className="edv-hero-card-title">What you get</div>
               <ul>
                 <li><CheckCircle2 size={21} strokeWidth={2} /> Hand-coded HTML built for every major client</li>
@@ -207,7 +207,7 @@ export default function EmailDevelopmentPage() {
 
         <section className="edv-feature">
           <div className="wrap edv-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="edv-feature-tag">Cross-Client Compatibility</div>
               <h2>Built to survive Outlook's rendering engine.</h2>
               <p className="edv-feature-sub">Outlook's notoriously broken rendering engine, Gmail's content clipping, and inconsistent dark-mode behavior break most emails. We code around all three from the start.</p>
@@ -217,7 +217,7 @@ export default function EmailDevelopmentPage() {
                 <li><Moon size={17} /> Dark-mode colors tested so nothing flips wrong</li>
               </ul>
             </div>
-            <div className="edv-foundation-viz">
+            <div className="edv-foundation-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               {edvFoundationItems.map((item, i) => (
                 <div key={item.label + i} className="edv-foundation-card">
                   <div className="edv-foundation-ico"><item.icon size={20} /></div>
@@ -230,7 +230,7 @@ export default function EmailDevelopmentPage() {
 
         <section className="edv-feature edv-feature-alt">
           <div className="wrap edv-feature-grid">
-            <div className="edv-migrate-viz">
+            <div className="edv-migrate-viz" data-reveal="zoom">
               <div className="edv-migrate-box">
                 <span>Before</span>
                 <strong>Bloated Template Code</strong>
@@ -243,7 +243,7 @@ export default function EmailDevelopmentPage() {
                 <strong>Lean, Accessible Code</strong>
               </div>
             </div>
-            <div>
+            <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="edv-feature-tag">Accessible & Fast</div>
               <h2>Lightweight code that loads and reads well for everyone.</h2>
               <p className="edv-feature-sub">Heavy, unstructured markup slows emails down and locks out screen-reader users. We build lean, semantic code that's quick to load and easy for every subscriber to use.</p>
@@ -258,7 +258,7 @@ export default function EmailDevelopmentPage() {
 
         <section className="edv-feature">
           <div className="wrap edv-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="edv-feature-tag">Dynamic Content</div>
               <h2>Content that changes for every subscriber.</h2>
               <p className="edv-feature-sub">Beyond a first-name merge tag: product recommendations, countdown timers, location-aware offers and loyalty status, all coded to update automatically per send.</p>
@@ -268,7 +268,7 @@ export default function EmailDevelopmentPage() {
                 <li><MapPin size={17} /> Location and loyalty-aware content blocks</li>
               </ul>
             </div>
-            <div className="edv-hub-viz">
+            <div className="edv-hub-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               <svg className="edv-hub-lines" viewBox="0 0 100 100">
                 {edvHubNodes.map((node) => (
                   <line key={node.label} x1="50" y1="50" x2={node.x} y2={node.y} stroke="var(--border)" strokeWidth="1" />
@@ -287,7 +287,7 @@ export default function EmailDevelopmentPage() {
 
         <section className="edv-feature edv-feature-alt">
           <div className="wrap edv-feature-grid">
-            <div className="edv-cost-viz">
+            <div className="edv-cost-viz" data-reveal="zoom">
               <div className="edv-cost-card">
                 <span>Before QA</span>
                 <div className="edv-cost-num">Broken</div>
@@ -302,7 +302,7 @@ export default function EmailDevelopmentPage() {
                 <div className="edv-cost-sub">render accuracy across clients</div>
               </div>
             </div>
-            <div>
+            <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="edv-feature-tag">QA Testing</div>
               <h2>Tested across real clients before you ever hit send.</h2>
               <p className="edv-feature-sub">Every template is checked across major desktop, webmail and mobile clients, so what you approve is exactly what your subscribers see, dark mode included.</p>
@@ -317,13 +317,13 @@ export default function EmailDevelopmentPage() {
 
         <section className="edv-included">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }} data-reveal="up">
               <h2>What&apos;s <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>included.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Everything needed to make sure every send renders right, everywhere.</p>
             </div>
             <div className="edv-included-grid">
-              {edvIncluded.map((item) => (
-                <div key={item} className="edv-included-item">
+              {edvIncluded.map((item, i) => (
+                <div key={item} className="edv-included-item" data-reveal="up" style={{ transitionDelay: `${i * 60}ms` }}>
                   <CheckCircle2 size={19} strokeWidth={2} />
                   {item}
                 </div>
@@ -334,13 +334,13 @@ export default function EmailDevelopmentPage() {
 
         <section className="edv-steps">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }} data-reveal="up">
               <h2>How it <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>works.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Three steps, start to finish.</p>
             </div>
             <div className="edv-steps-grid">
-              {edvSteps.map((s) => (
-                <div key={s.n} className="edv-step">
+              {edvSteps.map((s, i) => (
+                <div key={s.n} className="edv-step" data-reveal="up" style={{ transitionDelay: `${i * 100}ms` }}>
                   <div className="edv-step-num">{s.n}</div>
                   <h3>{s.title}</h3>
                   <p>{s.desc}</p>
@@ -350,7 +350,7 @@ export default function EmailDevelopmentPage() {
           </div>
         </section>
 
-        <div className="edv-bottom">
+        <div className="edv-bottom" data-reveal="up">
           <p>Ready for emails that render perfectly everywhere they land?</p>
           <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
         </div>

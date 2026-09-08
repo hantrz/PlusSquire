@@ -99,13 +99,13 @@ export function Insights() {
       `}</style>
       <section className="insights" id="insights">
         <div className="wrap">
-          <div className="sh-row">
+          <div className="sh-row" data-reveal="up">
             <h2>Email marketing <em>know-how.</em></h2>
             <p className="section-sub">Practical guides and strategy for email marketers who want to grow faster.</p>
           </div>
           <div className="ins-grid">
-            {articles.map((a) => (
-              <Link key={a.title} href="/insights" className="ins-card">
+            {articles.map((a, i) => (
+              <Link key={a.title} href="/insights" className="ins-card" data-reveal="up" style={{ transitionDelay: `${i * 100}ms` }}>
                 <a.Thumb />
                 <div className="ins-body">
                   <div className="ins-meta">
@@ -119,7 +119,7 @@ export function Insights() {
               </Link>
             ))}
           </div>
-          <div className="ins-cta">
+          <div className="ins-cta" data-reveal="fade">
             <Link href="/insights" className="link-more">All Articles →</Link>
           </div>
         </div>
@@ -160,14 +160,14 @@ export function About() {
       <section className="about" id="about">
         <div className="wrap">
           <div className="about-grid">
-            <div className="about-vis">
+            <div className="about-vis" data-reveal="left">
               <div className="av-main">📨</div>
               <div className="av-row">
                 <div className="av-stat"><div className="av-num">807+</div><div className="av-lbl">Upwork Projects</div></div>
                 <div className="av-stat"><div className="av-num">13+ yrs</div><div className="av-lbl">Experience</div></div>
               </div>
             </div>
-            <div>
+            <div data-reveal="right">
               <h2>Built by a Shopify &amp; email obsessive.</h2>
               <p>PlusSquire is a boutique Shopify development and email marketing agency run by Zahidul Islam, a specialist with 13+ years of hands-on eCommerce development, HTML email, and marketing automation experience.</p>
               <p>With 7,000+ templates built and 807+ projects delivered on Upwork as a Top Rated Plus freelancer with 100% JSS, we bring deep technical expertise and a performance-first mindset to every project.</p>
@@ -218,14 +218,14 @@ export function Portfolio() {
       `}</style>
       <section className="portfolio" id="portfolio">
         <div className="wrap">
-          <div className="sh-row">
+          <div className="sh-row" data-reveal="up">
             <h2>Some of our <em>recent work.</em></h2>
             <p className="section-sub">Responsive, beautiful email templates — battle-tested across all major clients.</p>
             <Link href="/portfolio" className="link-more">Full Portfolio →</Link>
           </div>
           <div className="port-grid">
-            {portfolio.map((p) => (
-              <div key={p.title} className={`port-item ${p.cls}`}>
+            {portfolio.map((p, i) => (
+              <div key={p.title} className={`port-item ${p.cls}`} data-reveal="zoom" style={{ transitionDelay: `${i * 70}ms` }}>
                 {p.emoji}
                 <div className="port-overlay">
                   <h4>{p.title}</h4>
@@ -273,8 +273,8 @@ export function StatsBar() {
             { num: '13',    sup: '+ yrs', lbl: 'Industry Experience' },
             { num: '100',   sup: '%',     lbl: 'Job Success Score' },
             { num: 'Top',   sup: ' ⭐',   lbl: 'Rated Plus · Upwork' },
-          ].map((s) => (
-            <div key={s.lbl} className="hs-item">
+          ].map((s, i) => (
+            <div key={s.lbl} className="hs-item" data-reveal="up" style={{ transitionDelay: `${i * 80}ms` }}>
               <div className="hs-num">{s.num}<span>{s.sup}</span></div>
               <div className="hs-lbl">{s.lbl}</div>
             </div>
@@ -300,7 +300,7 @@ export function CtaBand() {
       `}</style>
       <div className="cta-band">
         <div className="wrap">
-          <div className="cta-inner">
+          <div className="cta-inner" data-reveal="up">
             <h2>Ready to turn your store and inbox<br className="cta-br" />into your <em>best sales channel?</em></h2>
             <Link href="#contact" className="btn-cta-white">Let&apos;s Talk →</Link>
           </div>
@@ -346,7 +346,7 @@ export function Contact() {
       <section className="contact" id="contact">
         <div className="wrap">
           <div className="contact-grid">
-            <div className="contact-left">
+            <div className="contact-left" data-reveal="left">
               <h2>Let&apos;s build something<br /><em>great together.</em></h2>
               <p>Whether it&apos;s a Shopify build or an email program overhaul, we&apos;d love to hear about your project. We typically respond within 24 hours.</p>
               <div className="cinfo">
@@ -380,7 +380,7 @@ export function Contact() {
                 </div>
               </div>
             </div>
-            <div className="contact-form">
+            <div className="contact-form" data-reveal="right">
               <div className="form-row">
                 <div className="fg"><label>First Name</label><input type="text" placeholder="John" /></div>
                 <div className="fg"><label>Last Name</label><input type="text" placeholder="Smith" /></div>
@@ -433,7 +433,7 @@ export function Footer() {
       `}</style>
       <footer>
         <div className="footer-inner">
-          <div className="footer-top">
+          <div className="footer-top" data-reveal="up">
             <div>
               <Link href="/" className="footer-logo">
                 <Image src="/plussquire-logo.png" alt="PlusSquire" width={120} height={24} style={{ filter: 'brightness(0) invert(1)' }} priority />

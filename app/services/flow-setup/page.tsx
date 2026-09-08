@@ -173,7 +173,7 @@ export default function FlowSetupPage() {
 
         <section className="flw-hero">
           <div className="wrap flw-hero-grid">
-            <div className="flw-hero-left">
+            <div className="flw-hero-left" data-reveal="up">
               <div className="section-tag">Klaviyo Flow Builds</div>
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Automated flows that sell,<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>while you sleep.</em></h1>
               <p className="section-sub">Custom Klaviyo flow builds, welcome series, abandoned cart, post-purchase, and win-back sequences engineered to convert on autopilot.</p>
@@ -192,7 +192,7 @@ export default function FlowSetupPage() {
               </div>
             </div>
 
-            <div className="flw-hero-card">
+            <div className="flw-hero-card" data-reveal="right" style={{ transitionDelay: '150ms' }}>
               <div className="flw-hero-card-title">What you get</div>
               <ul>
                 <li><CheckCircle2 size={21} strokeWidth={2} /> Full flow strategy mapped to your customer journey</li>
@@ -206,7 +206,7 @@ export default function FlowSetupPage() {
 
         <section className="flw-feature">
           <div className="wrap flw-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="flw-feature-tag">Strategy & Mapping</div>
               <h2>Every flow mapped to a moment that matters.</h2>
               <p className="flw-feature-sub">We start by mapping your full customer lifecycle, so every flow fires at the right time with the right message.</p>
@@ -216,7 +216,7 @@ export default function FlowSetupPage() {
                 <li><ListChecks size={17} /> Flow priority ranked by revenue potential</li>
               </ul>
             </div>
-            <div className="flw-hub-viz">
+            <div className="flw-hub-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               <svg className="flw-hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
                 {flowHubNodes.map((n) => (
                   <line key={n.label} x1="50" y1="50" x2={n.x} y2={n.y} stroke="var(--border)" strokeWidth="1" />
@@ -235,7 +235,7 @@ export default function FlowSetupPage() {
 
         <section className="flw-feature flw-feature-alt">
           <div className="wrap flw-feature-grid">
-            <div className="flw-chart-viz" style={{ order: 1 }}>
+            <div className="flw-chart-viz" data-reveal="zoom" style={{ order: 1 }}>
               <div className="flw-chart-bars">
                 {welcomeBars.map((b) => (
                   <div key={b.label} className="flw-chart-bar" style={{ height: `${b.h}%` }} />
@@ -246,7 +246,7 @@ export default function FlowSetupPage() {
               </div>
               <span className="flw-chart-tag"><TrendingUp size={13} /> +42% conversion by email 5</span>
             </div>
-            <div style={{ order: 2 }}>
+            <div data-reveal="up" style={{ order: 2, transitionDelay: '120ms' }}>
               <div className="flw-feature-tag">Welcome Series</div>
               <h2>First impressions that turn into first orders.</h2>
               <p className="flw-feature-sub">A multi-touch welcome series that builds trust fast and nudges new subscribers toward their first purchase.</p>
@@ -261,7 +261,7 @@ export default function FlowSetupPage() {
 
         <section className="flw-feature">
           <div className="wrap flw-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="flw-feature-tag">Abandoned Cart & Browse</div>
               <h2>Recover carts and browsers before they forget you.</h2>
               <p className="flw-feature-sub">Multi-step abandoned cart and browse abandonment flows that bring shoppers back before they buy elsewhere.</p>
@@ -271,7 +271,7 @@ export default function FlowSetupPage() {
                 <li><DollarSign size={17} /> Incentive escalation to close the sale</li>
               </ul>
             </div>
-            <div className="flw-cost-viz">
+            <div className="flw-cost-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               <div className="flw-cost-card">
                 <span>Without Flows</span>
                 <div className="flw-cost-num">3%</div>
@@ -289,7 +289,7 @@ export default function FlowSetupPage() {
 
         <section className="flw-feature flw-feature-alt">
           <div className="wrap flw-feature-grid">
-            <div className="flw-migrate-viz" style={{ order: 1 }}>
+            <div className="flw-migrate-viz" data-reveal="zoom" style={{ order: 1 }}>
               <div className="flw-migrate-box">
                 <span>Before</span>
                 <strong>One-Time Buyer</strong>
@@ -300,7 +300,7 @@ export default function FlowSetupPage() {
                 <strong>Repeat Customer</strong>
               </div>
             </div>
-            <div style={{ order: 2 }}>
+            <div data-reveal="up" style={{ order: 2, transitionDelay: '120ms' }}>
               <div className="flw-feature-tag">Post-Purchase & Win-Back</div>
               <h2>Turn one-time buyers into repeat customers.</h2>
               <p className="flw-feature-sub">Post-purchase nurture and win-back sequences that increase repeat purchase rate and rescue lapsing customers.</p>
@@ -315,13 +315,13 @@ export default function FlowSetupPage() {
 
         <section className="flw-included">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }} data-reveal="up">
               <h2>What&apos;s <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>included.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Everything needed to get your flows fully live and producing revenue.</p>
             </div>
             <div className="flw-included-grid">
-              {included.map((item) => (
-                <div key={item} className="flw-included-item">
+              {included.map((item, i) => (
+                <div key={item} className="flw-included-item" data-reveal="up" style={{ transitionDelay: `${i * 60}ms` }}>
                   <CheckCircle2 size={19} strokeWidth={2} />
                   {item}
                 </div>
@@ -332,13 +332,13 @@ export default function FlowSetupPage() {
 
         <section className="flw-steps">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }} data-reveal="up">
               <h2>How it <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>works.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Three steps, start to finish.</p>
             </div>
             <div className="flw-steps-grid">
-              {steps.map((s) => (
-                <div key={s.n} className="flw-step">
+              {steps.map((s, i) => (
+                <div key={s.n} className="flw-step" data-reveal="up" style={{ transitionDelay: `${i * 100}ms` }}>
                   <div className="flw-step-num">{s.n}</div>
                   <h3>{s.title}</h3>
                   <p>{s.desc}</p>
@@ -348,7 +348,7 @@ export default function FlowSetupPage() {
           </div>
         </section>
 
-        <div className="flw-bottom">
+        <div className="flw-bottom" data-reveal="up">
           <p>Ready to put your revenue flows on autopilot?</p>
           <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
         </div>

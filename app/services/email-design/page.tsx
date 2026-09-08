@@ -173,7 +173,7 @@ export default function EmailDesignPage() {
 
         <section className="edg-hero">
           <div className="wrap edg-hero-grid">
-            <div className="edg-hero-left">
+            <div className="edg-hero-left" data-reveal="up">
               <div className="section-tag">Email Design</div>
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Pixel-perfect designs<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>that stop the scroll.</em></h1>
               <p className="section-sub">On-brand, mobile-first email design built to take a subscriber from first impression to repeat purchase, without ever looking like a template.</p>
@@ -192,7 +192,7 @@ export default function EmailDesignPage() {
               </div>
             </div>
 
-            <div className="edg-hero-card">
+            <div className="edg-hero-card" data-reveal="right" style={{ transitionDelay: '150ms' }}>
               <div className="edg-hero-card-title">What you get</div>
               <ul>
                 <li><CheckCircle2 size={21} strokeWidth={2} /> On-brand templates designed for your unique voice</li>
@@ -206,7 +206,7 @@ export default function EmailDesignPage() {
 
         <section className="edg-feature">
           <div className="wrap edg-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="edg-feature-tag">Brand Consistency</div>
               <h2>Brand-first visual design, every single send.</h2>
               <p className="edg-feature-sub">Your emails should feel unmistakably yours. We build every element, from hero banners to footers, around your existing brand guidelines so nothing feels off-the-shelf.</p>
@@ -216,7 +216,7 @@ export default function EmailDesignPage() {
                 <li><Layers size={17} /> Consistent visual language across every campaign</li>
               </ul>
             </div>
-            <div className="edg-foundation-viz">
+            <div className="edg-foundation-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               {edgFoundationItems.map((item) => (
                 <div key={item.label} className="edg-foundation-card">
                   <div className="edg-foundation-ico"><item.icon size={20} /></div>
@@ -229,7 +229,7 @@ export default function EmailDesignPage() {
 
         <section className="edg-feature edg-feature-alt">
           <div className="wrap edg-feature-grid">
-            <div className="edg-migrate-viz">
+            <div className="edg-migrate-viz" data-reveal="zoom">
               <div className="edg-migrate-box">
                 <span>Before</span>
                 <strong>Desktop-First Layout</strong>
@@ -242,7 +242,7 @@ export default function EmailDesignPage() {
                 <strong>Mobile-First Layout</strong>
               </div>
             </div>
-            <div>
+            <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="edg-feature-tag">Mobile-First</div>
               <h2>Built for the screen most subscribers actually use.</h2>
               <p className="edg-feature-sub">The majority of opens happen on a phone. Every layout we design is built mobile-first, then scaled up, so tap targets, type size and images all hold up on the screen that matters most.</p>
@@ -257,7 +257,7 @@ export default function EmailDesignPage() {
 
         <section className="edg-feature">
           <div className="wrap edg-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="edg-feature-tag">Conversion</div>
               <h2>Visual hierarchy that leads straight to the click.</h2>
               <p className="edg-feature-sub">Great design is more than pretty, it directs the eye. We design a clear path from headline to hero image to CTA, so nothing competes for attention along the way.</p>
@@ -267,7 +267,7 @@ export default function EmailDesignPage() {
                 <li><Sparkles size={17} /> Design decisions backed by what's driven clicks before</li>
               </ul>
             </div>
-            <div className="edg-chart-viz">
+            <div className="edg-chart-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               <div className="edg-chart-bars">
                 <div className="edg-chart-bar" style={{ height: '100%' }} />
                 <div className="edg-chart-bar" style={{ height: '76%' }} />
@@ -287,7 +287,7 @@ export default function EmailDesignPage() {
 
         <section className="edg-feature edg-feature-alt">
           <div className="wrap edg-feature-grid">
-            <div className="edg-hub-viz">
+            <div className="edg-hub-viz" data-reveal="zoom">
               <svg className="edg-hub-lines" viewBox="0 0 100 100">
                 {edgHubNodes.map((node) => (
                   <line key={node.label} x1="50" y1="50" x2={node.x} y2={node.y} stroke="var(--border)" strokeWidth="1" />
@@ -301,7 +301,7 @@ export default function EmailDesignPage() {
                 </div>
               ))}
             </div>
-            <div>
+            <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="edg-feature-tag">Design Systems</div>
               <h2>A modular system, ready for every moment.</h2>
               <p className="edg-feature-sub">BFCM, holidays, a product launch, a rebrand mid-year: your design system flexes to fit the moment without starting from a blank canvas every time.</p>
@@ -316,13 +316,13 @@ export default function EmailDesignPage() {
 
         <section className="edg-included">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }} data-reveal="up">
               <h2>What&apos;s <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>included.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Everything needed to get every send looking like your brand made it.</p>
             </div>
             <div className="edg-included-grid">
-              {edgIncluded.map((item) => (
-                <div key={item} className="edg-included-item">
+              {edgIncluded.map((item, i) => (
+                <div key={item} className="edg-included-item" data-reveal="up" style={{ transitionDelay: `${i * 60}ms` }}>
                   <CheckCircle2 size={19} strokeWidth={2} />
                   {item}
                 </div>
@@ -333,13 +333,13 @@ export default function EmailDesignPage() {
 
         <section className="edg-steps">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }} data-reveal="up">
               <h2>How it <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>works.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Three steps, start to finish.</p>
             </div>
             <div className="edg-steps-grid">
-              {edgSteps.map((s) => (
-                <div key={s.n} className="edg-step">
+              {edgSteps.map((s, i) => (
+                <div key={s.n} className="edg-step" data-reveal="up" style={{ transitionDelay: `${i * 100}ms` }}>
                   <div className="edg-step-num">{s.n}</div>
                   <h3>{s.title}</h3>
                   <p>{s.desc}</p>
@@ -349,7 +349,7 @@ export default function EmailDesignPage() {
           </div>
         </section>
 
-        <div className="edg-bottom">
+        <div className="edg-bottom" data-reveal="up">
           <p>Ready for emails that look as good as your brand deserves?</p>
           <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
         </div>

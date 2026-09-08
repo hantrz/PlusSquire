@@ -174,7 +174,7 @@ export default function EmailAutomationsPage() {
 
         <section className="eau-hero">
           <div className="wrap eau-hero-grid">
-            <div className="eau-hero-left">
+            <div className="eau-hero-left" data-reveal="up">
               <div className="section-tag">Email Automations</div>
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Set up once,<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>earn revenue on autopilot.</em></h1>
               <p className="section-sub">Welcome, abandoned cart, post-purchase and win-back flows, built once and left to quietly earn revenue in the background, every single day.</p>
@@ -193,7 +193,7 @@ export default function EmailAutomationsPage() {
               </div>
             </div>
 
-            <div className="eau-hero-card">
+            <div className="eau-hero-card" data-reveal="right" style={{ transitionDelay: '150ms' }}>
               <div className="eau-hero-card-title">What you get</div>
               <ul>
                 <li><CheckCircle2 size={21} strokeWidth={2} /> A welcome series that converts new subscribers fast</li>
@@ -207,7 +207,7 @@ export default function EmailAutomationsPage() {
 
         <section className="eau-feature">
           <div className="wrap eau-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="eau-feature-tag">Welcome Series</div>
               <h2>First impressions that turn into first purchases.</h2>
               <p className="eau-feature-sub">A new subscriber is at their most engaged the moment they sign up. We build a welcome series that introduces your brand, builds trust and moves them toward that first order.</p>
@@ -217,7 +217,7 @@ export default function EmailAutomationsPage() {
                 <li><Gift size={17} /> A first-purchase incentive placed at the right moment</li>
               </ul>
             </div>
-            <div className="eau-hub-viz">
+            <div className="eau-hub-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               <svg className="eau-hub-lines" viewBox="0 0 100 100">
                 {eauHubNodes.map((node) => (
                   <line key={node.label} x1="50" y1="50" x2={node.x} y2={node.y} stroke="var(--border)" strokeWidth="1" />
@@ -236,7 +236,7 @@ export default function EmailAutomationsPage() {
 
         <section className="eau-feature eau-feature-alt">
           <div className="wrap eau-feature-grid">
-            <div className="eau-migrate-viz">
+            <div className="eau-migrate-viz" data-reveal="zoom">
               <div className="eau-migrate-box">
                 <span>Without a Flow</span>
                 <strong>Cart Abandoned</strong>
@@ -249,7 +249,7 @@ export default function EmailAutomationsPage() {
                 <strong>Sale Recovered</strong>
               </div>
             </div>
-            <div>
+            <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="eau-feature-tag">Abandoned Cart & Browse</div>
               <h2>Catch the sale before it slips away.</h2>
               <p className="eau-feature-sub">Most carts get abandoned, and most browsers leave without adding anything at all. We build recovery flows for both, timed and worded to bring shoppers back.</p>
@@ -264,7 +264,7 @@ export default function EmailAutomationsPage() {
 
         <section className="eau-feature">
           <div className="wrap eau-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="eau-feature-tag">Post-Purchase</div>
               <h2>Turn a single sale into a repeat customer.</h2>
               <p className="eau-feature-sub">The relationship doesn't end at checkout. We build flows that confirm the order, keep customers informed, and bring them back for the next purchase at exactly the right time.</p>
@@ -274,7 +274,7 @@ export default function EmailAutomationsPage() {
                 <li><Star size={17} /> Review requests sent once customers have had time to use it</li>
               </ul>
             </div>
-            <div className="eau-foundation-viz">
+            <div className="eau-foundation-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               {eauFoundationItems.map((item, i) => (
                 <div key={item.label + i} className="eau-foundation-card">
                   <div className="eau-foundation-ico"><item.icon size={20} /></div>
@@ -287,7 +287,7 @@ export default function EmailAutomationsPage() {
 
         <section className="eau-feature eau-feature-alt">
           <div className="wrap eau-feature-grid">
-            <div className="eau-cost-viz">
+            <div className="eau-cost-viz" data-reveal="zoom">
               <div className="eau-cost-card">
                 <span>Before Flows</span>
                 <div className="eau-cost-num">12%</div>
@@ -302,7 +302,7 @@ export default function EmailAutomationsPage() {
                 <div className="eau-cost-sub">of email revenue automated</div>
               </div>
             </div>
-            <div>
+            <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="eau-feature-tag">Win-Back & Sunset</div>
               <h2>Revive lapsing subscribers, or let them go cleanly.</h2>
               <p className="eau-feature-sub">Not every subscriber can be saved, and that's fine. We build win-back flows to earn one more purchase where possible, and sunset flows to suppress the rest before they hurt deliverability.</p>
@@ -317,13 +317,13 @@ export default function EmailAutomationsPage() {
 
         <section className="eau-included">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }} data-reveal="up">
               <h2>What&apos;s <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>included.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Everything needed to get revenue-generating flows live and running.</p>
             </div>
             <div className="eau-included-grid">
-              {eauIncluded.map((item) => (
-                <div key={item} className="eau-included-item">
+              {eauIncluded.map((item, i) => (
+                <div key={item} className="eau-included-item" data-reveal="up" style={{ transitionDelay: `${i * 60}ms` }}>
                   <CheckCircle2 size={19} strokeWidth={2} />
                   {item}
                 </div>
@@ -334,13 +334,13 @@ export default function EmailAutomationsPage() {
 
         <section className="eau-steps">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }} data-reveal="up">
               <h2>How it <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>works.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Three steps, start to finish.</p>
             </div>
             <div className="eau-steps-grid">
-              {eauSteps.map((s) => (
-                <div key={s.n} className="eau-step">
+              {eauSteps.map((s, i) => (
+                <div key={s.n} className="eau-step" data-reveal="up" style={{ transitionDelay: `${i * 100}ms` }}>
                   <div className="eau-step-num">{s.n}</div>
                   <h3>{s.title}</h3>
                   <p>{s.desc}</p>
@@ -350,7 +350,7 @@ export default function EmailAutomationsPage() {
           </div>
         </section>
 
-        <div className="eau-bottom">
+        <div className="eau-bottom" data-reveal="up">
           <p>Ready for revenue that runs while you sleep?</p>
           <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
         </div>

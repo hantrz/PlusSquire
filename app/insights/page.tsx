@@ -17,7 +17,7 @@ export default function InsightsPage() {
         `}</style>
         <section className="ins-hero">
           <div className="wrap">
-            <div className="sh-row" style={{ marginBottom: 0 }}>
+            <div className="sh-row" style={{ marginBottom: 0 }} data-reveal="up">
               <div className="section-tag" style={{ justifyContent: 'center' }}>Insights</div>
               <h1 style={{ fontSize: 'clamp(36px,4.5vw,56px)' }}>Ideas and playbooks <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>for smarter growth.</em></h1>
               <p className="section-sub">Practical guides on Shopify, Klaviyo, and email marketing, written from what actually moves revenue for eCommerce brands.</p>

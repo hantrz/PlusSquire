@@ -105,13 +105,13 @@ export default function CaseStudies() {
 
       <section className="cases" id="cases">
         <div className="wrap">
-          <div className="sh-row">
+          <div className="sh-row" data-reveal="up">
             <h2>Real clients. Real revenue. <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>Real results.</em></h2>
             <p className="section-sub">From Shopify builds to Klaviyo flows. Here&apos;s what we&apos;ve delivered for real brands.</p>
           </div>
           <div className="cases-grid">
-            {cases.map((c) => (
-              <Link key={c.title} href="/case-studies" className={`case-card${c.featured ? ' case-featured' : ''}`}>
+            {cases.map((c, i) => (
+              <Link key={c.title} href="/case-studies" className={`case-card${c.featured ? ' case-featured' : ''}`} data-reveal={i === 0 ? 'zoom' : i % 2 ? 'left' : 'right'} style={{ transitionDelay: `${i * 110}ms` }}>
                 <div className="case-body">
                   <div className="case-tag">{c.tag}</div>
                   <h3>{c.title}</h3>

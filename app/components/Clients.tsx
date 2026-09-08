@@ -50,8 +50,8 @@ export default function Clients() {
 
       <div className="clients">
         <div className="clients-inner">
-          <p className="clients-label">Trusted by brands across eCommerce, SaaS &amp; Retail</p>
-          <div className="logo-strip">
+          <p className="clients-label" data-reveal="fade">Trusted by brands across eCommerce, SaaS &amp; Retail</p>
+          <div className="logo-strip" data-reveal="up" style={{ transitionDelay: '80ms' }}>
             {clients.map((c) => (
               <div key={c} className="logo-pill">{c}</div>
             ))}
@@ -60,7 +60,7 @@ export default function Clients() {
       </div>
 
       <section className="platforms">
-        <div className="platforms-inner">
+        <div className="platforms-inner" data-reveal="up">
           <h3>Works with the platforms you use</h3>
           <p className="platforms-sub">
             Primary focus on Shopify and Klaviyo. Experience across HubSpot, Mailchimp, ActiveCampaign, Omnisend, WooCommerce, BigCommerce, and 15+ more platforms.

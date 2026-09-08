@@ -34,7 +34,7 @@ export default function TermsPage() {
 
         <section className="legal-hero">
           <div className="wrap">
-            <div className="legal-head">
+            <div className="legal-head" data-reveal="up">
               <div className="legal-tag">Legal</div>
               <h1 style={{ fontSize: 'clamp(32px,4vw,48px)' }}>Terms &amp; Conditions</h1>
               <p className="legal-updated">Last updated: August 2026</p>
@@ -44,7 +44,7 @@ export default function TermsPage() {
 
         <section className="legal">
           <div className="wrap">
-            <div className="legal-body">
+            <div className="legal-body" data-reveal="up">
               <h2>1. Agreement to Terms</h2>
               <p>By engaging PlusSquire (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) for Shopify development, email marketing, or related services, or by using plussquire.com, you agree to these Terms &amp; Conditions. If you do not agree, please do not use our services or this website.</p>
 

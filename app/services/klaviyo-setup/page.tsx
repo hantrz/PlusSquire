@@ -200,7 +200,7 @@ export default function KlaviyoSetupPage() {
 
         <section className="ksp-hero">
           <div className="wrap ksp-hero-grid">
-            <div className="ksp-hero-left">
+            <div className="ksp-hero-left" data-reveal="up">
               <div className="section-tag">Klaviyo Account Setup</div>
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Set up right from day one,<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>or migrated over without losing a thing.</em></h1>
               <p className="section-sub">Starting fresh on Klaviyo or moving from another platform, we handle the entire account: clean data, proper integrations, and flows built to convert from week one.</p>
@@ -219,7 +219,7 @@ export default function KlaviyoSetupPage() {
               </div>
             </div>
 
-            <div className="ksp-hero-card">
+            <div className="ksp-hero-card" data-reveal="right" style={{ transitionDelay: '150ms' }}>
               <div className="ksp-hero-card-title">What you get</div>
               <ul>
                 <li><CheckCircle2 size={21} strokeWidth={2} /> Clean migration or setup, zero data loss</li>
@@ -233,7 +233,7 @@ export default function KlaviyoSetupPage() {
 
         <section className="ksp-feature">
           <div className="wrap ksp-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="ksp-feature-tag">New Account Setup</div>
               <h2>Starting from zero? We build the foundation right.</h2>
               <p className="ksp-feature-sub">No history to untangle, but plenty to get right from the start: proper list structure, a verified sending domain, and an account built to scale instead of getting rebuilt in six months.</p>
@@ -243,7 +243,7 @@ export default function KlaviyoSetupPage() {
                 <li><Settings2 size={17} /> Branded templates and sign-up forms ready before your first campaign goes out</li>
               </ul>
             </div>
-            <div className="ksp-foundation-viz">
+            <div className="ksp-foundation-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               {foundationItems.map((f) => (
                 <div key={f.label} className="ksp-foundation-card">
                   <div className="ksp-foundation-ico"><f.icon size={19} strokeWidth={1.75} /></div>
@@ -256,14 +256,14 @@ export default function KlaviyoSetupPage() {
 
         <section className="ksp-feature ksp-feature-alt">
           <div className="wrap ksp-feature-grid">
-            <div className="ksp-migrate-viz">
+            <div className="ksp-migrate-viz" data-reveal="zoom">
               <div className="ksp-migrate-box"><span>From</span><strong>Old Platform</strong></div>
               <svg className="ksp-migrate-arrow" width="28" height="16" viewBox="0 0 28 16" fill="none">
                 <path d="M0 8H26M26 8L19 1M26 8L19 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               <div className="ksp-migrate-box"><span>To</span><strong>Klaviyo</strong></div>
             </div>
-            <div>
+            <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="ksp-feature-tag">List Migration</div>
               <h2>Moving platforms? Nothing gets lost on the way.</h2>
               <p className="ksp-feature-sub">If you're coming from Mailchimp, Omnisend, or anywhere else, your list, history, and segments move over clean, not just copy-pasted.</p>
@@ -278,7 +278,7 @@ export default function KlaviyoSetupPage() {
 
         <section className="ksp-feature">
           <div className="wrap ksp-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="ksp-feature-tag">Integrations</div>
               <h2>Every tool you already use, connected properly.</h2>
               <p className="ksp-feature-sub">Klaviyo is only as good as the data flowing into it. We connect your full stack so nothing is guessed at.</p>
@@ -288,7 +288,7 @@ export default function KlaviyoSetupPage() {
                 <li><CheckCircle2 size={17} /> Richer segmentation from day one, because the data is actually there</li>
               </ul>
             </div>
-            <div className="ksp-hub-viz">
+            <div className="ksp-hub-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               <svg className="ksp-hub-lines" viewBox="0 0 100 100">
                 {integrationNodes.map((n) => (
                   <line key={n.label} x1="50" y1="50" x2={n.x} y2={n.y} stroke="#d9e6e0" strokeWidth="0.9" />
@@ -307,7 +307,7 @@ export default function KlaviyoSetupPage() {
 
         <section className="ksp-feature ksp-feature-alt">
           <div className="wrap ksp-feature-grid">
-            <div className="ksp-chart-viz">
+            <div className="ksp-chart-viz" data-reveal="zoom">
               <div className="ksp-chart-bars">
                 <div className="ksp-chart-bar" style={{ height: '18%' }} />
                 <div className="ksp-chart-bar" style={{ height: '32%' }} />
@@ -321,7 +321,7 @@ export default function KlaviyoSetupPage() {
               </div>
               <div className="ksp-chart-tag"><TrendingUp size={14} /> Deliverability Protected</div>
             </div>
-            <div>
+            <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="ksp-feature-tag">Account Warm-Up</div>
               <h2>Deliverability protected from the very first send.</h2>
               <p className="ksp-feature-sub">A new account (or a big list import) can tank your inbox placement if you send too much, too soon. We ramp it up on a schedule instead.</p>
@@ -336,7 +336,7 @@ export default function KlaviyoSetupPage() {
 
         <section className="ksp-feature">
           <div className="wrap ksp-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="ksp-feature-tag">Cost Minimization</div>
               <h2>A cleaner list costs less, and performs better.</h2>
               <p className="ksp-feature-sub">Klaviyo bills by profile count. Cleaning out dead weight before migration often pays for the whole project.</p>
@@ -346,7 +346,7 @@ export default function KlaviyoSetupPage() {
                 <li><DollarSign size={17} /> Typical savings land in the thousands per year, not just a one-time cleanup</li>
               </ul>
             </div>
-            <div className="ksp-cost-viz">
+            <div className="ksp-cost-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               <div className="ksp-cost-card">
                 <span>Before</span>
                 <div className="ksp-cost-num">85,000</div>
@@ -366,13 +366,13 @@ export default function KlaviyoSetupPage() {
 
         <section className="ksp-included">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }} data-reveal="up">
               <h2>What&apos;s <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>included.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Everything needed to get your account fully live and producing revenue.</p>
             </div>
             <div className="ksp-included-grid">
-              {included.map((item) => (
-                <div key={item} className="ksp-included-item">
+              {included.map((item, i) => (
+                <div key={item} className="ksp-included-item" data-reveal="up" style={{ transitionDelay: `${i * 60}ms` }}>
                   <CheckCircle2 size={19} strokeWidth={2} />
                   {item}
                 </div>
@@ -383,13 +383,13 @@ export default function KlaviyoSetupPage() {
 
         <section className="ksp-steps">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }} data-reveal="up">
               <h2>How it <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>works.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Three steps, start to finish.</p>
             </div>
             <div className="ksp-steps-grid">
-              {steps.map((s) => (
-                <div key={s.n} className="ksp-step">
+              {steps.map((s, i) => (
+                <div key={s.n} className="ksp-step" data-reveal="up" style={{ transitionDelay: `${i * 100}ms` }}>
                   <div className="ksp-step-num">{s.n}</div>
                   <h3>{s.title}</h3>
                   <p>{s.desc}</p>
@@ -399,7 +399,7 @@ export default function KlaviyoSetupPage() {
           </div>
         </section>
 
-        <div className="ksp-bottom">
+        <div className="ksp-bottom" data-reveal="up">
           <p>Ready to get your Klaviyo account set up right?</p>
           <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
         </div>

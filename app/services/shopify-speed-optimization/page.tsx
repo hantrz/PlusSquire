@@ -177,7 +177,7 @@ export default function ShopifySpeedOptimizationPage() {
 
         <section className="sso-hero">
           <div className="wrap sso-hero-grid">
-            <div className="sso-hero-left">
+            <div className="sso-hero-left" data-reveal="up">
               <div className="section-tag">Shopify Speed Optimization</div>
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Faster pages,<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>fewer abandoned carts.</em></h1>
               <p className="section-sub">We diagnose what&apos;s actually slowing your store down and fix it, for better Core Web Vitals, faster checkout, and more completed sales.</p>
@@ -196,7 +196,7 @@ export default function ShopifySpeedOptimizationPage() {
               </div>
             </div>
 
-            <div className="sso-hero-card">
+            <div className="sso-hero-card" data-reveal="right" style={{ transitionDelay: '150ms' }}>
               <div className="sso-hero-card-title">What you get</div>
               <ul>
                 <li><CheckCircle2 size={21} strokeWidth={2} /> Full Core Web Vitals & PageSpeed audit</li>
@@ -210,7 +210,7 @@ export default function ShopifySpeedOptimizationPage() {
 
         <section className="sso-feature">
           <div className="wrap sso-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="sso-feature-tag">Core Web Vitals Audit</div>
               <h2>We find exactly what&apos;s slowing you down.</h2>
               <p className="sso-feature-sub">A full technical audit across your theme, apps, and assets, not just a generic speed test.</p>
@@ -220,7 +220,7 @@ export default function ShopifySpeedOptimizationPage() {
                 <li><ShieldCheck size={17} /> Prioritized fix list, ranked by impact</li>
               </ul>
             </div>
-            <div className="sso-cost-viz">
+            <div className="sso-cost-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               <div className="sso-cost-card">
                 <span>Before</span>
                 <div className="sso-cost-num">47</div>
@@ -240,7 +240,7 @@ export default function ShopifySpeedOptimizationPage() {
 
         <section className="sso-feature sso-feature-alt">
           <div className="wrap sso-feature-grid">
-            <div className="sso-chart-viz">
+            <div className="sso-chart-viz" data-reveal="zoom">
               <div className="sso-chart-bars">
                 <div className="sso-chart-bar" style={{ height: '96%' }} />
                 <div className="sso-chart-bar" style={{ height: '74%' }} />
@@ -255,7 +255,7 @@ export default function ShopifySpeedOptimizationPage() {
               </div>
               <span className="sso-chart-tag"><TrendingUp size={13} /> Load time down 68%</span>
             </div>
-            <div>
+            <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="sso-feature-tag">Image & Asset Optimization</div>
               <h2>Your images, without the load-time cost.</h2>
               <p className="sso-feature-sub">Product photography shouldn&apos;t be the reason your pages load slowly.</p>
@@ -270,7 +270,7 @@ export default function ShopifySpeedOptimizationPage() {
 
         <section className="sso-feature">
           <div className="wrap sso-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="sso-feature-tag">Code & App Bloat Cleanup</div>
               <h2>Every app and script, earning its place.</h2>
               <p className="sso-feature-sub">Unused apps and unoptimized code quietly slow every page down. We clean it up.</p>
@@ -280,7 +280,7 @@ export default function ShopifySpeedOptimizationPage() {
                 <li><Zap size={17} /> Third-party embeds loaded efficiently</li>
               </ul>
             </div>
-            <div className="sso-foundation-viz">
+            <div className="sso-foundation-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               {cleanupGrid.map((item) => (
                 <div key={item.label} className="sso-foundation-card">
                   <div className="sso-foundation-ico"><item.icon size={19} /></div>
@@ -293,7 +293,7 @@ export default function ShopifySpeedOptimizationPage() {
 
         <section className="sso-feature sso-feature-alt">
           <div className="wrap sso-feature-grid">
-            <div className="sso-hub-viz">
+            <div className="sso-hub-viz" data-reveal="zoom">
               <svg className="sso-hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
                 {monitoringNodes.map((n) => (
                   <line key={n.label} x1="50" y1="50" x2={n.x} y2={n.y} stroke="var(--gm)" strokeWidth="1" />
@@ -307,7 +307,7 @@ export default function ShopifySpeedOptimizationPage() {
                 </div>
               ))}
             </div>
-            <div>
+            <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="sso-feature-tag">Ongoing Monitoring</div>
               <h2>Speed that stays fast, not just fast on launch day.</h2>
               <p className="sso-feature-sub">New apps and content can quietly slow a store back down. We keep an eye on it.</p>
@@ -322,13 +322,13 @@ export default function ShopifySpeedOptimizationPage() {
 
         <section className="sso-included">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }} data-reveal="up">
               <h2>What&apos;s <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>included.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Everything needed to make your store measurably faster.</p>
             </div>
             <div className="sso-included-grid">
-              {included.map((item) => (
-                <div key={item} className="sso-included-item">
+              {included.map((item, i) => (
+                <div key={item} className="sso-included-item" data-reveal="up" style={{ transitionDelay: `${i * 60}ms` }}>
                   <CheckCircle2 size={19} strokeWidth={2} />
                   {item}
                 </div>
@@ -339,13 +339,13 @@ export default function ShopifySpeedOptimizationPage() {
 
         <section className="sso-steps">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }} data-reveal="up">
               <h2>How it <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>works.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Three steps, start to finish.</p>
             </div>
             <div className="sso-steps-grid">
-              {steps.map((s) => (
-                <div key={s.n} className="sso-step">
+              {steps.map((s, i) => (
+                <div key={s.n} className="sso-step" data-reveal="up" style={{ transitionDelay: `${i * 100}ms` }}>
                   <div className="sso-step-num">{s.n}</div>
                   <h3>{s.title}</h3>
                   <p>{s.desc}</p>
@@ -355,7 +355,7 @@ export default function ShopifySpeedOptimizationPage() {
           </div>
         </section>
 
-        <div className="sso-bottom">
+        <div className="sso-bottom" data-reveal="up">
           <p>Ready to stop losing customers to slow load times?</p>
           <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
         </div>

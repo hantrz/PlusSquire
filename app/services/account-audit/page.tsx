@@ -182,7 +182,7 @@ export default function AccountAuditPage() {
 
         <section className="aud-hero">
           <div className="wrap aud-hero-grid">
-            <div className="aud-hero-left">
+            <div className="aud-hero-left" data-reveal="up">
               <div className="section-tag">Klaviyo Account Audit</div>
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Know exactly what&apos;s working,<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>and what&apos;s costing you revenue.</em></h1>
               <p className="section-sub">A comprehensive review of your entire email program, with a prioritized action plan you can hand straight to your team.</p>
@@ -201,7 +201,7 @@ export default function AccountAuditPage() {
               </div>
             </div>
 
-            <div className="aud-hero-card">
+            <div className="aud-hero-card" data-reveal="right" style={{ transitionDelay: '150ms' }}>
               <div className="aud-hero-card-title">What you get</div>
               <ul>
                 <li><CheckCircle2 size={21} strokeWidth={2} /> Full deliverability & list health diagnostic</li>
@@ -215,7 +215,7 @@ export default function AccountAuditPage() {
 
         <section className="aud-feature">
           <div className="wrap aud-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="aud-feature-tag">Deliverability & List Health</div>
               <h2>Make sure your emails actually reach the inbox.</h2>
               <p className="aud-feature-sub">We check sender reputation, authentication, and list hygiene to make sure your program isn&apos;t leaking revenue to spam folders.</p>
@@ -225,7 +225,7 @@ export default function AccountAuditPage() {
                 <li><ShieldCheck size={17} /> Authentication (SPF, DKIM, DMARC) verified</li>
               </ul>
             </div>
-            <div className="aud-foundation-viz">
+            <div className="aud-foundation-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               {foundationItems.map((item) => (
                 <div key={item.label} className="aud-foundation-card">
                   <div className="aud-foundation-ico"><item.icon size={20} /></div>
@@ -238,7 +238,7 @@ export default function AccountAuditPage() {
 
         <section className="aud-feature aud-feature-alt">
           <div className="wrap aud-feature-grid">
-            <div className="aud-cost-viz" style={{ order: 1 }}>
+            <div className="aud-cost-viz" data-reveal="zoom" style={{ order: 1 }}>
               <div className="aud-cost-card">
                 <span>Audit Score</span>
                 <div className="aud-cost-num">54</div>
@@ -251,7 +251,7 @@ export default function AccountAuditPage() {
                 <div className="aud-cost-sub">ranked fixes</div>
               </div>
             </div>
-            <div style={{ order: 2 }}>
+            <div data-reveal="up" style={{ order: 2, transitionDelay: '120ms' }}>
               <div className="aud-feature-tag">Flow & Automation Review</div>
               <h2>Every flow, checked for gaps and missed revenue.</h2>
               <p className="aud-feature-sub">We audit each active flow against your business model to find broken logic, missed triggers, and underperforming sends.</p>
@@ -266,7 +266,7 @@ export default function AccountAuditPage() {
 
         <section className="aud-feature">
           <div className="wrap aud-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="aud-feature-tag">Segmentation & Targeting</div>
               <h2>Stop messaging every subscriber the same way.</h2>
               <p className="aud-feature-sub">We review how your lists and segments are built to catch over-messaging, fatigue risk, and wasted sends.</p>
@@ -276,7 +276,7 @@ export default function AccountAuditPage() {
                 <li><ListChecks size={17} /> Audience overlap and waste identified</li>
               </ul>
             </div>
-            <div className="aud-hub-viz">
+            <div className="aud-hub-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               <svg className="aud-hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
                 {segmentHubNodes.map((n) => (
                   <line key={n.label} x1="50" y1="50" x2={n.x} y2={n.y} stroke="var(--border)" strokeWidth="1" />
@@ -295,7 +295,7 @@ export default function AccountAuditPage() {
 
         <section className="aud-feature aud-feature-alt">
           <div className="wrap aud-feature-grid">
-            <div className="aud-chart-viz" style={{ order: 1 }}>
+            <div className="aud-chart-viz" data-reveal="zoom" style={{ order: 1 }}>
               <div className="aud-chart-bars">
                 {actionBars.map((b) => (
                   <div key={b.label} className="aud-chart-bar" style={{ height: `${b.h}%` }} />
@@ -306,7 +306,7 @@ export default function AccountAuditPage() {
               </div>
               <span className="aud-chart-tag"><ClipboardList size={13} /> Issues resolved on schedule</span>
             </div>
-            <div style={{ order: 2 }}>
+            <div data-reveal="up" style={{ order: 2, transitionDelay: '120ms' }}>
               <div className="aud-feature-tag">Prioritized Action Plan</div>
               <h2>A clear roadmap, not just a list of problems.</h2>
               <p className="aud-feature-sub">Every finding is ranked by effort versus impact, so your team knows exactly what to fix first.</p>
@@ -321,13 +321,13 @@ export default function AccountAuditPage() {
 
         <section className="aud-included">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }} data-reveal="up">
               <h2>What&apos;s <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>included.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>A full diagnostic of your account, delivered as a plan you can act on.</p>
             </div>
             <div className="aud-included-grid">
-              {included.map((item) => (
-                <div key={item} className="aud-included-item">
+              {included.map((item, i) => (
+                <div key={item} className="aud-included-item" data-reveal="up" style={{ transitionDelay: `${i * 60}ms` }}>
                   <CheckCircle2 size={19} strokeWidth={2} />
                   {item}
                 </div>
@@ -338,13 +338,13 @@ export default function AccountAuditPage() {
 
         <section className="aud-steps">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }} data-reveal="up">
               <h2>How it <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>works.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Three steps, start to finish.</p>
             </div>
             <div className="aud-steps-grid">
-              {steps.map((s) => (
-                <div key={s.n} className="aud-step">
+              {steps.map((s, i) => (
+                <div key={s.n} className="aud-step" data-reveal="up" style={{ transitionDelay: `${i * 100}ms` }}>
                   <div className="aud-step-num">{s.n}</div>
                   <h3>{s.title}</h3>
                   <p>{s.desc}</p>
@@ -354,7 +354,7 @@ export default function AccountAuditPage() {
           </div>
         </section>
 
-        <div className="aud-bottom">
+        <div className="aud-bottom" data-reveal="up">
           <p>Ready to see exactly what your email program needs?</p>
           <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
         </div>

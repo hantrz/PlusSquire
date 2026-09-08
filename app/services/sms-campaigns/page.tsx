@@ -173,7 +173,7 @@ export default function SmsCampaignsPage() {
 
         <section className="sms-hero">
           <div className="wrap sms-hero-grid">
-            <div className="sms-hero-left">
+            <div className="sms-hero-left" data-reveal="up">
               <div className="section-tag">SMS Marketing</div>
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Add a second channel that<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>recovers revenue email misses.</em></h1>
               <p className="section-sub">SMS flows and campaigns that drive urgency and recover lost revenue, running right alongside your email program.</p>
@@ -192,7 +192,7 @@ export default function SmsCampaignsPage() {
               </div>
             </div>
 
-            <div className="sms-hero-card">
+            <div className="sms-hero-card" data-reveal="right" style={{ transitionDelay: '150ms' }}>
               <div className="sms-hero-card-title">What you get</div>
               <ul>
                 <li><CheckCircle2 size={21} strokeWidth={2} /> Compliant opt-in flows built into your existing forms</li>
@@ -206,7 +206,7 @@ export default function SmsCampaignsPage() {
 
         <section className="sms-feature">
           <div className="wrap sms-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="sms-feature-tag">Strategy & Compliance</div>
               <h2>A second channel, set up the right way.</h2>
               <p className="sms-feature-sub">We build compliant opt-in flows into your existing forms and checkout, so your SMS list grows without any shortcuts.</p>
@@ -216,7 +216,7 @@ export default function SmsCampaignsPage() {
                 <li><ListChecks size={17} /> Keyword & consent tracking set up correctly</li>
               </ul>
             </div>
-            <div className="sms-migrate-viz">
+            <div className="sms-migrate-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               <div className="sms-migrate-box">
                 <span>Existing</span>
                 <strong>Email List</strong>
@@ -232,7 +232,7 @@ export default function SmsCampaignsPage() {
 
         <section className="sms-feature sms-feature-alt">
           <div className="wrap sms-feature-grid">
-            <div className="sms-hub-viz" style={{ order: 1 }}>
+            <div className="sms-hub-viz" data-reveal="zoom" style={{ order: 1 }}>
               <svg className="sms-hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
                 {smsHubNodes.map((n) => (
                   <line key={n.label} x1="50" y1="50" x2={n.x} y2={n.y} stroke="var(--border)" strokeWidth="1" />
@@ -246,7 +246,7 @@ export default function SmsCampaignsPage() {
                 </div>
               ))}
             </div>
-            <div style={{ order: 2 }}>
+            <div data-reveal="up" style={{ order: 2, transitionDelay: '120ms' }}>
               <div className="sms-feature-tag">Flow Builds</div>
               <h2>Timely texts that recover revenue email can&apos;t.</h2>
               <p className="sms-feature-sub">Cart recovery, back-in-stock alerts, and flash sale flows land where email often gets missed: right on the lock screen.</p>
@@ -261,7 +261,7 @@ export default function SmsCampaignsPage() {
 
         <section className="sms-feature">
           <div className="wrap sms-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="sms-feature-tag">Campaign Calendar</div>
               <h2>Promotions sent on a schedule, not a whim.</h2>
               <p className="sms-feature-sub">A monthly SMS campaign calendar keeps sends coordinated with your promotions, without overwhelming your list.</p>
@@ -271,7 +271,7 @@ export default function SmsCampaignsPage() {
                 <li><Percent size={17} /> Send frequency capped to protect opt-out rate</li>
               </ul>
             </div>
-            <div className="sms-chart-viz">
+            <div className="sms-chart-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               <div className="sms-chart-bars">
                 {smsBars.map((b) => (
                   <div key={b.label} className="sms-chart-bar" style={{ height: `${b.h}%` }} />
@@ -287,7 +287,7 @@ export default function SmsCampaignsPage() {
 
         <section className="sms-feature sms-feature-alt">
           <div className="wrap sms-feature-grid">
-            <div className="sms-cost-viz" style={{ order: 1 }}>
+            <div className="sms-cost-viz" data-reveal="zoom" style={{ order: 1 }}>
               <div className="sms-cost-card">
                 <span>Email Only</span>
                 <div className="sms-cost-num">$1.00</div>
@@ -300,7 +300,7 @@ export default function SmsCampaignsPage() {
                 <div className="sms-cost-sub">combined revenue</div>
               </div>
             </div>
-            <div style={{ order: 2 }}>
+            <div data-reveal="up" style={{ order: 2, transitionDelay: '120ms' }}>
               <div className="sms-feature-tag">Combined Attribution</div>
               <h2>See exactly what each channel is worth.</h2>
               <p className="sms-feature-sub">Unified reporting attributes revenue accurately across both channels, so you know where to invest next.</p>
@@ -315,13 +315,13 @@ export default function SmsCampaignsPage() {
 
         <section className="sms-included">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }} data-reveal="up">
               <h2>What&apos;s <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>included.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Everything needed to launch SMS alongside your email program.</p>
             </div>
             <div className="sms-included-grid">
-              {included.map((item) => (
-                <div key={item} className="sms-included-item">
+              {included.map((item, i) => (
+                <div key={item} className="sms-included-item" data-reveal="up" style={{ transitionDelay: `${i * 60}ms` }}>
                   <CheckCircle2 size={19} strokeWidth={2} />
                   {item}
                 </div>
@@ -332,13 +332,13 @@ export default function SmsCampaignsPage() {
 
         <section className="sms-steps">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }} data-reveal="up">
               <h2>How it <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>works.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Three steps, start to finish.</p>
             </div>
             <div className="sms-steps-grid">
-              {steps.map((s) => (
-                <div key={s.n} className="sms-step">
+              {steps.map((s, i) => (
+                <div key={s.n} className="sms-step" data-reveal="up" style={{ transitionDelay: `${i * 100}ms` }}>
                   <div className="sms-step-num">{s.n}</div>
                   <h3>{s.title}</h3>
                   <p>{s.desc}</p>
@@ -348,7 +348,7 @@ export default function SmsCampaignsPage() {
           </div>
         </section>
 
-        <div className="sms-bottom">
+        <div className="sms-bottom" data-reveal="up">
           <p>Ready to add SMS as a second revenue channel?</p>
           <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
         </div>

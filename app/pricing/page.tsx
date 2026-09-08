@@ -237,7 +237,7 @@ export default function PricingPage() {
 
         <section className="pricing-hero">
           <div className="wrap">
-            <div className="sh-row" style={{ marginBottom: 0 }}>
+            <div className="sh-row" style={{ marginBottom: 0 }} data-reveal="up">
               <div className="pricing-tag">Pricing<span className="pricing-tag-bar" /></div>
               <h1 style={{ fontSize: 'clamp(36px,4.5vw,56px)' }}>Simple, <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>transparent pricing.</em></h1>
               <p className="section-sub">Every project is different. Here&apos;s a starting point.</p>
@@ -247,7 +247,7 @@ export default function PricingPage() {
 
         <section className="pricing">
           <div className="wrap">
-            <div className="pricing-tabs" role="tablist">
+            <div className="pricing-tabs" role="tablist" data-reveal="fade">
               {groups.map((g) => (
                 <button
                   key={g.key}
@@ -264,8 +264,8 @@ export default function PricingPage() {
             <p className="pricing-group-sub">{activeGroup.sub}</p>
 
             <div className="pricing-grid">
-              {activeGroup.plans.map((plan) => (
-                <div key={plan.name} className={`pricing-card${plan.featured ? ' featured' : ''}`}>
+              {activeGroup.plans.map((plan, i) => (
+                <div key={plan.name} className={`pricing-card${plan.featured ? ' featured' : ''}`} data-reveal="up" style={{ transitionDelay: `${i * 100}ms` }}>
                   <div className="plan-tag">{plan.tag}</div>
                   <div className="plan-name">{plan.name}</div>
                   <div className="plan-from">Starting from</div>
@@ -290,7 +290,7 @@ export default function PricingPage() {
               ))}
             </div>
 
-            <div className="pricing-bottom">
+            <div className="pricing-bottom" data-reveal="up">
               <p>Not sure which plan fits? Book a free 30-minute call and we&apos;ll figure it out together.</p>
               <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
             </div>

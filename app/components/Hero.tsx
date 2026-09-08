@@ -245,19 +245,19 @@ export default function Hero() {
         <div className="hero-main">
           {/* Left */}
           <div>
-            <div className="hero-eyebrow">
+            <div className="hero-eyebrow" data-reveal="fade">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="#1ea672" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
               Shopify Partner &middot; Klaviyo Certified
             </div>
-            <div className="h1-glow-wrap">
+            <div className="h1-glow-wrap" data-reveal="up" style={{ transitionDelay: '90ms' }}>
               <h1>Your Shopify store and <br className="hero-br" />email list are both sitting <br className="hero-br" />on <em>untapped revenue.</em><br className="hero-br" /> <span className="h1-punch">We fix both.</span></h1>
             </div>
-            <p className="hero-desc">
+            <p className="hero-desc" data-reveal="up" style={{ transitionDelay: '180ms' }}>
               Shopify development and email marketing under one roof: pixel-perfect builds, revenue-driving flows, and growth systems for eCommerce brands ready to scale.
             </p>
-            <div className="hero-btns">
+            <div className="hero-btns" data-reveal="up" style={{ transitionDelay: '270ms' }}>
               <Link href="#contact" className="btn-primary">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                   <polygon points="5 3 19 12 5 21 5 3" />
@@ -271,7 +271,7 @@ export default function Hero() {
                 See Results
               </Link>
             </div>
-            <div className="hero-social-proof">
+            <div className="hero-social-proof" data-reveal="fade" style={{ transitionDelay: '360ms' }}>
               <div className="proof-text">
                 <span style={{color:'#f5a623', fontSize:'15px', letterSpacing:'1px'}}>⭐⭐⭐⭐⭐</span>
                 <span style={{color:'#4a5568', fontSize:'13px', marginLeft:'6px'}}>5.0 · 752 reviews on Upwork</span>
@@ -280,6 +280,7 @@ export default function Hero() {
           </div>
 
           {/* Right — Shopify storefront + email flow mockup */}
+          <div data-reveal="right" style={{ transitionDelay: '150ms' }}>
           <div className="hero-right">
             <div className="chip chip-top">
               <div>
@@ -341,6 +342,7 @@ export default function Hero() {
               </div>
             </div>
           </div>
+          </div>
         </div>
 
         {/* Stats bar */}
@@ -351,8 +353,8 @@ export default function Hero() {
               { num: '40%',       lbl: 'Faster Shopify store load time' },
               { num: '10–40%',    lbl: 'Average revenue lift for our clients' },
               { num: '3+ years',  lbl: 'Average client partnership duration' },
-            ].map((s) => (
-              <div key={s.lbl} className="hs-item">
+            ].map((s, i) => (
+              <div key={s.lbl} className="hs-item" data-reveal="up" style={{ transitionDelay: `${i * 90}ms` }}>
                 <div className="hs-wave" />
                 <div className="hs-num">{s.num}</div>
                 <div className="hs-lbl">{s.lbl}</div>

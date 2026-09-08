@@ -34,7 +34,7 @@ export default function PrivacyPage() {
 
         <section className="legal-hero">
           <div className="wrap">
-            <div className="legal-head">
+            <div className="legal-head" data-reveal="up">
               <div className="legal-tag">Legal</div>
               <h1 style={{ fontSize: 'clamp(32px,4vw,48px)' }}>Privacy Policy</h1>
               <p className="legal-updated">Last updated: August 2026</p>
@@ -44,7 +44,7 @@ export default function PrivacyPage() {
 
         <section className="legal">
           <div className="wrap">
-            <div className="legal-body">
+            <div className="legal-body" data-reveal="up">
               <h2>1. Introduction</h2>
               <p>PlusSquire (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) provides Shopify development and email/SMS marketing services for eCommerce brands. This Privacy Policy explains what information we collect through plussquire.com, how we use it, and the choices you have.</p>
 

@@ -175,7 +175,7 @@ export default function SignUpFormsPage() {
 
         <section className="suf-hero">
           <div className="wrap suf-hero-grid">
-            <div className="suf-hero-left">
+            <div className="suf-hero-left" data-reveal="up">
               <div className="section-tag">Sign-Up Forms & Pop-Ups</div>
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Turn more visitors into subscribers,<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>without hurting the experience.</em></h1>
               <p className="section-sub">High-converting pop-ups and embedded forms, designed on-brand and integrated directly with your platform.</p>
@@ -194,7 +194,7 @@ export default function SignUpFormsPage() {
               </div>
             </div>
 
-            <div className="suf-hero-card">
+            <div className="suf-hero-card" data-reveal="right" style={{ transitionDelay: '150ms' }}>
               <div className="suf-hero-card-title">What you get</div>
               <ul>
                 <li><CheckCircle2 size={21} strokeWidth={2} /> On-brand pop-ups & embedded forms designed and built</li>
@@ -208,7 +208,7 @@ export default function SignUpFormsPage() {
 
         <section className="suf-feature">
           <div className="wrap suf-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="suf-feature-tag">On-Brand Form Design</div>
               <h2>Forms that feel like part of your site, not a distraction.</h2>
               <p className="suf-feature-sub">Every form is designed to match your brand and convert without feeling pushy or out of place.</p>
@@ -218,7 +218,7 @@ export default function SignUpFormsPage() {
                 <li><Sparkles size={17} /> Copy written to convert without feeling pushy</li>
               </ul>
             </div>
-            <div className="suf-foundation-viz">
+            <div className="suf-foundation-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               {formTypeItems.map((item) => (
                 <div key={item.label} className="suf-foundation-card">
                   <div className="suf-foundation-ico"><item.icon size={20} /></div>
@@ -231,7 +231,7 @@ export default function SignUpFormsPage() {
 
         <section className="suf-feature suf-feature-alt">
           <div className="wrap suf-feature-grid">
-            <div className="suf-hub-viz" style={{ order: 1 }}>
+            <div className="suf-hub-viz" data-reveal="zoom" style={{ order: 1 }}>
               <svg className="suf-hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
                 {triggerHubNodes.map((n) => (
                   <line key={n.label} x1="50" y1="50" x2={n.x} y2={n.y} stroke="var(--border)" strokeWidth="1" />
@@ -245,7 +245,7 @@ export default function SignUpFormsPage() {
                 </div>
               ))}
             </div>
-            <div style={{ order: 2 }}>
+            <div data-reveal="up" style={{ order: 2, transitionDelay: '120ms' }}>
               <div className="suf-feature-tag">Trigger Strategy</div>
               <h2>Show the right form at the right moment.</h2>
               <p className="suf-feature-sub">Exit intent, timed delays, and scroll depth are all tuned per page so forms appear when visitors are most likely to convert.</p>
@@ -260,7 +260,7 @@ export default function SignUpFormsPage() {
 
         <section className="suf-feature">
           <div className="wrap suf-feature-grid">
-            <div>
+            <div data-reveal="up">
               <div className="suf-feature-tag">Zero-Party Data Capture</div>
               <h2>Learn what your subscribers actually want.</h2>
               <p className="suf-feature-sub">Quiz-style questions double as segmentation, so new subscribers get relevant content from their very first email.</p>
@@ -270,7 +270,7 @@ export default function SignUpFormsPage() {
                 <li><Target size={17} /> Better-targeted flows from day one</li>
               </ul>
             </div>
-            <div className="suf-migrate-viz">
+            <div className="suf-migrate-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               <div className="suf-migrate-box">
                 <span>Step 1</span>
                 <strong>Quiz Answered</strong>
@@ -286,7 +286,7 @@ export default function SignUpFormsPage() {
 
         <section className="suf-feature suf-feature-alt">
           <div className="wrap suf-feature-grid">
-            <div className="suf-cost-viz" style={{ order: 1 }}>
+            <div className="suf-cost-viz" data-reveal="zoom" style={{ order: 1 }}>
               <div className="suf-cost-card">
                 <span>Before</span>
                 <div className="suf-cost-num">1.8%</div>
@@ -299,7 +299,7 @@ export default function SignUpFormsPage() {
                 <div className="suf-cost-sub">signup rate</div>
               </div>
             </div>
-            <div style={{ order: 2 }}>
+            <div data-reveal="up" style={{ order: 2, transitionDelay: '120ms' }}>
               <div className="suf-feature-tag">A/B Testing & Optimization</div>
               <h2>Signup rate that keeps climbing, not stalling.</h2>
               <p className="suf-feature-sub">Every form variant is tested against the next, so conversion rate improves month over month instead of flatlining.</p>
@@ -314,13 +314,13 @@ export default function SignUpFormsPage() {
 
         <section className="suf-included">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }} data-reveal="up">
               <h2>What&apos;s <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>included.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Everything needed to turn traffic into subscribers.</p>
             </div>
             <div className="suf-included-grid">
-              {included.map((item) => (
-                <div key={item} className="suf-included-item">
+              {included.map((item, i) => (
+                <div key={item} className="suf-included-item" data-reveal="up" style={{ transitionDelay: `${i * 60}ms` }}>
                   <CheckCircle2 size={19} strokeWidth={2} />
                   {item}
                 </div>
@@ -331,13 +331,13 @@ export default function SignUpFormsPage() {
 
         <section className="suf-steps">
           <div className="wrap">
-            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <div className="sh-row" style={{ textAlign: 'center', marginBottom: '48px' }} data-reveal="up">
               <h2>How it <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>works.</em></h2>
               <p className="section-sub" style={{ margin: '0 auto' }}>Three steps, start to finish.</p>
             </div>
             <div className="suf-steps-grid">
-              {steps.map((s) => (
-                <div key={s.n} className="suf-step">
+              {steps.map((s, i) => (
+                <div key={s.n} className="suf-step" data-reveal="up" style={{ transitionDelay: `${i * 100}ms` }}>
                   <div className="suf-step-num">{s.n}</div>
                   <h3>{s.title}</h3>
                   <p>{s.desc}</p>
@@ -347,7 +347,7 @@ export default function SignUpFormsPage() {
           </div>
         </section>
 
-        <div className="suf-bottom">
+        <div className="suf-bottom" data-reveal="up">
           <p>Ready to convert more of your traffic into subscribers?</p>
           <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
         </div>
