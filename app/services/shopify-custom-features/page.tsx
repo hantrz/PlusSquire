@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import Navbar from '../../components/Navbar'
 import { Footer } from '../../components/Sections'
 import {
@@ -38,6 +39,13 @@ const steps = [
   { n: '03', title: 'Ship & Support', desc: 'The feature ships with documentation, plus ongoing support as your needs evolve.' },
 ]
 
+const whatYouGet = [
+  { icon: Layers,      label: 'Custom theme sections & blocks' },
+  { icon: Puzzle,      label: 'Third-party app integrations wired in correctly' },
+  { icon: Wrench,      label: 'Bespoke functionality built to spec' },
+  { icon: ShieldCheck, label: 'Ongoing support as your store grows' },
+]
+
 export default function ShopifyCustomFeaturesPage() {
   return (
     <>
@@ -59,19 +67,64 @@ export default function ShopifyCustomFeaturesPage() {
           .scf-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
           .scf-proof { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink3); }
 
-          .scf-hero-card {
-            background: #fff; border: 1px solid var(--border); border-radius: 20px;
-            padding: 40px 38px; box-shadow: 0 28px 70px rgba(15,22,35,.09);
-            max-width: 480px; width: 100%; margin: 0 auto;
+          .scf-hero-visual {
+            position: relative; border-radius: 20px; overflow: hidden;
+            box-shadow: 0 28px 70px rgba(15,22,35,.09);
+            max-width: 480px; width: 100%; margin: 0 auto; background: var(--soft);
           }
-          .scf-hero-card-title { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; color: var(--g); margin-bottom: 22px; }
-          .scf-hero-card ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 20px; }
-          .scf-hero-card li { display: flex; align-items: flex-start; gap: 12px; font-size: 15.5px; color: var(--ink2); line-height: 1.5; }
-          .scf-hero-card li svg { color: var(--g); flex-shrink: 0; margin-top: 2px; }
+          .scf-hero-visual img { width: 100%; height: auto; display: block; }
 
           @media(max-width:1000px){
             .scf-hero-grid { grid-template-columns: 1fr; }
-            .scf-hero-card { max-width: 520px; }
+            .scf-hero-visual { max-width: 520px; }
+          }
+
+          /* What You Get — highlighted through the tinted background, a
+             centered tag, and gradient icon "medallions"; deliberately NOT
+             a bordered card/box. Items sit in one open row divided by thin
+             rules, not stacked inside a container. */
+          .scf-whatget {
+            padding: 64px 0 72px; position: relative; overflow: hidden;
+            background:
+              radial-gradient(ellipse at top right, rgba(30,166,114,0.14) 0%, transparent 55%),
+              radial-gradient(ellipse at bottom left, rgba(30,166,114,0.10) 0%, transparent 55%),
+              var(--soft);
+            border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+          }
+          .scf-whatget-head { text-align: center; max-width: 720px; margin: 0 auto 48px; }
+          .scf-whatget-tag {
+            display: inline-flex; align-items: center; gap: 8px; background: var(--gl); color: var(--gd);
+            font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em;
+            padding: 6px 14px; border-radius: 100px; margin-bottom: 16px;
+          }
+          .scf-whatget-head h2 { font-size: clamp(20px, 2.4vw, 32px); margin-bottom: 0; white-space: nowrap; }
+          @media(max-width:560px){
+            .scf-whatget-head h2 { white-space: normal; font-size: clamp(20px, 5.5vw, 24px); }
+          }
+
+          .scf-whatget-row {
+            display: flex; align-items: flex-start; justify-content: center;
+            max-width: 1000px; margin: 0 auto; flex-wrap: wrap;
+          }
+          .scf-whatget-item {
+            flex: 1 1 210px; display: flex; flex-direction: column; align-items: center;
+            text-align: center; gap: 16px; padding: 0 26px; position: relative;
+          }
+          .scf-whatget-item:not(:last-child)::after {
+            content: ''; position: absolute; right: 0; top: 4px; bottom: 4px; width: 1px; background: var(--gm);
+          }
+          .scf-whatget-ico {
+            width: 54px; height: 54px; border-radius: 50%;
+            background: linear-gradient(135deg, #1ea672, #17845b); color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 24px rgba(30,166,114,.32);
+          }
+          .scf-whatget-item p { font-size: 14.5px; font-weight: 600; color: var(--ink2); line-height: 1.5; max-width: 200px; }
+
+          @media(max-width:820px){
+            .scf-whatget-row { flex-direction: column; align-items: center; gap: 32px; }
+            .scf-whatget-item { padding: 0; }
+            .scf-whatget-item:not(:last-child)::after { display: none; }
           }
 
           .scf-feature { padding: 72px 0; }
@@ -196,14 +249,33 @@ export default function ShopifyCustomFeaturesPage() {
               </div>
             </div>
 
-            <div className="scf-hero-card" data-reveal="right" style={{ transitionDelay: '150ms' }}>
-              <div className="scf-hero-card-title">What you get</div>
-              <ul>
-                <li><CheckCircle2 size={21} strokeWidth={2} /> Custom theme sections & blocks</li>
-                <li><CheckCircle2 size={21} strokeWidth={2} /> Third-party app integrations wired in correctly</li>
-                <li><CheckCircle2 size={21} strokeWidth={2} /> Bespoke functionality built to spec</li>
-                <li><CheckCircle2 size={21} strokeWidth={2} /> Ongoing support as your store grows</li>
-              </ul>
+            <div className="scf-hero-visual" data-reveal="right" style={{ transitionDelay: '150ms' }}>
+              {/* Replace with a relevant photo/screenshot: drop the file at
+                  public/images/services/shopify-custom-features.jpg (or update
+                  the src below to whatever path/filename you use). */}
+              <Image
+                src="/images/services/shopify-custom-features.jpg"
+                alt="Shopify custom features"
+                width={480}
+                height={400}
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="scf-whatget">
+          <div className="wrap">
+            <div className="scf-whatget-head" data-reveal="up">
+              <div className="scf-whatget-tag">What You Get</div>
+              <h2>Everything included, <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>nothing left to guess.</em></h2>
+            </div>
+            <div className="scf-whatget-row">
+              {whatYouGet.map((item, i) => (
+                <div key={item.label} className="scf-whatget-item" data-reveal="up" style={{ transitionDelay: `${i * 90}ms` }}>
+                  <div className="scf-whatget-ico"><item.icon size={22} strokeWidth={1.75} /></div>
+                  <p>{item.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>

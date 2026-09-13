@@ -38,7 +38,7 @@ const serviceCategories = [
     sub: 'Full-account setup, flow builds, audits, and forms, engineered to turn your list into revenue.',
     icon: KlaviyoIcon,
     items: [
-      { icon: Settings2,     title: 'Klaviyo Account Setup', desc: 'Full platform onboarding: list migration, integrations, DNS, and flow architecture.',                href: '/services/klaviyo-setup' },
+      { icon: Settings2,     title: 'Klaviyo Account Setup', desc: 'Full platform onboarding: list migration, integrations, DNS, and flow architecture.',                href: '/services/klaviyo-account-setup' },
       { icon: Workflow,      title: 'Flow & Campaign Setup', desc: 'Custom Klaviyo flow builds: welcome series, abandoned cart, post-purchase, and win-back sequences engineered for revenue.', href: '/services/flow-setup' },
       { icon: SearchCheck,   title: 'Account Audit',      desc: 'Comprehensive review of your email program with a prioritised action plan.',                          href: '/services/account-audit' },
       { icon: ClipboardList, title: 'Sign-Up Forms',      desc: 'High-converting pop-ups and embedded forms integrated with your platform.',                           href: '/services/sign-up-forms' },
@@ -69,7 +69,7 @@ const svphNodes = [
   { title: 'Shopify Migration',              icon: RefreshCw,     href: '/services/shopify-migration', x: 66, y: 11 },
   { title: 'Shopify Speed Optimization',      icon: Gauge,         href: '/services/shopify-speed-optimization', x: 86, y: 30 },
   { title: 'Shopify App & Custom Features',   icon: Puzzle,        href: '/services/shopify-custom-features', x: 86, y: 50 },
-  { title: 'Klaviyo Account Setup & Audit',   icon: Settings2,     href: '/services/klaviyo-setup',  x: 86, y: 70 },
+  { title: 'Klaviyo Account Setup & Audit',   icon: Settings2,     href: '/services/klaviyo-account-setup',  x: 86, y: 70 },
   { title: 'Flow Setup',                      icon: Workflow,      href: '/services/flow-setup',  x: 66, y: 89 },
   { title: 'Sign-Up Forms',                   icon: ClipboardList, href: '/services/sign-up-forms',  x: 34, y: 89 },
   { title: 'SMS Campaigns',                   icon: Smartphone,    href: '/services/sms-campaigns',  x: 14, y: 70 },

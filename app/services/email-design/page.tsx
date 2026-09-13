@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import Navbar from '../../components/Navbar'
 import { Footer } from '../../components/Sections'
 import {
@@ -38,6 +39,13 @@ const edgSteps = [
   { n: '03', title: 'Deliver & Handoff', desc: 'Production-ready design files, organized and annotated, handed off clean and ready for development.' },
 ]
 
+const whatYouGet = [
+  { icon: Palette,           label: 'On-brand templates designed for your unique voice' },
+  { icon: Smartphone,        label: 'Mobile-first layouts that read perfectly on any screen' },
+  { icon: MousePointerClick, label: 'Clear visual hierarchy that guides readers to the CTA' },
+  { icon: LayoutGrid,        label: 'A modular system built for fast campaign turnaround' },
+]
+
 export default function EmailDesignPage() {
   return (
     <>
@@ -59,19 +67,64 @@ export default function EmailDesignPage() {
           .edg-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
           .edg-proof { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink3); }
 
-          .edg-hero-card {
-            background: #fff; border: 1px solid var(--border); border-radius: 20px;
-            padding: 40px 38px; box-shadow: 0 28px 70px rgba(15,22,35,.09);
-            max-width: 480px; width: 100%; margin: 0 auto;
+          .edg-hero-visual {
+            position: relative; border-radius: 20px; overflow: hidden;
+            box-shadow: 0 28px 70px rgba(15,22,35,.09);
+            max-width: 480px; width: 100%; margin: 0 auto; background: var(--soft);
           }
-          .edg-hero-card-title { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; color: var(--g); margin-bottom: 22px; }
-          .edg-hero-card ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 20px; }
-          .edg-hero-card li { display: flex; align-items: flex-start; gap: 12px; font-size: 15.5px; color: var(--ink2); line-height: 1.5; }
-          .edg-hero-card li svg { color: var(--g); flex-shrink: 0; margin-top: 2px; }
+          .edg-hero-visual img { width: 100%; height: auto; display: block; }
 
           @media(max-width:1000px){
             .edg-hero-grid { grid-template-columns: 1fr; }
-            .edg-hero-card { max-width: 520px; }
+            .edg-hero-visual { max-width: 520px; }
+          }
+
+          /* What You Get — highlighted through the tinted background, a
+             centered tag, and gradient icon "medallions"; deliberately NOT
+             a bordered card/box. Items sit in one open row divided by thin
+             rules, not stacked inside a container. */
+          .edg-whatget {
+            padding: 64px 0 72px; position: relative; overflow: hidden;
+            background:
+              radial-gradient(ellipse at top right, rgba(30,166,114,0.14) 0%, transparent 55%),
+              radial-gradient(ellipse at bottom left, rgba(30,166,114,0.10) 0%, transparent 55%),
+              var(--soft);
+            border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+          }
+          .edg-whatget-head { text-align: center; max-width: 720px; margin: 0 auto 48px; }
+          .edg-whatget-tag {
+            display: inline-flex; align-items: center; gap: 8px; background: var(--gl); color: var(--gd);
+            font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em;
+            padding: 6px 14px; border-radius: 100px; margin-bottom: 16px;
+          }
+          .edg-whatget-head h2 { font-size: clamp(20px, 2.4vw, 32px); margin-bottom: 0; white-space: nowrap; }
+          @media(max-width:560px){
+            .edg-whatget-head h2 { white-space: normal; font-size: clamp(20px, 5.5vw, 24px); }
+          }
+
+          .edg-whatget-row {
+            display: flex; align-items: flex-start; justify-content: center;
+            max-width: 1000px; margin: 0 auto; flex-wrap: wrap;
+          }
+          .edg-whatget-item {
+            flex: 1 1 210px; display: flex; flex-direction: column; align-items: center;
+            text-align: center; gap: 16px; padding: 0 26px; position: relative;
+          }
+          .edg-whatget-item:not(:last-child)::after {
+            content: ''; position: absolute; right: 0; top: 4px; bottom: 4px; width: 1px; background: var(--gm);
+          }
+          .edg-whatget-ico {
+            width: 54px; height: 54px; border-radius: 50%;
+            background: linear-gradient(135deg, #1ea672, #17845b); color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 24px rgba(30,166,114,.32);
+          }
+          .edg-whatget-item p { font-size: 14.5px; font-weight: 600; color: var(--ink2); line-height: 1.5; max-width: 200px; }
+
+          @media(max-width:820px){
+            .edg-whatget-row { flex-direction: column; align-items: center; gap: 32px; }
+            .edg-whatget-item { padding: 0; }
+            .edg-whatget-item:not(:last-child)::after { display: none; }
           }
 
           .edg-feature { padding: 72px 0; }
@@ -192,14 +245,33 @@ export default function EmailDesignPage() {
               </div>
             </div>
 
-            <div className="edg-hero-card" data-reveal="right" style={{ transitionDelay: '150ms' }}>
-              <div className="edg-hero-card-title">What you get</div>
-              <ul>
-                <li><CheckCircle2 size={21} strokeWidth={2} /> On-brand templates designed for your unique voice</li>
-                <li><CheckCircle2 size={21} strokeWidth={2} /> Mobile-first layouts that read perfectly on any screen</li>
-                <li><CheckCircle2 size={21} strokeWidth={2} /> Clear visual hierarchy that guides readers to the CTA</li>
-                <li><CheckCircle2 size={21} strokeWidth={2} /> A modular system built for fast campaign turnaround</li>
-              </ul>
+            <div className="edg-hero-visual" data-reveal="right" style={{ transitionDelay: '150ms' }}>
+              {/* Replace with a relevant photo/screenshot: drop the file at
+                  public/images/services/email-design.jpg (or update
+                  the src below to whatever path/filename you use). */}
+              <Image
+                src="/images/services/email-design.jpg"
+                alt="Email design"
+                width={480}
+                height={400}
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="edg-whatget">
+          <div className="wrap">
+            <div className="edg-whatget-head" data-reveal="up">
+              <div className="edg-whatget-tag">What You Get</div>
+              <h2>Everything included, <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>nothing left to guess.</em></h2>
+            </div>
+            <div className="edg-whatget-row">
+              {whatYouGet.map((item, i) => (
+                <div key={item.label} className="edg-whatget-item" data-reveal="up" style={{ transitionDelay: `${i * 90}ms` }}>
+                  <div className="edg-whatget-ico"><item.icon size={22} strokeWidth={1.75} /></div>
+                  <p>{item.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>

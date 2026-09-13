@@ -35,7 +35,7 @@ const serviceCategories = [
     label: 'Klaviyo Management',
     icon: KlaviyoIcon,
     items: [
-      { icon: '⚙', label: 'Klaviyo Account Setup', href: '/services/klaviyo-setup' },
+      { icon: '⚙', label: 'Klaviyo Account Setup', href: '/services/klaviyo-account-setup' },
       { icon: '⟲', label: 'Flow Setup', href: '/services/flow-setup' },
       { icon: '⊘', label: 'Account Audit', href: '/services/account-audit' },
       { icon: '⊕', label: 'Sign-Up Forms', href: '/services/sign-up-forms' },
