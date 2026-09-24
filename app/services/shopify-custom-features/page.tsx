@@ -3,24 +3,9 @@ import Image from 'next/image'
 import Navbar from '../../components/Navbar'
 import { Footer } from '../../components/Sections'
 import {
-  CheckCircle2, Puzzle, Layers, Wrench, Settings2, PackageCheck,
-  Repeat, Filter, Code2, Star, Megaphone, Boxes, ShieldCheck,
+  CheckCircle2, Puzzle, Layers, Wrench, Settings2,
+  Repeat, Filter, Code2, Star, ShieldCheck,
 } from 'lucide-react'
-
-const integrationNodes = [
-  { icon: Star,       label: 'Reviews',       x: 50, y: 8 },
-  { icon: Repeat,     label: 'Subscriptions', x: 89, y: 35 },
-  { icon: Boxes,      label: 'Inventory',     x: 74, y: 88 },
-  { icon: Megaphone,  label: 'Marketing',     x: 26, y: 88 },
-  { icon: PackageCheck, label: 'Loyalty',     x: 11, y: 35 },
-]
-
-const sectionsGrid = [
-  { icon: Layers,    label: 'Custom Sections' },
-  { icon: Puzzle,    label: 'Theme Blocks' },
-  { icon: Settings2, label: 'Metafields' },
-  { icon: Code2,     label: 'Theme Editor' },
-]
 
 const included = [
   'Custom theme sections & blocks',
@@ -70,13 +55,13 @@ export default function ShopifyCustomFeaturesPage() {
           .scf-hero-visual {
             position: relative; border-radius: 20px; overflow: hidden;
             box-shadow: 0 28px 70px rgba(15,22,35,.09);
-            max-width: 480px; width: 100%; margin: 0 auto; background: var(--soft);
+            max-width: 650px; width: 100%; margin: 0 auto; background: var(--soft);
           }
           .scf-hero-visual img { width: 100%; height: auto; display: block; }
 
           @media(max-width:1000px){
             .scf-hero-grid { grid-template-columns: 1fr; }
-            .scf-hero-visual { max-width: 520px; }
+            .scf-hero-visual { max-width: 600px; }
           }
 
           /* What You Get — highlighted through the tinted background, a
@@ -129,9 +114,7 @@ export default function ShopifyCustomFeaturesPage() {
 
           .scf-feature { padding: 72px 0; }
           .scf-feature-alt { background: var(--soft); }
-          .scf-feature-alt .scf-chart-viz,
-          .scf-feature-alt .scf-foundation-viz,
-          .scf-feature-alt .scf-cost-viz .scf-cost-card { background: #fff; }
+          .scf-feature-alt .scf-diagram-img { background: #fff; }
           .scf-feature-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 56px; align-items: center; }
           .scf-feature-tag { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--g); margin-bottom: 12px; }
           .scf-feature h2 { font-size: clamp(24px, 2.4vw, 30px); color: var(--ink); margin-bottom: 14px; }
@@ -144,67 +127,11 @@ export default function ShopifyCustomFeaturesPage() {
             .scf-feature-grid { grid-template-columns: 1fr; }
           }
 
-          /* Custom sections grid (2x2 icon cards) */
-          .scf-foundation-viz {
-            background: var(--soft); border-radius: 16px; padding: 24px;
-            display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px;
+          .scf-diagram-img {
+            border-radius: 16px; overflow: hidden; background: var(--soft);
+            box-shadow: 0 20px 50px rgba(15,22,35,.08);
           }
-          .scf-foundation-card {
-            background: #fff; border: 1px solid var(--border); border-radius: 12px;
-            padding: 22px 14px; text-align: center;
-          }
-          .scf-foundation-ico {
-            width: 40px; height: 40px; border-radius: 10px; background: var(--gl); color: var(--g);
-            display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;
-          }
-          .scf-foundation-card span { font-size: 12.5px; font-weight: 700; color: var(--ink2); line-height: 1.3; }
-
-          /* Hub-spoke: app integrations */
-          .scf-hub-viz { position: relative; width: 100%; max-width: 340px; aspect-ratio: 1/1; margin: 0 auto; }
-          .scf-hub-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
-          .scf-hub-center {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-            width: 34%; aspect-ratio: 1/1; border-radius: 50%;
-            background: linear-gradient(135deg, #1ea672, #17845b); color: #fff;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 12.5px; font-weight: 800; letter-spacing: .02em; text-align: center;
-            box-shadow: 0 16px 40px rgba(30,166,114,.3); z-index: 2; padding: 6px;
-          }
-          .scf-hub-node {
-            position: absolute; transform: translate(-50%,-50%);
-            width: 30%; display: flex; flex-direction: column; align-items: center; gap: 6px; z-index: 2;
-          }
-          .scf-hub-node-ico {
-            width: 38px; height: 38px; border-radius: 10px; background: #fff; border: 1px solid var(--border);
-            color: var(--g); display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 6px 16px rgba(15,22,35,.06);
-          }
-          .scf-hub-node span { font-size: 10.5px; font-weight: 700; color: var(--ink3); }
-
-          /* Off-the-shelf vs custom build comparison */
-          .scf-cost-viz { display: flex; align-items: center; gap: 14px; }
-          .scf-cost-card {
-            flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 14px;
-            padding: 22px 18px; text-align: center;
-          }
-          .scf-cost-card.after { border-color: var(--gm); background: var(--gl); }
-          .scf-cost-card span { display: block; font-size: 11.5px; font-weight: 700; color: var(--ink4); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 10px; }
-          .scf-cost-num { font-size: 17px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
-          .scf-cost-card.after .scf-cost-num { color: var(--gd); }
-          .scf-cost-sub { font-size: 12.5px; color: var(--ink4); }
-          .scf-cost-arrow { color: var(--g); flex-shrink: 0; }
-
-          /* Bar-chart diagram: features shipped over time */
-          .scf-chart-viz { background: var(--soft); border-radius: 16px; padding: 32px 24px 20px; }
-          .scf-chart-bars { display: flex; align-items: flex-end; gap: 10px; height: 140px; margin-bottom: 12px; }
-          .scf-chart-bar { flex: 1; background: linear-gradient(180deg, #1ea672, #17845b); border-radius: 6px 6px 0 0; }
-          .scf-chart-labels { display: flex; gap: 10px; }
-          .scf-chart-labels span { flex: 1; text-align: center; font-size: 10.5px; color: var(--ink4); font-weight: 600; }
-          .scf-chart-tag {
-            display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;
-            background: var(--gl); color: var(--gd); font-size: 12px; font-weight: 700;
-            padding: 5px 12px; border-radius: 20px;
-          }
+          .scf-diagram-img img { width: 100%; height: auto; display: block; }
 
           .scf-included { background: var(--soft); padding: 72px 0; }
           .scf-included-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px 40px; max-width: 880px; margin: 0 auto; }
@@ -250,14 +177,11 @@ export default function ShopifyCustomFeaturesPage() {
             </div>
 
             <div className="scf-hero-visual" data-reveal="right" style={{ transitionDelay: '150ms' }}>
-              {/* Replace with a relevant photo/screenshot: drop the file at
-                  public/images/services/shopify-custom-features.jpg (or update
-                  the src below to whatever path/filename you use). */}
               <Image
-                src="/images/services/shopify-custom-features.jpg"
-                alt="Shopify custom features"
-                width={480}
-                height={400}
+                src="/images/services/shopify-custom-features/hero-custom-code.jpg"
+                alt="Custom Liquid and metafields built exactly to spec, zero monthly app fees, replacing bloated third-party apps"
+                width={1400}
+                height={764}
               />
             </div>
           </div>
@@ -292,32 +216,26 @@ export default function ShopifyCustomFeaturesPage() {
                 <li><Settings2 size={17} /> Editable by your team in the theme editor</li>
               </ul>
             </div>
-            <div className="scf-foundation-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              {sectionsGrid.map((item) => (
-                <div key={item.label} className="scf-foundation-card">
-                  <div className="scf-foundation-ico"><item.icon size={19} /></div>
-                  <span>{item.label}</span>
-                </div>
-              ))}
+            <div className="scf-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/shopify-custom-features/theme-editor-blocks.jpg"
+                alt="Shopify theme editor with custom metafields, dynamic pricing rules, and promotional banners built as a custom section block"
+                width={1400}
+                height={764}
+              />
             </div>
           </div>
         </section>
 
         <section className="scf-feature scf-feature-alt">
           <div className="wrap scf-feature-grid">
-            <div className="scf-hub-viz" data-reveal="zoom">
-              <svg className="scf-hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
-                {integrationNodes.map((n) => (
-                  <line key={n.label} x1="50" y1="50" x2={n.x} y2={n.y} stroke="var(--gm)" strokeWidth="1" />
-                ))}
-              </svg>
-              <div className="scf-hub-center">Your Store</div>
-              {integrationNodes.map((n) => (
-                <div key={n.label} className="scf-hub-node" style={{ left: `${n.x}%`, top: `${n.y}%` }}>
-                  <div className="scf-hub-node-ico"><n.icon size={18} /></div>
-                  <span>{n.label}</span>
-                </div>
-              ))}
+            <div className="scf-diagram-img" data-reveal="zoom">
+              <Image
+                src="/images/services/shopify-custom-features/app-integrations-hub.jpg"
+                alt="Shopify connected to Recharge and Skio subscriptions, Yotpo and Judge.me reviews, Smile.io loyalty, and Gorgias and Zendesk support"
+                width={1400}
+                height={764}
+              />
             </div>
             <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="scf-feature-tag">Third-Party App Integrations</div>
@@ -344,40 +262,26 @@ export default function ShopifyCustomFeaturesPage() {
                 <li><Wrench size={17} /> Custom checkout & cart logic (Shopify Plus)</li>
               </ul>
             </div>
-            <div className="scf-cost-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              <div className="scf-cost-card">
-                <span>Off-The-Shelf App</span>
-                <div className="scf-cost-num">Close, not quite</div>
-                <div className="scf-cost-sub">Forces workarounds</div>
-              </div>
-              <div className="scf-cost-arrow">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-              </div>
-              <div className="scf-cost-card after">
-                <span>Custom Build</span>
-                <div className="scf-cost-num">Built to spec</div>
-                <div className="scf-cost-sub">Fits your process exactly</div>
-              </div>
+            <div className="scf-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/shopify-custom-features/bespoke-features-showcase.jpg"
+                alt="Custom bundle and tiered discount builder, advanced slide-out cart drawer, and an interactive product configurator"
+                width={1400}
+                height={764}
+              />
             </div>
           </div>
         </section>
 
         <section className="scf-feature scf-feature-alt">
           <div className="wrap scf-feature-grid">
-            <div className="scf-chart-viz" data-reveal="zoom">
-              <div className="scf-chart-bars">
-                <div className="scf-chart-bar" style={{ height: '35%' }} />
-                <div className="scf-chart-bar" style={{ height: '55%' }} />
-                <div className="scf-chart-bar" style={{ height: '78%' }} />
-                <div className="scf-chart-bar" style={{ height: '95%' }} />
-              </div>
-              <div className="scf-chart-labels">
-                <span>Month 1</span>
-                <span>Month 2</span>
-                <span>Month 3</span>
-                <span>Month 4</span>
-              </div>
-              <span className="scf-chart-tag"><Wrench size={13} /> Features shipped, on demand</span>
+            <div className="scf-diagram-img" data-reveal="zoom">
+              <Image
+                src="/images/services/shopify-custom-features/ongoing-feature-sprints.jpg"
+                alt="Dedicated monthly feature sprints with code hygiene, 24-hour emergency bug fixes, and third-party app compatibility updates"
+                width={1400}
+                height={764}
+              />
             </div>
             <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="scf-feature-tag">Ongoing Feature Support</div>
