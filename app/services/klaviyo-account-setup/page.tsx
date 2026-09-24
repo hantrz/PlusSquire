@@ -4,24 +4,8 @@ import Navbar from '../../components/Navbar'
 import { Footer } from '../../components/Sections'
 import {
   CheckCircle2, RefreshCw, TrendingUp, DollarSign,
-  ShoppingBag, Star, Repeat, MessageSquare, Megaphone,
-  Settings2, ShieldCheck, Paintbrush, ListChecks,
+  Settings2, ShieldCheck, ListChecks,
 } from 'lucide-react'
-
-const foundationItems = [
-  { icon: Settings2,   label: 'Account Structure' },
-  { icon: ShieldCheck, label: 'Domain Authentication' },
-  { icon: Paintbrush,  label: 'Branding & Templates' },
-  { icon: ListChecks,  label: 'Lists & Properties' },
-]
-
-const integrationNodes = [
-  { icon: ShoppingBag,    label: 'Shopify',       x: 50, y: 8 },
-  { icon: Star,           label: 'Reviews',       x: 89, y: 35 },
-  { icon: Repeat,         label: 'Subscriptions', x: 74, y: 88 },
-  { icon: MessageSquare,  label: 'Support',       x: 26, y: 88 },
-  { icon: Megaphone,      label: 'Ads',           x: 11, y: 35 },
-]
 
 const included = [
   'Full account setup or platform migration',
@@ -71,13 +55,13 @@ export default function KlaviyoAccountSetupPage() {
           .ksp-hero-visual {
             position: relative; border-radius: 20px; overflow: hidden;
             box-shadow: 0 28px 70px rgba(15,22,35,.09);
-            max-width: 480px; width: 100%; margin: 0 auto; background: var(--soft);
+            max-width: 650px; width: 100%; margin: 0 auto; background: var(--soft);
           }
           .ksp-hero-visual img { width: 100%; height: auto; display: block; }
 
           @media(max-width:1000px){
             .ksp-hero-grid { grid-template-columns: 1fr; }
-            .ksp-hero-visual { max-width: 520px; }
+            .ksp-hero-visual { max-width: 600px; }
           }
 
           /* What You Get — highlighted through the tinted background, a
@@ -135,12 +119,10 @@ export default function KlaviyoAccountSetupPage() {
              page instead of a stack of boxed-off blocks. */
           .ksp-feature { padding: 72px 0; }
           .ksp-feature-alt { background: var(--soft); }
-          /* Panels that normally sit on soft background flip to white when
-             their section is the alternate (soft) one, so they still read
-             as a distinct panel instead of blending into the section bg */
-          .ksp-feature-alt .ksp-pipeline-viz,
-          .ksp-feature-alt .ksp-line-viz,
-          .ksp-feature-alt .ksp-layers-viz { background: #fff; }
+          /* Diagram photo panels flip to white when their section is the
+             alternate (soft) one, so they still read as a distinct panel
+             instead of blending into the section bg */
+          .ksp-feature-alt .ksp-diagram-img { background: #fff; }
           .ksp-feature-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 56px; align-items: center; }
           .ksp-feature-tag { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--g); margin-bottom: 12px; }
           .ksp-feature h2 { font-size: clamp(24px, 2.4vw, 30px); color: var(--ink); margin-bottom: 14px; }
@@ -153,97 +135,15 @@ export default function KlaviyoAccountSetupPage() {
             .ksp-feature-grid { grid-template-columns: 1fr; }
           }
 
-          /* New account foundation — layered "build it up" stack instead of
-             a plain grid, each layer narrower than the one below it */
-          .ksp-layers-viz {
-            background: var(--soft); border-radius: 16px; padding: 28px 24px;
-            display: flex; flex-direction: column-reverse; gap: 12px; align-items: center;
+          /* Diagram photos — the feature-section visuals are now real
+             infographic images rather than hand-built CSS/SVG diagrams.
+             One shared frame keeps them consistent: rounded corners, a
+             soft shadow, and a tinted loading background. */
+          .ksp-diagram-img {
+            border-radius: 16px; overflow: hidden; background: var(--soft);
+            box-shadow: 0 20px 50px rgba(15,22,35,.08);
           }
-          .ksp-layer {
-            width: 100%; background: #fff; border: 1px solid var(--border); border-radius: 12px;
-            padding: 16px 20px; display: flex; align-items: center; gap: 14px;
-            transition: transform .25s ease, box-shadow .25s ease;
-          }
-          .ksp-layer:hover { transform: translateX(4px); box-shadow: 0 8px 20px rgba(15,22,35,.06); }
-          .ksp-layer:nth-child(1) { max-width: 340px; }
-          .ksp-layer:nth-child(2) { max-width: 296px; }
-          .ksp-layer:nth-child(3) { max-width: 252px; }
-          .ksp-layer:nth-child(4) { max-width: 208px; border-color: var(--gm); background: var(--gl); }
-          .ksp-layer-ico {
-            width: 38px; height: 38px; border-radius: 10px; background: var(--gl); color: var(--g);
-            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-          }
-          .ksp-layer:nth-child(4) .ksp-layer-ico { background: #fff; }
-          .ksp-layer span { font-size: 13px; font-weight: 700; color: var(--ink2); }
-
-          /* Migration diagram — a filter/pipeline visual: contacts flow in,
-             the funnel filters dead weight out, a clean set lands in Klaviyo */
-          .ksp-pipeline-viz {
-            background: var(--soft); border-radius: 16px; padding: 32px 20px;
-            display: flex; align-items: center; justify-content: center; gap: 8px;
-          }
-          .ksp-pipe-end {
-            flex-shrink: 0; min-width: 92px; background: #fff; border: 1px solid var(--border);
-            border-radius: 12px; padding: 18px 14px; text-align: center;
-          }
-          .ksp-pipe-end.to { border-color: var(--gm); background: var(--gl); }
-          .ksp-pipe-end span { display: block; font-size: 11px; font-weight: 700; color: var(--ink4); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 8px; }
-          .ksp-pipe-end strong { font-size: 13.5px; color: var(--ink); }
-          .ksp-pipe-track { flex: 1; min-width: 32px; display: flex; align-items: center; justify-content: center; gap: 6px; }
-          .ksp-pipe-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--g); flex-shrink: 0; }
-          .ksp-pipe-dot.faded { background: var(--border); }
-          .ksp-funnel { flex-shrink: 0; color: var(--g); }
-          @media(max-width:480px){ .ksp-pipe-end { min-width: 76px; padding: 14px 8px; } }
-
-          /* Integrations — radial hub-spoke: everything feeding into one
-             central Klaviyo hub */
-          .ksp-hub-viz { position: relative; width: 100%; max-width: 340px; aspect-ratio: 1/1; margin: 0 auto; }
-          .ksp-hub-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
-          .ksp-hub-center {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-            width: 34%; aspect-ratio: 1/1; border-radius: 50%;
-            background: linear-gradient(135deg, #1ea672, #17845b); color: #fff;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 12.5px; font-weight: 800; letter-spacing: .02em; text-align: center;
-            box-shadow: 0 16px 40px rgba(30,166,114,.3); z-index: 2; padding: 6px;
-          }
-          .ksp-hub-node {
-            position: absolute; transform: translate(-50%,-50%);
-            width: 30%; display: flex; flex-direction: column; align-items: center; gap: 6px; z-index: 2;
-          }
-          .ksp-hub-node-ico {
-            width: 76px; height: 76px; border-radius: 18px; background: #fff; border: 1px solid var(--border);
-            color: var(--g); display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 6px 16px rgba(15,22,35,.06);
-          }
-          .ksp-hub-node span { font-size: 10.5px; font-weight: 700; color: var(--ink3); }
-
-          /* Warm-up — an ascending line chart instead of bars */
-          .ksp-line-viz { background: var(--soft); border-radius: 16px; padding: 24px 20px 20px; }
-          .ksp-line-viz svg { display: block; width: 100%; height: auto; margin-bottom: 10px; }
-          .ksp-chart-labels { display: flex; gap: 10px; }
-          .ksp-chart-labels span { flex: 1; text-align: center; font-size: 10.5px; color: var(--ink4); font-weight: 600; }
-          .ksp-chart-tag {
-            display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;
-            background: var(--gl); color: var(--gd); font-size: 12px; font-weight: 700;
-            padding: 5px 12px; border-radius: 20px;
-          }
-
-          /* Cost minimization — horizontal comparison bars instead of two
-             stacked cards, so the "less is more" shrink actually reads */
-          .ksp-barcomp-viz {
-            background: #fff; border: 1px solid var(--border); border-radius: 16px;
-            padding: 28px 26px; display: flex; flex-direction: column; gap: 24px;
-          }
-          .ksp-barcomp-row { display: flex; flex-direction: column; gap: 9px; }
-          .ksp-barcomp-label { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
-          .ksp-barcomp-label span { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--ink4); }
-          .ksp-barcomp-label strong { font-size: 15px; color: var(--ink); }
-          .ksp-barcomp-track { height: 11px; border-radius: 6px; background: var(--soft); overflow: hidden; }
-          .ksp-barcomp-fill { height: 100%; border-radius: 6px; }
-          .ksp-barcomp-fill.before { background: var(--ink4); }
-          .ksp-barcomp-fill.after { background: linear-gradient(90deg, #1ea672, #17845b); }
-          .ksp-barcomp-cost { font-size: 12.5px; color: var(--ink4); text-align: right; }
+          .ksp-diagram-img img { width: 100%; height: auto; display: block; }
 
           /* Included */
           .ksp-included { background: var(--soft); padding: 72px 0; }
@@ -291,14 +191,11 @@ export default function KlaviyoAccountSetupPage() {
             </div>
 
             <div className="ksp-hero-visual" data-reveal="right" style={{ transitionDelay: '150ms' }}>
-              {/* Replace with a relevant photo/screenshot: drop the file at
-                  public/images/services/klaviyo-account-setup.jpg (or update
-                  the src below to whatever path/filename you use). */}
               <Image
-                src="/images/services/klaviyo-account-setup.jpg"
-                alt="Klaviyo account setup"
-                width={480}
-                height={400}
+                src="/images/services/klaviyo-account-setup/hero-dashboard.jpg"
+                alt="Klaviyo account dashboard: verified sending domain, Shopify synced, 99.4% deliverability"
+                width={1400}
+                height={764}
               />
             </div>
           </div>
@@ -333,32 +230,26 @@ export default function KlaviyoAccountSetupPage() {
                 <li><Settings2 size={17} /> Branded templates and sign-up forms ready before your first campaign goes out</li>
               </ul>
             </div>
-            <div className="ksp-layers-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              {foundationItems.map((f) => (
-                <div key={f.label} className="ksp-layer">
-                  <div className="ksp-layer-ico"><f.icon size={17} strokeWidth={1.75} /></div>
-                  <span>{f.label}</span>
-                </div>
-              ))}
+            <div className="ksp-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/klaviyo-account-setup/foundation-setup.jpg"
+                alt="Unified technical setup: account structure, domain authentication, branding & templates, lists & properties"
+                width={1400}
+                height={764}
+              />
             </div>
           </div>
         </section>
 
         <section className="ksp-feature ksp-feature-alt">
           <div className="wrap ksp-feature-grid">
-            <div className="ksp-pipeline-viz" data-reveal="zoom">
-              <div className="ksp-pipe-end"><span>From</span><strong>Old Platform</strong></div>
-              <div className="ksp-pipe-track">
-                <div className="ksp-pipe-dot" /><div className="ksp-pipe-dot faded" /><div className="ksp-pipe-dot" /><div className="ksp-pipe-dot faded" /><div className="ksp-pipe-dot" />
-              </div>
-              <svg className="ksp-funnel" width="20" height="24" viewBox="0 0 20 24" fill="none">
-                <path d="M0 0H20L13 12V22L7 24V12L0 0Z" fill="currentColor" opacity="0.15" />
-                <path d="M0 0H20L13 12V22L7 24V12L0 0Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-              </svg>
-              <div className="ksp-pipe-track">
-                <div className="ksp-pipe-dot" /><div className="ksp-pipe-dot" /><div className="ksp-pipe-dot" />
-              </div>
-              <div className="ksp-pipe-end to"><span>To</span><strong>Klaviyo</strong></div>
+            <div className="ksp-diagram-img" data-reveal="zoom">
+              <Image
+                src="/images/services/klaviyo-account-setup/list-migration.jpg"
+                alt="List migration from Mailchimp, Omnisend, and ActiveCampaign into Klaviyo with zero data loss"
+                width={1400}
+                height={764}
+              />
             </div>
             <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="ksp-feature-tag">List Migration</div>
@@ -385,43 +276,26 @@ export default function KlaviyoAccountSetupPage() {
                 <li><CheckCircle2 size={17} /> Richer segmentation from day one, because the data is actually there</li>
               </ul>
             </div>
-            <div className="ksp-hub-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              <svg className="ksp-hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
-                {integrationNodes.map((n) => (
-                  <line key={n.label} x1="50" y1="50" x2={n.x} y2={n.y} stroke="var(--border)" strokeWidth="1" />
-                ))}
-              </svg>
-              <div className="ksp-hub-center">Klaviyo</div>
-              {integrationNodes.map((n) => (
-                <div key={n.label} className="ksp-hub-node" style={{ left: `${n.x}%`, top: `${n.y}%` }}>
-                  <div className="ksp-hub-node-ico"><n.icon size={36} /></div>
-                  <span>{n.label}</span>
-                </div>
-              ))}
+            <div className="ksp-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/klaviyo-account-setup/integrations-hub.jpg"
+                alt="Klaviyo connected to Shopify, ads, reviews, subscriptions, and support tools"
+                width={1400}
+                height={781}
+              />
             </div>
           </div>
         </section>
 
         <section className="ksp-feature ksp-feature-alt">
           <div className="wrap ksp-feature-grid">
-            <div className="ksp-line-viz" data-reveal="zoom">
-              <svg viewBox="0 0 240 100" preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="kspLineFill" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#1ea672" stopOpacity="0.35" />
-                    <stop offset="100%" stopColor="#1ea672" stopOpacity="0" />
-                  </linearGradient>
-                </defs>
-                <path d="M10 82 L52 68 L94 52 L136 36 L178 18 L230 4 L230 100 L10 100 Z" fill="url(#kspLineFill)" />
-                <polyline points="10,82 52,68 94,52 136,36 178,18 230,4" fill="none" stroke="#1ea672" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                {[[10, 82], [52, 68], [94, 52], [136, 36], [178, 18], [230, 4]].map(([x, y], i) => (
-                  <circle key={i} cx={x} cy={y} r="4" fill="#fff" stroke="#1ea672" strokeWidth="2.5" />
-                ))}
-              </svg>
-              <div className="ksp-chart-labels">
-                <span>Wk 1</span><span>Wk 2</span><span>Wk 3</span><span>Wk 4</span><span>Wk 5</span><span>Wk 6</span>
-              </div>
-              <div className="ksp-chart-tag"><TrendingUp size={14} /> Deliverability Protected</div>
+            <div className="ksp-diagram-img" data-reveal="zoom">
+              <Image
+                src="/images/services/klaviyo-account-setup/deliverability-rampup.jpg"
+                alt="Six-week email sending ramp-up timeline ending in a protected safe send zone"
+                width={1400}
+                height={764}
+              />
             </div>
             <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="ksp-feature-tag">Account Warm-Up</div>
@@ -448,17 +322,13 @@ export default function KlaviyoAccountSetupPage() {
                 <li><DollarSign size={17} /> Typical savings land in the thousands per year, not just a one-time cleanup</li>
               </ul>
             </div>
-            <div className="ksp-barcomp-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              <div className="ksp-barcomp-row">
-                <div className="ksp-barcomp-label"><span>Before</span><strong>85,000 profiles</strong></div>
-                <div className="ksp-barcomp-track"><div className="ksp-barcomp-fill before" style={{ width: '100%' }} /></div>
-                <div className="ksp-barcomp-cost">$720/mo</div>
-              </div>
-              <div className="ksp-barcomp-row">
-                <div className="ksp-barcomp-label"><span>After</span><strong>52,000 profiles</strong></div>
-                <div className="ksp-barcomp-track"><div className="ksp-barcomp-fill after" style={{ width: '61%' }} /></div>
-                <div className="ksp-barcomp-cost">$395/mo</div>
-              </div>
+            <div className="ksp-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/klaviyo-account-setup/cost-minimization.jpg"
+                alt="Cost minimization: cutting unengaged profiles from 85,000 to 52,000 saves $3,900 annually"
+                width={1400}
+                height={764}
+              />
             </div>
           </div>
         </section>
