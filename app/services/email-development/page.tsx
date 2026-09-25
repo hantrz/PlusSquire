@@ -4,23 +4,8 @@ import Navbar from '../../components/Navbar'
 import { Footer } from '../../components/Sections'
 import {
   CheckCircle2, Mail, Code2, Moon, Eye, Zap, ShieldCheck,
-  ShoppingBag, Clock, MapPin, Star, Gauge,
+  ShoppingBag, Clock, MapPin, Gauge,
 } from 'lucide-react'
-
-const edvFoundationItems = [
-  { icon: Mail, label: 'Gmail' },
-  { icon: Mail, label: 'Outlook' },
-  { icon: Mail, label: 'Apple Mail' },
-  { icon: Mail, label: 'Yahoo Mail' },
-]
-
-const edvHubNodes = [
-  { icon: ShoppingBag, label: 'Product Recs',  x: 50, y: 8 },
-  { icon: Clock,       label: 'Countdown',     x: 89, y: 35 },
-  { icon: MapPin,      label: 'Location',      x: 74, y: 88 },
-  { icon: Star,        label: 'Loyalty Tier',  x: 26, y: 88 },
-  { icon: Zap,         label: 'Behavior',      x: 11, y: 35 },
-]
 
 const edvIncluded = [
   'Hand-coded, table-based HTML built for maximum client support',
@@ -70,13 +55,13 @@ export default function EmailDevelopmentPage() {
           .edv-hero-visual {
             position: relative; border-radius: 20px; overflow: hidden;
             box-shadow: 0 28px 70px rgba(15,22,35,.09);
-            max-width: 480px; width: 100%; margin: 0 auto; background: var(--soft);
+            max-width: 650px; width: 100%; margin: 0 auto; background: var(--soft);
           }
           .edv-hero-visual img { width: 100%; height: auto; display: block; }
 
           @media(max-width:1000px){
             .edv-hero-grid { grid-template-columns: 1fr; }
-            .edv-hero-visual { max-width: 520px; }
+            .edv-hero-visual { max-width: 600px; }
           }
 
           /* What You Get — highlighted through the tinted background, a
@@ -129,9 +114,7 @@ export default function EmailDevelopmentPage() {
 
           .edv-feature { padding: 72px 0; }
           .edv-feature-alt { background: var(--soft); }
-          .edv-feature-alt .edv-migrate-viz,
-          .edv-feature-alt .edv-cost-viz,
-          .edv-feature-alt .edv-foundation-viz { background: #fff; }
+          .edv-feature-alt .edv-diagram-img { background: #fff; }
           .edv-feature-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 56px; align-items: center; }
           .edv-feature-tag { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--g); margin-bottom: 12px; }
           .edv-feature h2 { font-size: clamp(24px, 2.4vw, 30px); color: var(--ink); margin-bottom: 14px; }
@@ -144,64 +127,11 @@ export default function EmailDevelopmentPage() {
             .edv-feature-grid { grid-template-columns: 1fr; }
           }
 
-          .edv-foundation-viz {
-            background: var(--soft); border-radius: 16px; padding: 24px;
-            display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px;
+          .edv-diagram-img {
+            border-radius: 16px; overflow: hidden; background: var(--soft);
+            box-shadow: 0 20px 50px rgba(15,22,35,.08);
           }
-          .edv-foundation-card {
-            background: #fff; border: 1px solid var(--border); border-radius: 12px;
-            padding: 22px 14px; text-align: center;
-          }
-          .edv-foundation-ico {
-            width: 40px; height: 40px; border-radius: 10px; background: var(--gl); color: var(--g);
-            display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;
-          }
-          .edv-foundation-card span { font-size: 12.5px; font-weight: 700; color: var(--ink2); line-height: 1.3; }
-
-          .edv-migrate-viz {
-            background: var(--soft); border-radius: 16px; padding: 32px 24px;
-            display: flex; align-items: center; justify-content: center; gap: 14px;
-          }
-          .edv-migrate-box {
-            flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 12px;
-            padding: 22px 16px; text-align: center;
-          }
-          .edv-migrate-box span { display: block; font-size: 12px; font-weight: 700; color: var(--ink4); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 10px; }
-          .edv-migrate-box strong { font-size: 15px; color: var(--ink); }
-          .edv-migrate-arrow { color: var(--g); flex-shrink: 0; }
-
-          .edv-hub-viz { position: relative; width: 100%; max-width: 340px; aspect-ratio: 1/1; margin: 0 auto; }
-          .edv-hub-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
-          .edv-hub-center {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-            width: 34%; aspect-ratio: 1/1; border-radius: 50%;
-            background: linear-gradient(135deg, #1ea672, #17845b); color: #fff;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 12.5px; font-weight: 800; letter-spacing: .02em; text-align: center;
-            box-shadow: 0 16px 40px rgba(30,166,114,.3); z-index: 2; padding: 6px;
-          }
-          .edv-hub-node {
-            position: absolute; transform: translate(-50%,-50%);
-            width: 30%; display: flex; flex-direction: column; align-items: center; gap: 6px; z-index: 2;
-          }
-          .edv-hub-node-ico {
-            width: 38px; height: 38px; border-radius: 10px; background: #fff; border: 1px solid var(--border);
-            color: var(--g); display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 6px 16px rgba(15,22,35,.06);
-          }
-          .edv-hub-node span { font-size: 10.5px; font-weight: 700; color: var(--ink3); }
-
-          .edv-cost-viz { display: flex; align-items: center; gap: 14px; }
-          .edv-cost-card {
-            flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 14px;
-            padding: 22px 18px; text-align: center;
-          }
-          .edv-cost-card.after { border-color: var(--gm); background: var(--gl); }
-          .edv-cost-card span { display: block; font-size: 11.5px; font-weight: 700; color: var(--ink4); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 10px; }
-          .edv-cost-num { font-size: 22px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
-          .edv-cost-card.after .edv-cost-num { color: var(--gd); }
-          .edv-cost-sub { font-size: 12.5px; color: var(--ink4); }
-          .edv-cost-arrow { color: var(--g); flex-shrink: 0; }
+          .edv-diagram-img img { width: 100%; height: auto; display: block; }
 
           .edv-included { background: var(--soft); padding: 72px 0; }
           .edv-included-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px 40px; max-width: 880px; margin: 0 auto; }
@@ -247,14 +177,11 @@ export default function EmailDevelopmentPage() {
             </div>
 
             <div className="edv-hero-visual" data-reveal="right" style={{ transitionDelay: '150ms' }}>
-              {/* Replace with a relevant photo/screenshot: drop the file at
-                  public/images/services/email-development.jpg (or update
-                  the src below to whatever path/filename you use). */}
               <Image
-                src="/images/services/email-development.jpg"
-                alt="Email development"
-                width={480}
-                height={400}
+                src="/images/services/email-development/hero-code-renders.jpg"
+                alt="Hand-coded email rendering flawlessly across laptop, phone and tablet with 100% inbox placement and zero layout shifts"
+                width={1400}
+                height={764}
               />
             </div>
           </div>
@@ -289,31 +216,26 @@ export default function EmailDevelopmentPage() {
                 <li><Moon size={17} /> Dark-mode colors tested so nothing flips wrong</li>
               </ul>
             </div>
-            <div className="edv-foundation-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              {edvFoundationItems.map((item, i) => (
-                <div key={item.label + i} className="edv-foundation-card">
-                  <div className="edv-foundation-ico"><item.icon size={20} /></div>
-                  <span>{item.label}</span>
-                </div>
-              ))}
+            <div className="edv-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/email-development/cross-client-compatibility.jpg"
+                alt="Email template certified Gmail compatible, Outlook tested for 2016-365, Apple Mail flawless, and Yahoo verified with VML and ghost tables"
+                width={1400}
+                height={764}
+              />
             </div>
           </div>
         </section>
 
         <section className="edv-feature edv-feature-alt">
           <div className="wrap edv-feature-grid">
-            <div className="edv-migrate-viz" data-reveal="zoom">
-              <div className="edv-migrate-box">
-                <span>Before</span>
-                <strong>Bloated Template Code</strong>
-              </div>
-              <div className="edv-migrate-arrow">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
-              </div>
-              <div className="edv-migrate-box">
-                <span>After</span>
-                <strong>Lean, Accessible Code</strong>
-              </div>
+            <div className="edv-diagram-img" data-reveal="zoom">
+              <Image
+                src="/images/services/email-development/accessible-fast-code.jpg"
+                alt="Bloated code over 102KB and clipped by Gmail compared against lean HTML under 75KB that is screen-reader accessible and blazing fast to load"
+                width={1400}
+                height={764}
+              />
             </div>
             <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="edv-feature-tag">Accessible & Fast</div>
@@ -340,39 +262,26 @@ export default function EmailDevelopmentPage() {
                 <li><MapPin size={17} /> Location and loyalty-aware content blocks</li>
               </ul>
             </div>
-            <div className="edv-hub-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              <svg className="edv-hub-lines" viewBox="0 0 100 100">
-                {edvHubNodes.map((node) => (
-                  <line key={node.label} x1="50" y1="50" x2={node.x} y2={node.y} stroke="var(--border)" strokeWidth="1" />
-                ))}
-              </svg>
-              <div className="edv-hub-center">Dynamic<br />Content</div>
-              {edvHubNodes.map((node) => (
-                <div key={node.label} className="edv-hub-node" style={{ left: `${node.x}%`, top: `${node.y}%` }}>
-                  <div className="edv-hub-node-ico"><node.icon size={17} /></div>
-                  <span>{node.label}</span>
-                </div>
-              ))}
+            <div className="edv-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/email-development/dynamic-content-hub.jpg"
+                alt="Dynamic Liquid logic powering first-name personalization, VIP tiered discounts, abandoned cart items, and location-based shipping notices"
+                width={1400}
+                height={764}
+              />
             </div>
           </div>
         </section>
 
         <section className="edv-feature edv-feature-alt">
           <div className="wrap edv-feature-grid">
-            <div className="edv-cost-viz" data-reveal="zoom">
-              <div className="edv-cost-card">
-                <span>Before QA</span>
-                <div className="edv-cost-num">Broken</div>
-                <div className="edv-cost-sub">in Outlook & older clients</div>
-              </div>
-              <div className="edv-cost-arrow">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
-              </div>
-              <div className="edv-cost-card after">
-                <span>After QA</span>
-                <div className="edv-cost-num">99.7%</div>
-                <div className="edv-cost-sub">render accuracy across clients</div>
-              </div>
+            <div className="edv-diagram-img" data-reveal="zoom">
+              <Image
+                src="/images/services/email-development/qa-testing-results.jpg"
+                alt="99.7% flawless client compatibility score tested across Gmail, Outlook, Apple Mail, Yahoo and AOL with zero broken tables and dark mode certified"
+                width={1400}
+                height={764}
+              />
             </div>
             <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="edv-feature-tag">QA Testing</div>
