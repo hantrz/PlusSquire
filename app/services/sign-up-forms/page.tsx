@@ -180,7 +180,7 @@ export default function SignUpFormsPage() {
             <div className="suf-hero-visual" data-reveal="right" style={{ transitionDelay: '150ms' }}>
               <Image
                 src="/images/services/sign-up-forms/hero-popup-signups.jpg"
-                alt="Sign-up pop-up on desktop and mobile offering 15% off a first order, with exit-triggered capture and +28% subscriber growth"
+                alt="Sign-up pop-up on desktop and mobile offering 15% off, with smart exit-intent targeting and +28% list growth"
                 width={1400}
                 height={781}
                 priority

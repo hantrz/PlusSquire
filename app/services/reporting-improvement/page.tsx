@@ -5,31 +5,8 @@ import { Footer } from '../../components/Sections'
 import {
   CheckCircle2, LineChart, TrendingUp, ClipboardList, Percent,
   SearchCheck, ShieldCheck, MailCheck, ListChecks, RefreshCw,
-  AlertTriangle, Workflow, DollarSign, Megaphone, Users, ArrowRight,
+  Workflow, DollarSign,
 } from 'lucide-react'
-
-const revenueBars = [
-  { label: 'Apr', h: 34 },
-  { label: 'May', h: 44 },
-  { label: 'Jun', h: 56 },
-  { label: 'Jul', h: 70 },
-  { label: 'Aug', h: 90 },
-]
-
-const monitorItems = [
-  { icon: MailCheck,     label: 'Inbox Placement' },
-  { icon: ShieldCheck,   label: 'Sender Score' },
-  { icon: RefreshCw,     label: 'Bounce Rate' },
-  { icon: AlertTriangle, label: 'Spam Complaints' },
-]
-
-const optimizeHubNodes = [
-  { icon: Workflow,   label: 'Flows',     x: 50, y: 8 },
-  { icon: Megaphone,  label: 'Campaigns', x: 89, y: 35 },
-  { icon: Users,      label: 'Segments',  x: 74, y: 88 },
-  { icon: ListChecks, label: 'Forms',     x: 26, y: 88 },
-  { icon: SearchCheck,label: 'Templates', x: 11, y: 35 },
-]
 
 const included = [
   'Monthly performance report & walkthrough call',
@@ -79,13 +56,13 @@ export default function ReportingImprovementPage() {
           .rpi-hero-visual {
             position: relative; border-radius: 20px; overflow: hidden;
             box-shadow: 0 28px 70px rgba(15,22,35,.09);
-            max-width: 480px; width: 100%; margin: 0 auto; background: var(--soft);
+            max-width: 650px; width: 100%; margin: 0 auto; background: var(--soft);
           }
           .rpi-hero-visual img { width: 100%; height: auto; display: block; }
 
           @media(max-width:1000px){
             .rpi-hero-grid { grid-template-columns: 1fr; }
-            .rpi-hero-visual { max-width: 520px; }
+            .rpi-hero-visual { max-width: 600px; }
           }
 
           /* What You Get — highlighted through the tinted background, a
@@ -138,9 +115,7 @@ export default function ReportingImprovementPage() {
 
           .rpi-feature { padding: 72px 0; }
           .rpi-feature-alt { background: var(--soft); }
-          .rpi-feature-alt .rpi-chart-viz,
-          .rpi-feature-alt .rpi-foundation-viz,
-          .rpi-feature-alt .rpi-cost-viz .rpi-cost-card { background: #fff; }
+          .rpi-feature-alt .rpi-diagram-img { background: #fff; }
           .rpi-feature-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 56px; align-items: center; }
           .rpi-feature-tag { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--g); margin-bottom: 12px; }
           .rpi-feature h2 { font-size: clamp(24px, 2.4vw, 30px); color: var(--ink); margin-bottom: 14px; }
@@ -153,63 +128,11 @@ export default function ReportingImprovementPage() {
             .rpi-feature-grid { grid-template-columns: 1fr; }
           }
 
-          .rpi-chart-viz { background: var(--soft); border-radius: 16px; padding: 32px 24px 20px; }
-          .rpi-chart-bars { display: flex; align-items: flex-end; gap: 10px; height: 140px; margin-bottom: 12px; }
-          .rpi-chart-bar { flex: 1; background: linear-gradient(180deg, #1ea672, #17845b); border-radius: 6px 6px 0 0; }
-          .rpi-chart-labels { display: flex; gap: 10px; }
-          .rpi-chart-labels span { flex: 1; text-align: center; font-size: 10.5px; color: var(--ink4); font-weight: 600; }
-          .rpi-chart-tag {
-            display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;
-            background: var(--gl); color: var(--gd); font-size: 12px; font-weight: 700;
-            padding: 5px 12px; border-radius: 20px;
+          .rpi-diagram-img {
+            border-radius: 16px; overflow: hidden; background: var(--soft);
+            box-shadow: 0 20px 50px rgba(15,22,35,.08);
           }
-
-          .rpi-cost-viz { display: flex; align-items: center; gap: 14px; }
-          .rpi-cost-card {
-            flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 14px;
-            padding: 22px 18px; text-align: center;
-          }
-          .rpi-cost-card.after { border-color: var(--gm); background: var(--gl); }
-          .rpi-cost-card span { display: block; font-size: 11.5px; font-weight: 700; color: var(--ink4); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 10px; }
-          .rpi-cost-num { font-size: 26px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
-          .rpi-cost-card.after .rpi-cost-num { color: var(--gd); }
-          .rpi-cost-sub { font-size: 12.5px; color: var(--ink4); }
-          .rpi-cost-arrow { color: var(--g); flex-shrink: 0; }
-
-          .rpi-foundation-viz {
-            background: var(--soft); border-radius: 16px; padding: 24px;
-            display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px;
-          }
-          .rpi-foundation-card {
-            background: #fff; border: 1px solid var(--border); border-radius: 12px;
-            padding: 22px 14px; text-align: center;
-          }
-          .rpi-foundation-ico {
-            width: 40px; height: 40px; border-radius: 10px; background: var(--gl); color: var(--g);
-            display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;
-          }
-          .rpi-foundation-card span { font-size: 12.5px; font-weight: 700; color: var(--ink2); line-height: 1.3; }
-
-          .rpi-hub-viz { position: relative; width: 100%; max-width: 340px; aspect-ratio: 1/1; margin: 0 auto; }
-          .rpi-hub-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
-          .rpi-hub-center {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-            width: 34%; aspect-ratio: 1/1; border-radius: 50%;
-            background: linear-gradient(135deg, #1ea672, #17845b); color: #fff;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 12.5px; font-weight: 800; letter-spacing: .02em; text-align: center;
-            box-shadow: 0 16px 40px rgba(30,166,114,.3); z-index: 2; padding: 6px;
-          }
-          .rpi-hub-node {
-            position: absolute; transform: translate(-50%,-50%);
-            width: 30%; display: flex; flex-direction: column; align-items: center; gap: 6px; z-index: 2;
-          }
-          .rpi-hub-node-ico {
-            width: 38px; height: 38px; border-radius: 10px; background: #fff; border: 1px solid var(--border);
-            color: var(--g); display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 6px 16px rgba(15,22,35,.06);
-          }
-          .rpi-hub-node span { font-size: 10.5px; font-weight: 700; color: var(--ink3); }
+          .rpi-diagram-img img { width: 100%; height: auto; display: block; }
 
           .rpi-included { background: var(--soft); padding: 72px 0; }
           .rpi-included-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px 40px; max-width: 880px; margin: 0 auto; }
@@ -255,14 +178,12 @@ export default function ReportingImprovementPage() {
             </div>
 
             <div className="rpi-hero-visual" data-reveal="right" style={{ transitionDelay: '150ms' }}>
-              {/* Replace with a relevant photo/screenshot: drop the file at
-                  public/images/services/reporting-improvement.jpg (or update
-                  the src below to whatever path/filename you use). */}
               <Image
-                src="/images/services/reporting-improvement.jpg"
-                alt="Reporting & improvement"
-                width={480}
-                height={400}
+                src="/images/services/reporting-improvement/hero-reporting-dashboard.jpg"
+                alt="Executive monthly performance summary with revenue chart, +34% attributed revenue, 98.2% deliverability KPI, and an action plan roadmap"
+                width={1400}
+                height={764}
+                priority
               />
             </div>
           </div>
@@ -297,34 +218,26 @@ export default function ReportingImprovementPage() {
                 <li><ClipboardList size={17} /> Key metrics translated into plain language</li>
               </ul>
             </div>
-            <div className="rpi-chart-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              <div className="rpi-chart-bars">
-                {revenueBars.map((b) => (
-                  <div key={b.label} className="rpi-chart-bar" style={{ height: `${b.h}%` }} />
-                ))}
-              </div>
-              <div className="rpi-chart-labels">
-                {revenueBars.map((b) => <span key={b.label}>{b.label}</span>)}
-              </div>
-              <span className="rpi-chart-tag"><TrendingUp size={13} /> Revenue trending up month over month</span>
+            <div className="rpi-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/reporting-improvement/monthly-performance-reporting.jpg"
+                alt="Monthly performance report bar chart of rising revenue, with flow versus campaign split, list health, and revenue per recipient metrics"
+                width={1400}
+                height={764}
+              />
             </div>
           </div>
         </section>
 
         <section className="rpi-feature rpi-feature-alt">
           <div className="wrap rpi-feature-grid">
-            <div className="rpi-cost-viz" data-reveal="zoom" style={{ order: 1 }}>
-              <div className="rpi-cost-card">
-                <span>Before Testing</span>
-                <div className="rpi-cost-num">28%</div>
-                <div className="rpi-cost-sub">open rate</div>
-              </div>
-              <ArrowRight className="rpi-cost-arrow" size={22} />
-              <div className="rpi-cost-card after">
-                <span>After Testing</span>
-                <div className="rpi-cost-num">41%</div>
-                <div className="rpi-cost-sub">open rate</div>
-              </div>
+            <div className="rpi-diagram-img" data-reveal="zoom" style={{ order: 1 }}>
+              <Image
+                src="/images/services/reporting-improvement/ab-testing-program.jpg"
+                alt="A/B test comparing a control variant at 28% open rate with a winning variant at 41% open rate, a 46% lift"
+                width={1400}
+                height={764}
+              />
             </div>
             <div data-reveal="up" style={{ order: 2, transitionDelay: '120ms' }}>
               <div className="rpi-feature-tag">A/B Testing Program</div>
@@ -351,32 +264,26 @@ export default function ReportingImprovementPage() {
                 <li><ListChecks size={17} /> List hygiene maintained on an ongoing basis</li>
               </ul>
             </div>
-            <div className="rpi-foundation-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              {monitorItems.map((item) => (
-                <div key={item.label} className="rpi-foundation-card">
-                  <div className="rpi-foundation-ico"><item.icon size={20} /></div>
-                  <span>{item.label}</span>
-                </div>
-              ))}
+            <div className="rpi-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/reporting-improvement/deliverability-monitoring.jpg"
+                alt="Deliverability monitoring dashboard showing spam rate, bounce rate, inbox placement, domain health, and SPF and DKIM passing"
+                width={1400}
+                height={764}
+              />
             </div>
           </div>
         </section>
 
         <section className="rpi-feature rpi-feature-alt">
           <div className="wrap rpi-feature-grid">
-            <div className="rpi-hub-viz" data-reveal="zoom" style={{ order: 1 }}>
-              <svg className="rpi-hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
-                {optimizeHubNodes.map((n) => (
-                  <line key={n.label} x1="50" y1="50" x2={n.x} y2={n.y} stroke="var(--border)" strokeWidth="1" />
-                ))}
-              </svg>
-              <div className="rpi-hub-center">Optimize</div>
-              {optimizeHubNodes.map((n) => (
-                <div key={n.label} className="rpi-hub-node" style={{ left: `${n.x}%`, top: `${n.y}%` }}>
-                  <div className="rpi-hub-node-ico"><n.icon size={18} /></div>
-                  <span>{n.label}</span>
-                </div>
-              ))}
+            <div className="rpi-diagram-img" data-reveal="zoom" style={{ order: 1 }}>
+              <Image
+                src="/images/services/reporting-improvement/continuous-flow-optimization.jpg"
+                alt="Continuous optimization loop: audit and review, hypothesis, test and execute, then scale the winner"
+                width={1400}
+                height={764}
+              />
             </div>
             <div data-reveal="up" style={{ order: 2, transitionDelay: '120ms' }}>
               <div className="rpi-feature-tag">Continuous Flow Optimization</div>

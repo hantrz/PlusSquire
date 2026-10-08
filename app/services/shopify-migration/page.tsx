@@ -7,21 +7,6 @@ import {
   Star, Link2, Search, ShieldCheck, Layout, ArrowRightLeft, Wrench,
 } from 'lucide-react'
 
-const migrationNodes = [
-  { icon: PackageCheck, label: 'Products',   x: 50, y: 8 },
-  { icon: Users,        label: 'Customers',  x: 89, y: 35 },
-  { icon: ShoppingBag,  label: 'Orders',     x: 74, y: 88 },
-  { icon: Star,         label: 'Reviews',    x: 26, y: 88 },
-  { icon: Search,       label: 'SEO URLs',   x: 11, y: 35 },
-]
-
-const rebuildGrid = [
-  { icon: Layout,      label: 'Homepage' },
-  { icon: ShoppingBag, label: 'Product Pages' },
-  { icon: Link2,       label: 'Navigation' },
-  { icon: ShieldCheck, label: 'Checkout' },
-]
-
 const included = [
   'Full product, variant & collection migration',
   'Customer account & order history migration',
@@ -70,13 +55,13 @@ export default function ShopifyMigrationPage() {
           .smg-hero-visual {
             position: relative; border-radius: 20px; overflow: hidden;
             box-shadow: 0 28px 70px rgba(15,22,35,.09);
-            max-width: 480px; width: 100%; margin: 0 auto; background: var(--soft);
+            max-width: 650px; width: 100%; margin: 0 auto; background: var(--soft);
           }
           .smg-hero-visual img { width: 100%; height: auto; display: block; }
 
           @media(max-width:1000px){
             .smg-hero-grid { grid-template-columns: 1fr; }
-            .smg-hero-visual { max-width: 520px; }
+            .smg-hero-visual { max-width: 600px; }
           }
 
           /* What You Get — highlighted through the tinted background, a
@@ -129,9 +114,7 @@ export default function ShopifyMigrationPage() {
 
           .smg-feature { padding: 72px 0; }
           .smg-feature-alt { background: var(--soft); }
-          .smg-feature-alt .smg-migrate-viz,
-          .smg-feature-alt .smg-chart-viz,
-          .smg-feature-alt .smg-foundation-viz { background: #fff; }
+          .smg-feature-alt .smg-diagram-img { background: #fff; }
           .smg-feature-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 56px; align-items: center; }
           .smg-feature-tag { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--g); margin-bottom: 12px; }
           .smg-feature h2 { font-size: clamp(24px, 2.4vw, 30px); color: var(--ink); margin-bottom: 14px; }
@@ -144,67 +127,11 @@ export default function ShopifyMigrationPage() {
             .smg-feature-grid { grid-template-columns: 1fr; }
           }
 
-          /* Old platform -> Shopify flow diagram */
-          .smg-migrate-viz {
-            background: var(--soft); border-radius: 16px; padding: 32px 24px;
-            display: flex; align-items: center; justify-content: center; gap: 14px;
+          .smg-diagram-img {
+            border-radius: 16px; overflow: hidden; background: var(--soft);
+            box-shadow: 0 20px 50px rgba(15,22,35,.08);
           }
-          .smg-migrate-box {
-            flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 12px;
-            padding: 22px 16px; text-align: center;
-          }
-          .smg-migrate-box span { display: block; font-size: 12px; font-weight: 700; color: var(--ink4); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 10px; }
-          .smg-migrate-box strong { font-size: 15px; color: var(--ink); }
-          .smg-migrate-arrow { color: var(--g); flex-shrink: 0; }
-
-          /* Rebuild grid (2x2 icon cards) */
-          .smg-foundation-viz {
-            background: var(--soft); border-radius: 16px; padding: 24px;
-            display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px;
-          }
-          .smg-foundation-card {
-            background: #fff; border: 1px solid var(--border); border-radius: 12px;
-            padding: 22px 14px; text-align: center;
-          }
-          .smg-foundation-ico {
-            width: 40px; height: 40px; border-radius: 10px; background: var(--gl); color: var(--g);
-            display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;
-          }
-          .smg-foundation-card span { font-size: 12.5px; font-weight: 700; color: var(--ink2); line-height: 1.3; }
-
-          /* Hub-spoke: everything that migrates */
-          .smg-hub-viz { position: relative; width: 100%; max-width: 340px; aspect-ratio: 1/1; margin: 0 auto; }
-          .smg-hub-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
-          .smg-hub-center {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-            width: 34%; aspect-ratio: 1/1; border-radius: 50%;
-            background: linear-gradient(135deg, #1ea672, #17845b); color: #fff;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 12.5px; font-weight: 800; letter-spacing: .02em; text-align: center;
-            box-shadow: 0 16px 40px rgba(30,166,114,.3); z-index: 2; padding: 6px;
-          }
-          .smg-hub-node {
-            position: absolute; transform: translate(-50%,-50%);
-            width: 30%; display: flex; flex-direction: column; align-items: center; gap: 6px; z-index: 2;
-          }
-          .smg-hub-node-ico {
-            width: 38px; height: 38px; border-radius: 10px; background: #fff; border: 1px solid var(--border);
-            color: var(--g); display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 6px 16px rgba(15,22,35,.06);
-          }
-          .smg-hub-node span { font-size: 10.5px; font-weight: 700; color: var(--ink3); }
-
-          /* Bar-chart diagram: traffic / rankings retained */
-          .smg-chart-viz { background: var(--soft); border-radius: 16px; padding: 32px 24px 20px; }
-          .smg-chart-bars { display: flex; align-items: flex-end; gap: 10px; height: 140px; margin-bottom: 12px; }
-          .smg-chart-bar { flex: 1; background: linear-gradient(180deg, #1ea672, #17845b); border-radius: 6px 6px 0 0; }
-          .smg-chart-labels { display: flex; gap: 10px; }
-          .smg-chart-labels span { flex: 1; text-align: center; font-size: 10.5px; color: var(--ink4); font-weight: 600; }
-          .smg-chart-tag {
-            display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;
-            background: var(--gl); color: var(--gd); font-size: 12px; font-weight: 700;
-            padding: 5px 12px; border-radius: 20px;
-          }
+          .smg-diagram-img img { width: 100%; height: auto; display: block; }
 
           .smg-included { background: var(--soft); padding: 72px 0; }
           .smg-included-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px 40px; max-width: 880px; margin: 0 auto; }
@@ -250,14 +177,11 @@ export default function ShopifyMigrationPage() {
             </div>
 
             <div className="smg-hero-visual" data-reveal="right" style={{ transitionDelay: '150ms' }}>
-              {/* Replace with a relevant photo/screenshot: drop the file at
-                  public/images/services/shopify-migration.jpg (or update
-                  the src below to whatever path/filename you use). */}
               <Image
-                src="/images/services/shopify-migration.jpg"
-                alt="Shopify migration"
-                width={480}
-                height={400}
+                src="/images/services/shopify-migration/hero-cutover.jpg"
+                alt="Legacy platform migrating to Shopify Plus with zero orders lost and 100% customer data synced"
+                width={1400}
+                height={781}
               />
             </div>
           </div>
@@ -292,37 +216,26 @@ export default function ShopifyMigrationPage() {
                 <li><Link2 size={17} /> DNS & domain switch handled for you</li>
               </ul>
             </div>
-            <div className="smg-migrate-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              <div className="smg-migrate-box">
-                <span>Currently On</span>
-                <strong>Old Platform</strong>
-              </div>
-              <div className="smg-migrate-arrow">
-                <ArrowRightLeft size={26} />
-              </div>
-              <div className="smg-migrate-box">
-                <span>Moving To</span>
-                <strong>Shopify</strong>
-              </div>
+            <div className="smg-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/shopify-migration/zero-downtime-cutover.jpg"
+                alt="Legacy platform to Shopify Plus cutover with 100% uptime guaranteed and live customer sessions transferred"
+                width={1400}
+                height={781}
+              />
             </div>
           </div>
         </section>
 
         <section className="smg-feature smg-feature-alt">
           <div className="wrap smg-feature-grid">
-            <div className="smg-hub-viz" data-reveal="zoom">
-              <svg className="smg-hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
-                {migrationNodes.map((n) => (
-                  <line key={n.label} x1="50" y1="50" x2={n.x} y2={n.y} stroke="var(--gm)" strokeWidth="1" />
-                ))}
-              </svg>
-              <div className="smg-hub-center">Shopify</div>
-              {migrationNodes.map((n) => (
-                <div key={n.label} className="smg-hub-node" style={{ left: `${n.x}%`, top: `${n.y}%` }}>
-                  <div className="smg-hub-node-ico"><n.icon size={18} /></div>
-                  <span>{n.label}</span>
-                </div>
-              ))}
+            <div className="smg-diagram-img" data-reveal="zoom">
+              <Image
+                src="/images/services/shopify-migration/data-migration-hub.jpg"
+                alt="Product catalog, customer accounts, and historical orders migrating into Shopify with zero data loss"
+                width={1400}
+                height={764}
+              />
             </div>
             <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="smg-feature-tag">Full Data Migration</div>
@@ -349,33 +262,26 @@ export default function ShopifyMigrationPage() {
                 <li><Wrench size={17} /> Built on a theme structure that&apos;s easy to grow</li>
               </ul>
             </div>
-            <div className="smg-foundation-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              {rebuildGrid.map((item) => (
-                <div key={item.label} className="smg-foundation-card">
-                  <div className="smg-foundation-ico"><item.icon size={19} /></div>
-                  <span>{item.label}</span>
-                </div>
-              ))}
+            <div className="smg-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/shopify-migration/design-upgrade.jpg"
+                alt="Before and after theme upgrade to Shopify 2.0 with fast filtering navigation and a dynamic product page"
+                width={1400}
+                height={781}
+              />
             </div>
           </div>
         </section>
 
         <section className="smg-feature smg-feature-alt">
           <div className="wrap smg-feature-grid">
-            <div className="smg-chart-viz" data-reveal="zoom">
-              <div className="smg-chart-bars">
-                <div className="smg-chart-bar" style={{ height: '94%' }} />
-                <div className="smg-chart-bar" style={{ height: '96%' }} />
-                <div className="smg-chart-bar" style={{ height: '95%' }} />
-                <div className="smg-chart-bar" style={{ height: '97%' }} />
-              </div>
-              <div className="smg-chart-labels">
-                <span>Week 1</span>
-                <span>Week 2</span>
-                <span>Week 3</span>
-                <span>Week 4</span>
-              </div>
-              <span className="smg-chart-tag"><ShieldCheck size={13} /> Rankings & traffic protected</span>
+            <div className="smg-diagram-img" data-reveal="zoom">
+              <Image
+                src="/images/services/shopify-migration/post-launch-support.jpg"
+                alt="SEO rankings protected with 301 redirects active, organic traffic growth, and day 1 to day 30 post-launch QA support"
+                width={1400}
+                height={781}
+              />
             </div>
             <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="smg-feature-tag">Post-Launch Support</div>

@@ -5,24 +5,8 @@ import { Footer } from '../../components/Sections'
 import {
   CheckCircle2, ShieldCheck, MessageSquare, ListChecks, ShoppingCart,
   Bell, Zap, Calendar, Megaphone, Percent, LineChart, DollarSign,
-  TrendingUp, ArrowRight,
+  TrendingUp,
 } from 'lucide-react'
-
-const smsHubNodes = [
-  { icon: ShoppingCart,   label: 'Cart Recovery',  x: 50, y: 8 },
-  { icon: Bell,           label: 'Back-in-Stock',  x: 89, y: 35 },
-  { icon: Zap,            label: 'Flash Sale',     x: 74, y: 88 },
-  { icon: MessageSquare,  label: 'Welcome',        x: 26, y: 88 },
-  { icon: Calendar,       label: 'Reminders',      x: 11, y: 35 },
-]
-
-const smsBars = [
-  { label: 'Wk 1', h: 40 },
-  { label: 'Wk 2', h: 55 },
-  { label: 'Wk 3', h: 48 },
-  { label: 'Wk 4', h: 70 },
-  { label: 'Wk 5', h: 62 },
-]
 
 const included = [
   'Compliant opt-in flow setup',
@@ -72,13 +56,13 @@ export default function SmsCampaignsPage() {
           .sms-hero-visual {
             position: relative; border-radius: 20px; overflow: hidden;
             box-shadow: 0 28px 70px rgba(15,22,35,.09);
-            max-width: 480px; width: 100%; margin: 0 auto; background: var(--soft);
+            max-width: 650px; width: 100%; margin: 0 auto; background: var(--soft);
           }
           .sms-hero-visual img { width: 100%; height: auto; display: block; }
 
           @media(max-width:1000px){
             .sms-hero-grid { grid-template-columns: 1fr; }
-            .sms-hero-visual { max-width: 520px; }
+            .sms-hero-visual { max-width: 600px; }
           }
 
           /* What You Get — highlighted through the tinted background, a
@@ -131,9 +115,7 @@ export default function SmsCampaignsPage() {
 
           .sms-feature { padding: 72px 0; }
           .sms-feature-alt { background: var(--soft); }
-          .sms-feature-alt .sms-migrate-box,
-          .sms-feature-alt .sms-chart-viz,
-          .sms-feature-alt .sms-cost-viz .sms-cost-card { background: #fff; }
+          .sms-feature-alt .sms-diagram-img { background: #fff; }
           .sms-feature-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 56px; align-items: center; }
           .sms-feature-tag { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--g); margin-bottom: 12px; }
           .sms-feature h2 { font-size: clamp(24px, 2.4vw, 30px); color: var(--ink); margin-bottom: 14px; }
@@ -146,61 +128,11 @@ export default function SmsCampaignsPage() {
             .sms-feature-grid { grid-template-columns: 1fr; }
           }
 
-          .sms-migrate-viz {
-            background: var(--soft); border-radius: 16px; padding: 32px 24px;
-            display: flex; align-items: center; justify-content: center; gap: 14px;
+          .sms-diagram-img {
+            border-radius: 16px; overflow: hidden; background: var(--soft);
+            box-shadow: 0 20px 50px rgba(15,22,35,.08);
           }
-          .sms-migrate-box {
-            flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 12px;
-            padding: 22px 16px; text-align: center;
-          }
-          .sms-migrate-box span { display: block; font-size: 12px; font-weight: 700; color: var(--ink4); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 10px; }
-          .sms-migrate-box strong { font-size: 15px; color: var(--ink); }
-          .sms-migrate-arrow { color: var(--g); flex-shrink: 0; }
-
-          .sms-hub-viz { position: relative; width: 100%; max-width: 340px; aspect-ratio: 1/1; margin: 0 auto; }
-          .sms-hub-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
-          .sms-hub-center {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-            width: 34%; aspect-ratio: 1/1; border-radius: 50%;
-            background: linear-gradient(135deg, #1ea672, #17845b); color: #fff;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 12.5px; font-weight: 800; letter-spacing: .02em; text-align: center;
-            box-shadow: 0 16px 40px rgba(30,166,114,.3); z-index: 2; padding: 6px;
-          }
-          .sms-hub-node {
-            position: absolute; transform: translate(-50%,-50%);
-            width: 30%; display: flex; flex-direction: column; align-items: center; gap: 6px; z-index: 2;
-          }
-          .sms-hub-node-ico {
-            width: 38px; height: 38px; border-radius: 10px; background: #fff; border: 1px solid var(--border);
-            color: var(--g); display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 6px 16px rgba(15,22,35,.06);
-          }
-          .sms-hub-node span { font-size: 10.5px; font-weight: 700; color: var(--ink3); }
-
-          .sms-chart-viz { background: var(--soft); border-radius: 16px; padding: 32px 24px 20px; }
-          .sms-chart-bars { display: flex; align-items: flex-end; gap: 10px; height: 140px; margin-bottom: 12px; }
-          .sms-chart-bar { flex: 1; background: linear-gradient(180deg, #1ea672, #17845b); border-radius: 6px 6px 0 0; }
-          .sms-chart-labels { display: flex; gap: 10px; }
-          .sms-chart-labels span { flex: 1; text-align: center; font-size: 10.5px; color: var(--ink4); font-weight: 600; }
-          .sms-chart-tag {
-            display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;
-            background: var(--gl); color: var(--gd); font-size: 12px; font-weight: 700;
-            padding: 5px 12px; border-radius: 20px;
-          }
-
-          .sms-cost-viz { display: flex; align-items: center; gap: 14px; }
-          .sms-cost-card {
-            flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 14px;
-            padding: 22px 18px; text-align: center;
-          }
-          .sms-cost-card.after { border-color: var(--gm); background: var(--gl); }
-          .sms-cost-card span { display: block; font-size: 11.5px; font-weight: 700; color: var(--ink4); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 10px; }
-          .sms-cost-num { font-size: 26px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
-          .sms-cost-card.after .sms-cost-num { color: var(--gd); }
-          .sms-cost-sub { font-size: 12.5px; color: var(--ink4); }
-          .sms-cost-arrow { color: var(--g); flex-shrink: 0; }
+          .sms-diagram-img img { width: 100%; height: auto; display: block; }
 
           .sms-included { background: var(--soft); padding: 72px 0; }
           .sms-included-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px 40px; max-width: 880px; margin: 0 auto; }
@@ -246,14 +178,12 @@ export default function SmsCampaignsPage() {
             </div>
 
             <div className="sms-hero-visual" data-reveal="right" style={{ transitionDelay: '150ms' }}>
-              {/* Replace with a relevant photo/screenshot: drop the file at
-                  public/images/services/sms-campaigns.jpg (or update
-                  the src below to whatever path/filename you use). */}
               <Image
-                src="/images/services/sms-campaigns.jpg"
-                alt="SMS marketing"
-                width={480}
-                height={400}
+                src="/images/services/sms-campaigns/hero-sms-revenue.jpg"
+                alt="SMS flash sale text on a phone lock screen with a shopping cart, 98% open rate, and $18,400 in SMS revenue"
+                width={1400}
+                height={764}
+                priority
               />
             </div>
           </div>
@@ -288,35 +218,26 @@ export default function SmsCampaignsPage() {
                 <li><ListChecks size={17} /> Keyword & consent tracking set up correctly</li>
               </ul>
             </div>
-            <div className="sms-migrate-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              <div className="sms-migrate-box">
-                <span>Existing</span>
-                <strong>Email List</strong>
-              </div>
-              <ArrowRight className="sms-migrate-arrow" size={20} />
-              <div className="sms-migrate-box">
-                <span>New Channel</span>
-                <strong>SMS List</strong>
-              </div>
+            <div className="sms-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/sms-campaigns/strategy-compliance.jpg"
+                alt="Compliant SMS opt-in form with email and phone consent fields, TCPA and CTIA compliant, zero-penalty setup"
+                width={1400}
+                height={764}
+              />
             </div>
           </div>
         </section>
 
         <section className="sms-feature sms-feature-alt">
           <div className="wrap sms-feature-grid">
-            <div className="sms-hub-viz" data-reveal="zoom" style={{ order: 1 }}>
-              <svg className="sms-hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
-                {smsHubNodes.map((n) => (
-                  <line key={n.label} x1="50" y1="50" x2={n.x} y2={n.y} stroke="var(--border)" strokeWidth="1" />
-                ))}
-              </svg>
-              <div className="sms-hub-center">SMS Flows</div>
-              {smsHubNodes.map((n) => (
-                <div key={n.label} className="sms-hub-node" style={{ left: `${n.x}%`, top: `${n.y}%` }}>
-                  <div className="sms-hub-node-ico"><n.icon size={18} /></div>
-                  <span>{n.label}</span>
-                </div>
-              ))}
+            <div className="sms-diagram-img" data-reveal="zoom" style={{ order: 1 }}>
+              <Image
+                src="/images/services/sms-campaigns/flow-builds.jpg"
+                alt="Abandoned cart SMS flow from browsing to cart abandonment to a timed reminder text, with the cart recovered in 12 minutes"
+                width={1400}
+                height={764}
+              />
             </div>
             <div data-reveal="up" style={{ order: 2, transitionDelay: '120ms' }}>
               <div className="sms-feature-tag">Flow Builds</div>
@@ -343,34 +264,26 @@ export default function SmsCampaignsPage() {
                 <li><Percent size={17} /> Send frequency capped to protect opt-out rate</li>
               </ul>
             </div>
-            <div className="sms-chart-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              <div className="sms-chart-bars">
-                {smsBars.map((b) => (
-                  <div key={b.label} className="sms-chart-bar" style={{ height: `${b.h}%` }} />
-                ))}
-              </div>
-              <div className="sms-chart-labels">
-                {smsBars.map((b) => <span key={b.label}>{b.label}</span>)}
-              </div>
-              <span className="sms-chart-tag"><TrendingUp size={13} /> Steady click-through week over week</span>
+            <div className="sms-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/sms-campaigns/campaign-calendar.jpg"
+                alt="Monthly SMS campaign calendar with VIP early access and weekend flash drop dates, smart fatigue protection, and under 0.05% unsubscribe rate"
+                width={1400}
+                height={764}
+              />
             </div>
           </div>
         </section>
 
         <section className="sms-feature sms-feature-alt">
           <div className="wrap sms-feature-grid">
-            <div className="sms-cost-viz" data-reveal="zoom" style={{ order: 1 }}>
-              <div className="sms-cost-card">
-                <span>Email Only</span>
-                <div className="sms-cost-num">$1.00</div>
-                <div className="sms-cost-sub">baseline revenue</div>
-              </div>
-              <ArrowRight className="sms-cost-arrow" size={22} />
-              <div className="sms-cost-card after">
-                <span>Email + SMS</span>
-                <div className="sms-cost-num">$1.24</div>
-                <div className="sms-cost-sub">combined revenue</div>
-              </div>
+            <div className="sms-diagram-img" data-reveal="zoom" style={{ order: 1 }}>
+              <Image
+                src="/images/services/sms-campaigns/combined-attribution.jpg"
+                alt="Combined attribution balancing email at $1.00 revenue per recipient against SMS at $1.24, for a combined 24% lift in total store sales"
+                width={1400}
+                height={764}
+              />
             </div>
             <div data-reveal="up" style={{ order: 2, transitionDelay: '120ms' }}>
               <div className="sms-feature-tag">Combined Attribution</div>

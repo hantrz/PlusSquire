@@ -4,23 +4,8 @@ import Navbar from '../../components/Navbar'
 import { Footer } from '../../components/Sections'
 import {
   CheckCircle2, Gauge, Image as ImageIcon, Code2, Wrench,
-  TrendingUp, Search, ShieldCheck, MonitorSmartphone, Zap, FileText,
+  Search, ShieldCheck, MonitorSmartphone, Zap, FileText,
 } from 'lucide-react'
-
-const monitoringNodes = [
-  { icon: Gauge,            label: 'Vitals',  x: 50, y: 8 },
-  { icon: Wrench,           label: 'Apps',    x: 89, y: 35 },
-  { icon: ImageIcon,        label: 'Images',  x: 74, y: 88 },
-  { icon: ShieldCheck,      label: 'Uptime',  x: 26, y: 88 },
-  { icon: FileText,         label: 'Reports', x: 11, y: 35 },
-]
-
-const cleanupGrid = [
-  { icon: Wrench, label: 'Apps Audited' },
-  { icon: Code2,  label: 'Scripts Deferred' },
-  { icon: Zap,    label: 'Code Minified' },
-  { icon: FileText, label: 'Fonts Optimized' },
-]
 
 const included = [
   'Full Core Web Vitals & PageSpeed audit',
@@ -70,13 +55,13 @@ export default function ShopifySpeedOptimizationPage() {
           .sso-hero-visual {
             position: relative; border-radius: 20px; overflow: hidden;
             box-shadow: 0 28px 70px rgba(15,22,35,.09);
-            max-width: 480px; width: 100%; margin: 0 auto; background: var(--soft);
+            max-width: 650px; width: 100%; margin: 0 auto; background: var(--soft);
           }
           .sso-hero-visual img { width: 100%; height: auto; display: block; }
 
           @media(max-width:1000px){
             .sso-hero-grid { grid-template-columns: 1fr; }
-            .sso-hero-visual { max-width: 520px; }
+            .sso-hero-visual { max-width: 600px; }
           }
 
           /* What You Get — highlighted through the tinted background, a
@@ -129,9 +114,7 @@ export default function ShopifySpeedOptimizationPage() {
 
           .sso-feature { padding: 72px 0; }
           .sso-feature-alt { background: var(--soft); }
-          .sso-feature-alt .sso-chart-viz,
-          .sso-feature-alt .sso-foundation-viz,
-          .sso-feature-alt .sso-cost-viz .sso-cost-card { background: #fff; }
+          .sso-feature-alt .sso-diagram-img { background: #fff; }
           .sso-feature-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 56px; align-items: center; }
           .sso-feature-tag { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--g); margin-bottom: 12px; }
           .sso-feature h2 { font-size: clamp(24px, 2.4vw, 30px); color: var(--ink); margin-bottom: 14px; }
@@ -144,67 +127,11 @@ export default function ShopifySpeedOptimizationPage() {
             .sso-feature-grid { grid-template-columns: 1fr; }
           }
 
-          /* Before/after PageSpeed score cards */
-          .sso-cost-viz { display: flex; align-items: center; gap: 14px; }
-          .sso-cost-card {
-            flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 14px;
-            padding: 22px 18px; text-align: center;
+          .sso-diagram-img {
+            border-radius: 16px; overflow: hidden; background: var(--soft);
+            box-shadow: 0 20px 50px rgba(15,22,35,.08);
           }
-          .sso-cost-card.after { border-color: var(--gm); background: var(--gl); }
-          .sso-cost-card span { display: block; font-size: 11.5px; font-weight: 700; color: var(--ink4); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 10px; }
-          .sso-cost-num { font-size: 26px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
-          .sso-cost-card.after .sso-cost-num { color: var(--gd); }
-          .sso-cost-sub { font-size: 12.5px; color: var(--ink4); }
-          .sso-cost-arrow { color: var(--g); flex-shrink: 0; }
-
-          /* Bar-chart diagram: load time dropping */
-          .sso-chart-viz { background: var(--soft); border-radius: 16px; padding: 32px 24px 20px; }
-          .sso-chart-bars { display: flex; align-items: flex-end; gap: 10px; height: 140px; margin-bottom: 12px; }
-          .sso-chart-bar { flex: 1; background: linear-gradient(180deg, #1ea672, #17845b); border-radius: 6px 6px 0 0; }
-          .sso-chart-labels { display: flex; gap: 10px; }
-          .sso-chart-labels span { flex: 1; text-align: center; font-size: 10.5px; color: var(--ink4); font-weight: 600; }
-          .sso-chart-tag {
-            display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;
-            background: var(--gl); color: var(--gd); font-size: 12px; font-weight: 700;
-            padding: 5px 12px; border-radius: 20px;
-          }
-
-          /* Cleanup checklist grid (2x2 icon cards) */
-          .sso-foundation-viz {
-            background: var(--soft); border-radius: 16px; padding: 24px;
-            display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px;
-          }
-          .sso-foundation-card {
-            background: #fff; border: 1px solid var(--border); border-radius: 12px;
-            padding: 22px 14px; text-align: center;
-          }
-          .sso-foundation-ico {
-            width: 40px; height: 40px; border-radius: 10px; background: var(--gl); color: var(--g);
-            display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;
-          }
-          .sso-foundation-card span { font-size: 12.5px; font-weight: 700; color: var(--ink2); line-height: 1.3; }
-
-          /* Hub-spoke: ongoing monitoring */
-          .sso-hub-viz { position: relative; width: 100%; max-width: 340px; aspect-ratio: 1/1; margin: 0 auto; }
-          .sso-hub-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
-          .sso-hub-center {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-            width: 34%; aspect-ratio: 1/1; border-radius: 50%;
-            background: linear-gradient(135deg, #1ea672, #17845b); color: #fff;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 12px; font-weight: 800; letter-spacing: .02em; text-align: center;
-            box-shadow: 0 16px 40px rgba(30,166,114,.3); z-index: 2; padding: 6px;
-          }
-          .sso-hub-node {
-            position: absolute; transform: translate(-50%,-50%);
-            width: 30%; display: flex; flex-direction: column; align-items: center; gap: 6px; z-index: 2;
-          }
-          .sso-hub-node-ico {
-            width: 38px; height: 38px; border-radius: 10px; background: #fff; border: 1px solid var(--border);
-            color: var(--g); display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 6px 16px rgba(15,22,35,.06);
-          }
-          .sso-hub-node span { font-size: 10.5px; font-weight: 700; color: var(--ink3); }
+          .sso-diagram-img img { width: 100%; height: auto; display: block; }
 
           .sso-included { background: var(--soft); padding: 72px 0; }
           .sso-included-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px 40px; max-width: 880px; margin: 0 auto; }
@@ -250,14 +177,11 @@ export default function ShopifySpeedOptimizationPage() {
             </div>
 
             <div className="sso-hero-visual" data-reveal="right" style={{ transitionDelay: '150ms' }}>
-              {/* Replace with a relevant photo/screenshot: drop the file at
-                  public/images/services/shopify-speed-optimization.jpg (or update
-                  the src below to whatever path/filename you use). */}
               <Image
-                src="/images/services/shopify-speed-optimization.jpg"
-                alt="Shopify speed optimization"
-                width={480}
-                height={400}
+                src="/images/services/shopify-speed-optimization/hero-results.jpg"
+                alt="Ultra-fast Shopify store with 95+ mobile PageSpeed, zero broken layouts, zero downtime, and a risk-free backup theme"
+                width={1400}
+                height={764}
               />
             </div>
           </div>
@@ -292,40 +216,26 @@ export default function ShopifySpeedOptimizationPage() {
                 <li><ShieldCheck size={17} /> Prioritized fix list, ranked by impact</li>
               </ul>
             </div>
-            <div className="sso-cost-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              <div className="sso-cost-card">
-                <span>Before</span>
-                <div className="sso-cost-num">47</div>
-                <div className="sso-cost-sub">Mobile PageSpeed</div>
-              </div>
-              <div className="sso-cost-arrow">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-              </div>
-              <div className="sso-cost-card after">
-                <span>After</span>
-                <div className="sso-cost-num">92</div>
-                <div className="sso-cost-sub">Mobile PageSpeed</div>
-              </div>
+            <div className="sso-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/shopify-speed-optimization/vitals-before-after.jpg"
+                alt="Before and after mobile PageSpeed score improving from 47 to 92, with LCP, CLS, and INP all in the green"
+                width={1400}
+                height={764}
+              />
             </div>
           </div>
         </section>
 
         <section className="sso-feature sso-feature-alt">
           <div className="wrap sso-feature-grid">
-            <div className="sso-chart-viz" data-reveal="zoom">
-              <div className="sso-chart-bars">
-                <div className="sso-chart-bar" style={{ height: '96%' }} />
-                <div className="sso-chart-bar" style={{ height: '74%' }} />
-                <div className="sso-chart-bar" style={{ height: '52%' }} />
-                <div className="sso-chart-bar" style={{ height: '30%' }} />
-              </div>
-              <div className="sso-chart-labels">
-                <span>Week 1</span>
-                <span>Week 2</span>
-                <span>Week 3</span>
-                <span>Week 4</span>
-              </div>
-              <span className="sso-chart-tag"><TrendingUp size={13} /> Load time down 68%</span>
+            <div className="sso-diagram-img" data-reveal="zoom">
+              <Image
+                src="/images/services/shopify-speed-optimization/staging-qa-optimization.jpg"
+                alt="Asset compression and code tuning applied on a duplicate staging theme, QA tested and approved before publishing"
+                width={1400}
+                height={764}
+              />
             </div>
             <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="sso-feature-tag">Image & Asset Optimization</div>
@@ -352,32 +262,26 @@ export default function ShopifySpeedOptimizationPage() {
                 <li><Zap size={17} /> Third-party embeds loaded efficiently</li>
               </ul>
             </div>
-            <div className="sso-foundation-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              {cleanupGrid.map((item) => (
-                <div key={item.label} className="sso-foundation-card">
-                  <div className="sso-foundation-ico"><item.icon size={19} /></div>
-                  <span>{item.label}</span>
-                </div>
-              ))}
+            <div className="sso-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/shopify-speed-optimization/app-bloat-cleanup.jpg"
+                alt="Orphan code and unused app scripts filtered out into a clean liquid architecture with deferred, lazy-loaded scripts and no app bloat"
+                width={1400}
+                height={764}
+              />
             </div>
           </div>
         </section>
 
         <section className="sso-feature sso-feature-alt">
           <div className="wrap sso-feature-grid">
-            <div className="sso-hub-viz" data-reveal="zoom">
-              <svg className="sso-hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
-                {monitoringNodes.map((n) => (
-                  <line key={n.label} x1="50" y1="50" x2={n.x} y2={n.y} stroke="var(--gm)" strokeWidth="1" />
-                ))}
-              </svg>
-              <div className="sso-hub-center">Monitoring</div>
-              {monitoringNodes.map((n) => (
-                <div key={n.label} className="sso-hub-node" style={{ left: `${n.x}%`, top: `${n.y}%` }}>
-                  <div className="sso-hub-node-ico"><n.icon size={18} /></div>
-                  <span>{n.label}</span>
-                </div>
-              ))}
+            <div className="sso-diagram-img" data-reveal="zoom">
+              <Image
+                src="/images/services/shopify-speed-optimization/ongoing-monitoring.jpg"
+                alt="30-day speed monitoring and Core Web Vitals tracking with 24/7 CrUX real-user performance tracking and zero speed drop on new products"
+                width={1400}
+                height={764}
+              />
             </div>
             <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="sso-feature-tag">Ongoing Monitoring</div>

@@ -4,15 +4,8 @@ import Navbar from '../../components/Navbar'
 import { Footer } from '../../components/Sections'
 import {
   CheckCircle2, Paintbrush, Smartphone, ShoppingBag, Gauge,
-  Layers, Code2, MonitorSmartphone, Palette, Layout,
+  Layers, Code2, MonitorSmartphone, Palette,
 } from 'lucide-react'
-
-const pageGrid = [
-  { icon: Layout,            label: 'Homepage' },
-  { icon: ShoppingBag,       label: 'Product Page' },
-  { icon: Layers,            label: 'Collection Page' },
-  { icon: MonitorSmartphone, label: 'Cart & Checkout' },
-]
 
 const included = [
   'Fully custom theme design, not a marketplace template',
@@ -62,13 +55,13 @@ export default function ShopifyThemeDevelopmentPage() {
           .std-hero-visual {
             position: relative; border-radius: 20px; overflow: hidden;
             box-shadow: 0 28px 70px rgba(15,22,35,.09);
-            max-width: 480px; width: 100%; margin: 0 auto; background: var(--soft);
+            max-width: 650px; width: 100%; margin: 0 auto; background: var(--soft);
           }
           .std-hero-visual img { width: 100%; height: auto; display: block; }
 
           @media(max-width:1000px){
             .std-hero-grid { grid-template-columns: 1fr; }
-            .std-hero-visual { max-width: 520px; }
+            .std-hero-visual { max-width: 600px; }
           }
 
           /* What You Get — highlighted through the tinted background, a
@@ -121,10 +114,7 @@ export default function ShopifyThemeDevelopmentPage() {
 
           .std-feature { padding: 72px 0; }
           .std-feature-alt { background: var(--soft); }
-          .std-feature-alt .std-migrate-viz,
-          .std-feature-alt .std-chart-viz,
-          .std-feature-alt .std-foundation-viz,
-          .std-feature-alt .std-cost-viz .std-cost-card { background: #fff; }
+          .std-feature-alt .std-diagram-img { background: #fff; }
           .std-feature-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 56px; align-items: center; }
           .std-feature-tag { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--g); margin-bottom: 12px; }
           .std-feature h2 { font-size: clamp(24px, 2.4vw, 30px); color: var(--ink); margin-bottom: 14px; }
@@ -137,58 +127,15 @@ export default function ShopifyThemeDevelopmentPage() {
             .std-feature-grid { grid-template-columns: 1fr; }
           }
 
-          /* Page-template grid (2x2 icon cards) */
-          .std-foundation-viz {
-            background: var(--soft); border-radius: 16px; padding: 24px;
-            display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px;
+          /* Diagram photos — the feature-section visuals are real
+             infographic images rather than hand-built CSS diagrams. One
+             shared frame keeps them consistent: rounded corners, a soft
+             shadow, and a tinted loading background. */
+          .std-diagram-img {
+            border-radius: 16px; overflow: hidden; background: var(--soft);
+            box-shadow: 0 20px 50px rgba(15,22,35,.08);
           }
-          .std-foundation-card {
-            background: #fff; border: 1px solid var(--border); border-radius: 12px;
-            padding: 22px 14px; text-align: center;
-          }
-          .std-foundation-ico {
-            width: 40px; height: 40px; border-radius: 10px; background: var(--gl); color: var(--g);
-            display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;
-          }
-          .std-foundation-card span { font-size: 12.5px; font-weight: 700; color: var(--ink2); line-height: 1.3; }
-
-          /* Before/after two-box flow diagram */
-          .std-migrate-viz {
-            background: var(--soft); border-radius: 16px; padding: 32px 24px;
-            display: flex; align-items: center; justify-content: center; gap: 14px;
-          }
-          .std-migrate-box {
-            flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 12px;
-            padding: 22px 16px; text-align: center;
-          }
-          .std-migrate-box span { display: block; font-size: 12px; font-weight: 700; color: var(--ink4); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 10px; }
-          .std-migrate-box strong { font-size: 15px; color: var(--ink); }
-          .std-migrate-arrow { color: var(--g); flex-shrink: 0; }
-
-          /* Bar-chart-style diagram */
-          .std-chart-viz { background: var(--soft); border-radius: 16px; padding: 32px 24px 20px; }
-          .std-chart-bars { display: flex; align-items: flex-end; gap: 10px; height: 140px; margin-bottom: 12px; }
-          .std-chart-bar { flex: 1; background: linear-gradient(180deg, #1ea672, #17845b); border-radius: 6px 6px 0 0; }
-          .std-chart-labels { display: flex; gap: 10px; }
-          .std-chart-labels span { flex: 1; text-align: center; font-size: 10.5px; color: var(--ink4); font-weight: 600; }
-          .std-chart-tag {
-            display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;
-            background: var(--gl); color: var(--gd); font-size: 12px; font-weight: 700;
-            padding: 5px 12px; border-radius: 20px;
-          }
-
-          /* Before/after stat cards */
-          .std-cost-viz { display: flex; align-items: center; gap: 14px; }
-          .std-cost-card {
-            flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 14px;
-            padding: 22px 18px; text-align: center;
-          }
-          .std-cost-card.after { border-color: var(--gm); background: var(--gl); }
-          .std-cost-card span { display: block; font-size: 11.5px; font-weight: 700; color: var(--ink4); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 10px; }
-          .std-cost-num { font-size: 26px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
-          .std-cost-card.after .std-cost-num { color: var(--gd); }
-          .std-cost-sub { font-size: 12.5px; color: var(--ink4); }
-          .std-cost-arrow { color: var(--g); flex-shrink: 0; }
+          .std-diagram-img img { width: 100%; height: auto; display: block; }
 
           .std-included { background: var(--soft); padding: 72px 0; }
           .std-included-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px 40px; max-width: 880px; margin: 0 auto; }
@@ -234,14 +181,11 @@ export default function ShopifyThemeDevelopmentPage() {
             </div>
 
             <div className="std-hero-visual" data-reveal="right" style={{ transitionDelay: '150ms' }}>
-              {/* Replace with a relevant photo/screenshot: drop the file at
-                  public/images/services/shopify-theme-development.jpg (or update
-                  the src below to whatever path/filename you use). */}
               <Image
-                src="/images/services/shopify-theme-development.jpg"
-                alt="Shopify theme development"
-                width={480}
-                height={400}
+                src="/images/services/shopify-theme-development/hero-overview.jpg"
+                alt="Shopify OS 2.0 native, mobile-first UX, zero app bloat, PlusSquire brand theme"
+                width={1400}
+                height={764}
               />
             </div>
           </div>
@@ -276,31 +220,26 @@ export default function ShopifyThemeDevelopmentPage() {
                 <li><ShoppingBag size={17} /> Built around your actual product photography</li>
               </ul>
             </div>
-            <div className="std-foundation-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              {pageGrid.map((item) => (
-                <div key={item.label} className="std-foundation-card">
-                  <div className="std-foundation-ico"><item.icon size={19} /></div>
-                  <span>{item.label}</span>
-                </div>
-              ))}
+            <div className="std-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/shopify-theme-development/conversion-ux.jpg"
+                alt="Theme editor with custom metafields, announcement bars, and color schemes driving a live custom promo section"
+                width={1400}
+                height={764}
+              />
             </div>
           </div>
         </section>
 
         <section className="std-feature std-feature-alt">
           <div className="wrap std-feature-grid">
-            <div className="std-migrate-viz" data-reveal="zoom">
-              <div className="std-migrate-box">
-                <span>Common Approach</span>
-                <strong>Desktop-First Template</strong>
-              </div>
-              <div className="std-migrate-arrow">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-              </div>
-              <div className="std-migrate-box">
-                <span>Our Approach</span>
-                <strong>Mobile-First Build</strong>
-              </div>
+            <div className="std-diagram-img" data-reveal="zoom">
+              <Image
+                src="/images/services/shopify-theme-development/mobile-thumb-zone.jpg"
+                alt="Mobile product page with optimized thumb zone, sticky add-to-cart, and 1-tap express checkout"
+                width={1400}
+                height={764}
+              />
             </div>
             <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="std-feature-tag">Mobile-First Build</div>
@@ -327,40 +266,26 @@ export default function ShopifyThemeDevelopmentPage() {
                 <li><Layers size={17} /> Streamlined cart drawer & checkout flow</li>
               </ul>
             </div>
-            <div className="std-cost-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              <div className="std-cost-card">
-                <span>Before</span>
-                <div className="std-cost-num">1.2%</div>
-                <div className="std-cost-sub">Avg. conversion rate</div>
-              </div>
-              <div className="std-cost-arrow">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-              </div>
-              <div className="std-cost-card after">
-                <span>After</span>
-                <div className="std-cost-num">2.4%</div>
-                <div className="std-cost-sub">Avg. conversion rate</div>
-              </div>
+            <div className="std-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/shopify-theme-development/conversion-flow.jpg"
+                alt="Product page, slide-out cart drawer with upsells, and instant checkout lifting conversion rate from 1.2% to 2.4%"
+                width={1400}
+                height={782}
+              />
             </div>
           </div>
         </section>
 
         <section className="std-feature std-feature-alt">
           <div className="wrap std-feature-grid">
-            <div className="std-chart-viz" data-reveal="zoom">
-              <div className="std-chart-bars">
-                <div className="std-chart-bar" style={{ height: '92%' }} />
-                <div className="std-chart-bar" style={{ height: '95%' }} />
-                <div className="std-chart-bar" style={{ height: '90%' }} />
-                <div className="std-chart-bar" style={{ height: '97%' }} />
-              </div>
-              <div className="std-chart-labels">
-                <span>Performance</span>
-                <span>Accessibility</span>
-                <span>Best Practices</span>
-                <span>SEO</span>
-              </div>
-              <span className="std-chart-tag"><Gauge size={13} /> 90+ Lighthouse score</span>
+            <div className="std-diagram-img" data-reveal="zoom">
+              <Image
+                src="/images/services/shopify-theme-development/performance.jpg"
+                alt="98 Google Lighthouse performance score with 0.5s first contentful paint and zero layout shifts"
+                width={1400}
+                height={781}
+              />
             </div>
             <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="std-feature-tag">Performance From Day One</div>
