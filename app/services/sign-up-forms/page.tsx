@@ -3,25 +3,10 @@ import Image from 'next/image'
 import Navbar from '../../components/Navbar'
 import { Footer } from '../../components/Sections'
 import {
-  CheckCircle2, Paintbrush, Smartphone, Sparkles, Megaphone,
-  ListChecks, Layers, Maximize2, MousePointerClick, Clock, Users,
-  Target, TrendingUp, Percent, LineChart, ArrowRight,
+  CheckCircle2, Paintbrush, Smartphone, Sparkles,
+  ListChecks, MousePointerClick, Clock, Users,
+  Target, TrendingUp, Percent, LineChart,
 } from 'lucide-react'
-
-const formTypeItems = [
-  { icon: Megaphone,   label: 'Pop-Up' },
-  { icon: ListChecks,  label: 'Embedded' },
-  { icon: Layers,      label: 'Flyout' },
-  { icon: Maximize2,   label: 'Full-Screen' },
-]
-
-const triggerHubNodes = [
-  { icon: MousePointerClick, label: 'Exit Intent',   x: 50, y: 8 },
-  { icon: Clock,             label: 'Time on Page',  x: 89, y: 35 },
-  { icon: LineChart,         label: 'Scroll Depth',  x: 74, y: 88 },
-  { icon: Users,             label: 'New Visitor',   x: 26, y: 88 },
-  { icon: Target,            label: 'Returning',     x: 11, y: 35 },
-]
 
 const included = [
   'Pop-up & embedded form design',
@@ -71,13 +56,13 @@ export default function SignUpFormsPage() {
           .suf-hero-visual {
             position: relative; border-radius: 20px; overflow: hidden;
             box-shadow: 0 28px 70px rgba(15,22,35,.09);
-            max-width: 480px; width: 100%; margin: 0 auto; background: var(--soft);
+            max-width: 650px; width: 100%; margin: 0 auto; background: var(--soft);
           }
           .suf-hero-visual img { width: 100%; height: auto; display: block; }
 
           @media(max-width:1000px){
             .suf-hero-grid { grid-template-columns: 1fr; }
-            .suf-hero-visual { max-width: 520px; }
+            .suf-hero-visual { max-width: 600px; }
           }
 
           /* What You Get — highlighted through the tinted background, a
@@ -130,9 +115,7 @@ export default function SignUpFormsPage() {
 
           .suf-feature { padding: 72px 0; }
           .suf-feature-alt { background: var(--soft); }
-          .suf-feature-alt .suf-foundation-viz,
-          .suf-feature-alt .suf-migrate-box,
-          .suf-feature-alt .suf-cost-viz .suf-cost-card { background: #fff; }
+          .suf-feature-alt .suf-diagram-img { background: #fff; }
           .suf-feature-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 56px; align-items: center; }
           .suf-feature-tag { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--g); margin-bottom: 12px; }
           .suf-feature h2 { font-size: clamp(24px, 2.4vw, 30px); color: var(--ink); margin-bottom: 14px; }
@@ -145,64 +128,11 @@ export default function SignUpFormsPage() {
             .suf-feature-grid { grid-template-columns: 1fr; }
           }
 
-          .suf-foundation-viz {
-            background: var(--soft); border-radius: 16px; padding: 24px;
-            display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px;
+          .suf-diagram-img {
+            border-radius: 16px; overflow: hidden; background: var(--soft);
+            box-shadow: 0 20px 50px rgba(15,22,35,.08);
           }
-          .suf-foundation-card {
-            background: #fff; border: 1px solid var(--border); border-radius: 12px;
-            padding: 22px 14px; text-align: center;
-          }
-          .suf-foundation-ico {
-            width: 40px; height: 40px; border-radius: 10px; background: var(--gl); color: var(--g);
-            display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;
-          }
-          .suf-foundation-card span { font-size: 12.5px; font-weight: 700; color: var(--ink2); line-height: 1.3; }
-
-          .suf-hub-viz { position: relative; width: 100%; max-width: 340px; aspect-ratio: 1/1; margin: 0 auto; }
-          .suf-hub-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
-          .suf-hub-center {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-            width: 34%; aspect-ratio: 1/1; border-radius: 50%;
-            background: linear-gradient(135deg, #1ea672, #17845b); color: #fff;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 12.5px; font-weight: 800; letter-spacing: .02em; text-align: center;
-            box-shadow: 0 16px 40px rgba(30,166,114,.3); z-index: 2; padding: 6px;
-          }
-          .suf-hub-node {
-            position: absolute; transform: translate(-50%,-50%);
-            width: 30%; display: flex; flex-direction: column; align-items: center; gap: 6px; z-index: 2;
-          }
-          .suf-hub-node-ico {
-            width: 38px; height: 38px; border-radius: 10px; background: #fff; border: 1px solid var(--border);
-            color: var(--g); display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 6px 16px rgba(15,22,35,.06);
-          }
-          .suf-hub-node span { font-size: 10.5px; font-weight: 700; color: var(--ink3); }
-
-          .suf-migrate-viz {
-            background: var(--soft); border-radius: 16px; padding: 32px 24px;
-            display: flex; align-items: center; justify-content: center; gap: 14px;
-          }
-          .suf-migrate-box {
-            flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 12px;
-            padding: 22px 16px; text-align: center;
-          }
-          .suf-migrate-box span { display: block; font-size: 12px; font-weight: 700; color: var(--ink4); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 10px; }
-          .suf-migrate-box strong { font-size: 15px; color: var(--ink); }
-          .suf-migrate-arrow { color: var(--g); flex-shrink: 0; }
-
-          .suf-cost-viz { display: flex; align-items: center; gap: 14px; }
-          .suf-cost-card {
-            flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 14px;
-            padding: 22px 18px; text-align: center;
-          }
-          .suf-cost-card.after { border-color: var(--gm); background: var(--gl); }
-          .suf-cost-card span { display: block; font-size: 11.5px; font-weight: 700; color: var(--ink4); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 10px; }
-          .suf-cost-num { font-size: 26px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
-          .suf-cost-card.after .suf-cost-num { color: var(--gd); }
-          .suf-cost-sub { font-size: 12.5px; color: var(--ink4); }
-          .suf-cost-arrow { color: var(--g); flex-shrink: 0; }
+          .suf-diagram-img img { width: 100%; height: auto; display: block; }
 
           .suf-included { background: var(--soft); padding: 72px 0; }
           .suf-included-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px 40px; max-width: 880px; margin: 0 auto; }
@@ -248,14 +178,12 @@ export default function SignUpFormsPage() {
             </div>
 
             <div className="suf-hero-visual" data-reveal="right" style={{ transitionDelay: '150ms' }}>
-              {/* Replace with a relevant photo/screenshot: drop the file at
-                  public/images/services/sign-up-forms.jpg (or update
-                  the src below to whatever path/filename you use). */}
               <Image
-                src="/images/services/sign-up-forms.jpg"
-                alt="Sign-up forms & pop-ups"
-                width={480}
-                height={400}
+                src="/images/services/sign-up-forms/hero-popup-signups.jpg"
+                alt="Sign-up pop-up on desktop and mobile offering 15% off a first order, with exit-triggered capture and +28% subscriber growth"
+                width={1400}
+                height={781}
+                priority
               />
             </div>
           </div>
@@ -290,32 +218,26 @@ export default function SignUpFormsPage() {
                 <li><Sparkles size={17} /> Copy written to convert without feeling pushy</li>
               </ul>
             </div>
-            <div className="suf-foundation-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              {formTypeItems.map((item) => (
-                <div key={item.label} className="suf-foundation-card">
-                  <div className="suf-foundation-ico"><item.icon size={20} /></div>
-                  <span>{item.label}</span>
-                </div>
-              ))}
+            <div className="suf-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/sign-up-forms/on-brand-form-design.jpg"
+                alt="On-brand sign-up form designs including a center pop-up modal, slide-in corner drawer, embedded inline form, and sticky teaser capsule"
+                width={1400}
+                height={764}
+              />
             </div>
           </div>
         </section>
 
         <section className="suf-feature suf-feature-alt">
           <div className="wrap suf-feature-grid">
-            <div className="suf-hub-viz" data-reveal="zoom" style={{ order: 1 }}>
-              <svg className="suf-hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
-                {triggerHubNodes.map((n) => (
-                  <line key={n.label} x1="50" y1="50" x2={n.x} y2={n.y} stroke="var(--border)" strokeWidth="1" />
-                ))}
-              </svg>
-              <div className="suf-hub-center">Triggers</div>
-              {triggerHubNodes.map((n) => (
-                <div key={n.label} className="suf-hub-node" style={{ left: `${n.x}%`, top: `${n.y}%` }}>
-                  <div className="suf-hub-node-ico"><n.icon size={18} /></div>
-                  <span>{n.label}</span>
-                </div>
-              ))}
+            <div className="suf-diagram-img" data-reveal="zoom" style={{ order: 1 }}>
+              <Image
+                src="/images/services/sign-up-forms/trigger-strategy.jpg"
+                alt="Smart form triggers showing scroll depth, time on page, and exit-intent pop-up with a discount offer"
+                width={1400}
+                height={764}
+              />
             </div>
             <div data-reveal="up" style={{ order: 2, transitionDelay: '120ms' }}>
               <div className="suf-feature-tag">Trigger Strategy</div>
@@ -342,34 +264,26 @@ export default function SignUpFormsPage() {
                 <li><Target size={17} /> Better-targeted flows from day one</li>
               </ul>
             </div>
-            <div className="suf-migrate-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              <div className="suf-migrate-box">
-                <span>Step 1</span>
-                <strong>Quiz Answered</strong>
-              </div>
-              <ArrowRight className="suf-migrate-arrow" size={20} />
-              <div className="suf-migrate-box">
-                <span>Step 2</span>
-                <strong>Segment Assigned</strong>
-              </div>
+            <div className="suf-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/sign-up-forms/zero-party-data-capture.jpg"
+                alt="Two-step zero-party data capture: a preference question followed by email capture, routing subscribers into men's and women's style segments"
+                width={1400}
+                height={764}
+              />
             </div>
           </div>
         </section>
 
         <section className="suf-feature suf-feature-alt">
           <div className="wrap suf-feature-grid">
-            <div className="suf-cost-viz" data-reveal="zoom" style={{ order: 1 }}>
-              <div className="suf-cost-card">
-                <span>Before</span>
-                <div className="suf-cost-num">1.8%</div>
-                <div className="suf-cost-sub">signup rate</div>
-              </div>
-              <ArrowRight className="suf-cost-arrow" size={22} />
-              <div className="suf-cost-card after">
-                <span>After</span>
-                <div className="suf-cost-num">4.6%</div>
-                <div className="suf-cost-sub">signup rate</div>
-              </div>
+            <div className="suf-diagram-img" data-reveal="zoom" style={{ order: 1 }}>
+              <Image
+                src="/images/services/sign-up-forms/ab-testing-optimization.jpg"
+                alt="A/B split test comparing a static headline at 1.8% conversion with a personalized offer at 4.6%, lifting signup rate from 1.8% to 4.6%"
+                width={1400}
+                height={764}
+              />
             </div>
             <div data-reveal="up" style={{ order: 2, transitionDelay: '120ms' }}>
               <div className="suf-feature-tag">A/B Testing & Optimization</div>

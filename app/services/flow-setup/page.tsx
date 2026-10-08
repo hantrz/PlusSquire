@@ -5,24 +5,7 @@ import { Footer } from '../../components/Sections'
 import {
   CheckCircle2, Workflow, Target, ListChecks, Sparkles, Percent,
   TrendingUp, ShoppingCart, Eye, DollarSign, Repeat, RefreshCw,
-  MailCheck, ArrowRight,
 } from 'lucide-react'
-
-const flowHubNodes = [
-  { icon: MailCheck,    label: 'Welcome',       x: 50, y: 8 },
-  { icon: ShoppingCart, label: 'Abandoned Cart', x: 89, y: 35 },
-  { icon: Eye,          label: 'Browse Abandon', x: 74, y: 88 },
-  { icon: Repeat,       label: 'Post-Purchase',  x: 26, y: 88 },
-  { icon: RefreshCw,    label: 'Win-Back',       x: 11, y: 35 },
-]
-
-const welcomeBars = [
-  { label: 'Email 1', h: 38 },
-  { label: 'Email 2', h: 56 },
-  { label: 'Email 3', h: 74 },
-  { label: 'Email 4', h: 62 },
-  { label: 'Email 5', h: 88 },
-]
 
 const included = [
   'Full flow strategy & customer journey map',
@@ -72,13 +55,13 @@ export default function FlowSetupPage() {
           .flw-hero-visual {
             position: relative; border-radius: 20px; overflow: hidden;
             box-shadow: 0 28px 70px rgba(15,22,35,.09);
-            max-width: 480px; width: 100%; margin: 0 auto; background: var(--soft);
+            max-width: 650px; width: 100%; margin: 0 auto; background: var(--soft);
           }
           .flw-hero-visual img { width: 100%; height: auto; display: block; }
 
           @media(max-width:1000px){
             .flw-hero-grid { grid-template-columns: 1fr; }
-            .flw-hero-visual { max-width: 520px; }
+            .flw-hero-visual { max-width: 600px; }
           }
 
           /* What You Get — highlighted through the tinted background, a
@@ -131,9 +114,7 @@ export default function FlowSetupPage() {
 
           .flw-feature { padding: 72px 0; }
           .flw-feature-alt { background: var(--soft); }
-          .flw-feature-alt .flw-chart-viz,
-          .flw-feature-alt .flw-cost-viz .flw-cost-card,
-          .flw-feature-alt .flw-migrate-box { background: #fff; }
+          .flw-feature-alt .flw-diagram-img { background: #fff; }
           .flw-feature-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 56px; align-items: center; }
           .flw-feature-tag { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--g); margin-bottom: 12px; }
           .flw-feature h2 { font-size: clamp(24px, 2.4vw, 30px); color: var(--ink); margin-bottom: 14px; }
@@ -146,61 +127,11 @@ export default function FlowSetupPage() {
             .flw-feature-grid { grid-template-columns: 1fr; }
           }
 
-          .flw-hub-viz { position: relative; width: 100%; max-width: 340px; aspect-ratio: 1/1; margin: 0 auto; }
-          .flw-hub-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
-          .flw-hub-center {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-            width: 34%; aspect-ratio: 1/1; border-radius: 50%;
-            background: linear-gradient(135deg, #1ea672, #17845b); color: #fff;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 12.5px; font-weight: 800; letter-spacing: .02em; text-align: center;
-            box-shadow: 0 16px 40px rgba(30,166,114,.3); z-index: 2; padding: 6px;
+          .flw-diagram-img {
+            border-radius: 16px; overflow: hidden; background: var(--soft);
+            box-shadow: 0 20px 50px rgba(15,22,35,.08);
           }
-          .flw-hub-node {
-            position: absolute; transform: translate(-50%,-50%);
-            width: 30%; display: flex; flex-direction: column; align-items: center; gap: 6px; z-index: 2;
-          }
-          .flw-hub-node-ico {
-            width: 38px; height: 38px; border-radius: 10px; background: #fff; border: 1px solid var(--border);
-            color: var(--g); display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 6px 16px rgba(15,22,35,.06);
-          }
-          .flw-hub-node span { font-size: 10.5px; font-weight: 700; color: var(--ink3); }
-
-          .flw-chart-viz { background: var(--soft); border-radius: 16px; padding: 32px 24px 20px; }
-          .flw-chart-bars { display: flex; align-items: flex-end; gap: 10px; height: 140px; margin-bottom: 12px; }
-          .flw-chart-bar { flex: 1; background: linear-gradient(180deg, #1ea672, #17845b); border-radius: 6px 6px 0 0; }
-          .flw-chart-labels { display: flex; gap: 10px; }
-          .flw-chart-labels span { flex: 1; text-align: center; font-size: 10.5px; color: var(--ink4); font-weight: 600; }
-          .flw-chart-tag {
-            display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;
-            background: var(--gl); color: var(--gd); font-size: 12px; font-weight: 700;
-            padding: 5px 12px; border-radius: 20px;
-          }
-
-          .flw-cost-viz { display: flex; align-items: center; gap: 14px; }
-          .flw-cost-card {
-            flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 14px;
-            padding: 22px 18px; text-align: center;
-          }
-          .flw-cost-card.after { border-color: var(--gm); background: var(--gl); }
-          .flw-cost-card span { display: block; font-size: 11.5px; font-weight: 700; color: var(--ink4); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 10px; }
-          .flw-cost-num { font-size: 26px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
-          .flw-cost-card.after .flw-cost-num { color: var(--gd); }
-          .flw-cost-sub { font-size: 12.5px; color: var(--ink4); }
-          .flw-cost-arrow { color: var(--g); flex-shrink: 0; }
-
-          .flw-migrate-viz {
-            background: var(--soft); border-radius: 16px; padding: 32px 24px;
-            display: flex; align-items: center; justify-content: center; gap: 14px;
-          }
-          .flw-migrate-box {
-            flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 12px;
-            padding: 22px 16px; text-align: center;
-          }
-          .flw-migrate-box span { display: block; font-size: 12px; font-weight: 700; color: var(--ink4); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 10px; }
-          .flw-migrate-box strong { font-size: 15px; color: var(--ink); }
-          .flw-migrate-arrow { color: var(--g); flex-shrink: 0; }
+          .flw-diagram-img img { width: 100%; height: auto; display: block; }
 
           .flw-included { background: var(--soft); padding: 72px 0; }
           .flw-included-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px 40px; max-width: 880px; margin: 0 auto; }
@@ -246,14 +177,11 @@ export default function FlowSetupPage() {
             </div>
 
             <div className="flw-hero-visual" data-reveal="right" style={{ transitionDelay: '150ms' }}>
-              {/* Replace with a relevant photo/screenshot: drop the file at
-                  public/images/services/flow-setup.jpg (or update
-                  the src below to whatever path/filename you use). */}
               <Image
-                src="/images/services/flow-setup.jpg"
-                alt="Klaviyo flow setup"
-                width={480}
-                height={400}
+                src="/images/services/flow-setup/hero-flows-autopilot.jpg"
+                alt="Klaviyo flow builder with time delay, smart split and dynamic email nodes, showing $38,450 in flow revenue and 100% autopilot"
+                width={1400}
+                height={764}
               />
             </div>
           </div>
@@ -288,35 +216,26 @@ export default function FlowSetupPage() {
                 <li><ListChecks size={17} /> Flow priority ranked by revenue potential</li>
               </ul>
             </div>
-            <div className="flw-hub-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              <svg className="flw-hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
-                {flowHubNodes.map((n) => (
-                  <line key={n.label} x1="50" y1="50" x2={n.x} y2={n.y} stroke="var(--border)" strokeWidth="1" />
-                ))}
-              </svg>
-              <div className="flw-hub-center">Flows</div>
-              {flowHubNodes.map((n) => (
-                <div key={n.label} className="flw-hub-node" style={{ left: `${n.x}%`, top: `${n.y}%` }}>
-                  <div className="flw-hub-node-ico"><n.icon size={18} /></div>
-                  <span>{n.label}</span>
-                </div>
-              ))}
+            <div className="flw-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/flow-setup/strategy-mapping.jpg"
+                alt="Customer lifecycle matrix mapping welcome series, browse abandonment, cart recovery and post-purchase VIP retention flows to behavioral triggers"
+                width={1400}
+                height={764}
+              />
             </div>
           </div>
         </section>
 
         <section className="flw-feature flw-feature-alt">
           <div className="wrap flw-feature-grid">
-            <div className="flw-chart-viz" data-reveal="zoom" style={{ order: 1 }}>
-              <div className="flw-chart-bars">
-                {welcomeBars.map((b) => (
-                  <div key={b.label} className="flw-chart-bar" style={{ height: `${b.h}%` }} />
-                ))}
-              </div>
-              <div className="flw-chart-labels">
-                {welcomeBars.map((b) => <span key={b.label}>{b.label}</span>)}
-              </div>
-              <span className="flw-chart-tag"><TrendingUp size={13} /> +42% conversion by email 5</span>
+            <div className="flw-diagram-img" data-reveal="zoom" style={{ order: 1 }}>
+              <Image
+                src="/images/services/flow-setup/welcome-series.jpg"
+                alt="Three-step welcome flow from instant discount delivery to brand story to best-seller social proof, a 44% signup-to-first-purchase conversion lift"
+                width={1400}
+                height={764}
+              />
             </div>
             <div data-reveal="up" style={{ order: 2, transitionDelay: '120ms' }}>
               <div className="flw-feature-tag">Welcome Series</div>
@@ -343,34 +262,26 @@ export default function FlowSetupPage() {
                 <li><DollarSign size={17} /> Incentive escalation to close the sale</li>
               </ul>
             </div>
-            <div className="flw-cost-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              <div className="flw-cost-card">
-                <span>Without Flows</span>
-                <div className="flw-cost-num">3%</div>
-                <div className="flw-cost-sub">carts recovered</div>
-              </div>
-              <ArrowRight className="flw-cost-arrow" size={22} />
-              <div className="flw-cost-card after">
-                <span>With Flows</span>
-                <div className="flw-cost-num">18%</div>
-                <div className="flw-cost-sub">carts recovered</div>
-              </div>
+            <div className="flw-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/flow-setup/abandoned-cart-browse.jpg"
+                alt="Browse abandonment and cart reminder flows with one-click checkout lifting the recovery rate from 8% to 26%"
+                width={1400}
+                height={764}
+              />
             </div>
           </div>
         </section>
 
         <section className="flw-feature flw-feature-alt">
           <div className="wrap flw-feature-grid">
-            <div className="flw-migrate-viz" data-reveal="zoom" style={{ order: 1 }}>
-              <div className="flw-migrate-box">
-                <span>Before</span>
-                <strong>One-Time Buyer</strong>
-              </div>
-              <ArrowRight className="flw-migrate-arrow" size={20} />
-              <div className="flw-migrate-box">
-                <span>After</span>
-                <strong>Repeat Customer</strong>
-              </div>
+            <div className="flw-diagram-img" data-reveal="zoom" style={{ order: 1 }}>
+              <Image
+                src="/images/services/flow-setup/post-purchase-win-back.jpg"
+                alt="One-time buyer turned loyal repeat customer through replenishment triggers, cross-sell recommendations and VIP loyalty tiers, lifetime value $240 plus"
+                width={1400}
+                height={764}
+              />
             </div>
             <div data-reveal="up" style={{ order: 2, transitionDelay: '120ms' }}>
               <div className="flw-feature-tag">Post-Purchase & Win-Back</div>
