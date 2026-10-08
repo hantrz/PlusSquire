@@ -3,24 +3,9 @@ import Image from 'next/image'
 import Navbar from '../../components/Navbar'
 import { Footer } from '../../components/Sections'
 import {
-  CheckCircle2, Mail, MessageSquare, Star, Gift, ShoppingBag,
-  PackageCheck, Truck, Repeat, RotateCcw, Users, TrendingUp,
+  CheckCircle2, Mail, Star, Gift, ShoppingBag,
+  PackageCheck, Repeat, RotateCcw, Users, TrendingUp,
 } from 'lucide-react'
-
-const eauHubNodes = [
-  { icon: Mail,          label: 'Intro Email',   x: 50, y: 8 },
-  { icon: MessageSquare, label: 'Brand Story',   x: 89, y: 35 },
-  { icon: Star,          label: 'Social Proof',  x: 74, y: 88 },
-  { icon: Gift,          label: 'First Offer',   x: 26, y: 88 },
-  { icon: ShoppingBag,   label: 'Product Tour',  x: 11, y: 35 },
-]
-
-const eauFoundationItems = [
-  { icon: PackageCheck, label: 'Order Confirmation' },
-  { icon: Truck,        label: 'Shipping Updates' },
-  { icon: Repeat,       label: 'Replenishment Reminder' },
-  { icon: Star,         label: 'Review Request' },
-]
 
 const eauIncluded = [
   'Welcome series to convert new subscribers immediately',
@@ -70,13 +55,13 @@ export default function EmailAutomationsPage() {
           .eau-hero-visual {
             position: relative; border-radius: 20px; overflow: hidden;
             box-shadow: 0 28px 70px rgba(15,22,35,.09);
-            max-width: 480px; width: 100%; margin: 0 auto; background: var(--soft);
+            max-width: 650px; width: 100%; margin: 0 auto; background: var(--soft);
           }
           .eau-hero-visual img { width: 100%; height: auto; display: block; }
 
           @media(max-width:1000px){
             .eau-hero-grid { grid-template-columns: 1fr; }
-            .eau-hero-visual { max-width: 520px; }
+            .eau-hero-visual { max-width: 600px; }
           }
 
           /* What You Get — highlighted through the tinted background, a
@@ -129,9 +114,7 @@ export default function EmailAutomationsPage() {
 
           .eau-feature { padding: 72px 0; }
           .eau-feature-alt { background: var(--soft); }
-          .eau-feature-alt .eau-migrate-viz,
-          .eau-feature-alt .eau-cost-viz,
-          .eau-feature-alt .eau-foundation-viz { background: #fff; }
+          .eau-feature-alt .eau-diagram-img { background: #fff; }
           .eau-feature-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 56px; align-items: center; }
           .eau-feature-tag { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--g); margin-bottom: 12px; }
           .eau-feature h2 { font-size: clamp(24px, 2.4vw, 30px); color: var(--ink); margin-bottom: 14px; }
@@ -144,64 +127,11 @@ export default function EmailAutomationsPage() {
             .eau-feature-grid { grid-template-columns: 1fr; }
           }
 
-          .eau-hub-viz { position: relative; width: 100%; max-width: 340px; aspect-ratio: 1/1; margin: 0 auto; }
-          .eau-hub-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
-          .eau-hub-center {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-            width: 34%; aspect-ratio: 1/1; border-radius: 50%;
-            background: linear-gradient(135deg, #1ea672, #17845b); color: #fff;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 12.5px; font-weight: 800; letter-spacing: .02em; text-align: center;
-            box-shadow: 0 16px 40px rgba(30,166,114,.3); z-index: 2; padding: 6px;
+          .eau-diagram-img {
+            border-radius: 16px; overflow: hidden; background: var(--soft);
+            box-shadow: 0 20px 50px rgba(15,22,35,.08);
           }
-          .eau-hub-node {
-            position: absolute; transform: translate(-50%,-50%);
-            width: 30%; display: flex; flex-direction: column; align-items: center; gap: 6px; z-index: 2;
-          }
-          .eau-hub-node-ico {
-            width: 38px; height: 38px; border-radius: 10px; background: #fff; border: 1px solid var(--border);
-            color: var(--g); display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 6px 16px rgba(15,22,35,.06);
-          }
-          .eau-hub-node span { font-size: 10.5px; font-weight: 700; color: var(--ink3); }
-
-          .eau-migrate-viz {
-            background: var(--soft); border-radius: 16px; padding: 32px 24px;
-            display: flex; align-items: center; justify-content: center; gap: 14px;
-          }
-          .eau-migrate-box {
-            flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 12px;
-            padding: 22px 16px; text-align: center;
-          }
-          .eau-migrate-box span { display: block; font-size: 12px; font-weight: 700; color: var(--ink4); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 10px; }
-          .eau-migrate-box strong { font-size: 15px; color: var(--ink); }
-          .eau-migrate-arrow { color: var(--g); flex-shrink: 0; }
-
-          .eau-foundation-viz {
-            background: var(--soft); border-radius: 16px; padding: 24px;
-            display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px;
-          }
-          .eau-foundation-card {
-            background: #fff; border: 1px solid var(--border); border-radius: 12px;
-            padding: 22px 14px; text-align: center;
-          }
-          .eau-foundation-ico {
-            width: 40px; height: 40px; border-radius: 10px; background: var(--gl); color: var(--g);
-            display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;
-          }
-          .eau-foundation-card span { font-size: 12.5px; font-weight: 700; color: var(--ink2); line-height: 1.3; }
-
-          .eau-cost-viz { display: flex; align-items: center; gap: 14px; }
-          .eau-cost-card {
-            flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 14px;
-            padding: 22px 18px; text-align: center;
-          }
-          .eau-cost-card.after { border-color: var(--gm); background: var(--gl); }
-          .eau-cost-card span { display: block; font-size: 11.5px; font-weight: 700; color: var(--ink4); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 10px; }
-          .eau-cost-num { font-size: 26px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
-          .eau-cost-card.after .eau-cost-num { color: var(--gd); }
-          .eau-cost-sub { font-size: 12.5px; color: var(--ink4); }
-          .eau-cost-arrow { color: var(--g); flex-shrink: 0; }
+          .eau-diagram-img img { width: 100%; height: auto; display: block; }
 
           .eau-included { background: var(--soft); padding: 72px 0; }
           .eau-included-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px 40px; max-width: 880px; margin: 0 auto; }
@@ -247,14 +177,11 @@ export default function EmailAutomationsPage() {
             </div>
 
             <div className="eau-hero-visual" data-reveal="right" style={{ transitionDelay: '150ms' }}>
-              {/* Replace with a relevant photo/screenshot: drop the file at
-                  public/images/services/email-automations.jpg (or update
-                  the src below to whatever path/filename you use). */}
               <Image
-                src="/images/services/email-automations.jpg"
-                alt="Email automations"
-                width={480}
-                height={400}
+                src="/images/services/email-automations/hero-autopilot-revenue.jpg"
+                alt="Klaviyo automation flows on a tablet driving 30% of store revenue and $42,850 in autopilot revenue with 24/7 smart triggers"
+                width={1400}
+                height={764}
               />
             </div>
           </div>
@@ -289,37 +216,26 @@ export default function EmailAutomationsPage() {
                 <li><Gift size={17} /> A first-purchase incentive placed at the right moment</li>
               </ul>
             </div>
-            <div className="eau-hub-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              <svg className="eau-hub-lines" viewBox="0 0 100 100">
-                {eauHubNodes.map((node) => (
-                  <line key={node.label} x1="50" y1="50" x2={node.x} y2={node.y} stroke="var(--border)" strokeWidth="1" />
-                ))}
-              </svg>
-              <div className="eau-hub-center">Welcome<br />Series</div>
-              {eauHubNodes.map((node) => (
-                <div key={node.label} className="eau-hub-node" style={{ left: `${node.x}%`, top: `${node.y}%` }}>
-                  <div className="eau-hub-node-ico"><node.icon size={17} /></div>
-                  <span>{node.label}</span>
-                </div>
-              ))}
+            <div className="eau-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/email-automations/welcome-series.jpg"
+                alt="Three-email welcome series from signup: instant welcome with 10% code, brand story and founder values, then social proof and best sellers leading to a first purchase"
+                width={1400}
+                height={781}
+              />
             </div>
           </div>
         </section>
 
         <section className="eau-feature eau-feature-alt">
           <div className="wrap eau-feature-grid">
-            <div className="eau-migrate-viz" data-reveal="zoom">
-              <div className="eau-migrate-box">
-                <span>Without a Flow</span>
-                <strong>Cart Abandoned</strong>
-              </div>
-              <div className="eau-migrate-arrow">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
-              </div>
-              <div className="eau-migrate-box">
-                <span>With a Flow</span>
-                <strong>Sale Recovered</strong>
-              </div>
+            <div className="eau-diagram-img" data-reveal="zoom">
+              <Image
+                src="/images/services/email-automations/abandoned-cart-browse.jpg"
+                alt="Abandoned cart with lost intent recovered through smart-delay reminders and one-click checkout, a 24.8% flow recovery rate"
+                width={1400}
+                height={781}
+              />
             </div>
             <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="eau-feature-tag">Abandoned Cart & Browse</div>
@@ -346,33 +262,26 @@ export default function EmailAutomationsPage() {
                 <li><Star size={17} /> Review requests sent once customers have had time to use it</li>
               </ul>
             </div>
-            <div className="eau-foundation-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              {eauFoundationItems.map((item, i) => (
-                <div key={item.label + i} className="eau-foundation-card">
-                  <div className="eau-foundation-ico"><item.icon size={20} /></div>
-                  <span>{item.label}</span>
-                </div>
-              ))}
+            <div className="eau-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/email-automations/post-purchase.jpg"
+                alt="Post-purchase and customer retention flows around a loyalty hub: order and shipping updates, cross-sell upsell, UGC review request and replenishment reminder"
+                width={1400}
+                height={764}
+              />
             </div>
           </div>
         </section>
 
         <section className="eau-feature eau-feature-alt">
           <div className="wrap eau-feature-grid">
-            <div className="eau-cost-viz" data-reveal="zoom">
-              <div className="eau-cost-card">
-                <span>Before Flows</span>
-                <div className="eau-cost-num">12%</div>
-                <div className="eau-cost-sub">of email revenue automated</div>
-              </div>
-              <div className="eau-cost-arrow">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
-              </div>
-              <div className="eau-cost-card after">
-                <span>After Flows</span>
-                <div className="eau-cost-num">38%</div>
-                <div className="eau-cost-sub">of email revenue automated</div>
-              </div>
+            <div className="eau-diagram-img" data-reveal="zoom">
+              <Image
+                src="/images/services/email-automations/win-back-sunset.jpg"
+                alt="Win-back re-engagement rising from 12% to 38% with a sunset flow that cleans unengaged contacts to protect sender reputation and domain health"
+                width={1400}
+                height={764}
+              />
             </div>
             <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="eau-feature-tag">Win-Back & Sunset</div>
