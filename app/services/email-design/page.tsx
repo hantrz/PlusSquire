@@ -3,24 +3,9 @@ import Image from 'next/image'
 import Navbar from '../../components/Navbar'
 import { Footer } from '../../components/Sections'
 import {
-  CheckCircle2, LayoutGrid, ShoppingBag, MousePointerClick, Layers,
-  Smartphone, Palette, Gift, Snowflake, Rocket, Sparkles,
+  CheckCircle2, LayoutGrid, MousePointerClick, Layers,
+  Smartphone, Palette, Gift, Sparkles,
 } from 'lucide-react'
-
-const edgFoundationItems = [
-  { icon: LayoutGrid,        label: 'Hero Banner' },
-  { icon: ShoppingBag,       label: 'Product Grid' },
-  { icon: MousePointerClick, label: 'CTA Block' },
-  { icon: Layers,            label: 'Footer & Nav' },
-]
-
-const edgHubNodes = [
-  { icon: Gift,      label: 'Holiday',      x: 50, y: 8 },
-  { icon: Rocket,     label: 'New Launch',  x: 89, y: 35 },
-  { icon: Sparkles,   label: 'Summer Sale', x: 74, y: 88 },
-  { icon: Snowflake,  label: 'BFCM',        x: 26, y: 88 },
-  { icon: Palette,    label: 'Rebrand',     x: 11, y: 35 },
-]
 
 const edgIncluded = [
   'Custom templates designed to match your brand guidelines',
@@ -70,13 +55,13 @@ export default function EmailDesignPage() {
           .edg-hero-visual {
             position: relative; border-radius: 20px; overflow: hidden;
             box-shadow: 0 28px 70px rgba(15,22,35,.09);
-            max-width: 480px; width: 100%; margin: 0 auto; background: var(--soft);
+            max-width: 650px; width: 100%; margin: 0 auto; background: var(--soft);
           }
           .edg-hero-visual img { width: 100%; height: auto; display: block; }
 
           @media(max-width:1000px){
             .edg-hero-grid { grid-template-columns: 1fr; }
-            .edg-hero-visual { max-width: 520px; }
+            .edg-hero-visual { max-width: 600px; }
           }
 
           /* What You Get — highlighted through the tinted background, a
@@ -129,9 +114,7 @@ export default function EmailDesignPage() {
 
           .edg-feature { padding: 72px 0; }
           .edg-feature-alt { background: var(--soft); }
-          .edg-feature-alt .edg-migrate-viz,
-          .edg-feature-alt .edg-chart-viz,
-          .edg-feature-alt .edg-foundation-viz { background: #fff; }
+          .edg-feature-alt .edg-diagram-img { background: #fff; }
           .edg-feature-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 56px; align-items: center; }
           .edg-feature-tag { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--g); margin-bottom: 12px; }
           .edg-feature h2 { font-size: clamp(24px, 2.4vw, 30px); color: var(--ink); margin-bottom: 14px; }
@@ -144,63 +127,11 @@ export default function EmailDesignPage() {
             .edg-feature-grid { grid-template-columns: 1fr; }
           }
 
-          .edg-foundation-viz {
-            background: var(--soft); border-radius: 16px; padding: 24px;
-            display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px;
+          .edg-diagram-img {
+            border-radius: 16px; overflow: hidden; background: var(--soft);
+            box-shadow: 0 20px 50px rgba(15,22,35,.08);
           }
-          .edg-foundation-card {
-            background: #fff; border: 1px solid var(--border); border-radius: 12px;
-            padding: 22px 14px; text-align: center;
-          }
-          .edg-foundation-ico {
-            width: 40px; height: 40px; border-radius: 10px; background: var(--gl); color: var(--g);
-            display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;
-          }
-          .edg-foundation-card span { font-size: 12.5px; font-weight: 700; color: var(--ink2); line-height: 1.3; }
-
-          .edg-migrate-viz {
-            background: var(--soft); border-radius: 16px; padding: 32px 24px;
-            display: flex; align-items: center; justify-content: center; gap: 14px;
-          }
-          .edg-migrate-box {
-            flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 12px;
-            padding: 22px 16px; text-align: center;
-          }
-          .edg-migrate-box span { display: block; font-size: 12px; font-weight: 700; color: var(--ink4); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 10px; }
-          .edg-migrate-box strong { font-size: 15px; color: var(--ink); }
-          .edg-migrate-arrow { color: var(--g); flex-shrink: 0; }
-
-          .edg-hub-viz { position: relative; width: 100%; max-width: 340px; aspect-ratio: 1/1; margin: 0 auto; }
-          .edg-hub-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
-          .edg-hub-center {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-            width: 34%; aspect-ratio: 1/1; border-radius: 50%;
-            background: linear-gradient(135deg, #1ea672, #17845b); color: #fff;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 12.5px; font-weight: 800; letter-spacing: .02em; text-align: center;
-            box-shadow: 0 16px 40px rgba(30,166,114,.3); z-index: 2; padding: 6px;
-          }
-          .edg-hub-node {
-            position: absolute; transform: translate(-50%,-50%);
-            width: 30%; display: flex; flex-direction: column; align-items: center; gap: 6px; z-index: 2;
-          }
-          .edg-hub-node-ico {
-            width: 38px; height: 38px; border-radius: 10px; background: #fff; border: 1px solid var(--border);
-            color: var(--g); display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 6px 16px rgba(15,22,35,.06);
-          }
-          .edg-hub-node span { font-size: 10.5px; font-weight: 700; color: var(--ink3); }
-
-          .edg-chart-viz { background: var(--soft); border-radius: 16px; padding: 32px 24px 20px; }
-          .edg-chart-bars { display: flex; align-items: flex-end; gap: 10px; height: 140px; margin-bottom: 12px; }
-          .edg-chart-bar { flex: 1; background: linear-gradient(180deg, #1ea672, #17845b); border-radius: 6px 6px 0 0; }
-          .edg-chart-labels { display: flex; gap: 10px; }
-          .edg-chart-labels span { flex: 1; text-align: center; font-size: 10.5px; color: var(--ink4); font-weight: 600; }
-          .edg-chart-tag {
-            display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;
-            background: var(--gl); color: var(--gd); font-size: 12px; font-weight: 700;
-            padding: 5px 12px; border-radius: 20px;
-          }
+          .edg-diagram-img img { width: 100%; height: auto; display: block; }
 
           .edg-included { background: var(--soft); padding: 72px 0; }
           .edg-included-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px 40px; max-width: 880px; margin: 0 auto; }
@@ -246,14 +177,11 @@ export default function EmailDesignPage() {
             </div>
 
             <div className="edg-hero-visual" data-reveal="right" style={{ transitionDelay: '150ms' }}>
-              {/* Replace with a relevant photo/screenshot: drop the file at
-                  public/images/services/email-design.jpg (or update
-                  the src below to whatever path/filename you use). */}
               <Image
-                src="/images/services/email-design.jpg"
-                alt="Email design"
-                width={480}
-                height={400}
+                src="/images/services/email-design/hero-pixel-perfect.jpg"
+                alt="On-brand mobile email template with a 38% average click lift, pixel-perfect dark mode, and Figma-to-inbox handoff"
+                width={1400}
+                height={764}
               />
             </div>
           </div>
@@ -288,31 +216,26 @@ export default function EmailDesignPage() {
                 <li><Layers size={17} /> Consistent visual language across every campaign</li>
               </ul>
             </div>
-            <div className="edg-foundation-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              {edgFoundationItems.map((item) => (
-                <div key={item.label} className="edg-foundation-card">
-                  <div className="edg-foundation-ico"><item.icon size={20} /></div>
-                  <span>{item.label}</span>
-                </div>
-              ))}
+            <div className="edg-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/email-design/brand-consistency.jpg"
+                alt="Brand style guide with primary and accent colors, typography scale, and social/product modules carried consistently across three email templates"
+                width={1400}
+                height={781}
+              />
             </div>
           </div>
         </section>
 
         <section className="edg-feature edg-feature-alt">
           <div className="wrap edg-feature-grid">
-            <div className="edg-migrate-viz" data-reveal="zoom">
-              <div className="edg-migrate-box">
-                <span>Before</span>
-                <strong>Desktop-First Layout</strong>
-              </div>
-              <div className="edg-migrate-arrow">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
-              </div>
-              <div className="edg-migrate-box">
-                <span>After</span>
-                <strong>Mobile-First Layout</strong>
-              </div>
+            <div className="edg-diagram-img" data-reveal="zoom">
+              <Image
+                src="/images/services/email-design/mobile-first-layout.jpg"
+                alt="Cluttered, shrunk desktop-first template next to a mobile-first layout optimized for thumb-friendly taps"
+                width={1400}
+                height={781}
+              />
             </div>
             <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="edg-feature-tag">Mobile-First</div>
@@ -339,39 +262,26 @@ export default function EmailDesignPage() {
                 <li><Sparkles size={17} /> Design decisions backed by what's driven clicks before</li>
               </ul>
             </div>
-            <div className="edg-chart-viz" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
-              <div className="edg-chart-bars">
-                <div className="edg-chart-bar" style={{ height: '100%' }} />
-                <div className="edg-chart-bar" style={{ height: '76%' }} />
-                <div className="edg-chart-bar" style={{ height: '52%' }} />
-                <div className="edg-chart-bar" style={{ height: '30%' }} />
-              </div>
-              <div className="edg-chart-labels">
-                <span>Headline</span>
-                <span>Hero</span>
-                <span>Body</span>
-                <span>Footer</span>
-              </div>
-              <div className="edg-chart-tag"><MousePointerClick size={13} /> Clear visual path to purchase</div>
+            <div className="edg-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
+              <Image
+                src="/images/services/email-design/conversion-hierarchy.jpg"
+                alt="Email layout annotated with hook and headline attention, value proposition, balanced text-to-image ratio, and a single Shop Now CTA"
+                width={1400}
+                height={764}
+              />
             </div>
           </div>
         </section>
 
         <section className="edg-feature edg-feature-alt">
           <div className="wrap edg-feature-grid">
-            <div className="edg-hub-viz" data-reveal="zoom">
-              <svg className="edg-hub-lines" viewBox="0 0 100 100">
-                {edgHubNodes.map((node) => (
-                  <line key={node.label} x1="50" y1="50" x2={node.x} y2={node.y} stroke="var(--border)" strokeWidth="1" />
-                ))}
-              </svg>
-              <div className="edg-hub-center">Design<br />System</div>
-              {edgHubNodes.map((node) => (
-                <div key={node.label} className="edg-hub-node" style={{ left: `${node.x}%`, top: `${node.y}%` }}>
-                  <div className="edg-hub-node-ico"><node.icon size={17} /></div>
-                  <span>{node.label}</span>
-                </div>
-              ))}
+            <div className="edg-diagram-img" data-reveal="zoom">
+              <Image
+                src="/images/services/email-design/design-systems-hub.jpg"
+                alt="Modular email design system: header and navigation bars, dynamic product grids, review carousels, countdown timers, and footer layouts around a shared component library"
+                width={1400}
+                height={764}
+              />
             </div>
             <div data-reveal="up" style={{ transitionDelay: '120ms' }}>
               <div className="edg-feature-tag">Design Systems</div>
