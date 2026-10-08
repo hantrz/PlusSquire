@@ -2,6 +2,13 @@ import Link from 'next/link'
 import Navbar from '../components/Navbar'
 import { Footer } from '../components/Sections'
 import { ShoppingBag, RefreshCw, Gauge, Puzzle, Paintbrush, FileCode, Send, Zap, ClipboardList, Smartphone, Settings2, SearchCheck, Workflow, BarChart3 } from 'lucide-react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Services',
+  description: 'Shopify theme development, migrations, speed optimization and custom features, plus Klaviyo setup, flows, campaigns, SMS and email design and development.',
+  alternates: { canonical: '/services' },
+}
 
 function ShopifyIcon({ size = 24 }: { size?: number }) {
   return (

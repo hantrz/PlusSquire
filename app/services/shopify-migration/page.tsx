@@ -6,6 +6,17 @@ import {
   CheckCircle2, RefreshCw, ShoppingBag, Users, PackageCheck,
   Star, Link2, Search, ShieldCheck, Layout, ArrowRightLeft, Wrench,
 } from 'lucide-react'
+import type { Metadata } from 'next'
+import { RelatedServices, ServiceChips, ServiceFAQ, ServiceJsonLd, ServiceOffer, ServicePromise, ServiceProof } from '../../components/service/ServiceBlocks'
+import { contactHref } from '../../lib/site'
+import { serviceMetadata } from '../../lib/seo'
+
+export const metadata: Metadata = serviceMetadata({
+  slug: 'shopify-migration',
+  title: "Shopify Migration Services",
+  description: "Migrate to Shopify from WooCommerce, Magento, BigCommerce and more with zero data loss, zero SEO drop and zero downtime: full data migration, 301 redirects and a planned cutover.",
+  image: '/images/services/shopify-migration/hero-cutover.jpg',
+})
 
 const included = [
   'Full product, variant & collection migration',
@@ -20,7 +31,7 @@ const included = [
 
 const steps = [
   { n: '01', title: 'Audit & Map', desc: 'We review your current store and map every product, page, and URL that needs to move, before touching anything live.' },
-  { n: '02', title: 'Migrate & Build', desc: 'Data is migrated into Shopify and the theme is built or upgraded, with integrations reconnected on a staging environment.' },
+  { n: '02', title: 'Migrate & Build', desc: 'Data is migrated into Shopify and the theme is built or upgraded, with integrations reconnected on a staging environment. A typical migration takes 4 to 6 weeks.' },
   { n: '03', title: 'Launch & Support', desc: 'A scheduled cutover, redirect verification, and hands-on support through your first weeks live.' },
 ]
 
@@ -162,7 +173,7 @@ export default function ShopifyMigrationPage() {
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Move to Shopify<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>without losing a single order.</em></h1>
               <p className="section-sub">Migrating from WooCommerce, BigCommerce, or another platform: clean data, no downtime, and a design that&apos;s ready to sell from launch day.</p>
               <div className="smg-btns">
-                <Link href="/#contact" className="btn-primary">
+                <Link href={contactHref('shopify-migration')} className="btn-primary">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>
@@ -203,6 +214,10 @@ export default function ShopifyMigrationPage() {
             </div>
           </div>
         </section>
+
+        <ServiceProof quote={{"text": "Handled both our Shopify migration and Klaviyo setup end-to-end, one team, zero handoffs, and it just worked from day one. Exactly the kind of full-stack partner we were looking for.", "name": "Daniel W.", "role": "Operations Lead, Home & Living Brand"}} caseStudy={{"tag": "eCommerce · Shopify", "title": "Full Shopify rebuild lifted conversion 24% for a skincare brand", "desc": "Migrated from a legacy platform to a custom Shopify theme built for speed and mobile conversion, with a streamlined checkout and Core Web Vitals tuned from the ground up.", "stats": [{"val": "+24%", "lbl": "Conversion Rate"}, {"val": "1.8s", "lbl": "Load Time"}, {"val": "−31%", "lbl": "Cart Abandonment"}]}} />
+
+        <ServicePromise tag="Zero-Risk Migration" title="The three things you can't afford to lose, protected." tinted items={[{"title": "Zero data loss", "desc": "Products, variants, customers, order history and reviews are moved and checked against your old store before launch."}, {"title": "Zero SEO drop", "desc": "Every old URL is mapped to its new home with 301 redirects, and meta titles and descriptions carry over."}, {"title": "Zero downtime", "desc": "Your old store keeps selling while we build on Shopify, then we switch over during your quietest hours."}]} />
 
         <section className="smg-feature">
           <div className="wrap smg-feature-grid">
@@ -246,6 +261,7 @@ export default function ShopifyMigrationPage() {
                 <li><Users size={17} /> Customer accounts & order history</li>
                 <li><Star size={17} /> Reviews & metafields where supported</li>
               </ul>
+              <ServiceChips label="Migrating from" items={["WooCommerce", "Magento / Adobe Commerce", "BigCommerce", "Wix", "Squarespace", "Custom platforms"]} />
             </div>
           </div>
         </section>
@@ -296,6 +312,8 @@ export default function ShopifyMigrationPage() {
           </div>
         </section>
 
+        <ServiceOffer tag="Free Scope Estimate" title="Get a migration plan and quote for your store" desc="Tell us where you are today and we will send back a migration checklist, timeline and price." bullets={["Your current platform and store URL", "Roughly how many products and orders", "The apps and integrations you rely on"]} ctaLabel="Get My Scope Estimate" href={contactHref('shopify-migration')} />
+
         <section className="smg-included">
           <div className="wrap">
             <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }} data-reveal="up">
@@ -331,9 +349,15 @@ export default function ShopifyMigrationPage() {
           </div>
         </section>
 
+        <ServiceFAQ items={[{"q": "Will customer passwords migrate to Shopify?", "a": "No platform can move passwords, because they're encrypted. Customer accounts move over, and customers get an email to activate their account and set a new password."}, {"q": "Will our Google rankings drop after migrating?", "a": "Not when it's done properly. Every old URL is 301-redirected to its new page, and meta data is carried over, so search engines follow the move."}, {"q": "What happens to historical orders and customer data?", "a": "Order history and customer records are migrated and checked against your old store, so your team and your email flows keep the full history."}, {"q": "How long does a migration take?", "a": "A typical migration takes 4 to 6 weeks, depending on the platform, how much data you have and whether the design is changing."}, {"q": "Can you redesign the store while migrating?", "a": "Yes. We can match your current design or upgrade it during the move, whichever you prefer."}]} />
+
+        <RelatedServices slugs={["shopify-theme-development", "klaviyo-account-setup", "shopify-speed-optimization"]} />
+
+        <ServiceJsonLd slug="shopify-migration" name="Shopify Migration" description="Migrate to Shopify from WooCommerce, Magento, BigCommerce and more with zero data loss, zero SEO drop and zero downtime: full data migration, 301 redirects and a planned cutover." />
+
         <div className="smg-bottom" data-reveal="up">
           <p>Ready to move to Shopify without the risk?</p>
-          <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
+          <Link href={contactHref('shopify-migration')} className="btn-primary">Book a Free Call →</Link>
         </div>
       </main>
       <Footer />

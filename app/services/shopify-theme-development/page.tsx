@@ -6,6 +6,17 @@ import {
   CheckCircle2, Paintbrush, Smartphone, ShoppingBag, Gauge,
   Layers, Code2, MonitorSmartphone, Palette,
 } from 'lucide-react'
+import type { Metadata } from 'next'
+import { RelatedServices, ServiceFAQ, ServiceGallery, ServiceJsonLd, ServiceProof } from '../../components/service/ServiceBlocks'
+import { contactHref } from '../../lib/site'
+import { serviceMetadata } from '../../lib/seo'
+
+export const metadata: Metadata = serviceMetadata({
+  slug: 'shopify-theme-development',
+  title: "Custom Shopify Theme Development",
+  description: "Custom Shopify theme development on Online Store 2.0: brand-fit design, mobile-first build, fast Core Web Vitals and sections your team can edit without a developer. Usually 4 to 6 weeks.",
+  image: '/images/services/shopify-theme-development/hero-overview.jpg',
+})
 
 const included = [
   'Fully custom theme design, not a marketplace template',
@@ -16,12 +27,13 @@ const included = [
   'Basic on-page SEO setup',
   'Staging environment for review before launch',
   'Training & documentation handover',
+  '30 days of post-launch bug fixes',
 ]
 
 const steps = [
   { n: '01', title: 'Discovery & Design', desc: 'We learn your brand, products, and customers, then design the key page templates for your approval before any code is written.' },
   { n: '02', title: 'Build & Test', desc: 'The theme is built section by section and tested across real devices and browsers as we go, not just at the end.' },
-  { n: '03', title: 'Launch & Handover', desc: 'Final QA, a smooth launch, and a walkthrough so your team can make day-to-day edits with confidence.' },
+  { n: '03', title: 'Launch & Handover', desc: 'Final QA, a smooth launch, and a walkthrough so your team can make day-to-day edits with confidence. A full custom theme usually takes 4 to 6 weeks.' },
 ]
 
 const whatYouGet = [
@@ -166,7 +178,7 @@ export default function ShopifyThemeDevelopmentPage() {
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Built around your brand,<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>not a generic template.</em></h1>
               <p className="section-sub">Custom, fast, conversion-focused themes designed and built specifically for your products and customers, not a page-builder template with your logo dropped on top.</p>
               <div className="std-btns">
-                <Link href="/#contact" className="btn-primary">
+                <Link href={contactHref('shopify-theme-development')} className="btn-primary">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>
@@ -207,6 +219,8 @@ export default function ShopifyThemeDevelopmentPage() {
             </div>
           </div>
         </section>
+
+        <ServiceProof quote={{"text": "Rebuilt our entire Shopify store from scratch, pixel-perfect and blazing fast. Conversion rate jumped noticeably within the first month, and the handoff was completely smooth.", "name": "Alex K.", "role": "Founder, Skincare Brand"}} caseStudy={{"tag": "eCommerce · Shopify", "title": "Full Shopify rebuild lifted conversion 24% for a skincare brand", "desc": "Migrated from a legacy platform to a custom Shopify theme built for speed and mobile conversion, with a streamlined checkout and Core Web Vitals tuned from the ground up.", "stats": [{"val": "+24%", "lbl": "Conversion Rate"}, {"val": "1.8s", "lbl": "Load Time"}, {"val": "−31%", "lbl": "Cart Abandonment"}]}} />
 
         <section className="std-feature">
           <div className="wrap std-feature-grid">
@@ -294,11 +308,15 @@ export default function ShopifyThemeDevelopmentPage() {
               <ul>
                 <li><Gauge size={17} /> Optimized image loading & lazy-load</li>
                 <li><Code2 size={17} /> Minimal third-party script weight</li>
+                <li><Layers size={17} /> Native code instead of extra apps wherever possible, so the store stays lean</li>
                 <li><Layers size={17} /> Clean, efficient theme code</li>
+                <li><Code2 size={17} /> Built on Online Store 2.0: sections, blocks and metafields your team edits without a developer</li>
               </ul>
             </div>
           </div>
         </section>
+
+        <ServiceGallery tag="Recent Work" title="Stores we've built" sub="Shared with permission, with brand details hidden where requested." items={[{"label": "Store 1: desktop + mobile", "alt": "Custom Shopify store design on desktop and mobile"}, {"label": "Store 2: desktop + mobile", "alt": "Custom Shopify store design on desktop and mobile"}, {"label": "Store 3: desktop + mobile", "alt": "Custom Shopify store design on desktop and mobile"}, {"label": "PageSpeed score of a delivered store", "alt": "Google PageSpeed score of a delivered Shopify store"}]} />
 
         <section className="std-included">
           <div className="wrap">
@@ -335,9 +353,15 @@ export default function ShopifyThemeDevelopmentPage() {
           </div>
         </section>
 
+        <ServiceFAQ items={[{"q": "Can you redesign our store without losing products or data?", "a": "Yes. A new theme only changes how the store looks and works. Products, customers, orders and settings stay exactly where they are."}, {"q": "We use a page builder like PageFly or Shogun. Why move to a custom theme?", "a": "Page builders add heavy scripts and monthly fees. Native Online Store 2.0 sections load faster and stay editable in Shopify's own theme editor."}, {"q": "Do you support the store after launch?", "a": "Yes. Every build includes 30 days of post-launch bug fixes, and ongoing support is available monthly."}, {"q": "Will our apps (Klaviyo, Recharge, Gorgias) still work?", "a": "Yes. We check every app you rely on during the build and test them again before launch."}, {"q": "How long does a custom theme take?", "a": "Usually 4 to 6 weeks from kickoff to launch, depending on the number of page templates and custom features."}]} />
+
+        <RelatedServices slugs={["shopify-speed-optimization", "shopify-migration", "shopify-custom-features"]} />
+
+        <ServiceJsonLd slug="shopify-theme-development" name="Shopify Theme Development" description="Custom Shopify theme development on Online Store 2.0: brand-fit design, mobile-first build, fast Core Web Vitals and sections your team can edit without a developer. Usually 4 to 6 weeks." />
+
         <div className="std-bottom" data-reveal="up">
           <p>Ready for a theme that&apos;s actually built for your store?</p>
-          <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
+          <Link href={contactHref('shopify-theme-development')} className="btn-primary">Book a Free Call →</Link>
         </div>
       </main>
       <Footer />

@@ -6,6 +6,17 @@ import {
   CheckCircle2, Puzzle, Layers, Wrench, Settings2,
   Repeat, Filter, Code2, Star, ShieldCheck,
 } from 'lucide-react'
+import type { Metadata } from 'next'
+import { RelatedServices, ServiceChips, ServiceFAQ, ServiceGallery, ServiceJsonLd, ServiceOffer, ServiceUseCases } from '../../components/service/ServiceBlocks'
+import { contactHref } from '../../lib/site'
+import { serviceMetadata } from '../../lib/seo'
+
+export const metadata: Metadata = serviceMetadata({
+  slug: 'shopify-custom-features',
+  title: "Shopify Custom Features & App Development",
+  description: "Custom Shopify features without the monthly app fees: bundle builders, drawer carts, product configurators, B2B order forms, app integrations and sections your team can edit.",
+  image: '/images/services/shopify-custom-features/hero-custom-code.jpg',
+})
 
 const included = [
   'Custom theme sections & blocks',
@@ -162,7 +173,7 @@ export default function ShopifyCustomFeaturesPage() {
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Custom functionality,<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>built exactly the way you need it.</em></h1>
               <p className="section-sub">Custom sections, app integrations, and store functionality your theme doesn&apos;t come with out of the box.</p>
               <div className="scf-btns">
-                <Link href="/#contact" className="btn-primary">
+                <Link href={contactHref('shopify-custom-features')} className="btn-primary">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>
@@ -246,6 +257,7 @@ export default function ShopifyCustomFeaturesPage() {
                 <li><Code2 size={17} /> Custom API integrations where needed</li>
                 <li><ShieldCheck size={17} /> No conflicting scripts or duplicate data</li>
               </ul>
+              <ServiceChips label="Apps we work with" items={["Recharge", "Judge.me", "Yotpo", "Okendo", "Smile.io", "Gorgias", "Klaviyo"]} />
             </div>
           </div>
         </section>
@@ -291,10 +303,17 @@ export default function ShopifyCustomFeaturesPage() {
                 <li><Settings2 size={17} /> Monthly or as-needed development support</li>
                 <li><ShieldCheck size={17} /> Priority fixes when something breaks</li>
                 <li><Code2 size={17} /> A dev who already knows your codebase</li>
+                <li><Settings2 size={17} /> Flexible monthly hours or one-off sprints, whichever fits your roadmap</li>
               </ul>
             </div>
           </div>
         </section>
+
+        <ServiceUseCases tag="Popular Builds" title="Custom solutions we build most often" sub="Built into your theme, editable by your team, with no extra monthly app fee." items={[{"title": "Bundle & tiered discount builder", "desc": "Mix-and-match bundles and volume discounts that raise average order value."}, {"title": "Drawer cart with upsells", "desc": "A slide-out cart with a free-shipping progress bar, cross-sells and one-tap add-ons."}, {"title": "Product configurator or quiz", "desc": "Step-by-step sizing, matching or product-finder quizzes that guide shoppers to the right product."}, {"title": "B2B & wholesale order forms", "desc": "Quick-order forms and wholesale pricing displays, even without Shopify Plus."}]} />
+
+        <ServiceGallery tag="Editable By Your Team" title="Built to be edited without a developer" sub="Custom features show up in Shopify’s theme editor like any other section." items={[{"label": "Custom section in the Shopify theme editor", "alt": "Custom section settings in the Shopify theme editor"}, {"label": "The same feature live on a store", "alt": "Custom Shopify feature live on a store"}]} />
+
+        <ServiceOffer tag="Free Feasibility Check" title="Have an idea for a feature?" desc="Tell us what you want to build. We'll tell you if it can be done without a monthly app, how long it takes, and what it costs." bullets={["Your store URL", "What the feature should do", "Where it should appear in your store"]} ctaLabel="Check My Idea" href={contactHref('shopify-custom-features')} />
 
         <section className="scf-included">
           <div className="wrap">
@@ -331,9 +350,15 @@ export default function ShopifyCustomFeaturesPage() {
           </div>
         </section>
 
+        <ServiceFAQ items={[{"q": "Will a theme update wipe out our custom features?", "a": "No. Custom features are built as separate sections and snippets, so they can be moved to an updated or new theme."}, {"q": "Do we still need monthly subscription apps?", "a": "Often not. Many features apps charge for monthly can be built once into your theme, which removes the recurring fee."}, {"q": "Can our team change text, images and banners without a developer?", "a": "Yes. Everything is set up with theme editor settings and metafields, so your team edits content directly in Shopify."}, {"q": "Can you customize the Shopify checkout?", "a": "On standard plans, we customize the cart and the steps before checkout. On Shopify Plus, we can also build checkout extensions."}, {"q": "Can we see results from other clients?", "a": "Yes, on request. We protect every client's privacy, so results and screenshots are only shared with the client's permission, with names and company details hidden. Ask on a call and we'll walk you through relevant examples."}]} />
+
+        <RelatedServices slugs={["shopify-theme-development", "shopify-speed-optimization", "klaviyo-account-setup"]} />
+
+        <ServiceJsonLd slug="shopify-custom-features" name="Shopify Custom Features & Apps" description="Custom Shopify features without the monthly app fees: bundle builders, drawer carts, product configurators, B2B order forms, app integrations and sections your team can edit." />
+
         <div className="scf-bottom" data-reveal="up">
           <p>Ready to build the functionality your theme is missing?</p>
-          <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
+          <Link href={contactHref('shopify-custom-features')} className="btn-primary">Book a Free Call →</Link>
         </div>
       </main>
       <Footer />

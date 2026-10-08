@@ -6,6 +6,17 @@ import {
   CheckCircle2, LayoutGrid, MousePointerClick, Layers,
   Smartphone, Palette, Gift, Sparkles,
 } from 'lucide-react'
+import type { Metadata } from 'next'
+import { RelatedServices, ServiceChips, ServiceFAQ, ServiceGallery, ServiceJsonLd, ServiceProof } from '../../components/service/ServiceBlocks'
+import { contactHref } from '../../lib/site'
+import { serviceMetadata } from '../../lib/seo'
+
+export const metadata: Metadata = serviceMetadata({
+  slug: 'email-design',
+  title: "Email Design Services",
+  description: "On-brand, mobile-first email design for eCommerce: campaign and flow templates, modular design systems and dark-mode-aware layouts built in Figma and ready for any ESP.",
+  image: '/images/services/email-design/hero-pixel-perfect.jpg',
+})
 
 const edgIncluded = [
   'Custom templates designed to match your brand guidelines',
@@ -20,8 +31,8 @@ const edgIncluded = [
 
 const edgSteps = [
   { n: '01', title: 'Discover & Audit', desc: "We review your brand guidelines, past campaigns, and what's working in your inbox to find the gaps and opportunities." },
-  { n: '02', title: 'Design & Refine', desc: 'We draft concepts, gather your feedback, and lock in a modular system your team can reuse campaign after campaign.' },
-  { n: '03', title: 'Deliver & Handoff', desc: 'Production-ready design files, organized and annotated, handed off clean and ready for development.' },
+  { n: '02', title: 'Design & Refine', desc: 'We draft concepts, gather your feedback over two included revision rounds, and lock in a modular system your team can reuse campaign after campaign.' },
+  { n: '03', title: 'Deliver & Handoff', desc: 'Production-ready design files, organized and annotated, handed off clean and ready for development. A single email design usually takes 2 to 3 business days.' },
 ]
 
 const whatYouGet = [
@@ -162,7 +173,7 @@ export default function EmailDesignPage() {
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Pixel-perfect designs<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>that stop the scroll.</em></h1>
               <p className="section-sub">On-brand, mobile-first email design built to take a subscriber from first impression to repeat purchase, without ever looking like a template.</p>
               <div className="edg-btns">
-                <Link href="/#contact" className="btn-primary">
+                <Link href={contactHref('email-design')} className="btn-primary">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>
@@ -203,6 +214,8 @@ export default function EmailDesignPage() {
             </div>
           </div>
         </section>
+
+        <ServiceProof quote={{"text": "Zahidul is one of the best Shopify and email professionals I've worked with. He handles design, development, and Klaviyo flows end-to-end, delivering polished, production-ready work every time. We've worked together for 5+ years now.", "name": "James R.", "role": "Head of Retention"}} />
 
         <section className="edg-feature">
           <div className="wrap edg-feature-grid">
@@ -260,6 +273,7 @@ export default function EmailDesignPage() {
                 <li><MousePointerClick size={17} /> High-contrast CTAs placed where readers expect them</li>
                 <li><LayoutGrid size={17} /> Deliberate spacing & sizing to guide the scroll</li>
                 <li><Sparkles size={17} /> Design decisions backed by what's driven clicks before</li>
+                <li><LayoutGrid size={17} /> Live text, not one big image, so emails load fast, pass spam filters and survive dark mode</li>
               </ul>
             </div>
             <div className="edg-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
@@ -292,9 +306,12 @@ export default function EmailDesignPage() {
                 <li><Gift size={17} /> Seasonal variants ready ahead of your biggest sends</li>
                 <li><Sparkles size={17} /> New concepts designed to slot into the same system</li>
               </ul>
+              <ServiceChips label="Tools & platforms" items={["Figma", "Photoshop", "Klaviyo", "Mailchimp", "HubSpot", "Marketo"]} />
             </div>
           </div>
         </section>
+
+        <ServiceGallery tag="Recent Work" title="Email designs we've shipped" sub="Shared with permission, with brand details hidden." items={[{"label": "Black Friday campaign (long-scroll mobile)", "alt": "Black Friday email design on mobile"}, {"label": "New arrival / product launch email", "alt": "Product launch email design"}, {"label": "Welcome email", "alt": "Welcome email design"}, {"label": "Same email in light and dark mode", "alt": "Email design shown in light and dark mode"}]} />
 
         <section className="edg-included">
           <div className="wrap">
@@ -331,9 +348,15 @@ export default function EmailDesignPage() {
           </div>
         </section>
 
+        <ServiceFAQ items={[{"q": "Will the templates be editable in our email platform?", "a": "Yes. Designs are built as reusable blocks, so your team can edit text, images and links in Klaviyo, Mailchimp or your ESP's drag-and-drop editor."}, {"q": "Is the text live, or baked into images?", "a": "Live text wherever possible, combined with images. That keeps emails fast, readable in dark mode and friendly to spam filters."}, {"q": "Do you also code the HTML?", "a": "Yes. You get the Figma source files, and we can code and upload the final HTML through our Email Development service."}, {"q": "How many revisions are included?", "a": "Two rounds of revisions are included with every design."}, {"q": "Do you design for dark mode?", "a": "Yes. Colors, logos and images are checked so the email looks right in both light and dark mode."}]} />
+
+        <RelatedServices slugs={["email-development", "email-campaigns", "flow-setup"]} />
+
+        <ServiceJsonLd slug="email-design" name="Email Design" description="On-brand, mobile-first email design for eCommerce: campaign and flow templates, modular design systems and dark-mode-aware layouts built in Figma and ready for any ESP." />
+
         <div className="edg-bottom" data-reveal="up">
           <p>Ready for emails that look as good as your brand deserves?</p>
-          <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
+          <Link href={contactHref('email-design')} className="btn-primary">Book a Free Call →</Link>
         </div>
       </main>
       <Footer />

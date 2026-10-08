@@ -6,6 +6,17 @@ import {
   CheckCircle2, Mail, Code2, Moon, Eye, Zap, ShieldCheck,
   ShoppingBag, Clock, MapPin, Gauge,
 } from 'lucide-react'
+import type { Metadata } from 'next'
+import { RelatedServices, ServiceChips, ServiceFAQ, ServiceGallery, ServiceJsonLd, ServiceProof } from '../../components/service/ServiceBlocks'
+import { contactHref } from '../../lib/site'
+import { serviceMetadata } from '../../lib/seo'
+
+export const metadata: Metadata = serviceMetadata({
+  slug: 'email-development',
+  title: "HTML Email Development",
+  description: "Hand-coded, Outlook-proof HTML email development from Figma: VML buttons, dark mode support, editable ESP templates for Klaviyo, Mailchimp, Marketo, HubSpot and SFMC, tested before every send.",
+  image: '/images/services/email-development/hero-code-renders.jpg',
+})
 
 const edvIncluded = [
   'Hand-coded, table-based HTML built for maximum client support',
@@ -21,7 +32,7 @@ const edvIncluded = [
 const edvSteps = [
   { n: '01', title: 'Code & Build', desc: 'We hand-code HTML/CSS from your approved designs, table-based and built for maximum email client compatibility.' },
   { n: '02', title: 'Test Across Clients', desc: 'Every template is checked across major clients and devices before it ever reaches a real inbox.' },
-  { n: '03', title: 'QA & Ship', desc: 'A final render, link and tracking check, then handed off ready to send or scheduled on your platform.' },
+  { n: '03', title: 'QA & Ship', desc: 'A final render, link and tracking check, then delivered as HTML/ZIP or uploaded straight to your platform. A standard Figma-to-HTML template usually takes 24 to 48 hours.' },
 ]
 
 const whatYouGet = [
@@ -162,7 +173,7 @@ export default function EmailDevelopmentPage() {
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Code that renders<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>the same everywhere.</em></h1>
               <p className="section-sub">Clean, hand-coded HTML/CSS that displays correctly in Gmail, Outlook, Apple Mail, Yahoo and everywhere else your subscribers actually read.</p>
               <div className="edv-btns">
-                <Link href="/#contact" className="btn-primary">
+                <Link href={contactHref('email-development')} className="btn-primary">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>
@@ -204,6 +215,8 @@ export default function EmailDevelopmentPage() {
           </div>
         </section>
 
+        <ServiceProof quote={{"text": "Exceptional HTML email developer. Provided Figma to HTML email development with templates that worked perfectly in Outlook, which is notoriously difficult. Fast, professional, and gets it right the first time.", "name": "Marcus L.", "role": "Marketing Director, SaaS"}} />
+
         <section className="edv-feature">
           <div className="wrap edv-feature-grid">
             <div data-reveal="up">
@@ -212,6 +225,7 @@ export default function EmailDevelopmentPage() {
               <p className="edv-feature-sub">Outlook's notoriously broken rendering engine, Gmail's content clipping, and inconsistent dark-mode behavior break most emails. We code around all three from the start.</p>
               <ul>
                 <li><Code2 size={17} /> Table-based structure with Outlook-specific fixes baked in</li>
+                <li><Code2 size={17} /> VML bulletproof buttons and background images built specifically for Outlook</li>
                 <li><Mail size={17} /> Kept well under Gmail's clipping length on every send</li>
                 <li><Moon size={17} /> Dark-mode colors tested so nothing flips wrong</li>
               </ul>
@@ -261,6 +275,7 @@ export default function EmailDevelopmentPage() {
                 <li><Clock size={17} /> Live countdown timers that update in real time</li>
                 <li><MapPin size={17} /> Location and loyalty-aware content blocks</li>
               </ul>
+              <ServiceChips label="Built for your platform" items={["Klaviyo", "Mailchimp (mc:edit)", "Marketo", "HubSpot", "Salesforce Marketing Cloud", "Campaign Monitor"]} />
             </div>
             <div className="edv-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               <Image
@@ -289,12 +304,15 @@ export default function EmailDevelopmentPage() {
               <p className="edv-feature-sub">Every template is checked across major desktop, webmail and mobile clients, so what you approve is exactly what your subscribers see, dark mode included.</p>
               <ul>
                 <li><ShieldCheck size={17} /> Multi-client rendering checks before every send</li>
+                <li><Eye size={17} /> Checked in Gmail, Apple Mail, Outlook desktop and 365, Yahoo and Samsung Mail</li>
                 <li><Code2 size={17} /> Links, tracking & merge tags verified end to end</li>
                 <li><CheckCircle2 size={17} /> Sign-off only once it renders clean everywhere</li>
               </ul>
             </div>
           </div>
         </section>
+
+        <ServiceGallery tag="Rendering Proof" title="The same email, in every inbox" sub="Real test results from a client template, shared with permission." items={[{"label": "Rendering test grid of one template across email clients", "alt": "Email rendering test results across email clients"}, {"label": "Light vs dark mode of the same email", "alt": "The same email in light and dark mode"}]} />
 
         <section className="edv-included">
           <div className="wrap">
@@ -331,9 +349,15 @@ export default function EmailDevelopmentPage() {
           </div>
         </section>
 
+        <ServiceFAQ items={[{"q": "Will the email work in Outlook desktop?", "a": "Yes. We use conditional code and VML for buttons and background images, and test in Outlook desktop and 365 before handoff."}, {"q": "Can our team edit the email inside our platform?", "a": "Yes. We add your platform's editable regions, such as Klaviyo blocks or Mailchimp mc:edit tags, so text, images and links can be changed without touching code."}, {"q": "Do you deliver files, or upload to our platform?", "a": "Either. You can get HTML/ZIP files, or we upload the template to your platform and send test emails."}, {"q": "How do you test before delivery?", "a": "Every template is checked across the major email clients and devices, including dark mode, plus every link, tracking parameter and merge tag."}, {"q": "How fast is turnaround?", "a": "A standard Figma-to-HTML template usually takes 24 to 48 hours. Larger systems are scoped up front."}]} />
+
+        <RelatedServices slugs={["email-design", "email-campaigns", "flow-setup"]} />
+
+        <ServiceJsonLd slug="email-development" name="Email Development" description="Hand-coded, Outlook-proof HTML email development from Figma: VML buttons, dark mode support, editable ESP templates for Klaviyo, Mailchimp, Marketo, HubSpot and SFMC, tested before every send." />
+
         <div className="edv-bottom" data-reveal="up">
           <p>Ready for emails that render perfectly everywhere they land?</p>
-          <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
+          <Link href={contactHref('email-development')} className="btn-primary">Book a Free Call →</Link>
         </div>
       </main>
       <Footer />

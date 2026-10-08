@@ -7,6 +7,17 @@ import {
   Bell, Zap, Calendar, Megaphone, Percent, LineChart, DollarSign,
   TrendingUp,
 } from 'lucide-react'
+import type { Metadata } from 'next'
+import { RelatedServices, ServiceFAQ, ServiceJsonLd, ServicePromise } from '../../components/service/ServiceBlocks'
+import { contactHref } from '../../lib/site'
+import { serviceMetadata } from '../../lib/seo'
+
+export const metadata: Metadata = serviceMetadata({
+  slug: 'sms-campaigns',
+  title: "SMS Marketing Campaigns & Flows",
+  description: "Klaviyo SMS campaigns and flows that recover carts and drive urgency alongside your email: compliant opt-in, quiet hours, frequency caps and combined email + SMS reporting.",
+  image: '/images/services/sms-campaigns/hero-sms-revenue.jpg',
+})
 
 const included = [
   'Compliant opt-in flow setup',
@@ -163,7 +174,7 @@ export default function SmsCampaignsPage() {
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Add a second channel that<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>recovers revenue email misses.</em></h1>
               <p className="section-sub">SMS flows and campaigns that drive urgency and recover lost revenue, running right alongside your email program.</p>
               <div className="sms-btns">
-                <Link href="/#contact" className="btn-primary">
+                <Link href={contactHref('sms-campaigns')} className="btn-primary">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>
@@ -206,6 +217,8 @@ export default function SmsCampaignsPage() {
           </div>
         </section>
 
+        <ServicePromise tag="No Surprises" title="Texts that sell, without the spam." items={[{"title": "Clear SMS costs", "desc": "Message credits are billed by Klaviyo or your SMS provider, not by us. We plan every send so you know the cost before it goes out."}, {"title": "Quiet hours", "desc": "Texts only go out during daytime hours in each subscriber's local time zone."}, {"title": "Frequency caps", "desc": "A set limit on texts per week, so subscribers stay subscribed."}, {"title": "Compliant opt-in", "desc": "TCPA-compliant consent, keyword handling and STOP/HELP replies set up from day one."}]} />
+
         <section className="sms-feature">
           <div className="wrap sms-feature-grid">
             <div data-reveal="up">
@@ -247,6 +260,7 @@ export default function SmsCampaignsPage() {
                 <li><ShoppingCart size={17} /> Abandoned cart recovery via text</li>
                 <li><Bell size={17} /> Back-in-stock alerts sent the moment it&apos;s live</li>
                 <li><Zap size={17} /> Flash sale & urgency-driven flows</li>
+                <li><ShoppingCart size={17} /> Cart recovery across both channels: email first, a text to non-openers, then a final email</li>
               </ul>
             </div>
           </div>
@@ -262,6 +276,7 @@ export default function SmsCampaignsPage() {
                 <li><Calendar size={17} /> Monthly SMS campaign calendar planned in advance</li>
                 <li><Megaphone size={17} /> Promotions & drops sent at the right cadence</li>
                 <li><Percent size={17} /> Send frequency capped to protect opt-out rate</li>
+                <li><Percent size={17} /> Copy kept within one SMS segment, so you never pay double for a single message</li>
               </ul>
             </div>
             <div className="sms-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
@@ -293,6 +308,7 @@ export default function SmsCampaignsPage() {
                 <li><LineChart size={17} /> Unified reporting across both channels</li>
                 <li><DollarSign size={17} /> Revenue attributed accurately per channel</li>
                 <li><TrendingUp size={17} /> Channel mix optimized month over month</li>
+                <li><DollarSign size={17} /> 25x to 40x return on SMS spend across the programs we run</li>
               </ul>
             </div>
           </div>
@@ -333,9 +349,15 @@ export default function SmsCampaignsPage() {
           </div>
         </section>
 
+        <ServiceFAQ items={[{"q": "How much does SMS cost, and who pays for it?", "a": "Message credits are paid to Klaviyo or your SMS provider and depend on volume and country. Our fee covers strategy, copy, setup and management."}, {"q": "Will customers unsubscribe if we start texting?", "a": "Not if it's done right. Quiet hours, frequency caps and texts that are relevant to each subscriber keep opt-outs low."}, {"q": "How do we grow an SMS list?", "a": "By adding a phone step to your sign-up forms and checkout, with clear consent. See our Sign-Up Forms service."}, {"q": "Will subscribers get the same message by email and text?", "a": "No. Email and SMS are planned together, so each channel does a different job and nobody gets the same message twice."}, {"q": "Can we see results from other clients?", "a": "Yes, on request. We protect every client's privacy, so results and screenshots are only shared with the client's permission, with names and company details hidden. Ask on a call and we'll walk you through relevant examples."}]} />
+
+        <RelatedServices slugs={["sign-up-forms", "email-automations", "flow-setup"]} />
+
+        <ServiceJsonLd slug="sms-campaigns" name="SMS Marketing" description="Klaviyo SMS campaigns and flows that recover carts and drive urgency alongside your email: compliant opt-in, quiet hours, frequency caps and combined email + SMS reporting." />
+
         <div className="sms-bottom" data-reveal="up">
           <p>Ready to add SMS as a second revenue channel?</p>
-          <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
+          <Link href={contactHref('sms-campaigns')} className="btn-primary">Book a Free Call →</Link>
         </div>
       </main>
       <Footer />

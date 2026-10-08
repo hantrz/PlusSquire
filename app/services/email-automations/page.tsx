@@ -6,6 +6,17 @@ import {
   CheckCircle2, Mail, Star, Gift, ShoppingBag,
   PackageCheck, Repeat, RotateCcw, Users, TrendingUp,
 } from 'lucide-react'
+import type { Metadata } from 'next'
+import { RelatedServices, ServiceChips, ServiceFAQ, ServiceJsonLd } from '../../components/service/ServiceBlocks'
+import { contactHref } from '../../lib/site'
+import { serviceMetadata } from '../../lib/seo'
+
+export const metadata: Metadata = serviceMetadata({
+  slug: 'email-automations',
+  title: "Email Automations for Mailchimp, HubSpot & More",
+  description: "Email automations built on Mailchimp, Campaign Monitor, HubSpot, ActiveCampaign and other platforms: welcome, cart recovery, post-purchase and win-back sequences that run on autopilot.",
+  image: '/images/services/email-automations/hero-autopilot-revenue.jpg',
+})
 
 const eauIncluded = [
   'Welcome series to convert new subscribers immediately',
@@ -161,8 +172,9 @@ export default function EmailAutomationsPage() {
               <div className="section-tag">Email Automations</div>
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Set up once,<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>earn revenue on autopilot.</em></h1>
               <p className="section-sub">Welcome, abandoned cart, post-purchase and win-back flows, built once and left to quietly earn revenue in the background, every single day.</p>
+              <p style={{ fontSize: '14px', color: 'var(--ink3)', margin: '-18px 0 28px' }}>On Klaviyo? See <Link href="/services/flow-setup" style={{ color: 'var(--g)', fontWeight: 700 }}>Flow Setup →</Link></p>
               <div className="eau-btns">
-                <Link href="/#contact" className="btn-primary">
+                <Link href={contactHref('email-automations')} className="btn-primary">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>
@@ -215,6 +227,7 @@ export default function EmailAutomationsPage() {
                 <li><Star size={17} /> Social proof and brand story woven in naturally</li>
                 <li><Gift size={17} /> A first-purchase incentive placed at the right moment</li>
               </ul>
+              <ServiceChips label="Platforms we automate on" items={["Mailchimp", "Campaign Monitor", "HubSpot", "ActiveCampaign", "Marketo", "Omnisend"]} />
             </div>
             <div className="eau-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
               <Image
@@ -245,6 +258,7 @@ export default function EmailAutomationsPage() {
                 <li><ShoppingBag size={17} /> Cart abandonment flows timed to real shopper behavior</li>
                 <li><Repeat size={17} /> Browse abandonment flows for shoppers who never added to cart</li>
                 <li><TrendingUp size={17} /> Incentives escalated only when they're needed to convert</li>
+                <li><TrendingUp size={17} /> Conditional splits, like a free gift on $100+ carts instead of a discount, to protect your margin</li>
               </ul>
             </div>
           </div>
@@ -260,6 +274,7 @@ export default function EmailAutomationsPage() {
                 <li><PackageCheck size={17} /> Order & shipping confirmations that reduce support tickets</li>
                 <li><Repeat size={17} /> Replenishment reminders timed to your product's usage cycle</li>
                 <li><Star size={17} /> Review requests sent once customers have had time to use it</li>
+                <li><Repeat size={17} /> Email and SMS combined where your platform supports it: email first, a text to non-openers, then a final reminder</li>
               </ul>
             </div>
             <div className="eau-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
@@ -331,9 +346,15 @@ export default function EmailAutomationsPage() {
           </div>
         </section>
 
+        <ServiceFAQ items={[{"q": "Which platforms do you build automations on?", "a": "Mailchimp, Campaign Monitor, HubSpot, ActiveCampaign, Marketo, Omnisend and most other email platforms. If you're on Klaviyo, see our Flow Setup service."}, {"q": "How many automations do we need to start?", "a": "Four core automations (welcome, abandoned cart, post-purchase and win-back) cover most of the revenue. We add more as your program grows."}, {"q": "Will automated emails annoy our subscribers?", "a": "No. Frequency limits and exclusions stop people from getting too many emails, and buyers are removed from sales sequences as soon as they purchase."}, {"q": "Do you write and design the emails too?", "a": "Yes. Strategy, copy, design and the automation logic are all handled end to end."}, {"q": "Can we see results from other clients?", "a": "Yes, on request. We protect every client's privacy, so results and screenshots are only shared with the client's permission, with names and company details hidden. Ask on a call and we'll walk you through relevant examples."}]} />
+
+        <RelatedServices slugs={["flow-setup", "email-campaigns", "sms-campaigns"]} />
+
+        <ServiceJsonLd slug="email-automations" name="Email Automations" description="Email automations built on Mailchimp, Campaign Monitor, HubSpot, ActiveCampaign and other platforms: welcome, cart recovery, post-purchase and win-back sequences that run on autopilot." />
+
         <div className="eau-bottom" data-reveal="up">
           <p>Ready for revenue that runs while you sleep?</p>
-          <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
+          <Link href={contactHref('email-automations')} className="btn-primary">Book a Free Call →</Link>
         </div>
       </main>
       <Footer />

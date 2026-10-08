@@ -6,6 +6,17 @@ import {
   CheckCircle2, RefreshCw, TrendingUp, DollarSign,
   Settings2, ShieldCheck, ListChecks,
 } from 'lucide-react'
+import type { Metadata } from 'next'
+import { RelatedServices, ServiceChips, ServiceFAQ, ServiceJsonLd, ServiceProof } from '../../components/service/ServiceBlocks'
+import { contactHref } from '../../lib/site'
+import { serviceMetadata } from '../../lib/seo'
+
+export const metadata: Metadata = serviceMetadata({
+  slug: 'klaviyo-account-setup',
+  title: "Klaviyo Account Setup & Migration",
+  description: "Klaviyo account setup or migration from Mailchimp, Omnisend and other platforms: clean data, an authenticated sending domain, integrations, warm-up and core flows built right.",
+  image: '/images/services/klaviyo-account-setup/hero-dashboard.jpg',
+})
 
 const included = [
   'Full account setup or platform migration',
@@ -176,7 +187,7 @@ export default function KlaviyoAccountSetupPage() {
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Set up right from day one,<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>or migrated over without losing a thing.</em></h1>
               <p className="section-sub">Starting fresh on Klaviyo or moving from another platform, we handle the entire account: clean data, proper integrations, and flows built to convert from week one.</p>
               <div className="ksp-btns">
-                <Link href="/#contact" className="btn-primary">
+                <Link href={contactHref('klaviyo-account-setup')} className="btn-primary">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>
@@ -217,6 +228,8 @@ export default function KlaviyoAccountSetupPage() {
             </div>
           </div>
         </section>
+
+        <ServiceProof quote={{"text": "Set up our entire Klaviyo account from scratch. Every flow, segment, and integration was done perfectly. Our abandoned cart recovery alone paid back the entire project cost in the first week.", "name": "Priya M.", "role": "Founder, eCommerce Store"}} />
 
         <section className="ksp-feature">
           <div className="wrap ksp-feature-grid">
@@ -260,6 +273,7 @@ export default function KlaviyoAccountSetupPage() {
                 <li><RefreshCw size={17} /> Tags, segments, and purchase history mapped over correctly</li>
                 <li><RefreshCw size={17} /> Full historical data preserved so your flows keep the context they need</li>
               </ul>
+              <ServiceChips label="Migrating from" items={["Mailchimp", "Omnisend", "ActiveCampaign", "HubSpot", "Campaign Monitor", "Shopify Email"]} />
             </div>
           </div>
         </section>
@@ -304,6 +318,7 @@ export default function KlaviyoAccountSetupPage() {
               <ul>
                 <li><TrendingUp size={17} /> Sending volume increased gradually, not all at once</li>
                 <li><TrendingUp size={17} /> Domain and sender reputation protected during ramp-up</li>
+                <li><TrendingUp size={17} /> Warm-up usually runs 4 to 6 weeks, paced to your list size</li>
                 <li><TrendingUp size={17} /> A strong inbox placement foundation before your first big campaign</li>
               </ul>
             </div>
@@ -320,6 +335,7 @@ export default function KlaviyoAccountSetupPage() {
                 <li><DollarSign size={17} /> Unengaged and duplicate profiles removed before they cost you monthly</li>
                 <li><DollarSign size={17} /> Smaller, cleaner list with better open and click rates across the board</li>
                 <li><DollarSign size={17} /> Typical savings land in the thousands per year, not just a one-time cleanup</li>
+                <li><DollarSign size={17} /> Numbers shown are from a real client cleanup; yours depend on list size and Klaviyo plan</li>
               </ul>
             </div>
             <div className="ksp-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
@@ -368,9 +384,15 @@ export default function KlaviyoAccountSetupPage() {
           </div>
         </section>
 
+        <ServiceFAQ items={[{"q": "Will we lose subscribers or consent data when we migrate?", "a": "No. Profiles, consent status, tags and purchase history are mapped over, and anyone who unsubscribed or was suppressed on your old platform stays suppressed in Klaviyo, so you stay compliant."}, {"q": "Does our past email history come with us?", "a": "Profiles, lists, custom properties and order history move over. Campaign stats from your old platform don't carry into Klaviyo's reports, so we export them for your records before the switch."}, {"q": "How long does setup take?", "a": "A fresh setup usually takes 1 to 2 weeks. A migration with list cleanup and core flows usually takes 2 to 3 weeks, followed by a 4 to 6 week sending warm-up."}, {"q": "Who owns the Klaviyo account?", "a": "You do. The account is created under your business and stays yours. We work inside it as a team member and can be removed at any time."}, {"q": "What happens after setup?", "a": "Your team gets a full walkthrough so you can run it yourselves, or you can keep us on for flows, campaigns and monthly reporting."}]} />
+
+        <RelatedServices slugs={["flow-setup", "sign-up-forms", "account-audit"]} />
+
+        <ServiceJsonLd slug="klaviyo-account-setup" name="Klaviyo Account Setup" description="Klaviyo account setup or migration from Mailchimp, Omnisend and other platforms: clean data, an authenticated sending domain, integrations, warm-up and core flows built right." />
+
         <div className="ksp-bottom" data-reveal="up">
           <p>Ready to get your Klaviyo account set up right?</p>
-          <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
+          <Link href={contactHref('klaviyo-account-setup')} className="btn-primary">Book a Free Call →</Link>
         </div>
       </main>
       <Footer />

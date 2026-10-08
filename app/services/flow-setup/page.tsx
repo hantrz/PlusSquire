@@ -6,6 +6,17 @@ import {
   CheckCircle2, Workflow, Target, ListChecks, Sparkles, Percent,
   TrendingUp, ShoppingCart, Eye, DollarSign, Repeat, RefreshCw,
 } from 'lucide-react'
+import type { Metadata } from 'next'
+import { RelatedServices, ServiceFAQ, ServiceJsonLd, ServiceOffer, ServiceProof, ServiceUseCases } from '../../components/service/ServiceBlocks'
+import { contactHref } from '../../lib/site'
+import { serviceMetadata } from '../../lib/seo'
+
+export const metadata: Metadata = serviceMetadata({
+  slug: 'flow-setup',
+  title: "Klaviyo Flow Setup",
+  description: "Custom Klaviyo flows built for you: welcome series, browse and cart abandonment, post-purchase and win-back, with conditional logic, on-brand design and full testing before launch.",
+  image: '/images/services/flow-setup/hero-flows-autopilot.jpg',
+})
 
 const included = [
   'Full flow strategy & customer journey map',
@@ -20,7 +31,7 @@ const included = [
 
 const steps = [
   { n: '01', title: 'Map & Strategize', desc: 'We map your customer\'s full journey and rank which flows will move revenue fastest for your store.' },
-  { n: '02', title: 'Build & Design', desc: 'Every flow is written, designed on-brand, and wired into your triggers, timing, and segments.' },
+  { n: '02', title: 'Build & Design', desc: 'Every flow is written, designed on-brand, and wired into your triggers, timing, and segments. A full build of 6 to 8 flows usually takes 7 to 14 business days.' },
   { n: '03', title: 'Launch & Optimize', desc: 'Flows go live, and we track performance to refine subject lines, timing, and offers over time.' },
 ]
 
@@ -161,8 +172,9 @@ export default function FlowSetupPage() {
               <div className="section-tag">Klaviyo Flow Builds</div>
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Automated flows that sell,<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>while you sleep.</em></h1>
               <p className="section-sub">Custom Klaviyo flow builds, welcome series, abandoned cart, post-purchase, and win-back sequences engineered to convert on autopilot.</p>
+              <p style={{ fontSize: '14px', color: 'var(--ink3)', margin: '-18px 0 28px' }}>Using Mailchimp, Campaign Monitor or another platform? See <Link href="/services/email-automations" style={{ color: 'var(--g)', fontWeight: 700 }}>Email Automations →</Link></p>
               <div className="flw-btns">
-                <Link href="/#contact" className="btn-primary">
+                <Link href={contactHref('flow-setup')} className="btn-primary">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>
@@ -203,6 +215,8 @@ export default function FlowSetupPage() {
             </div>
           </div>
         </section>
+
+        <ServiceProof quote={{"text": "Our Klaviyo flows went from generating 10% of revenue to over 35% in 3 months. Zahidul knew exactly what to build and why. Highly recommend for any eCommerce brand serious about email.", "name": "Sarah T.", "role": "CEO, DTC Fashion Brand"}} caseStudy={{"tag": "eCommerce · Klaviyo", "title": "42% email revenue lift for a DTC fashion brand", "desc": "Rebuilt their entire Klaviyo automation stack: welcome series, abandoned cart, and post-purchase flows, turning automations into their #1 revenue channel.", "stats": [{"val": "+42%", "lbl": "Email Revenue"}, {"val": "3.8×", "lbl": "Flow ROI"}, {"val": "58%", "lbl": "Open Rate"}]}} />
 
         <section className="flw-feature">
           <div className="wrap flw-feature-grid">
@@ -245,6 +259,7 @@ export default function FlowSetupPage() {
                 <li><Sparkles size={17} /> Multi-email series introducing your brand</li>
                 <li><Percent size={17} /> Incentive-based conversion touchpoints</li>
                 <li><TrendingUp size={17} /> Send timing optimized for maximum engagement</li>
+                <li><Target size={17} /> Smart Sending and frequency rules so no one gets too many emails at once</li>
               </ul>
             </div>
           </div>
@@ -260,6 +275,7 @@ export default function FlowSetupPage() {
                 <li><ShoppingCart size={17} /> Cart recovery sequence with smart timing</li>
                 <li><Eye size={17} /> Browse abandonment for non-cart visitors</li>
                 <li><DollarSign size={17} /> Incentive escalation to close the sale</li>
+                <li><DollarSign size={17} /> Conditional splits by cart value, first-time vs repeat buyer, and product category</li>
               </ul>
             </div>
             <div className="flw-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
@@ -296,6 +312,10 @@ export default function FlowSetupPage() {
           </div>
         </section>
 
+        <ServiceUseCases tag="Flows We Build" title="Foundation flows first, then the revenue add-ons." sub="Every build starts with the flows that earn the most, then adds the ones that fit your store." items={[{"title": "Foundation flows (every build)", "desc": "Welcome series, browse abandonment, abandoned cart, abandoned checkout and post-purchase, each with buyer and non-buyer paths."}, {"title": "Revenue add-ons", "desc": "Win-back, replenishment reminders, VIP and loyalty, cross-sell and sunset flows, added where they fit your products and margins."}]} />
+
+        <ServiceOffer tag="Already On Klaviyo?" title="Find out which flows are leaking revenue" desc="Our free account audit checks every live flow for missing triggers, broken filters and timing issues." ctaLabel="Get a Free Audit" href={"/services/account-audit"} />
+
         <section className="flw-included">
           <div className="wrap">
             <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }} data-reveal="up">
@@ -331,9 +351,15 @@ export default function FlowSetupPage() {
           </div>
         </section>
 
+        <ServiceFAQ items={[{"q": "Is copywriting and design included?", "a": "Yes. Every email in every flow is written, designed on-brand and built in Klaviyo, along with the triggers, filters and splits."}, {"q": "How do you test flows before they go live?", "a": "We trigger each flow with test profiles and real events from your store, check every split and filter, and review every email on desktop and mobile before switching it on."}, {"q": "We already have some flows running. What happens to them?", "a": "We review them first. Strong flows are kept and improved; weak ones are rebuilt or replaced, without leaving gaps while we work."}, {"q": "How long does a full build take?", "a": "A full build of 6 to 8 flows usually takes 7 to 14 business days, depending on how many emails each flow needs."}]} />
+
+        <RelatedServices slugs={["account-audit", "sign-up-forms", "sms-campaigns"]} />
+
+        <ServiceJsonLd slug="flow-setup" name="Klaviyo Flow Setup" description="Custom Klaviyo flows built for you: welcome series, browse and cart abandonment, post-purchase and win-back, with conditional logic, on-brand design and full testing before launch." />
+
         <div className="flw-bottom" data-reveal="up">
           <p>Ready to put your revenue flows on autopilot?</p>
-          <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
+          <Link href={contactHref('flow-setup')} className="btn-primary">Book a Free Call →</Link>
         </div>
       </main>
       <Footer />

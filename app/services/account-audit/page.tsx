@@ -6,22 +6,33 @@ import {
   CheckCircle2, ShieldCheck, Workflow, Users, MailCheck,
   SearchCheck, TrendingUp, Target, ListChecks, Percent, ClipboardList,
 } from 'lucide-react'
+import type { Metadata } from 'next'
+import { RelatedServices, ServiceFAQ, ServiceJsonLd, ServiceOffer } from '../../components/service/ServiceBlocks'
+import { contactHref, SAMPLE_AUDIT_URL } from '../../lib/site'
+import { serviceMetadata } from '../../lib/seo'
+
+export const metadata: Metadata = serviceMetadata({
+  slug: 'account-audit',
+  title: "Free Klaviyo Account Audit",
+  description: "A free Klaviyo account audit: deliverability, flows, segmentation and templates reviewed, with a prioritized action plan and a live walkthrough of every finding.",
+  image: '/images/services/account-audit/hero-account-audit.jpg',
+})
 
 const included = [
   'Full deliverability & authentication check',
   'List health & engagement analysis',
   'Flow-by-flow performance review',
   'Segmentation & targeting audit',
-  'Template & design review',
+  'Template, dark mode & mobile review',
   'Competitive benchmarking',
   'Prioritized 90-day action plan',
   'Live walkthrough of every finding',
 ]
 
 const steps = [
-  { n: '01', title: 'Deep-Dive Audit', desc: 'We go through every corner of your account, deliverability, flows, segments, templates, and log every finding.' },
+  { n: '01', title: 'Deep-Dive Audit', desc: 'You give us read-only access, and we go through every corner of your account, deliverability, flows, segments, templates, and log every finding.' },
   { n: '02', title: 'Score & Benchmark', desc: 'Your program is scored against industry benchmarks so you know exactly where you stand.' },
-  { n: '03', title: 'Deliver Action Plan', desc: 'You get a prioritized, ranked plan and a live walkthrough of what to fix first and why.' },
+  { n: '03', title: 'Deliver Action Plan', desc: 'Within 5 business days you get a prioritized, ranked plan and a live walkthrough of what to fix first and why.' },
 ]
 
 const whatYouGet = [
@@ -160,13 +171,13 @@ export default function AccountAuditPage() {
             <div className="aud-hero-left" data-reveal="up">
               <div className="section-tag">Klaviyo Account Audit</div>
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Know exactly what&apos;s working,<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>and what&apos;s costing you revenue.</em></h1>
-              <p className="section-sub">A comprehensive review of your entire email program, with a prioritized action plan you can hand straight to your team.</p>
+              <p className="section-sub">A free, in-depth review of your entire email program, with a prioritized action plan you can hand straight to your team.</p>
               <div className="aud-btns">
-                <Link href="/#contact" className="btn-primary">
+                <Link href={contactHref('account-audit')} className="btn-primary">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>
-                  Book a Free Call
+                  Get Your Free Audit
                 </Link>
                 <Link href="/#cases" className="btn-ghost">See Case Studies →</Link>
               </div>
@@ -297,6 +308,8 @@ export default function AccountAuditPage() {
           </div>
         </section>
 
+        <ServiceOffer tag="Free Audit" title="Get your free Klaviyo audit" desc="No cost and no obligation. Share your store and we will review your account and walk you through every finding on a live call." bullets={["Read-only access, nothing in your account is changed", "A fix list ranked by revenue impact", "A live walkthrough of every finding"]} ctaLabel="Claim Your Free Audit" href={contactHref('account-audit')} secondary={{ label: 'Download a sample audit report', href: SAMPLE_AUDIT_URL }} />
+
         <section className="aud-included">
           <div className="wrap">
             <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }} data-reveal="up">
@@ -332,9 +345,15 @@ export default function AccountAuditPage() {
           </div>
         </section>
 
+        <ServiceFAQ items={[{"q": "Is the audit really free?", "a": "Yes. There is no cost and no obligation to work with us afterwards. You keep the action plan either way."}, {"q": "What access do you need?", "a": "A read-only user on your Klaviyo account (for example the Analyst role). We never need your password, and you can remove our access as soon as the audit is done."}, {"q": "Is our data safe?", "a": "Yes. We only view your account. Nothing is changed, exported or shared, and every finding stays between us and your team."}, {"q": "How long does it take?", "a": "Usually within 5 business days of getting access, followed by a live walkthrough call at a time that suits you."}, {"q": "Will you fix the issues for us?", "a": "Only if you want us to. Your team can follow the plan on its own, or we can implement the fixes as a separate project."}, {"q": "Can we see results from other clients?", "a": "Yes, on request. We protect every client's privacy, so results and screenshots are only shared with the client's permission, with names and company details hidden. Ask on a call and we'll walk you through relevant examples."}]} />
+
+        <RelatedServices slugs={["flow-setup", "reporting-improvement", "email-campaigns"]} />
+
+        <ServiceJsonLd slug="account-audit" name="Klaviyo Account Audit" description="A free Klaviyo account audit: deliverability, flows, segmentation and templates reviewed, with a prioritized action plan and a live walkthrough of every finding." />
+
         <div className="aud-bottom" data-reveal="up">
           <p>Ready to see exactly what your email program needs?</p>
-          <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
+          <Link href={contactHref('account-audit')} className="btn-primary">Get Your Free Audit →</Link>
         </div>
       </main>
       <Footer />

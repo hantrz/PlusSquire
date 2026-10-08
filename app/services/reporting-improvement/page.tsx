@@ -7,6 +7,17 @@ import {
   SearchCheck, ShieldCheck, MailCheck, ListChecks, RefreshCw,
   Workflow, DollarSign,
 } from 'lucide-react'
+import type { Metadata } from 'next'
+import { RelatedServices, ServiceFAQ, ServiceGallery, ServiceJsonLd } from '../../components/service/ServiceBlocks'
+import { contactHref } from '../../lib/site'
+import { serviceMetadata } from '../../lib/seo'
+
+export const metadata: Metadata = serviceMetadata({
+  slug: 'reporting-improvement',
+  title: "Email Reporting & Optimization",
+  description: "A monthly email reporting and optimization retainer: plain-language reports, A/B testing, deliverability monitoring and continuous flow improvements based on real data.",
+  image: '/images/services/reporting-improvement/hero-reporting-dashboard.jpg',
+})
 
 const included = [
   'Monthly performance report & walkthrough call',
@@ -20,9 +31,9 @@ const included = [
 ]
 
 const steps = [
-  { n: '01', title: 'Report & Review', desc: 'Every month you get a clear report on revenue, engagement, and deliverability, translated out of raw metrics.' },
-  { n: '02', title: 'Test & Refine', desc: 'We run structured A/B tests on subject lines, send times, and content, and roll out what wins.' },
-  { n: '03', title: 'Optimize & Repeat', desc: 'Underperforming flows and campaigns get rebuilt, and the cycle repeats so results keep compounding.' },
+  { n: '01', title: 'Month 1: Baseline & Report', desc: 'Every month you get a clear report on revenue, engagement, and deliverability, translated out of raw metrics.' },
+  { n: '02', title: 'Month 2: Test & Refine', desc: 'We run structured A/B tests on subject lines, send times, and content, and roll out what wins.' },
+  { n: '03', title: 'Month 3 On: Optimize & Repeat', desc: 'Underperforming flows and campaigns get rebuilt, and the cycle repeats so results keep compounding.' },
 ]
 
 const whatYouGet = [
@@ -161,9 +172,9 @@ export default function ReportingImprovementPage() {
             <div className="rpi-hero-left" data-reveal="up">
               <div className="section-tag">Reporting & Improvement</div>
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Clear reporting,<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>and a plan to keep improving it.</em></h1>
-              <p className="section-sub">Clear performance reporting paired with continuous testing and optimization to keep results improving month over month.</p>
+              <p className="section-sub">A monthly retainer pairing clear performance reporting with continuous testing and optimization, so results keep improving month over month.</p>
               <div className="rpi-btns">
-                <Link href="/#contact" className="btn-primary">
+                <Link href={contactHref('reporting-improvement')} className="btn-primary">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>
@@ -216,6 +227,7 @@ export default function ReportingImprovementPage() {
                 <li><LineChart size={17} /> A clear monthly report on revenue & engagement</li>
                 <li><TrendingUp size={17} /> Trends tracked across flows, campaigns & lists</li>
                 <li><ClipboardList size={17} /> Key metrics translated into plain language</li>
+                <li><DollarSign size={17} /> Metrics that matter: revenue per recipient, flow vs campaign revenue, list growth vs decay, repeat purchase rate</li>
               </ul>
             </div>
             <div className="rpi-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
@@ -298,6 +310,8 @@ export default function ReportingImprovementPage() {
           </div>
         </section>
 
+        <ServiceGallery tag="Sample Report" title="What your monthly report looks like" sub="A real report with client details removed." items={[{"label": "Sample monthly report (anonymized)", "alt": "Sample monthly email performance report"}, {"label": "Reporting dashboard (Klaviyo or Looker Studio)", "alt": "Email reporting dashboard"}]} />
+
         <section className="rpi-included">
           <div className="wrap">
             <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }} data-reveal="up">
@@ -333,9 +347,15 @@ export default function ReportingImprovementPage() {
           </div>
         </section>
 
+        <ServiceFAQ items={[{"q": "Is this a one-time report or ongoing?", "a": "Ongoing. It's a monthly retainer: a report and walkthrough call every month, a quarterly strategy review, and continuous testing in between."}, {"q": "Which tools do you report from?", "a": "Klaviyo or your email platform, plus Shopify and Google Analytics 4 where needed, so email results are tied to real store revenue."}, {"q": "Who reads the report with us?", "a": "Your account manager walks you through it on a monthly call and turns findings into the next month's actions."}, {"q": "Who makes the changes the report recommends?", "a": "We do. Tests, flow fixes and improvements are part of the retainer, not extra work for your team."}, {"q": "Can we see results from other clients?", "a": "Yes, on request. We protect every client's privacy, so results and screenshots are only shared with the client's permission, with names and company details hidden. Ask on a call and we'll walk you through relevant examples."}]} />
+
+        <RelatedServices slugs={["account-audit", "email-campaigns", "flow-setup"]} />
+
+        <ServiceJsonLd slug="reporting-improvement" name="Email Reporting & Improvement" description="A monthly email reporting and optimization retainer: plain-language reports, A/B testing, deliverability monitoring and continuous flow improvements based on real data." />
+
         <div className="rpi-bottom" data-reveal="up">
           <p>Ready for reporting and optimization that never stops?</p>
-          <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
+          <Link href={contactHref('reporting-improvement')} className="btn-primary">Book a Free Call →</Link>
         </div>
       </main>
       <Footer />

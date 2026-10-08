@@ -6,6 +6,17 @@ import {
   CheckCircle2, Gauge, Image as ImageIcon, Code2, Wrench,
   Search, ShieldCheck, MonitorSmartphone, Zap, FileText,
 } from 'lucide-react'
+import type { Metadata } from 'next'
+import { RelatedServices, ServiceFAQ, ServiceGallery, ServiceJsonLd, ServiceOffer, ServicePromise, ServiceProof } from '../../components/service/ServiceBlocks'
+import { contactHref } from '../../lib/site'
+import { serviceMetadata } from '../../lib/seo'
+
+export const metadata: Metadata = serviceMetadata({
+  slug: 'shopify-speed-optimization',
+  title: "Shopify Speed Optimization",
+  description: "Shopify speed optimization that improves Core Web Vitals without breaking your store: work on a duplicate theme, apps kept and optimized, tracking protected, and a performance target agreed up front.",
+  image: '/images/services/shopify-speed-optimization/hero-results.jpg',
+})
 
 const included = [
   'Full Core Web Vitals & PageSpeed audit',
@@ -162,7 +173,7 @@ export default function ShopifySpeedOptimizationPage() {
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Faster pages,<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>fewer abandoned carts.</em></h1>
               <p className="section-sub">We diagnose what&apos;s actually slowing your store down and fix it, for better Core Web Vitals, faster checkout, and more completed sales.</p>
               <div className="sso-btns">
-                <Link href="/#contact" className="btn-primary">
+                <Link href={contactHref('shopify-speed-optimization')} className="btn-primary">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>
@@ -203,6 +214,10 @@ export default function ShopifySpeedOptimizationPage() {
             </div>
           </div>
         </section>
+
+        <ServiceProof quote={{"text": "Our store loads in under 2 seconds now. Cart abandonment dropped and mobile conversions are up significantly since the Shopify rebuild.", "name": "Nadia S.", "role": "Founder, Beauty Brand"}} />
+
+        <ServicePromise tag="Safe By Design" title="Faster, without breaking anything." tinted items={[{"title": "Duplicate theme first", "desc": "All work happens on a copy of your theme, gets tested, and is published only after you approve it."}, {"title": "Your apps stay", "desc": "We don't make you uninstall apps. Their scripts are deferred or lazy-loaded, and leftover code from removed apps is cleaned up."}, {"title": "Tracking protected", "desc": "Meta Pixel, GA4 and other tracking are checked after every change, so your data keeps flowing."}, {"title": "Performance promise", "desc": "We agree a target score before we start. If we don't reach it, we keep working at no extra cost until we do."}]} />
 
         <section className="sso-feature">
           <div className="wrap sso-feature-grid">
@@ -260,6 +275,7 @@ export default function ShopifySpeedOptimizationPage() {
                 <li><Wrench size={17} /> Unused apps & scripts removed</li>
                 <li><Code2 size={17} /> Theme code audited & trimmed</li>
                 <li><Zap size={17} /> Third-party embeds loaded efficiently</li>
+                <li><Code2 size={17} /> Leftover code from uninstalled apps found and removed</li>
               </ul>
             </div>
             <div className="sso-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
@@ -296,6 +312,10 @@ export default function ShopifySpeedOptimizationPage() {
           </div>
         </section>
 
+        <ServiceGallery tag="Real Results" title="Before and after, on a real store" sub="Mobile PageSpeed results, shared with permission." items={[{"label": "PageSpeed (mobile) before optimization", "alt": "Mobile PageSpeed score before optimization"}, {"label": "PageSpeed (mobile) after optimization", "alt": "Mobile PageSpeed score after optimization"}]} />
+
+        <ServiceOffer tag="Free Speed Check" title="See what's slowing your store down" desc="Send us your store URL and we will run a speed check and tell you the top fixes, free." bullets={["Mobile PageSpeed and Core Web Vitals checked", "Your top 3 speed issues, explained simply", "No access to your store needed"]} ctaLabel="Get My Free Speed Check" href={contactHref('shopify-speed-optimization')} />
+
         <section className="sso-included">
           <div className="wrap">
             <div className="sh-row" style={{ textAlign: 'center', marginBottom: '40px' }} data-reveal="up">
@@ -331,9 +351,15 @@ export default function ShopifySpeedOptimizationPage() {
           </div>
         </section>
 
+        <ServiceFAQ items={[{"q": "Will speed work break our design or tracking pixels?", "a": "No. Everything is done on a duplicate theme, and your design, Meta Pixel, GA4 and other tracking are checked before anything is published."}, {"q": "Do we have to uninstall apps?", "a": "No. We optimize how apps load instead. We'll only suggest removing an app if it's unused or has a lighter alternative, and the decision is yours."}, {"q": "Will the store slow down again later?", "a": "New apps and heavy images are the usual cause. You get 30 days of monitoring plus simple guidelines for adding apps and images safely."}, {"q": "Do you work on our live theme?", "a": "Never directly. We work on a copy, and you approve before it goes live."}, {"q": "How long does optimization take?", "a": "Most stores are done in 1 to 2 weeks, including testing and your approval."}]} />
+
+        <RelatedServices slugs={["shopify-theme-development", "shopify-custom-features", "sign-up-forms"]} />
+
+        <ServiceJsonLd slug="shopify-speed-optimization" name="Shopify Speed Optimization" description="Shopify speed optimization that improves Core Web Vitals without breaking your store: work on a duplicate theme, apps kept and optimized, tracking protected, and a performance target agreed up front." />
+
         <div className="sso-bottom" data-reveal="up">
           <p>Ready to stop losing customers to slow load times?</p>
-          <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
+          <Link href={contactHref('shopify-speed-optimization')} className="btn-primary">Book a Free Call →</Link>
         </div>
       </main>
       <Footer />

@@ -7,6 +7,17 @@ import {
   ListChecks, MousePointerClick, Clock, Users,
   Target, TrendingUp, Percent, LineChart,
 } from 'lucide-react'
+import type { Metadata } from 'next'
+import { RelatedServices, ServiceFAQ, ServiceJsonLd, ServicePromise } from '../../components/service/ServiceBlocks'
+import { contactHref } from '../../lib/site'
+import { serviceMetadata } from '../../lib/seo'
+
+export const metadata: Metadata = serviceMetadata({
+  slug: 'sign-up-forms',
+  title: "Klaviyo Sign-Up Forms & Pop-Ups",
+  description: "On-brand Klaviyo sign-up forms and pop-ups with smart triggers, zero-party data capture and ongoing A/B testing, built to grow your list without hurting the shopping experience.",
+  image: '/images/services/sign-up-forms/hero-popup-signups.jpg',
+})
 
 const included = [
   'Pop-up & embedded form design',
@@ -163,7 +174,7 @@ export default function SignUpFormsPage() {
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Turn more visitors into subscribers,<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>without hurting the experience.</em></h1>
               <p className="section-sub">High-converting pop-ups and embedded forms, designed on-brand and integrated directly with your platform.</p>
               <div className="suf-btns">
-                <Link href="/#contact" className="btn-primary">
+                <Link href={contactHref('sign-up-forms')} className="btn-primary">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>
@@ -205,6 +216,8 @@ export default function SignUpFormsPage() {
             </div>
           </div>
         </section>
+
+        <ServicePromise tag="Built Not to Annoy" title="More subscribers, without hurting the experience." items={[{"title": "Never shown twice", "desc": "Existing subscribers never see the form again, and anyone who closes it isn't shown it again for a set number of days."}, {"title": "Mobile-friendly", "desc": "Small flyouts and bottom sheets on mobile instead of full-screen takeovers, in line with Google's guidance on intrusive pop-ups."}, {"title": "Compliant consent", "desc": "GDPR-ready consent wording, plus TCPA-compliant checkboxes and disclaimers whenever phone numbers are collected for SMS."}, {"title": "Light on page speed", "desc": "Forms load after your page content, so they never get in the way of what shoppers came to see."}]} />
 
         <section className="suf-feature">
           <div className="wrap suf-feature-grid">
@@ -260,6 +273,7 @@ export default function SignUpFormsPage() {
               <p className="suf-feature-sub">Quiz-style questions double as segmentation, so new subscribers get relevant content from their very first email.</p>
               <ul>
                 <li><ListChecks size={17} /> Quiz-style questions that double as segmentation</li>
+                <li><ListChecks size={17} /> Multi-step forms: email first, then phone for SMS, then preferences</li>
                 <li><Users size={17} /> Preferences captured at the point of signup</li>
                 <li><Target size={17} /> Better-targeted flows from day one</li>
               </ul>
@@ -333,9 +347,15 @@ export default function SignUpFormsPage() {
           </div>
         </section>
 
+        <ServiceFAQ items={[{"q": "Will a pop-up slow down my store?", "a": "No. Forms load after your main page content, and we check page speed before and after launch."}, {"q": "Do you use Klaviyo forms or a separate app?", "a": "Klaviyo's built-in forms in most cases, so subscribers land straight in the right list and flow without another monthly app fee."}, {"q": "Will Google penalize pop-ups on mobile?", "a": "Google warns against full-screen pop-ups that block content on mobile. We use smaller flyouts and timed triggers on mobile to stay within that guidance."}, {"q": "Do we need to offer a discount?", "a": "Not always. Early access, free shipping, a quiz result or a content offer can convert just as well. We test what works for your audience."}, {"q": "Can we see results from other clients?", "a": "Yes, on request. We protect every client's privacy, so results and screenshots are only shared with the client's permission, with names and company details hidden. Ask on a call and we'll walk you through relevant examples."}]} />
+
+        <RelatedServices slugs={["sms-campaigns", "flow-setup", "shopify-speed-optimization"]} />
+
+        <ServiceJsonLd slug="sign-up-forms" name="Sign-Up Forms & Pop-Ups" description="On-brand Klaviyo sign-up forms and pop-ups with smart triggers, zero-party data capture and ongoing A/B testing, built to grow your list without hurting the shopping experience." />
+
         <div className="suf-bottom" data-reveal="up">
           <p>Ready to convert more of your traffic into subscribers?</p>
-          <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
+          <Link href={contactHref('sign-up-forms')} className="btn-primary">Book a Free Call →</Link>
         </div>
       </main>
       <Footer />

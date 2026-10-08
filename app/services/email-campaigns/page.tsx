@@ -7,6 +7,17 @@ import {
   SplitSquareHorizontal, Target, Star, UserPlus, RotateCcw,
   Clock, ShieldCheck, TrendingUp,
 } from 'lucide-react'
+import type { Metadata } from 'next'
+import { RelatedServices, ServiceFAQ, ServiceJsonLd, ServicePromise } from '../../components/service/ServiceBlocks'
+import { contactHref } from '../../lib/site'
+import { serviceMetadata } from '../../lib/seo'
+
+export const metadata: Metadata = serviceMetadata({
+  slug: 'email-campaigns',
+  title: "Email Campaign Management",
+  description: "Email campaigns planned, written, designed, tested and sent for you, with smart segmentation, deliverability protection and reporting on every send.",
+  image: '/images/services/email-campaigns/hero-campaign-results.jpg',
+})
 
 const ecpIncluded = [
   "Campaign calendar planning aligned to your promos & launches",
@@ -21,7 +32,7 @@ const ecpIncluded = [
 
 const ecpSteps = [
   { n: '01', title: 'Plan the Calendar', desc: 'We map campaigns to your promo calendar, product launches and seasonal moments so nothing gets sent without a purpose.' },
-  { n: '02', title: 'Write, Design & Test', desc: 'Copy, subject lines and creative are drafted and A/B tested before anything goes out to your list.' },
+  { n: '02', title: 'Write, Design & Test', desc: 'Copy, subject lines and creative are drafted, then you get a preview and a test email to approve before anything is scheduled.' },
   { n: '03', title: 'Deploy & Report', desc: 'Segmented sends deploy on schedule, then get reported on so we can double down on what actually worked.' },
 ]
 
@@ -163,7 +174,7 @@ export default function EmailCampaignsPage() {
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Campaigns built<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>to drive real revenue.</em></h1>
               <p className="section-sub">Strategy, copy, design and deployment handled end to end, so every campaign is built to earn opens, clicks and sales, not just fill a calendar slot.</p>
               <div className="ecp-btns">
-                <Link href="/#contact" className="btn-primary">
+                <Link href={contactHref('email-campaigns')} className="btn-primary">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>
@@ -204,6 +215,8 @@ export default function EmailCampaignsPage() {
             </div>
           </div>
         </section>
+
+        <ServicePromise tag="Ways to Work With Us" title="Pick the cadence that fits your list." sub="Current rates are on our Pricing page." items={[{"title": "Starter", "desc": "4 campaigns a month, one a week. A steady rhythm for smaller lists."}, {"title": "Growth", "desc": "8 to 12 campaigns a month, two to three a week, for brands with a full promo calendar."}, {"title": "Full-funnel", "desc": "Strategy, copy, design, coding, scheduling and reporting, all handled for you."}]} />
 
         <section className="ecp-feature">
           <div className="wrap ecp-feature-grid">
@@ -261,6 +274,7 @@ export default function EmailCampaignsPage() {
                 <li><Star size={17} /> VIP & repeat customers get offers worth their loyalty</li>
                 <li><UserPlus size={17} /> First-time buyers nurtured toward a second purchase</li>
                 <li><RotateCcw size={17} /> Win-back segments kept separate from your core list</li>
+                <li><Target size={17} /> Engaged 30, 60 and 90-day segments so inactive subscribers never drag down deliverability</li>
               </ul>
             </div>
             <div className="ecp-diagram-img" data-reveal="zoom" style={{ transitionDelay: '120ms' }}>
@@ -291,6 +305,7 @@ export default function EmailCampaignsPage() {
               <ul>
                 <li><Clock size={17} /> Send times optimized per segment's engagement patterns</li>
                 <li><ShieldCheck size={17} /> Ongoing deliverability & inbox placement monitoring</li>
+                <li><ShieldCheck size={17} /> Google and Yahoo sender rules met: SPF, DKIM, DMARC, one-click unsubscribe and spam complaints kept under 0.1%</li>
                 <li><TrendingUp size={17} /> Open, click & revenue trends tracked send over send</li>
               </ul>
             </div>
@@ -332,9 +347,15 @@ export default function EmailCampaignsPage() {
           </div>
         </section>
 
+        <ServiceFAQ items={[{"q": "Do you write the copy and create the graphics?", "a": "Yes. Strategy, copywriting, design and building the email are all included. You just approve."}, {"q": "How many campaigns should we send each week?", "a": "Most stores do best with two to three a week, adjusted to your list size and engagement. We start where your list is today and build up."}, {"q": "How do you keep emails out of spam and the Promotions tab?", "a": "Authenticated sending (SPF, DKIM, DMARC), engaged-first segmentation, a balance of text and images, and regular list cleaning."}, {"q": "Can you work inside our existing platform?", "a": "Yes. We build, schedule and segment directly in Klaviyo, Mailchimp, HubSpot or whichever platform you use."}, {"q": "How do we approve campaigns before they go out?", "a": "Every campaign comes with a preview link and a test email to your inbox. Nothing is scheduled until you approve it."}, {"q": "Can we see results from other clients?", "a": "Yes, on request. We protect every client's privacy, so results and screenshots are only shared with the client's permission, with names and company details hidden. Ask on a call and we'll walk you through relevant examples."}]} />
+
+        <RelatedServices slugs={["email-design", "email-development", "reporting-improvement"]} />
+
+        <ServiceJsonLd slug="email-campaigns" name="Email Campaigns" description="Email campaigns planned, written, designed, tested and sent for you, with smart segmentation, deliverability protection and reporting on every send." />
+
         <div className="ecp-bottom" data-reveal="up">
           <p>Ready for campaigns that actually move revenue?</p>
-          <Link href="/#contact" className="btn-primary">Book a Free Call →</Link>
+          <Link href={contactHref('email-campaigns')} className="btn-primary">Book a Free Call →</Link>
         </div>
       </main>
       <Footer />
