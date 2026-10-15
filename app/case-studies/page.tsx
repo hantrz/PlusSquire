@@ -2,7 +2,40 @@ import Link from 'next/link'
 import Navbar from '../components/Navbar'
 import { Footer } from '../components/Sections'
 
-const cases = [
+type CaseItem = {
+  tag: string
+  title: string
+  body: string
+  metrics: { val: string; lbl: string }[]
+  featured: boolean
+  href?: string
+}
+
+const cases: CaseItem[] = [
+  {
+    tag: 'Apparel · Email + SMS Flash',
+    title: '$84,320 in 7 days for a DTC apparel brand',
+    body: 'Ran a synchronized 7-day email and SMS flash campaign with automatic buyer suppression and Shopify cart tier unlocks, driving a 34.2% storewide sales lift without burning the list.',
+    metrics: [{ val: '$84.3K', lbl: 'Revenue in 7 Days' }, { val: '+34.2%', lbl: 'Weekly Store Sales' }, { val: '0.01%', lbl: 'Complaint Rate' }],
+    featured: true,
+    href: '/case-studies/7-day-flash-growth-case-study',
+  },
+  {
+    tag: 'Luxury Spirits · Shopify + Klaviyo',
+    title: '+$438K/month in retention revenue for a luxury DTC brand',
+    body: 'Re-engineered an enterprise Shopify store and replaced blanket promo blasts with an 8-stage Klaviyo retention system, scaling store revenue from $2.18M to $5.12M a month while protecting margins.',
+    metrics: [{ val: '+$438K', lbl: 'Monthly Retention Lift' }, { val: '$5.12M', lbl: 'Monthly Store Revenue' }, { val: '+18.5%', lbl: 'AOV' }],
+    featured: true,
+    href: '/case-studies/luxury-spirits-growth-case-study',
+  },
+  {
+    tag: 'Skincare · Shopify + Klaviyo',
+    title: 'From $142K to $1.86M/month for a DTC skincare brand',
+    body: 'Rebuilt the Shopify store experience and a full Klaviyo email and SMS retention engine in 90 days, turning automated flows from 12% of revenue into a $574K+ monthly retention channel.',
+    metrics: [{ val: '$1.86M', lbl: 'Peak Monthly Revenue' }, { val: '$574K', lbl: 'Email & SMS (30 Days)' }, { val: '+215%', lbl: 'Retention Revenue' }],
+    featured: true,
+    href: '/case-studies/dtc-skincare-growth-case-study',
+  },
   {
     tag: 'eCommerce · Klaviyo',
     title: '42% email revenue lift for a DTC fashion brand',
@@ -71,6 +104,8 @@ export default function CaseStudiesPage() {
           .case-nums { display: flex; gap: 24px; }
           .cn-val { font-family: 'Inter', sans-serif; font-size: 26px; font-weight: 800; color: var(--g); line-height: 1; }
           .cn-lbl { font-size: 11.5px; color: var(--ink4); margin-top: 3px; }
+          .case-read { display: inline-block; margin-top: 26px; font-size: 14px; font-weight: 600; color: var(--g); transition: transform .18s; }
+          .case-card:hover .case-read { transform: translateX(4px); }
           .case-thumb {
             background: linear-gradient(135deg, #e8f5f0, #d0ede3);
             display: flex; align-items: center; justify-content: center;
@@ -122,7 +157,7 @@ export default function CaseStudiesPage() {
           <div className="wrap">
             <div className="cases-grid">
               {cases.map((c, i) => (
-                <Link key={c.title} href="/case-studies" className={`case-card${c.featured ? ' case-featured' : ''}`} data-reveal={i === 0 ? 'zoom' : i % 2 ? 'left' : 'right'} style={{ transitionDelay: `${i * 110}ms` }}>
+                <Link key={c.title} href={c.href ?? '/case-studies'}className={`case-card${c.featured ? ' case-featured' : ''}`} data-reveal={i === 0 ? 'zoom' : i % 2 ? 'left' : 'right'} style={{ transitionDelay: `${i * 110}ms` }}>
                   <div className="case-body">
                     <div className="case-tag">{c.tag}</div>
                     <h3>{c.title}</h3>
@@ -135,6 +170,7 @@ export default function CaseStudiesPage() {
                         </div>
                       ))}
                     </div>
+                    {c.href && <span className="case-read">Read the full case study →</span>}
                   </div>
                   <div className={`case-thumb${c.featured ? '' : ' case-thumb-sm'}`}>
                     <EmailMockup />

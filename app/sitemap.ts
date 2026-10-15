@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 import { SERVICES, SITE_URL } from './lib/site'
 
 // About, Insights and Portfolio are left out until they have real content.
-const staticRoutes = ['', '/services', '/pricing', '/faq', '/case-studies', '/privacy', '/terms']
+const staticRoutes = ['', '/services', '/pricing', '/faq', '/case-studies', '/case-studies/dtc-skincare-growth-case-study', '/case-studies/luxury-spirits-growth-case-study', '/case-studies/7-day-flash-growth-case-study','/privacy', '/terms']
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
