@@ -429,7 +429,7 @@ export function Footer() {
           <div className="footer-top" data-reveal="up">
             <div>
               <Link href="/" className="footer-logo">
-                <Image src="/plussquire-logo.png" alt="PlusSquire" width={120} height={24} style={{ filter: 'brightness(0) invert(1)' }} priority />
+                <Image src="/plussquire-logo-dark.svg" alt="PlusSquire" width={141} height={24} unoptimized />
               </Link>
               <p className="footer-desc">Shopify development and email marketing for eCommerce brands that take revenue seriously. Top Rated Plus on Upwork. 13+ years. 800+ projects delivered.</p>
               <div className="social-links">

@@ -30,8 +30,9 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: defaultTitle,
     description: defaultDescription,
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'PlusSquire: Shopify engineering, email flows & growth systems' }],
   },
-  twitter: { card: 'summary_large_image', title: defaultTitle, description: defaultDescription },
+  twitter: { card: 'summary_large_image', title: defaultTitle, description: defaultDescription, images: ['/og-image.png'] },
   // Kept out of search results until ALLOW_INDEXING is switched on (see lib/site.ts).
   robots: ALLOW_INDEXING ? { index: true, follow: true } : { index: false, follow: false },
 }

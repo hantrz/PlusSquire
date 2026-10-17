@@ -13,8 +13,8 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: slug },
-  openGraph: { type: 'article', url: slug, siteName: SITE_NAME, title: `${title} | ${SITE_NAME}`, description },
-  twitter: { card: 'summary_large_image', title: `${title} | ${SITE_NAME}`, description },
+  openGraph: { type: 'article', url: slug, siteName: SITE_NAME, title: `${title} | ${SITE_NAME}`, description, images: [{ url: '/og-image.png', width: 1200, height: 630 }] },
+  twitter: { card: 'summary_large_image', title: `${title} | ${SITE_NAME}`, description, images: ['/og-image.png'] },
 }
 
 export default function FlashSaleCaseStudyPage() {

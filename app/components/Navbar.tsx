@@ -314,9 +314,9 @@ export default function Navbar() {
 
       <nav className={scrolled ? 'scrolled' : ''}>
         <div className="nav-wrap" style={{display:'flex', alignItems:'center', justifyContent:'space-between', position:'relative', maxWidth:'var(--max)', margin:'0 auto', padding:'0 var(--px)', height:'68px', zIndex:2}}>
-          {/* Logo — no icon */}
+          {/* Logo (brand book v2: light lockup on light nav) */}
           <Link href="/" className="logo" style={{flex:'0 0 auto'}}>
-            <Image src="/plussquire-logo.png" alt="PlusSquire" width={150} height={30} quality={100} priority />
+            <Image src="/plussquire-logo-light.svg" alt="PlusSquire" width={164} height={28} unoptimized priority />
           </Link>
 
           {/* Center links */}
