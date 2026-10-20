@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import Navbar from '../components/Navbar'
 import { Footer } from '../components/Sections'
-import { ShoppingBag, RefreshCw, Gauge, Puzzle, Paintbrush, FileCode, Send, Zap, ClipboardList, Smartphone, Settings2, SearchCheck, Workflow, BarChart3 } from 'lucide-react'
+import IndustryResults from '../components/IndustryResults'
+import { ShoppingBag, RefreshCw, Gauge, Puzzle, Paintbrush, FileCode, Send, Zap, ClipboardList, Smartphone, Settings2, SearchCheck, Workflow, BarChart3, ShieldCheck } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -56,13 +57,14 @@ const serviceCategories = [
   {
     id: 'email-marketing',
     label: 'Email Marketing',
-    sub: 'Design, development, campaigns, and automations, built to look perfect everywhere and convert.',
+    sub: 'Design, development, campaigns, automations, and deliverability, built to reach the primary inbox and convert.',
     icon: Send,
     items: [
-      { icon: Paintbrush,    title: 'Email Design',       desc: 'Pixel-perfect, on-brand designs that stop the scroll. From first impression to repeat purchase.',   href: '/services/email-design' },
-      { icon: FileCode,      title: 'Email Development',  desc: 'Clean HTML/CSS that renders perfectly in Gmail, Outlook, Apple Mail, and beyond.',                   href: '/services/email-development' },
-      { icon: Send,          title: 'Email Campaigns',    desc: 'Strategy, copy, design, and deployment for campaigns that drive opens, clicks and revenue.',        href: '/services/email-campaigns' },
-      { icon: Zap,           title: 'Email Automations',  desc: 'Welcome, abandoned cart, post-purchase, win-back: set up once, earn revenue on autopilot.',         href: '/services/email-automations' },
+      { icon: Paintbrush,    title: 'Email Design',          desc: 'Pixel-perfect, on-brand designs that stop the scroll. From first impression to repeat purchase.',              href: '/services/email-design' },
+      { icon: FileCode,      title: 'Email Development',     desc: 'Clean HTML/CSS that renders perfectly in Gmail, Outlook, Apple Mail, and beyond.',                              href: '/services/email-development' },
+      { icon: Send,          title: 'Email Campaigns',       desc: 'Strategy, copy, design, and deployment for campaigns that drive opens, clicks and revenue.',                   href: '/services/email-campaigns' },
+      { icon: Zap,           title: 'Email Automations',     desc: 'Welcome, abandoned cart, post-purchase, win-back: set up once, earn revenue on autopilot.',                    href: '/services/email-automations' },
+      { icon: ShieldCheck,   title: 'Email Deliverability',  desc: 'SPF, DKIM & DMARC authentication, domain warm-up, list hygiene, and primary inbox placement recovery.',        href: '/services/email-deliverability' },
     ],
   },
 ]
@@ -206,7 +208,6 @@ export default function ServicesPage() {
         <section className="svph-hero">
           <div className="wrap svph-grid">
             <div className="svph-left" data-reveal="up">
-              <div className="section-tag">Our Services</div>
               <h1 style={{ fontSize: 'clamp(36px,4.2vw,52px)' }}>Full-stack Shopify <br />&amp; email, <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>under one roof.</em></h1>
               <p className="section-sub">Everything under one roof: Shopify engineering, Klaviyo management, and email marketing.</p>
               <div className="svph-btns">
@@ -220,7 +221,7 @@ export default function ServicesPage() {
               </div>
               <div className="svph-proof">
                 <span style={{ color: '#f5a623', fontSize: '15px', letterSpacing: '1px' }}>⭐⭐⭐⭐⭐</span>
-                <span>5.0 · 752 reviews on Upwork</span>
+                <span>5.0 · 800+ Projects Delivered · 100% JSS on Upwork</span>
               </div>
             </div>
 
@@ -273,6 +274,8 @@ export default function ServicesPage() {
             </div>
           </section>
         ))}
+
+        <IndustryResults />
 
         <div className="svp-bottom">
           <p>Not sure where to start? Let&apos;s talk about what your store and your list need.</p>

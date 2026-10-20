@@ -610,15 +610,22 @@ export const caseStudyHtml = String.raw`
 
       <!-- CLIENT TESTIMONIAL BOX -->
       <section class="testimonial-box">
-        <div class="stars">★★★★★</div>
+        <div class="testimonial-top-row">
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-cat">Shopify + Klaviyo</div>
+        </div>
         <blockquote class="testimonial-quote">
           “PlusSquire rebuilt our entire Shopify customer journey and Klaviyo automation stack from the ground up. Their team handled design, Liquid engineering, and flow logic with zero friction. Our flows went from generating 12% of revenue to over 32% within 90 days. Zahidul and his team are in a league of their own.”
         </blockquote>
         <div class="author-info">
-          <div class="author-avatar">🧑</div>
+          <div class="author-avatar">AK</div>
           <div>
             <div class="author-name">Alex K.</div>
-            <div class="author-role">Founder & CEO, DTC Clean Skincare Brand · Verified Upwork Review</div>
+            <div class="author-role">Founder &amp; CEO, DTC Clean Skincare Brand</div>
+            <div class="author-source">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+              Verified Upwork Client
+            </div>
           </div>
         </div>
       </section>

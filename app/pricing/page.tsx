@@ -238,7 +238,6 @@ export default function PricingPage() {
         <section className="pricing-hero">
           <div className="wrap">
             <div className="sh-row" style={{ marginBottom: 0 }} data-reveal="up">
-              <div className="pricing-tag">Pricing<span className="pricing-tag-bar" /></div>
               <h1 style={{ fontSize: 'clamp(36px,4.5vw,56px)' }}>Simple, <em style={{ color: 'var(--g)', fontStyle: 'normal' }}>transparent pricing.</em></h1>
               <p className="section-sub">Every project is different. Here&apos;s a starting point.</p>
             </div>

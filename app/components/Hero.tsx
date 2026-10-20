@@ -1,8 +1,10 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import dynamic from 'next/dynamic'
-import { Send } from 'lucide-react'
+import { Send, ArrowUpRight } from 'lucide-react'
+import { UPWORK_URL } from '../lib/site'
 
 const ParticlesBackground = dynamic(() => import('./ParticlesBackground'), { ssr: false })
 
@@ -10,232 +12,324 @@ export default function Hero() {
   return (
     <>
       <style>{`
-        .hero { padding-top: 68px; background: radial-gradient(ellipse at top left, rgba(30, 166, 114, 0.18) 0%, transparent 60%), radial-gradient(ellipse at bottom right, rgba(30, 166, 114, 0.18) 0%, transparent 60%), #ffffff; overflow: hidden; position: relative; z-index: 1; isolation: isolate; }
+        .hero {
+          padding-top: 68px;
+          background:
+            radial-gradient(ellipse at 12% 10%, rgba(30, 166, 114, 0.14) 0%, transparent 55%),
+            radial-gradient(ellipse at 88% 85%, rgba(30, 166, 114, 0.14) 0%, transparent 55%),
+            #ffffff;
+          overflow: hidden;
+          position: relative;
+          z-index: 1;
+          isolation: isolate;
+        }
         .hero-main {
-          display: grid; grid-template-columns: 1fr 1fr;
-          gap: 48px; align-items: center;
-          padding: 80px var(--px) 72px;
-          max-width: var(--max); margin: 0 auto;
-          position: relative; z-index: 1;
+          display: grid;
+          grid-template-columns: 1.05fr 0.95fr;
+          gap: 56px;
+          align-items: center;
+          padding: 72px var(--px) 64px;
+          max-width: var(--max);
+          margin: 0 auto;
+          position: relative;
+          z-index: 1;
         }
         .hero-eyebrow {
-          display: inline-flex; align-items: center; gap: 8px;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
           padding-left: 0;
-          font-size: 14px; font-weight: 600; color: #1a2e25; letter-spacing: 0.02em;
-          margin-bottom: 26px; width: fit-content;
+          font-size: 14px;
+          font-weight: 600;
+          color: #1a2e25;
+          letter-spacing: 0.02em;
+          margin-bottom: 24px;
+          width: fit-content;
         }
         h1 em { font-style: normal; color: var(--g); }
-        .hero h1 { margin-bottom: 22px; font-size: 48px; font-weight: 800; color: #0b1c12; }
-        .h1-punch { font-weight: 900; font-size: 52px; display: block; }
-        .hero-desc { font-size: 17px; color: #4a5568; line-height: 1.8; max-width: 480px; margin-bottom: 38px; }
-        .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 44px; }
-        .hero .btn-ghost { border: 2px solid rgba(30,166,114,0.35); color: #1a2e25; background: transparent; transition: border-color 0.25s ease; }
-        .hero .btn-ghost:hover { border-color: rgba(30,166,114,1); color: #1a2e25; background: transparent; }
-        .hero-social-proof { display: flex; align-items: center; gap: 14px; }
-        .avatar-stack { display: flex; }
-        .avatar-stack span {
-          width: 34px; height: 34px; border-radius: 50%;
-          border: 2.5px solid rgba(255,255,255,0.15); margin-left: -9px;
-          display: flex; align-items: center; justify-content: center;
-          font-size: 14px; background: var(--gl);
+        .hero h1 {
+          margin-bottom: 20px;
+          font-size: clamp(38px, 4.4vw, 56px);
+          font-weight: 800;
+          color: var(--ink);
+          line-height: 1.08;
         }
-        .avatar-stack span:first-child { margin-left: 0; }
-        .proof-text { font-size: 13px; color: #4a5568; }
-        .proof-text strong { color: #4a5568; font-weight: 600; display: block; }
+        .h1-punch {
+          font-weight: 900;
+          display: block;
+          margin-top: 4px;
+        }
+        .hero-desc {
+          font-size: 17px;
+          color: var(--ink3);
+          line-height: 1.75;
+          max-width: 520px;
+          margin-bottom: 32px;
+        }
+        .hero-btns {
+          display: flex;
+          gap: 14px;
+          flex-wrap: wrap;
+          margin-bottom: 34px;
+        }
+        .hero-trust-card {
+          display: inline-flex;
+          align-items: center;
+          gap: 14px;
+          padding: 12px 18px 12px 12px;
+          background: rgba(255, 255, 255, 0.9);
+          border: 1px solid var(--border);
+          border-radius: 14px;
+          box-shadow: 0 8px 24px rgba(15, 22, 35, 0.05);
+          text-decoration: none;
+          transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .hero-trust-card:hover {
+          transform: translateY(-2px);
+          border-color: var(--gm);
+          box-shadow: 0 12px 30px rgba(30, 166, 114, 0.14);
+        }
+        .ht-avatar-wrap {
+          position: relative;
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          overflow: hidden;
+          border: 2px solid var(--g);
+          background: var(--gl);
+          flex-shrink: 0;
+        }
+        .ht-stars {
+          color: #f59e0b;
+          font-size: 13px;
+          letter-spacing: 1px;
+          font-weight: 800;
+        }
+        .ht-meta {
+          font-size: 13px;
+          color: var(--ink);
+          font-weight: 700;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+        .ht-sub {
+          font-size: 12px;
+          color: var(--ink3);
+          margin-top: 1px;
+        }
 
         /* Pulsing green glow behind headline only */
         .h1-glow-wrap { position: relative; }
         .h1-glow-wrap::before {
           content: '';
           position: absolute;
-          inset: -60px -40px;
-          background: radial-gradient(ellipse at 45% 50%, rgba(30,166,114,0.25) 0%, transparent 65%);
+          inset: -50px -30px;
+          background: radial-gradient(ellipse at 45% 50%, rgba(30,166,114,0.18) 0%, transparent 65%);
           filter: blur(40px);
           z-index: -1;
-          animation: headlineGlow 3s ease-in-out infinite;
           pointer-events: none;
         }
-        @keyframes headlineGlow {
-          0%, 100% { opacity: 0.5; }
-          50%       { opacity: 1; }
-        }
 
-        /* Storefront + email mockup stack */
-        .hero-right { position: relative; transform: scale(0.82); transform-origin: center top; z-index: 1; }
-        .stack-visual { position: relative; }
+        /* Right — Realistic Storefront + Klaviyo Dashboard Stack */
+        .hero-right { position: relative; z-index: 1; }
+        .stack-visual { position: relative; padding: 14px; }
         .store-card {
-          position: relative; z-index: 1;
-          background: #fff; border-radius: 18px;
-          box-shadow: 0 28px 72px rgba(0,0,0,.11), 0 4px 12px rgba(0,0,0,.05);
-          border: 1px solid rgba(255,255,255,0.08); overflow: hidden;
-        }
-        .store-nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px 0; }
-        .store-logo { display: flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 800; color: var(--ink); }
-        .store-logo-mark { width: 18px; height: 18px; border-radius: 5px; background: var(--g); }
-        .store-nav-links { display: flex; gap: 14px; font-size: 11px; color: var(--ink4); font-weight: 600; }
-        .store-banner {
-          background: linear-gradient(135deg, #1ea672, #17845b);
-          border-radius: 10px; padding: 38px; text-align: center; color: #fff; margin: 16px 20px 0;
-        }
-        .store-banner h3 { font-size: 16px; font-weight: 800; margin-bottom: 3px; color: #fff; letter-spacing: -.01em; }
-        .store-banner p { font-size: 11px; opacity: .82; }
-        .store-products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 16px 20px 58px; }
-        .store-prod { background: var(--soft); border-radius: 8px; padding: 10px 8px; text-align: center; }
-        .store-thumb { height: 142px; border-radius: 6px; background: var(--gl); display: flex; align-items: center; justify-content: center; font-size: 32px; margin-bottom: 6px; }
-        .store-prod strong { font-size: 11px; color: var(--ink); font-weight: 700; display: block; }
-        .store-cart-badge {
-          position: absolute; top: 14px; right: 20px; z-index: 2;
-          background: var(--g); color: #fff; border-radius: 50%;
-          width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;
-          font-size: 10px; font-weight: 800; box-shadow: 0 4px 10px rgba(30,166,114,.4);
-        }
-        .email-card {
-          background: #fff; border-radius: 16px;
-          box-shadow: 0 20px 50px rgba(0,0,0,.16), 0 4px 12px rgba(0,0,0,.06);
-          border: 1px solid rgba(255,255,255,0.08); overflow: hidden;
-        }
-        .email-float {
-          position: absolute; z-index: 2;
-          width: 48%; right: -6%; bottom: 20px;
+          position: relative;
+          z-index: 1;
+          background: #0f1623;
+          border-radius: 20px;
+          box-shadow: 0 28px 72px rgba(15, 22, 35, 0.22), 0 4px 16px rgba(15, 22, 35, 0.08);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          overflow: hidden;
         }
         .ec-topbar {
-          background: var(--soft); border-bottom: 1px solid var(--border);
-          padding: 11px 15px; display: flex; align-items: center; gap: 7px;
+          background: #182234;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          padding: 11px 16px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
         }
+        .ec-dots { display: flex; align-items: center; gap: 6px; }
         .tc-r{width:10px;height:10px;border-radius:50%;background:#ff5f57}
         .tc-y{width:10px;height:10px;border-radius:50%;background:#febc2e}
         .tc-g{width:10px;height:10px;border-radius:50%;background:#28c840}
-        .ec-urlbar { margin-left: 12px; flex:1; background: #eaecef; border-radius: 4px; height: 20px; max-width: 200px; }
-        .ec-body { padding: 24px; }
-        .ec-banner {
-          background: linear-gradient(135deg, #1ea672, #17845b);
-          border-radius: 10px; padding: 22px; text-align: center; color: #fff; margin-bottom: 18px;
+        .ec-url-pill {
+          background: rgba(255, 255, 255, 0.07);
+          color: rgba(255, 255, 255, 0.65);
+          font-size: 11px;
+          font-weight: 600;
+          padding: 4px 14px;
+          border-radius: 100px;
+          display: flex;
+          align-items: center;
+          gap: 6px;
         }
-        .ec-banner h3 { font-size: 18px; font-weight: 800; margin-bottom: 4px; color: #fff; letter-spacing: -.01em; }
-        .ec-banner p { font-size: 12px; opacity: .82; }
-        .ec-products { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
-        .ec-prod { background: var(--soft); border-radius: 8px; padding: 14px 12px; text-align: center; }
-        .ec-thumb { height: 108px; border-radius: 6px; background: var(--gl); display: flex; align-items: center; justify-content: center; font-size: 66px; margin-bottom: 8px; }
-        .ec-prod p { font-size: 11px; color: var(--ink3); }
-        .ec-prod strong { font-size: 13px; color: var(--ink); font-weight: 700; display: block; margin: 3px 0; }
-        .ec-cta { background: var(--g); color: #fff; border-radius: 5px; padding: 7px; font-size: 12px; font-weight: 600; margin-top: 6px; }
-        .ec-footer { border-top: 1px solid var(--border); padding-top: 12px; text-align: center; font-size: 11px; color: var(--ink4); line-height: 1.9; }
-        .ec-footer a { color: var(--g); text-decoration: none; }
+        .ec-status-tag {
+          background: rgba(30, 166, 114, 0.2);
+          color: #34d399;
+          font-size: 10.5px;
+          font-weight: 700;
+          padding: 3px 10px;
+          border-radius: 100px;
+          border: 1px solid rgba(52, 211, 153, 0.3);
+        }
+        .store-img-wrap {
+          position: relative;
+          width: 100%;
+          height: 250px;
+          overflow: hidden;
+          border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .store-img-wrap img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: top center;
+        }
+        .store-kpi-strip {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          background: #111927;
+          padding: 16px 20px;
+          gap: 12px;
+        }
+        .sk-box {
+          background: rgba(255, 255, 255, 0.04);
+          border: 1px solid rgba(255, 255, 255, 0.07);
+          border-radius: 10px;
+          padding: 10px 12px;
+        }
+        .sk-lbl { font-size: 10.5px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+        .sk-val { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 800; color: #fff; margin-top: 2px; display: flex; align-items: center; gap: 6px; }
+        .sk-delta { font-size: 11px; color: #34d399; font-weight: 700; background: rgba(52,211,153,0.14); padding: 1px 6px; border-radius: 4px; }
+
+        /* Floating Klaviyo Flow Card */
+        .email-float {
+          position: absolute;
+          z-index: 3;
+          width: 54%;
+          right: -14px;
+          bottom: -18px;
+          background: #ffffff;
+          border-radius: 16px;
+          box-shadow: 0 24px 54px rgba(15, 22, 35, 0.22);
+          border: 1px solid var(--border);
+          overflow: hidden;
+        }
+        .ef-head {
+          padding: 10px 14px;
+          background: var(--soft);
+          border-bottom: 1px solid var(--border);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-size: 11px;
+          font-weight: 700;
+          color: var(--ink);
+        }
+        .ef-live {
+          display: inline-flex;
+          align-items: center;
+          gap: 5px;
+          color: var(--gd);
+          background: var(--gl);
+          padding: 2px 8px;
+          border-radius: 100px;
+          font-size: 10px;
+        }
+        .ef-img {
+          width: 100%;
+          height: 118px;
+          object-fit: cover;
+          display: block;
+        }
+        .ef-foot {
+          padding: 10px 14px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background: #fff;
+          border-top: 1px solid var(--border);
+        }
+        .ef-foot-stat { font-size: 11px; color: var(--ink3); font-weight: 600; }
+        .ef-foot-stat strong { color: var(--g); font-size: 13px; font-weight: 800; margin-right: 4px; }
+
         .chip {
-          position: absolute; background: #fff; z-index: 5;
-          border: 1px solid rgba(255,255,255,0.15); border-radius: 12px;
-          padding: 10px 14px; box-shadow: 0 8px 24px rgba(0,0,0,.09);
-          display: flex; align-items: center; gap: 10px;
-          font-size: 13px; font-weight: 500; white-space: nowrap;
+          position: absolute;
+          background: #fff;
+          z-index: 5;
+          border: 1px solid var(--border);
+          border-radius: 14px;
+          padding: 11px 16px;
+          box-shadow: 0 14px 32px rgba(15, 22, 35, 0.12);
+          display: flex;
+          align-items: center;
+          gap: 11px;
+          font-size: 13px;
+          font-weight: 600;
+          white-space: nowrap;
         }
-        .chip-top { top: -18px; right: -18px; }
-        .chip-bot { bottom: -10px; left: -20px; }
-        .chip-val { font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 800; color: var(--g); line-height: 1; }
-        .chip-lbl { font-size: 11px; color: var(--ink4); }
-        .chip-ico { font-size: 22px; }
+        .chip-top { top: -8px; left: -12px; }
+        .chip-val { font-family: 'Inter', sans-serif; font-size: 19px; font-weight: 800; color: var(--g); line-height: 1; }
+        .chip-lbl { font-size: 11px; color: var(--ink3); margin-top: 2px; }
+        .chip-ico {
+          width: 36px; height: 36px; border-radius: 10px;
+          background: var(--gl); color: var(--g);
+          display: flex; align-items: center; justify-content: center;
+        }
 
         /* Stats bar */
-        .hero-stats-bar { background: transparent; position: relative; z-index: 1; padding-bottom: 48px; }
+        .hero-stats-bar { background: transparent; position: relative; z-index: 1; padding-bottom: 52px; }
         .hero-stats-inner {
           max-width: var(--max); margin: 0 auto;
-          padding: 0px var(--px) 24px var(--px);
-          display: flex; gap: 24px;
+          padding: 8px var(--px) 24px var(--px);
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 20px;
         }
         .hs-item {
-          flex: 1; text-align: center;
-          background: rgba(255, 255, 255, 0.6);
-          border: 1px solid rgba(30, 166, 114, 0.2);
-          box-shadow: 0 4px 16px rgba(30, 166, 114, 0.08);
+          text-align: center;
+          background: rgba(255, 255, 255, 0.85);
+          border: 1px solid rgba(30, 166, 114, 0.22);
+          box-shadow: 0 6px 20px rgba(15, 22, 35, 0.04);
           backdrop-filter: blur(8px);
           -webkit-backdrop-filter: blur(8px);
           border-radius: 16px;
           position: relative;
           overflow: hidden;
-          padding: 22px 20px 20px;
+          padding: 24px 20px 22px;
           transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .hs-item::before {
           content: '';
           position: absolute;
-          top: 0;
-          left: 0;
-          width: 0%;
-          height: 3px;
-          background: #1ea672;
-          transition: width 0.5s ease;
+          top: 0; left: 0; width: 0%; height: 3px;
+          background: var(--g);
+          transition: width 0.45s ease;
           z-index: 1;
         }
-        .hs-item:hover::before {
-          width: 100%;
-        }
+        .hs-item:hover::before { width: 100%; }
         .hs-item:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 12px 28px rgba(30,166,114,0.15);
+          transform: translateY(-4px);
+          box-shadow: 0 14px 32px rgba(30,166,114,0.14);
         }
-        .hs-item::after {
-          content: '';
-          position: absolute;
-          bottom: -20px;
-          left: -25%;
-          width: 150%;
-          height: 65%;
-          background: rgba(30, 166, 114, 0.13);
-          border-radius: 45% 55% 0 0 / 40% 40% 0 0;
-          transform: translateY(110%);
-          transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-          z-index: 0;
-          pointer-events: none;
-          animation: none;
-        }
-        .hs-item:hover::after {
-          transform: translateY(0%);
-          animation: waveMove 2.5s ease-in-out infinite;
-        }
-        @keyframes waveMove {
-          0%   { border-radius: 45% 55% 0 0 / 40% 40% 0 0; }
-          25%  { border-radius: 55% 45% 0 0 / 45% 35% 0 0; }
-          50%  { border-radius: 40% 60% 0 0 / 35% 45% 0 0; }
-          75%  { border-radius: 60% 40% 0 0 / 42% 38% 0 0; }
-          100% { border-radius: 45% 55% 0 0 / 40% 40% 0 0; }
-        }
-        .hs-wave {
-          position: absolute;
-          bottom: -20px;
-          left: -30%;
-          width: 160%;
-          height: 60%;
-          background: rgba(30, 166, 114, 0.08);
-          border-radius: 50% 50% 0 0 / 38% 42% 0 0;
-          transform: translateY(110%);
-          transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
-          z-index: 0;
-          pointer-events: none;
-          animation: none;
-        }
-        .hs-item:hover .hs-wave {
-          transform: translateY(0%);
-          animation: waveMoveB 2.5s ease-in-out 0.4s infinite;
-        }
-        @keyframes waveMoveB {
-          0%   { border-radius: 50% 50% 0 0 / 38% 42% 0 0; }
-          25%  { border-radius: 42% 58% 0 0 / 43% 37% 0 0; }
-          50%  { border-radius: 58% 42% 0 0 / 36% 44% 0 0; }
-          75%  { border-radius: 48% 52% 0 0 / 41% 39% 0 0; }
-          100% { border-radius: 50% 50% 0 0 / 38% 42% 0 0; }
-        }
-        .hs-num { font-family: 'Inter', sans-serif; font-size: 36px; font-weight: 800; line-height: 1.2; padding-bottom: 4px; color: #1ea672; display: block; position: relative; z-index: 1; }
-        .hs-lbl { font-size: 12.5px; color: #4a5568; margin-top: 6px; position: relative; z-index: 1; }
+        .hs-num { font-family: 'Inter', sans-serif; font-size: 34px; font-weight: 800; line-height: 1.15; color: var(--g); display: block; position: relative; z-index: 1; }
+        .hs-lbl { font-size: 13px; font-weight: 600; color: var(--ink2); margin-top: 6px; position: relative; z-index: 1; }
 
         @media(max-width:1100px){
           .hero-main { grid-template-columns: 1fr; }
-          .hero-right { display: none; }
-          .hero-stats-inner { flex-wrap: wrap; }
-          .hs-item { flex: 1 1 calc(50% - 6px); }
+          .hero-right { max-width: 640px; margin: 0 auto; width: 100%; }
+          .hero-stats-inner { grid-template-columns: repeat(2, 1fr); }
         }
         @media(max-width:640px){
-          .hero h1 { font-size: 32px; }
-          .h1-punch { font-size: 34px; display: inline; }
+          .hero h1 { font-size: 34px; }
+          .h1-punch { font-size: 36px; display: inline; }
           .hero-br { display: none; }
+          .hero-stats-inner { grid-template-columns: 1fr 1fr; gap: 12px; }
+          .email-float { position: relative; width: 100%; right: 0; bottom: 0; margin-top: 12px; }
         }
       `}</style>
 
@@ -246,102 +340,131 @@ export default function Hero() {
           {/* Left */}
           <div>
             <div className="hero-eyebrow" data-reveal="fade">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="#1ea672" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-              Shopify Partner &middot; Klaviyo Certified
+              Shopify Partner &middot; Klaviyo Certified &middot; Top Rated Plus
             </div>
+
             <div className="h1-glow-wrap" data-reveal="up" style={{ transitionDelay: '90ms' }}>
-              <h1>Your Shopify store and <br className="hero-br" />email list are both sitting <br className="hero-br" />on <em>untapped revenue.</em><br className="hero-br" /> <span className="h1-punch">We fix both.</span></h1>
+              <h1>
+                Your Shopify store and <br className="hero-br" />
+                email list are sitting on <br className="hero-br" />
+                <em>untapped revenue.</em>
+                <span className="h1-punch">We engineer both.</span>
+              </h1>
             </div>
+
             <p className="hero-desc" data-reveal="up" style={{ transitionDelay: '180ms' }}>
-              Shopify development and email marketing under one roof: pixel-perfect builds, revenue-driving flows, and growth systems for eCommerce brands ready to scale.
+              High-converting Shopify themes, bulletproof HTML email development, and revenue-driving Klaviyo lifecycle flows—built under one roof with 13+ years of proven execution.
             </p>
+
             <div className="hero-btns" data-reveal="up" style={{ transitionDelay: '270ms' }}>
               <Link href="#contact" className="btn-primary">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                  <polygon points="5 3 19 12 5 21 5 3" />
-                </svg>
-                Start a Project
+                Start a Project →
               </Link>
-              <Link href="#cases" className="btn-ghost">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                  <polygon points="5 3 19 12 5 21 5 3" />
-                </svg>
-                See Results
+              <Link href="/services/account-audit" className="btn-ghost">
+                Get a Free Klaviyo Audit
               </Link>
             </div>
-            <div className="hero-social-proof" data-reveal="fade" style={{ transitionDelay: '360ms' }}>
-              <div className="proof-text">
-                <span style={{color:'#f5a623', fontSize:'15px', letterSpacing:'1px'}}>⭐⭐⭐⭐⭐</span>
-                <span style={{color:'#4a5568', fontSize:'13px', marginLeft:'6px'}}>5.0 · 752 reviews on Upwork</span>
-              </div>
+
+            <div data-reveal="fade" style={{ transitionDelay: '360ms' }}>
+              <a
+                href={UPWORK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-trust-card"
+              >
+                <div className="ht-avatar-wrap">
+                  <Image
+                    src="/images/zahidul.png"
+                    alt="Zahidul Islam — Founder of PlusSquire"
+                    width={44}
+                    height={44}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%' }}
+                  />
+                </div>
+                <div>
+                  <div className="ht-meta">
+                    <span className="ht-stars">★★★★★ 5.0</span>
+                    <span>&middot; 800+ Projects Delivered</span>
+                    <ArrowUpRight size={14} color="var(--g)" />
+                  </div>
+                  <div className="ht-sub">
+                    Led by Zahidul Islam &middot; Verified Top 3% on Upwork (100% JSS)
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
 
-          {/* Right — Shopify storefront + email flow mockup */}
+          {/* Right — Real Shopify Storefront + Klaviyo Dashboard Visual */}
           <div data-reveal="right" style={{ transitionDelay: '150ms' }}>
-          <div className="hero-right">
-            <div className="chip chip-top">
-              <div>
-                <div className="chip-val">150+</div>
-                <div className="chip-lbl">Stores launched</div>
+            <div className="hero-right">
+              <div className="chip chip-top">
+                <div className="chip-ico">
+                  <Send size={18} strokeWidth={2.2} />
+                </div>
+                <div>
+                  <div className="chip-val">7,000+</div>
+                  <div className="chip-lbl">HTML Emails &amp; Flows Shipped</div>
+                </div>
               </div>
-              <div className="chip-ico">🛍️</div>
+
+              <div className="stack-visual">
+                <div className="store-card">
+                  <div className="ec-topbar">
+                    <div className="ec-dots">
+                      <span className="tc-r" /><span className="tc-y" /><span className="tc-g" />
+                    </div>
+                    <div className="ec-url-pill">
+                      🔒 shopify-plus-storefront.com
+                    </div>
+                    <div className="ec-status-tag">99 Speed &middot; OS 2.0</div>
+                  </div>
+
+                  <div className="store-img-wrap">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/images/services/shopify-theme-development/hero-overview.jpg"
+                      alt="Custom Shopify Theme & Conversion Architecture"
+                    />
+                  </div>
+
+                  <div className="store-kpi-strip">
+                    <div className="sk-box">
+                      <div className="sk-lbl">Email Revenue</div>
+                      <div className="sk-val">38.4% <span className="sk-delta">+42%</span></div>
+                    </div>
+                    <div className="sk-box">
+                      <div className="sk-lbl">Store Load Speed</div>
+                      <div className="sk-val">1.4s <span className="sk-delta">Fast</span></div>
+                    </div>
+                    <div className="sk-box">
+                      <div className="sk-lbl">Flow ROI</div>
+                      <div className="sk-val">14.2× <span className="sk-delta">Live</span></div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating Klaviyo Automation Preview */}
+                <div className="email-float">
+                  <div className="ef-head">
+                    <span>⚡ Klaviyo Retention Engine</span>
+                    <span className="ef-live"><span className="live-dot">●</span> Active</span>
+                  </div>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    className="ef-img"
+                    src="/images/services/flow-setup/hero-flows-autopilot.jpg"
+                    alt="Klaviyo Automated Flows Revenue Dashboard"
+                  />
+                  <div className="ef-foot">
+                    <div className="ef-foot-stat"><strong>+$84.3K</strong> 7-Day Flow &amp; Campaign Lift</div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="stack-visual">
-              <div className="store-card">
-                <div className="ec-topbar">
-                  <span className="tc-r" /><span className="tc-y" /><span className="tc-g" />
-                  <div className="ec-urlbar" />
-                </div>
-                <div className="store-cart-badge">2</div>
-                <div className="store-nav">
-                  <div className="store-logo"><span className="store-logo-mark" />Storefront</div>
-                  <div className="store-nav-links"><span>Shop</span><span>New</span><span>Sale</span></div>
-                </div>
-                <div className="store-banner">
-                  <h3>✨ New Collection</h3>
-                  <p>Built &amp; launched in 4 weeks</p>
-                </div>
-                <div className="store-products">
-                  <div className="store-prod">
-                    <div className="store-thumb">👟</div>
-                    <strong>$79</strong>
-                  </div>
-                  <div className="store-prod">
-                    <div className="store-thumb">🎒</div>
-                    <strong>$49</strong>
-                  </div>
-                  <div className="store-prod">
-                    <div className="store-thumb">👕</div>
-                    <strong>$35</strong>
-                  </div>
-                </div>
-              </div>
-              <div className="email-card email-float">
-                <div className="ec-topbar">
-                  <span className="tc-r" /><span className="tc-y" /><span className="tc-g" />
-                </div>
-                <div className="ec-body" style={{ padding: '16px' }}>
-                  <div className="ec-banner" style={{ padding: '14px', marginBottom: '10px' }}>
-                    <h3 style={{ fontSize: '14px' }}>🎉 Order Confirmed</h3>
-                    <p>Post-purchase flow triggered</p>
-                  </div>
-                  <div className="ec-footer" style={{ fontSize: '10px' }}>
-                    Sent automatically via Klaviyo
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="chip chip-bot">
-              <div className="chip-ico" style={{ display: 'flex', color: 'var(--g)' }}><Send size={20} strokeWidth={2} /></div>
-              <div>
-                <div className="chip-val">1,000+</div>
-                <div className="chip-lbl">Flows built</div>
-              </div>
-            </div>
-          </div>
           </div>
         </div>
 
@@ -349,13 +472,12 @@ export default function Hero() {
         <div className="hero-stats-bar">
           <div className="hero-stats-inner">
             {[
-              { num: '13+ years', lbl: 'Shopify and email experience' },
-              { num: '40%',       lbl: 'Faster Shopify store load time' },
-              { num: '10–40%',    lbl: 'Average revenue lift for our clients' },
-              { num: '3+ years',  lbl: 'Average client partnership duration' },
+              { num: '13+ Years', lbl: 'Klaviyo, Email & eCommerce Experience' },
+              { num: '800+',      lbl: 'Shopify & Email Projects Delivered' },
+              { num: '7,000+',    lbl: 'Bulletproof HTML Emails Coded' },
+              { num: '100% JSS',  lbl: 'Top Rated Plus on Upwork' },
             ].map((s, i) => (
               <div key={s.lbl} className="hs-item" data-reveal="up" style={{ transitionDelay: `${i * 90}ms` }}>
-                <div className="hs-wave" />
                 <div className="hs-num">{s.num}</div>
                 <div className="hs-lbl">{s.lbl}</div>
               </div>

@@ -320,15 +320,22 @@ export const luxurySpiritsHtml = String.raw`
 
       <!-- TESTIMONIAL -->
       <section class="testimonial-box">
-        <div class="stars">★★★★★</div>
+        <div class="testimonial-top-row">
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-cat">Shopify + Klaviyo</div>
+        </div>
         <blockquote class="testimonial-quote">
           “Before working with PlusSquire, we were burning our list with the same generic discounts every week. Zahidul and his team completely transformed our retention system. They didn't just build Klaviyo flows; they redesigned our Shopify cart experience, optimized our page speed, and built an automated VIP engine that generates over $775K every single month. They take complete ownership.”
         </blockquote>
         <div class="author-info">
-          <div class="author-avatar">🧔</div>
+          <div class="author-avatar">MV</div>
           <div>
             <div class="author-name">Marcus V.</div>
-            <div class="author-role">Co-Founder & COO, Luxury DTC Spirits Brand · Verified Upwork Review</div>
+            <div class="author-role">Co-Founder &amp; COO, Luxury DTC Spirits Brand</div>
+            <div class="author-source">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+              Verified Upwork Client
+            </div>
           </div>
         </div>
       </section>

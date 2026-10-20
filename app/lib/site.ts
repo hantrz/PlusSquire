@@ -5,6 +5,9 @@ export const SITE_NAME = 'PlusSquire'
 
 // TODO(owner): replace with your own Calendly (or Cal.com) scheduling link.
 export const BOOKING_URL = 'https://calendly.com'
+export const UPWORK_URL = 'https://www.upwork.com/freelancers/zahidulislam'
+export const LINKEDIN_URL = 'https://www.linkedin.com/in/zahidul-islam-7876533b2'
+export const WHATSAPP_URL = 'https://wa.me/8801919130859'
 
 // Search engines are told NOT to index the site until this is switched on.
 // When all content is final, set ALLOW_INDEXING=true in Vercel
@@ -12,8 +15,6 @@ export const BOOKING_URL = 'https://calendly.com'
 export const ALLOW_INDEXING = process.env.ALLOW_INDEXING === 'true'
 
 // Sample audit report people can download from the Account Audit page.
-// Drop the PDF in public/downloads/ and put its path here, e.g.
-// '/downloads/sample-klaviyo-audit.pdf'. Left empty, the button is hidden.
 export const SAMPLE_AUDIT_URL = ''
 
 export type ServiceInfo = { slug: string; label: string; blurb: string }
@@ -34,6 +35,7 @@ export const SERVICES: ServiceInfo[] = [
   { slug: 'email-development', label: 'Email Development', blurb: 'Hand-coded HTML email that renders right in every inbox.' },
   { slug: 'email-campaigns', label: 'Email Campaigns', blurb: 'Planned, written, designed and sent for you.' },
   { slug: 'email-automations', label: 'Email Automations', blurb: 'Automations on Mailchimp, Campaign Monitor, HubSpot and more.' },
+  { slug: 'email-deliverability', label: 'Email Deliverability', blurb: 'Keep your emails in the primary inbox and out of the spam folder.' },
 ]
 
 export const serviceBySlug = (slug: string) => SERVICES.find((s) => s.slug === slug)

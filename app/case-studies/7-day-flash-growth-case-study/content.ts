@@ -365,15 +365,22 @@ export const flashSaleHtml = String.raw`
 
       <!-- TESTIMONIAL -->
       <section class="testimonial-box">
-        <div class="stars">★★★★★</div>
+        <div class="testimonial-top-row">
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-cat">Email + SMS Flash</div>
+        </div>
         <blockquote class="testimonial-quote">
           “We were terrified of sending multiple emails in a single week. PlusSquire completely proved us wrong. Their buyer suppression logic meant our customers never felt spammed, and their Shopify cart drawer modification drove our highest AOV in company history. $84K in 7 days with zero customer complaints is remarkable.”
         </blockquote>
         <div class="author-info">
-          <div class="author-avatar">👩</div>
+          <div class="author-avatar">ST</div>
           <div>
             <div class="author-name">Sarah T.</div>
-            <div class="author-role">CEO & Founder, DTC Fashion & Activewear Brand · Verified Upwork Review</div>
+            <div class="author-role">CEO &amp; Founder, DTC Fashion &amp; Activewear Brand</div>
+            <div class="author-source">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+              Verified Upwork Client
+            </div>
           </div>
         </div>
       </section>

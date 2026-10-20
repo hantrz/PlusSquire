@@ -39,8 +39,8 @@ const serviceCategories = [
     id: 'email-marketing',
     label: 'Email Marketing',
     icon: Send,
-    summary: 'Email Design, Development, Campaigns & Automations.',
-    count: '4 services',
+    summary: 'Email Design, Development, Campaigns, Automations & Deliverability.',
+    count: '5 services',
   },
 ]
 
