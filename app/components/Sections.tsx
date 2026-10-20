@@ -942,17 +942,17 @@ export function Footer() {
         .footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--px); }
         .footer-top { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 60px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,.07); }
         .footer-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; margin-bottom: 16px; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 20px; color: #fff; }
-        .footer-desc { color: rgba(255,255,255,.38); font-size: 14px; line-height: 1.8; max-width: 280px; margin-bottom: 24px; }
+        .footer-desc { color: rgba(255,255,255,.5); font-size: 14px; line-height: 1.8; max-width: 300px; margin-bottom: 24px; }
         .social-links { display: flex; gap: 10px; }
         .social-btn { width: 36px; height: 36px; border-radius: 8px; border: 1px solid rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; text-decoration: none; color: rgba(255,255,255,.5); transition: border-color .15s, color .15s; }
         .social-btn:hover { border-color: var(--g); color: var(--g); }
-        .fcol h4 { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 20px; }
+        .fcol h4 { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 20px; }
         .fcol ul { list-style: none; }
         .fcol ul li { margin-bottom: 11px; }
-        .fcol ul li a { color: rgba(255,255,255,.5); font-size: 14px; text-decoration: none; transition: color .15s; }
+        .fcol ul li a { color: rgba(255,255,255,.6); font-size: 14px; text-decoration: none; transition: color .15s; }
         .fcol ul li a:hover { color: #fff; }
-        .footer-bottom { padding-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; color: rgba(255,255,255,.25); font-size: 13px; }
-        .footer-bottom a { color: rgba(255,255,255,.4); text-decoration: none; transition: color .15s; }
+        .footer-bottom { padding-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; color: rgba(255,255,255,.35); font-size: 13px; }
+        .footer-bottom a { color: rgba(255,255,255,.5); text-decoration: none; transition: color .15s; }
         .footer-bottom a:hover { color: #fff; }
         @media(max-width:1100px){ .footer-top { grid-template-columns: 1fr 1fr; } }
         @media(max-width:480px){ .footer-top { grid-template-columns: 1fr; gap: 32px; } }
@@ -964,7 +964,7 @@ export function Footer() {
               <Link href="/" className="footer-logo">
                 <Image src="/plussquire-logo-dark.svg" alt="PlusSquire" width={141} height={24} unoptimized />
               </Link>
-              <p className="footer-desc">Shopify development and email marketing for eCommerce brands that take revenue seriously. Top Rated Plus on Upwork. 13+ years. 800+ projects delivered.</p>
+              <p className="footer-desc">Shopify engineering, bulletproof HTML email development, and Klaviyo retention systems. Led by Zahidul Islam · Top Rated Plus on Upwork · 13+ years · 800+ projects delivered.</p>
               <div className="social-links">
                 <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="social-btn" aria-label="LinkedIn">in</a>
                 <a href="#" className="social-btn" aria-label="X / Twitter">𝕏</a>
@@ -980,8 +980,9 @@ export function Footer() {
                 <li><Link href="/services/shopify-theme-development">Shopify Theme Development</Link></li>
                 <li><Link href="/services/shopify-migration">Shopify Migration</Link></li>
                 <li><Link href="/services/klaviyo-account-setup">Klaviyo Account Setup</Link></li>
-                <li><Link href="/services/email-design">Email Design</Link></li>
-                <li><Link href="/services/email-automations">Email Automations</Link></li>
+                <li><Link href="/services/email-design">Email Design &amp; HTML Dev</Link></li>
+                <li><Link href="/services/flow-setup">Klaviyo Flow Setup</Link></li>
+                <li><Link href="/services/email-deliverability">Email Deliverability</Link></li>
               </ul>
             </div>
             <div className="fcol">
@@ -993,13 +994,13 @@ export function Footer() {
               </ul>
             </div>
             <div className="fcol">
-              <h4>Connect</h4>
+              <h4>Verified Connect</h4>
               <ul>
-                <li><a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                <li><a href={UPWORK_URL} target="_blank" rel="noopener noreferrer">Upwork Profile</a></li>
-                <li><a href="#">Twitter / X</a></li>
+                <li><a href={UPWORK_URL} target="_blank" rel="noopener noreferrer">Upwork Profile (100% JSS) ↗</a></li>
+                <li><a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li>
+                <li><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">WhatsApp Direct ↗</a></li>
                 <li><a href="mailto:hello@plussquire.com">hello@plussquire.com</a></li>
-                <li><a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Book a Call</a></li>
+                <li><Link href="/#contact">Start a Project →</Link></li>
               </ul>
             </div>
           </div>

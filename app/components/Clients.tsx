@@ -1,7 +1,14 @@
-const clients = [
-  'WonderCrunch','PureSport','WhiteningCo','Boyd & Co',
-  'SleepDrops','FoxFolk','SkinnyFizz','Williams Warn',
-  'Safe-Guard Products','Inaya Nutrition',
+const clientLogos = [
+  { name: 'WonderCrunch',    logo: '/logos/clients/client-1.svg' },
+  { name: 'PureSport',       logo: '/logos/clients/client-2.svg' },
+  { name: 'WhiteningCo',     logo: '/logos/clients/client-3.svg' },
+  { name: 'Boyd & Co',       logo: '/logos/clients/client-4.svg' },
+  { name: 'SleepDrops',      logo: '/logos/clients/client-5.svg' },
+  { name: 'FoxFolk',         logo: '/logos/clients/client-6.svg' },
+  { name: 'SkinnyFizz',      logo: '/logos/clients/client-7.svg' },
+  { name: 'Williams Warn',   logo: '/logos/clients/client-8.svg' },
+  { name: 'Safe-Guard',      logo: '/logos/clients/client-9.svg' },
+  { name: 'Inaya Nutrition', logo: '/logos/clients/client-10.svg' },
 ]
 
 const platforms = [
@@ -16,20 +23,80 @@ const platforms = [
 ]
 
 export default function Clients() {
+  const marqueeItems = [...clientLogos, ...clientLogos]
+
   return (
     <>
       <style>{`
-        .clients { background: var(--soft); padding: 56px 0; border-bottom: 1px solid var(--border); }
-        .clients-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--px); }
-        .clients-label { text-align: center; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--ink4); margin-bottom: 36px; }
-        .logo-strip { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; }
-        .logo-pill {
-          background: #fff; border: 1px solid var(--border); border-radius: 100px;
-          padding: 9px 22px; font-size: 13.5px; font-weight: 700; color: var(--ink3);
-          font-family: 'Inter', sans-serif; letter-spacing: -.01em;
-          transition: border-color .2s, color .2s; cursor: default;
+        .clients {
+          background: var(--soft);
+          padding: 52px 0;
+          border-bottom: 1px solid var(--border);
+          overflow: hidden;
         }
-        .logo-pill:hover { border-color: var(--gm); color: var(--gd); }
+        .clients-inner {
+          max-width: var(--max);
+          margin: 0 auto;
+          padding: 0 var(--px);
+        }
+        .clients-label {
+          text-align: center;
+          font-size: 12px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          color: var(--ink4);
+          margin-bottom: 32px;
+        }
+
+        /* Flowium-style infinite Right-to-Left logo marquee */
+        .clients-marquee {
+          position: relative;
+          width: 100%;
+          overflow: hidden;
+          mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+          -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+        }
+        .clients-track {
+          display: flex;
+          align-items: center;
+          width: max-content;
+          gap: 64px;
+          animation: clientsScrollRTL 34s linear infinite;
+        }
+        .clients-marquee:hover .clients-track {
+          animation-play-state: paused;
+        }
+        .client-logo-item {
+          flex-shrink: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 44px;
+          opacity: 0.72;
+          filter: grayscale(100%);
+          transition: opacity 0.25s ease, filter 0.25s ease, transform 0.25s ease;
+        }
+        .client-logo-item:hover {
+          opacity: 1;
+          filter: grayscale(0%);
+          transform: scale(1.05);
+        }
+        .client-logo-item img {
+          height: 38px;
+          width: auto;
+          object-fit: contain;
+          display: block;
+        }
+
+        @keyframes clientsScrollRTL {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
 
         .platforms { background: var(--dark); padding: 64px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
         .platforms-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--px); text-align: center; }
@@ -45,15 +112,24 @@ export default function Clients() {
         .platform-item.natural img { opacity: 0.9; }
         .platform-item.natural img:hover { filter: drop-shadow(0 0 8px rgba(28, 155, 112, 0.8)); opacity: 1; transform: scale(1.15); }
 
-        @media(max-width:768px){ .platforms-row { gap: 28px 36px; } }
+        @media(max-width:768px){
+          .clients-track { gap: 40px; animation-duration: 24s; }
+          .client-logo-item img { height: 32px; }
+          .platforms-row { gap: 28px 36px; }
+        }
       `}</style>
 
       <div className="clients">
         <div className="clients-inner">
           <p className="clients-label" data-reveal="fade">Trusted by brands across eCommerce, SaaS &amp; Retail</p>
-          <div className="logo-strip" data-reveal="up" style={{ transitionDelay: '80ms' }}>
-            {clients.map((c) => (
-              <div key={c} className="logo-pill">{c}</div>
+        </div>
+        <div className="clients-marquee" data-reveal="up" style={{ transitionDelay: '80ms' }}>
+          <div className="clients-track">
+            {marqueeItems.map((c, idx) => (
+              <div key={`${c.name}-${idx}`} className="client-logo-item" title={c.name}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={c.logo} alt={c.name} width="auto" height={38} />
+              </div>
             ))}
           </div>
         </div>

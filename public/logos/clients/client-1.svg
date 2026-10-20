@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="44" viewBox="0 0 180 44" fill="none">
+  <rect x="2" y="8" width="28" height="28" rx="7" fill="#0f1623"/>
+  <path d="M9 17L13.5 27L16 21L18.5 27L23 17" stroke="#1ea672" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="38" y="27" fill="#0f1623" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="16" letter-spacing="-0.4">WonderCrunch</text>
+</svg>

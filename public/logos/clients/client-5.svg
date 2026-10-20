@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="165" height="44" viewBox="0 0 165 44" fill="none">
+  <path d="M16 10C16 10 25 19.2 25 25C25 30 21 34 16 34C11 34 7 30 7 25C7 19.2 16 10 16 10Z" fill="#0f1623"/>
+  <circle cx="18.5" cy="25.5" r="3" fill="#1ea672"/>
+  <text x="34" y="27" fill="#0f1623" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="16.5" letter-spacing="-0.3">SleepDrops</text>
+</svg>

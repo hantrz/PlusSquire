@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="44" viewBox="0 0 160 44" fill="none">
+  <circle cx="16" cy="22" r="13" stroke="#0f1623" stroke-width="2.5"/>
+  <path d="M11 24L15 16L21 24" stroke="#1ea672" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="37" y="27" fill="#0f1623" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="17" letter-spacing="0.5">PURESPORT</text>
+</svg>
