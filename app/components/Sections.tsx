@@ -6,128 +6,362 @@ import Image from 'next/image'
 import { CheckCircle2, ChevronDown, SearchCheck, Layers, Code2, Rocket, Handshake } from 'lucide-react'
 import ContactServiceFields from './ContactServiceFields'
 import { BOOKING_URL, UPWORK_URL, LINKEDIN_URL, WHATSAPP_URL } from '../lib/site'
+import { INSIGHTS, INSIGHT_CATEGORIES } from '../lib/insights'
 
 /* ══════════════ INSIGHTS ══════════════ */
 
-function FlowThumb() {
-  return (
-    <div className="ins-thumb ins-thumb-green">
-      <div className="flow-wrap">
-        <div className="flow-node"><div className="flow-node-bar" /></div>
-        <div className="flow-connector"><div className="flow-line" /><div className="flow-arrowhead" /></div>
-        <div className="flow-node"><div className="flow-node-bar" /></div>
-        <div className="flow-connector"><div className="flow-line" /><div className="flow-arrowhead" /></div>
-        <div className="flow-node"><div className="flow-node-bar" /></div>
-      </div>
-    </div>
-  )
-}
-
-function ChartThumb() {
-  const bars: [string, string][] = [
-    ['55%', 'rgba(30,166,114,.3)'],
-    ['80%', 'rgba(30,166,114,.5)'],
-    ['45%', 'rgba(30,166,114,.25)'],
-    ['70%', 'rgba(30,166,114,.4)'],
-  ]
-  return (
-    <div className="ins-thumb ins-thumb-green">
-      <div className="chart-wrap">
-        {bars.map(([h, bg], i) => (
-          <div key={i} className="chart-bar" style={{ height: h, background: bg }} />
-        ))}
-      </div>
-    </div>
-  )
-}
-
-function CodeThumb() {
-  const lines: [string][] = [['75%'], ['55%'], ['90%'], ['60%'], ['40%']]
-  return (
-    <div className="ins-thumb ins-thumb-green">
-      <div className="code-wrap">
-        {lines.map(([w], i) => (
-          <div key={i} className="code-line">
-            <div className="code-dot" />
-            <div className="code-bar" style={{ width: w }} />
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-const articles = [
-  { cat: 'Klaviyo', date: 'April 2026', title: 'The 5 Klaviyo Flows Every eCommerce Store Needs in 2026', body: "If you're not running these five automation flows, you're leaving serious money on the table.", Thumb: FlowThumb },
-  { cat: 'Deliverability', date: 'March 2026', title: 'Why Your Email Open Rates Dropped: And How to Fix It', body: "MPP changed everything. Here's how to interpret your metrics accurately post-2026.", Thumb: ChartThumb },
-  { cat: 'Development', date: 'February 2026', title: 'HTML Email vs Drag-and-Drop: Which Converts Better?', body: 'We ran the same campaign in custom HTML and a builder. The results might surprise you.', Thumb: CodeThumb },
-]
-
 export function Insights({ hideHeader = false }: { hideHeader?: boolean }) {
+  const [activeCat, setActiveCat] = useState<string>('All')
+
+  const displayedArticles = hideHeader
+    ? activeCat === 'All'
+      ? INSIGHTS
+      : INSIGHTS.filter((item) => item.category === activeCat)
+    : INSIGHTS.slice(0, 3)
+
+  const featuredArticle = INSIGHTS[0]
+
   return (
     <>
       <style>{`
         .insights { background: #fff; padding: 96px 0; }
-        .insights-page { padding-top: 56px; }
-        .ins-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-        .ins-card { border: 1px solid var(--border); border-radius: 18px; overflow: hidden; cursor: pointer; transition: box-shadow .2s, transform .2s; text-decoration: none; display: block; position: relative; z-index: 1; }
-        .ins-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,.07); transform: translateY(-2px); }
-        .ins-thumb { height: 180px; display: flex; align-items: center; justify-content: center; }
-        .ins-thumb-green { background: linear-gradient(135deg,#e8f5f0,#d0ede3); width: 100%; }
-        .ins-body { padding: 26px 24px; }
-        .ins-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-        .ins-cat { background: var(--gl); color: var(--gd); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: 3px 10px; border-radius: 4px; }
-        .ins-date { font-size: 12px; color: var(--ink4); }
-        .ins-card h3 { font-size: 16px; line-height: 1.35; margin-bottom: 10px; color: var(--ink); }
-        .ins-card p { font-size: 13.5px; color: var(--ink3); line-height: 1.7; }
-        .ins-read { margin-top: 18px; color: var(--g); font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 5px; transition: gap .18s; }
-        .ins-card:hover .ins-read { gap: 9px; }
-        .ins-cta { text-align: center; margin-top: 48px; }
+        .insights-page { padding-top: 48px; background: var(--soft); }
 
-        .flow-wrap { display: flex; align-items: center; gap: 8px; }
-        .flow-node { width: 52px; height: 32px; border-radius: 8px; background: rgba(30,166,114,.2); border: 1.5px solid rgba(30,166,114,.4); display: flex; align-items: center; justify-content: center; }
-        .flow-node-bar { width: 28px; height: 6px; border-radius: 3px; background: rgba(30,166,114,.5); }
-        .flow-connector { display: flex; align-items: center; }
-        .flow-line { width: 14px; height: 1.5px; background: rgba(30,166,114,.45); }
-        .flow-arrowhead { width: 0; height: 0; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-left: 5px solid rgba(30,166,114,.45); }
+        /* Featured Spotlight Card on /insights page */
+        .ins-featured {
+          display: grid;
+          grid-template-columns: 1.15fr 1fr;
+          gap: 36px;
+          align-items: center;
+          background: #ffffff;
+          border: 1px solid var(--border);
+          border-radius: 22px;
+          padding: 24px;
+          margin-bottom: 44px;
+          text-decoration: none;
+          box-shadow: 0 18px 44px rgba(15, 22, 35, 0.06);
+          transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+        }
+        .ins-featured:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 24px 56px rgba(30, 166, 114, 0.12);
+          border-color: var(--gm);
+        }
+        .ins-feat-img {
+          border-radius: 14px;
+          overflow: hidden;
+          background: var(--soft);
+          border: 1px solid var(--border);
+          aspect-ratio: 1400 / 764;
+        }
+        .ins-feat-img img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.35s ease;
+        }
+        .ins-featured:hover .ins-feat-img img {
+          transform: scale(1.03);
+        }
+        .ins-feat-body {
+          padding: 12px 16px 12px 4px;
+        }
+        .ins-feat-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 11.5px;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 0.06em;
+          color: var(--g);
+          margin-bottom: 12px;
+        }
+        .ins-feat-body h2 {
+          font-size: clamp(22px, 2.4vw, 30px);
+          font-weight: 800;
+          color: var(--ink);
+          line-height: 1.28;
+          margin: 0 0 14px;
+          text-align: left;
+        }
+        .ins-feat-body p {
+          font-size: 15px;
+          color: var(--ink3);
+          line-height: 1.72;
+          margin: 0 0 20px;
+        }
+        .ins-feat-foot {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 12px;
+          padding-top: 16px;
+          border-top: 1px solid var(--border);
+        }
+        .ins-feat-meta {
+          font-size: 12.5px;
+          color: var(--ink4);
+          font-weight: 600;
+        }
 
-        .chart-wrap { display: flex; align-items: flex-end; gap: 10px; height: 80px; }
-        .chart-bar { width: 24px; border-radius: 4px 4px 0 0; }
+        /* Category Filter Tabs on /insights page */
+        .ins-filter-bar {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin-bottom: 36px;
+        }
+        .ins-filter-btn {
+          padding: 10px 18px;
+          border-radius: 100px;
+          border: 1px solid var(--border);
+          background: #ffffff;
+          color: var(--ink2);
+          font-family: inherit;
+          font-size: 13.5px;
+          font-weight: 700;
+          cursor: pointer;
+          transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+        }
+        .ins-filter-btn:hover {
+          border-color: var(--g);
+          color: var(--g);
+        }
+        .ins-filter-btn.active {
+          background: var(--g);
+          border-color: var(--g);
+          color: #ffffff;
+        }
 
-        .code-wrap { display: flex; flex-direction: column; gap: 10px; width: 140px; }
-        .code-line { display: flex; align-items: center; gap: 8px; }
-        .code-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--g); flex-shrink: 0; }
-        .code-bar { height: 5px; border-radius: 3px; background: rgba(30,166,114,.3); }
+        /* Cards Grid */
+        .ins-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px;
+        }
+        .ins-card {
+          background: #ffffff;
+          border: 1px solid var(--border);
+          border-radius: 18px;
+          overflow: hidden;
+          cursor: pointer;
+          transition: box-shadow 0.22s ease, transform 0.22s ease, border-color 0.22s ease;
+          text-decoration: none;
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          z-index: 1;
+        }
+        .ins-card:hover {
+          box-shadow: 0 16px 36px rgba(15, 22, 35, 0.08);
+          transform: translateY(-4px);
+          border-color: var(--gm);
+        }
+        .ins-thumb-img {
+          position: relative;
+          width: 100%;
+          aspect-ratio: 1400 / 764;
+          overflow: hidden;
+          background: var(--soft);
+          border-bottom: 1px solid var(--border);
+        }
+        .ins-thumb-img img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.35s ease;
+        }
+        .ins-card:hover .ins-thumb-img img {
+          transform: scale(1.04);
+        }
+        .ins-body {
+          padding: 24px 22px;
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+        }
+        .ins-meta {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+          margin-bottom: 12px;
+        }
+        .ins-cat {
+          background: var(--gl);
+          color: var(--gd);
+          font-size: 11px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.06em;
+          padding: 3px 10px;
+          border-radius: 4px;
+        }
+        .ins-date {
+          font-size: 12px;
+          color: var(--ink4);
+          font-weight: 500;
+        }
+        .ins-card h3 {
+          font-size: 16.5px;
+          font-weight: 800;
+          line-height: 1.38;
+          margin-bottom: 10px;
+          color: var(--ink);
+        }
+        .ins-card p {
+          font-size: 13.5px;
+          color: var(--ink3);
+          line-height: 1.68;
+          flex: 1;
+          margin: 0;
+        }
+        .ins-read {
+          margin-top: 18px;
+          padding-top: 14px;
+          border-top: 1px solid var(--border);
+          color: var(--g);
+          font-size: 13px;
+          font-weight: 700;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 5px;
+          transition: gap 0.18s;
+        }
+        .ins-read-time {
+          font-size: 12px;
+          color: var(--ink4);
+          font-weight: 500;
+        }
+        .ins-cta {
+          text-align: center;
+          margin-top: 48px;
+        }
 
-        @media(max-width:768px){ .ins-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 960px) {
+          .ins-featured {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+          .ins-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (max-width: 640px) {
+          .ins-grid {
+            grid-template-columns: 1fr;
+          }
+        }
       `}</style>
       <section className={`insights${hideHeader ? ' insights-page' : ''}`} id="insights">
         <div className="wrap">
           {!hideHeader && (
             <div className="sh-row" data-reveal="up">
               <h2>Email &amp; Shopify <em>know-how.</em></h2>
-              <p className="section-sub">Practical guides and strategy for eCommerce brands that want to scale faster.</p>
+              <p className="section-sub">Practical playbooks on Klaviyo flows, deliverability, HTML email development, and Shopify engineering.</p>
             </div>
           )}
+
+          {hideHeader && (
+            <>
+              <Link
+                href={`/insights/${featuredArticle.slug}`}
+                className="ins-featured"
+                data-reveal="up"
+              >
+                <div className="ins-feat-img">
+                  <Image
+                    src={featuredArticle.heroImage}
+                    alt={featuredArticle.heroAlt}
+                    width={1400}
+                    height={764}
+                    priority
+                  />
+                </div>
+                <div className="ins-feat-body">
+                  <div className="ins-feat-badge">
+                    <span>Featured Playbook</span> · <span>{featuredArticle.category}</span>
+                  </div>
+                  <h2>{featuredArticle.title}</h2>
+                  <p>{featuredArticle.excerpt}</p>
+                  <div className="ins-feat-foot">
+                    <span className="ins-feat-meta">
+                      {featuredArticle.date} · {featuredArticle.readTime}
+                    </span>
+                    <span style={{ color: 'var(--g)', fontWeight: 700, fontSize: '14px' }}>
+                      Read Full Playbook →
+                    </span>
+                  </div>
+                </div>
+              </Link>
+
+              <div className="ins-filter-bar" role="tablist">
+                {INSIGHT_CATEGORIES.map((cat) => {
+                  const count =
+                    cat === 'All'
+                      ? INSIGHTS.length
+                      : INSIGHTS.filter((i) => i.category === cat).length
+                  return (
+                    <button
+                      key={cat}
+                      type="button"
+                      role="tab"
+                      aria-selected={activeCat === cat}
+                      className={`ins-filter-btn${activeCat === cat ? ' active' : ''}`}
+                      onClick={() => setActiveCat(cat)}
+                    >
+                      {cat} ({count})
+                    </button>
+                  )
+                })}
+              </div>
+            </>
+          )}
+
           <div className="ins-grid">
-            {articles.map((a, i) => (
-              <Link key={a.title} href="/insights" className="ins-card" data-reveal="up" style={{ transitionDelay: `${i * 100}ms` }}>
-                <a.Thumb />
+            {displayedArticles.map((a, i) => (
+              <Link
+                key={a.slug}
+                href={`/insights/${a.slug}`}
+                className="ins-card"
+                data-reveal="up"
+                style={{ transitionDelay: `${(i % 3) * 80}ms` }}
+              >
+                <div className="ins-thumb-img">
+                  <Image
+                    src={a.heroImage}
+                    alt={a.heroAlt}
+                    width={700}
+                    height={382}
+                  />
+                </div>
                 <div className="ins-body">
                   <div className="ins-meta">
-                    <span className="ins-cat">{a.cat}</span>
+                    <span className="ins-cat">{a.category}</span>
                     <span className="ins-date">{a.date}</span>
                   </div>
                   <h3>{a.title}</h3>
-                  <p>{a.body}</p>
-                  <div className="ins-read">Read Article →</div>
+                  <p>{a.excerpt}</p>
+                  <div className="ins-read">
+                    <span>Read Playbook →</span>
+                    <span className="ins-read-time">{a.readTime}</span>
+                  </div>
                 </div>
               </Link>
             ))}
           </div>
+
           {!hideHeader && (
             <div className="ins-cta" data-reveal="fade">
-              <Link href="/insights" className="link-more">All Articles →</Link>
+              <Link href="/insights" className="btn-ghost">
+                Explore All 12 Playbooks &amp; Guides →
+              </Link>
             </div>
           )}
         </div>

@@ -1,5 +1,13 @@
 import Navbar from '../components/Navbar'
 import { Insights, Footer } from '../components/Sections'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Insights & eCommerce Playbooks',
+  description:
+    'In-depth playbooks and technical guides on Klaviyo flows, email deliverability, custom HTML email development, and Shopify engineering.',
+  alternates: { canonical: '/insights' },
+}
 
 export default function InsightsPage() {
   return (

@@ -1,8 +1,8 @@
 import type { MetadataRoute } from 'next'
 import { SERVICES, SITE_URL } from './lib/site'
+import { INSIGHTS } from './lib/insights'
 
-// About, Insights and Portfolio are left out until they have real content.
-const staticRoutes = ['', '/services', '/pricing', '/faq', '/case-studies', '/case-studies/dtc-skincare-growth-case-study', '/case-studies/luxury-spirits-growth-case-study', '/case-studies/7-day-flash-growth-case-study','/privacy', '/terms']
+const staticRoutes = ['', '/about', '/services', '/portfolio', '/insights', '/pricing', '/faq', '/case-studies', '/case-studies/dtc-skincare-growth-case-study', '/case-studies/luxury-spirits-growth-case-study', '/case-studies/7-day-flash-growth-case-study', '/privacy', '/terms']
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
@@ -18,6 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
+    })),
+    ...INSIGHTS.map((ins) => ({
+      url: `${SITE_URL}/insights/${ins.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.75,
     })),
   ]
 }
