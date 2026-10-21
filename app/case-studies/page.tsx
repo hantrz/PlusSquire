@@ -1,6 +1,14 @@
 import Link from 'next/link'
 import Navbar from '../components/Navbar'
 import { Footer } from '../components/Sections'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Case Studies — Proven Shopify & Klaviyo Revenue Growth',
+  description:
+    'See how PlusSquire helps eCommerce brands scale revenue through custom Shopify engineering, Klaviyo flow architecture, email deliverability recovery, and SMS marketing.',
+  alternates: { canonical: '/case-studies' },
+}
 
 type CaseItem = {
   tag: string

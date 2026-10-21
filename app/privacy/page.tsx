@@ -1,5 +1,12 @@
 import Navbar from '../components/Navbar'
 import { Footer } from '../components/Sections'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  description: 'Privacy Policy for PlusSquire (plussquire.com) — how we collect, use, and protect your information.',
+  alternates: { canonical: '/privacy' },
+}
 
 export default function PrivacyPage() {
   return (

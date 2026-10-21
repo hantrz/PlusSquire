@@ -1,5 +1,12 @@
 import Navbar from '../components/Navbar'
 import { Footer } from '../components/Sections'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Terms & Conditions',
+  description: 'Terms and Conditions for working with PlusSquire on Shopify development, Klaviyo, and email marketing projects.',
+  alternates: { canonical: '/terms' },
+}
 
 export default function TermsPage() {
   return (

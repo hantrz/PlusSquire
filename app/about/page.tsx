@@ -1,5 +1,13 @@
 import Navbar from '../components/Navbar'
 import { About, StatsBar, Footer } from '../components/Sections'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'About Us — Led by Zahidul Islam (13+ Yrs Klaviyo & Shopify Expert)',
+  description:
+    'Meet Zahidul Islam and the PlusSquire team: 13+ years of Klaviyo email marketing, custom HTML email development, and Shopify engineering with 800+ projects delivered and 100% Job Success on Upwork.',
+  alternates: { canonical: '/about' },
+}
 
 export default function AboutPage() {
   return (

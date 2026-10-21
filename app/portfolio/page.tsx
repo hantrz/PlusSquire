@@ -1,5 +1,13 @@
 import Navbar from '../components/Navbar'
 import { Portfolio, Footer } from '../components/Sections'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Portfolio — Custom Shopify Builds, Klaviyo Flows & HTML Emails',
+  description:
+    'Explore PlusSquire’s portfolio of high-converting Shopify OS 2.0 storefronts, custom-coded HTML email templates, Klaviyo lifecycle flows, and sign-up form designs.',
+  alternates: { canonical: '/portfolio' },
+}
 
 export default function PortfolioPage() {
   return (

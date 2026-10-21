@@ -9,10 +9,9 @@ export const UPWORK_URL = 'https://www.upwork.com/freelancers/zahidulislam'
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/zahidul-islam-7876533b2'
 export const WHATSAPP_URL = 'https://wa.me/8801919130859'
 
-// Search engines are told NOT to index the site until this is switched on.
-// When all content is final, set ALLOW_INDEXING=true in Vercel
-// (Project Settings > Environment Variables) and redeploy.
-export const ALLOW_INDEXING = process.env.ALLOW_INDEXING === 'true'
+// Search engine indexing is enabled by default now that site content and SEO metadata are live.
+// Set ALLOW_INDEXING=false in environment variables only if you want to block indexing on a staging preview.
+export const ALLOW_INDEXING = process.env.ALLOW_INDEXING !== 'false'
 
 // Sample audit report people can download from the Account Audit page.
 export const SAMPLE_AUDIT_URL = ''

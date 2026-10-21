@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'FAQ',
-  description: 'Answers to common questions about working with PlusSquire on Shopify development, Klaviyo and email marketing, timelines, pricing and support.',
+  title: 'Frequently Asked Questions — Shopify, Klaviyo & Email Marketing',
+  description:
+    'Find clear answers to 80+ questions covering PlusSquire’s onboarding, pricing, Shopify development, migrations, speed optimization, Klaviyo flows, email deliverability, and HTML email coding.',
   alternates: { canonical: '/faq' },
 }
 
-export default function FaqLayout({ children }: { children: React.ReactNode }) {
+export default function FAQLayout({ children }: { children: React.ReactNode }) {
   return children
 }
