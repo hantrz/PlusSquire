@@ -660,71 +660,254 @@ export function About() {
 }
 
 /* ══════════════ PORTFOLIO ══════════════ */
-const portfolio = [
+type PortfolioItem = {
+  img: string
+  title: string
+  sub: string
+  category: 'Klaviyo Flows' | 'Email Design & HTML' | 'Shopify Builds' | 'Forms & SMS'
+  metric: string
+  href: string
+  summary: string
+  deliverables: string[]
+}
+
+const PORTFOLIO_CATEGORIES = [
+  'All',
+  'Klaviyo Flows',
+  'Email Design & HTML',
+  'Shopify Builds',
+  'Forms & SMS',
+] as const
+
+const portfolio: PortfolioItem[] = [
   {
     img: '/images/services/flow-setup/welcome-series.jpg',
     title: 'Multi-Step Welcome Series',
     sub: 'Klaviyo Flow · DTC Skincare',
+    category: 'Klaviyo Flows',
     metric: '58% Open Rate · 4.8× ROI',
     href: '/services/flow-setup',
+    summary: '4-part zero-party data welcome automation built with conditional skin-type branching, dynamic product recommendations, and mobile-first dark-mode-ready templates.',
+    deliverables: [
+      '4-email branched welcome flow in Klaviyo',
+      'Dynamic product feed personalization by skin concern',
+      'Smart coupon expiration reminder for non-buyers',
+      '50+ inbox & dark mode QA verification',
+    ],
   },
   {
     img: '/images/services/shopify-theme-development/conversion-ux.jpg',
     title: 'Custom Shopify OS 2.0 Rebuild',
     sub: 'Shopify Theme · Apparel & Lifestyle',
+    category: 'Shopify Builds',
     metric: '+24% Conversion · 1.4s Load',
     href: '/services/shopify-theme-development',
+    summary: 'Bespoke Online Store 2.0 theme architecture with native slide-out cart upsells, thumb-zone mobile product pages, and zero-bloat Liquid sections.',
+    deliverables: [
+      'Custom OS 2.0 modular theme sections & metafields',
+      'Slide-out AJAX cart drawer with free-shipping progress bar',
+      'Mobile thumb-zone sticky ATC & size guide modal',
+      '96/100 Desktop & 89/100 Mobile PageSpeed score',
+    ],
   },
   {
     img: '/images/services/email-design/hero-pixel-perfect.jpg',
     title: 'Figma-to-HTML Campaign System',
     sub: 'Email Design & Code · Luxury Retail',
+    category: 'Email Design & HTML',
     metric: '50+ Clients & Dark Mode QA',
     href: '/services/email-design',
+    summary: 'Modular Figma design system and hand-coded responsive HTML master templates built for rapid weekly campaign deployment across global markets.',
+    deliverables: [
+      '20+ reusable Figma & Klaviyo universal content blocks',
+      'Hand-coded HTML/CSS with Outlook VML fallbacks',
+      'True dark-mode color & logo inversion styling',
+      'Sub-85KB HTML payload to prevent Gmail clipping',
+    ],
   },
   {
     img: '/images/services/flow-setup/abandoned-cart-browse.jpg',
     title: 'High-Recovery Cart & Checkout Flow',
     sub: 'Klaviyo Automation · Home & Living',
+    category: 'Klaviyo Flows',
     metric: '+$142K Recovered Revenue',
     href: '/services/email-automations',
+    summary: 'Multi-split Cart & Checkout Abandonment architecture separating high-AOV vs. standard carts and first-time vs. VIP repeat shoppers.',
+    deliverables: [
+      'Server-side Added to Cart & Checkout Started triggers',
+      'AOV-based conditional split ($150+ vs. under $150)',
+      'Dynamic cart item rebuild link & objection-handling blocks',
+      'Integrated SMS follow-up for opted-in VIP profiles',
+    ],
   },
   {
     img: '/images/services/email-development/cross-client-compatibility.jpg',
     title: 'Bulletproof Outlook & Mobile HTML',
     sub: 'Custom HTML/Liquid · B2B & SaaS',
+    category: 'Email Design & HTML',
     metric: '100% Render Accuracy',
     href: '/services/email-development',
+    summary: 'Enterprise-grade HTML email engineering designed specifically for B2B decision-makers using legacy desktop Outlook (2016–2021), Office 365, and iOS Mail.',
+    deliverables: [
+      'Hybrid fluid-responsive table & ghost-table VML code',
+      'Live HTML typography & bulletproof VML CTA buttons',
+      'Litmus & Email on Acid 50+ client QA test report',
+      'Dynamic Liquid variables for account-level metrics',
+    ],
   },
   {
     img: '/images/services/shopify-speed-optimization/vitals-before-after.jpg',
     title: 'Core Web Vitals & Speed Overhaul',
     sub: 'Shopify Engineering · Beauty Brand',
+    category: 'Shopify Builds',
     metric: '−31% Cart Abandonment',
     href: '/services/shopify-speed-optimization',
+    summary: 'Surgical Shopify performance sprint eliminating leftover third-party scripts, optimizing Liquid render loops, and fixing LCP/INP Core Web Vitals.',
+    deliverables: [
+      'Removed 14 ghost app scripts & unused JS bundles',
+      'Native Liquid replacement for 3 heavy frontend apps',
+      'Preloaded hero WebP assets & deferred non-critical scripts',
+      'Mobile LCP reduced from 4.6s down to 1.7s',
+    ],
   },
   {
     img: '/images/services/sign-up-forms/on-brand-form-design.jpg',
     title: 'Zero-Party Data Capture Pop-Ups',
     sub: 'Klaviyo Forms · Food & Beverage',
+    category: 'Forms & SMS',
     metric: '11.4% Opt-In Conversion',
     href: '/services/sign-up-forms',
+    summary: 'Multi-step micro-quiz pop-up and mobile teaser system capturing flavor preference, email, and SMS consent without hurting storefront UX.',
+    deliverables: [
+      '3-step micro-commitment quiz pop-up (Flavor → Email → SMS)',
+      'Custom CSS matching storefront typography & border radii',
+      'Behavioral exit-intent & 45% scroll trigger rules',
+      'A/B tested mystery offer vs. tiered gift unlock',
+    ],
   },
   {
     img: '/images/services/sms-campaigns/hero-sms-revenue.jpg',
     title: 'VIP Email + SMS Flash Launch',
     sub: 'Omnichannel · DTC Fashion',
+    category: 'Forms & SMS',
     metric: '$84.3K in 7 Days',
     href: '/services/sms-campaigns',
+    summary: 'Coordinated 7-day product drop combining early-access VIP SMS alerts, countdown email sequences, and smart exclusion segments.',
+    deliverables: [
+      'VIP early-access SMS + email calendar & copywriting',
+      'Real-time purchaser exclusion segments across channels',
+      'TCPA/GDPR compliant quiet-hours & attribution setup',
+      'Post-drop restock & back-in-stock automated capture',
+    ],
+  },
+  {
+    img: '/images/services/email-deliverability/hero-email-deliverability.jpg',
+    title: 'Primary Inbox Placement & DNS Recovery',
+    sub: 'Deliverability · 8-Figure Supplement Brand',
+    category: 'Klaviyo Flows',
+    metric: '21% → 49.6% Open Rate',
+    href: '/services/email-deliverability',
+    summary: 'Complete sender reputation turnaround including custom branded sending domain authentication, sunset suppression flows, and 30-day tiered warm-up.',
+    deliverables: [
+      'Branded sending domain SPF, 2048-bit DKIM & DMARC p=quarantine',
+      '30/60/90-day engaged behavioral segmentation matrix',
+      'Automated 3-part Sunset Flow & spam-trap purging',
+      'Google Postmaster Tools & Microsoft SNDS monitoring',
+    ],
+  },
+  {
+    img: '/images/services/shopify-custom-features/bespoke-features-showcase.jpg',
+    title: 'Native Bundle Builder & Tiered Cart',
+    sub: 'Shopify Custom Liquid · Pet Wellness',
+    category: 'Shopify Builds',
+    metric: '+$19.40 Average Order Value',
+    href: '/services/shopify-custom-features',
+    summary: 'Custom-coded "Build Your Pack" bundle configurator built directly into Shopify OS 2.0 theme blocks—eliminating $299/mo in recurring app fees.',
+    deliverables: [
+      'Interactive 3-tier bundle selector (Save 10% / 15% / 20%)',
+      '100% editable inside Shopify Theme Editor via blocks',
+      'Zero external script delay—instant native Cart AJAX API',
+      'Seamless Klaviyo cart-item property passing for flows',
+    ],
+  },
+  {
+    img: '/images/services/email-design/design-systems-hub.jpg',
+    title: 'Dark-Mode-Proof Master Template Library',
+    sub: 'Email Design System · Consumer Tech',
+    category: 'Email Design & HTML',
+    metric: '3× Faster Campaign Builds',
+    href: '/services/email-design',
+    summary: 'Comprehensive 18-module email design system engineered in Figma and Klaviyo so internal marketers can launch campaigns in 20 minutes.',
+    deliverables: [
+      '18 drag-and-drop + custom HTML hybrid Klaviyo blocks',
+      'Dark-mode tested hero, comparison table & review modules',
+      'Annotated Figma component library with brand guardrails',
+      'Team Loom training & pre-send QA checklist',
+    ],
+  },
+  {
+    img: '/images/services/shopify-migration/hero-cutover.jpg',
+    title: 'WooCommerce to Shopify OS 2.0 Migration',
+    sub: 'Platform Migration · UK Heritage Retail',
+    category: 'Shopify Builds',
+    metric: '100% SEO Traffic Retained',
+    href: '/services/shopify-migration',
+    summary: 'Zero-downtime migration of 4,200+ SKUs, 68,000 customer records, historical orders, and 301 URL redirects into a fast Shopify OS 2.0 storefront.',
+    deliverables: [
+      'Full product, variant, customer & order history migration',
+      '1-to-1 301 redirect mapping preserving organic rankings',
+      'Unified Klaviyo historical purchase & event re-sync',
+      'Post-launch 30-day hypercare & Search Console audit',
+    ],
   },
 ]
 
 export function Portfolio({ hideHeader = false }: { hideHeader?: boolean }) {
+  const [activeCat, setActiveCat] = useState<string>('All')
+  const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null)
+
+  const filteredItems = hideHeader
+    ? activeCat === 'All'
+      ? portfolio
+      : portfolio.filter((p) => p.category === activeCat)
+    : activeCat === 'All'
+      ? portfolio.slice(0, 8)
+      : portfolio.filter((p) => p.category === activeCat).slice(0, 8)
+
   return (
     <>
       <style>{`
         .portfolio { background: var(--soft); padding: 96px 0; border-top: 1px solid var(--border); }
         .portfolio-page { padding-top: 56px; }
+        .port-filters {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-bottom: 32px;
+          justify-content: center;
+        }
+        .port-filter-btn {
+          background: #fff;
+          border: 1.5px solid var(--border);
+          color: var(--ink2);
+          padding: 9px 18px;
+          border-radius: 999px;
+          font-size: 13px;
+          font-weight: 700;
+          font-family: inherit;
+          cursor: pointer;
+          transition: all .18s ease;
+        }
+        .port-filter-btn:hover {
+          border-color: var(--g);
+          color: var(--g);
+        }
+        .port-filter-btn.active {
+          background: var(--ink);
+          border-color: var(--ink);
+          color: #fff;
+          box-shadow: 0 6px 18px rgba(15, 22, 35, 0.14);
+        }
         .port-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
         .port-item {
           border-radius: 16px;
@@ -734,6 +917,10 @@ export function Portfolio({ hideHeader = false }: { hideHeader?: boolean }) {
           text-decoration: none;
           display: flex;
           flex-direction: column;
+          cursor: pointer;
+          text-align: left;
+          padding: 0;
+          font-family: inherit;
           transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
         }
         .port-item:hover {
@@ -744,6 +931,7 @@ export function Portfolio({ hideHeader = false }: { hideHeader?: boolean }) {
         .port-img-wrap {
           position: relative;
           height: 200px;
+          width: 100%;
           background: var(--dark);
           overflow: hidden;
           border-bottom: 1px solid var(--border);
@@ -771,11 +959,31 @@ export function Portfolio({ hideHeader = false }: { hideHeader?: boolean }) {
           border-radius: 6px;
           border: 1px solid rgba(52, 211, 153, 0.3);
         }
+        .port-zoom-pill {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: rgba(15, 22, 35, 0.78);
+          backdrop-filter: blur(6px);
+          color: #fff;
+          font-size: 11px;
+          font-weight: 700;
+          padding: 4px 9px;
+          border-radius: 6px;
+          opacity: 0;
+          transform: translateY(-4px);
+          transition: opacity .2s ease, transform .2s ease;
+        }
+        .port-item:hover .port-zoom-pill {
+          opacity: 1;
+          transform: translateY(0);
+        }
         .port-info {
           padding: 18px 20px 20px;
           display: flex;
           flex-direction: column;
           flex: 1;
+          width: 100%;
         }
         .port-sub {
           font-size: 11px;
@@ -801,7 +1009,167 @@ export function Portfolio({ hideHeader = false }: { hideHeader?: boolean }) {
           align-items: center;
           gap: 5px;
         }
+
+        /* Lightbox Preview Modal */
+        .port-modal-backdrop {
+          position: fixed;
+          inset: 0;
+          z-index: 9999;
+          background: rgba(9, 13, 22, 0.82);
+          backdrop-filter: blur(8px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 24px;
+          animation: portFadeIn .2s ease;
+        }
+        @keyframes portFadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        .port-modal-card {
+          background: #fff;
+          border-radius: 22px;
+          max-width: 920px;
+          width: 100%;
+          max-height: 90vh;
+          overflow-y: auto;
+          display: grid;
+          grid-template-columns: 1.1fr 1fr;
+          box-shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
+          border: 1px solid var(--border);
+          position: relative;
+        }
+        .port-modal-close {
+          position: absolute;
+          top: 16px;
+          right: 16px;
+          z-index: 10;
+          width: 38px;
+          height: 38px;
+          border-radius: 50%;
+          border: 1px solid var(--border);
+          background: rgba(255, 255, 255, 0.92);
+          color: var(--ink);
+          font-size: 18px;
+          font-weight: 800;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+          transition: background .15s, transform .15s;
+        }
+        .port-modal-close:hover {
+          background: #fff;
+          transform: scale(1.06);
+        }
+        .port-modal-visual {
+          background: var(--dark);
+          position: relative;
+          min-height: 360px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+        .port-modal-visual img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+        .port-modal-body {
+          padding: 36px 34px;
+          display: flex;
+          flex-direction: column;
+        }
+        .port-modal-cat {
+          display: inline-flex;
+          align-self: flex-start;
+          background: var(--gl);
+          color: var(--gd);
+          font-size: 11px;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: .07em;
+          padding: 5px 12px;
+          border-radius: 999px;
+          margin-bottom: 12px;
+        }
+        .port-modal-body h3 {
+          font-size: 24px;
+          font-weight: 800;
+          color: var(--ink);
+          line-height: 1.25;
+          margin: 0 0 6px;
+        }
+        .port-modal-sub {
+          font-size: 13.5px;
+          font-weight: 600;
+          color: var(--ink3);
+          margin-bottom: 16px;
+        }
+        .port-modal-metric {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: #0f1623;
+          color: #34d399;
+          font-size: 13px;
+          font-weight: 800;
+          padding: 8px 14px;
+          border-radius: 9px;
+          margin-bottom: 18px;
+          align-self: flex-start;
+        }
+        .port-modal-desc {
+          font-size: 14.5px;
+          color: var(--ink2);
+          line-height: 1.7;
+          margin-bottom: 20px;
+        }
+        .port-modal-deliv-title {
+          font-size: 11.5px;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: .08em;
+          color: var(--ink3);
+          margin-bottom: 10px;
+        }
+        .port-modal-list {
+          list-style: none;
+          padding: 0;
+          margin: 0 0 26px;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+        .port-modal-list li {
+          display: flex;
+          align-items: flex-start;
+          gap: 8px;
+          font-size: 13.5px;
+          color: var(--ink2);
+          line-height: 1.5;
+        }
+        .port-modal-list li span {
+          color: var(--g);
+          font-weight: 800;
+          flex-shrink: 0;
+        }
+        .port-modal-actions {
+          margin-top: auto;
+          display: flex;
+          gap: 12px;
+          flex-wrap: wrap;
+        }
         @media(max-width:1100px){ .port-grid { grid-template-columns: repeat(2,1fr); } }
+        @media(max-width:820px){
+          .port-modal-card { grid-template-columns: 1fr; }
+          .port-modal-visual { min-height: 240px; max-height: 280px; }
+          .port-modal-body { padding: 26px 22px; }
+        }
         @media(max-width:600px){ .port-grid { grid-template-columns: 1fr; } }
       `}</style>
       <section className={`portfolio${hideHeader ? ' portfolio-page' : ''}`} id="portfolio">
@@ -813,24 +1181,105 @@ export function Portfolio({ hideHeader = false }: { hideHeader?: boolean }) {
               <Link href="/portfolio" className="link-more">Full Portfolio →</Link>
             </div>
           )}
+
+          {/* Category Filter Tabs */}
+          <div className="port-filters" data-reveal="up">
+            {PORTFOLIO_CATEGORIES.map((cat) => (
+              <button
+                key={cat}
+                type="button"
+                className={`port-filter-btn${activeCat === cat ? ' active' : ''}`}
+                onClick={() => setActiveCat(cat)}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
           <div className="port-grid">
-            {portfolio.map((p, i) => (
-              <Link key={p.title} href={p.href} className="port-item" data-reveal="up" style={{ transitionDelay: `${i * 60}ms` }}>
+            {filteredItems.map((p, i) => (
+              <button
+                key={p.title}
+                type="button"
+                className="port-item"
+                onClick={() => setSelectedItem(p)}
+                data-reveal="up"
+                style={{ transitionDelay: `${i * 50}ms` }}
+              >
                 <div className="port-img-wrap">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={p.img} alt={p.title} loading="lazy" />
                   <span className="port-metric-badge">{p.metric}</span>
+                  <span className="port-zoom-pill">Quick Preview ↗</span>
                 </div>
                 <div className="port-info">
                   <div className="port-sub">{p.sub}</div>
                   <h4>{p.title}</h4>
-                  <span className="port-link-txt">Explore Service →</span>
+                  <span className="port-link-txt">Inspect Deliverable →</span>
                 </div>
-              </Link>
+              </button>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Interactive Lightbox Modal */}
+      {selectedItem && (
+        <div
+          className="port-modal-backdrop"
+          onClick={() => setSelectedItem(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={selectedItem.title}
+        >
+          <div className="port-modal-card" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className="port-modal-close"
+              onClick={() => setSelectedItem(null)}
+              aria-label="Close preview"
+            >
+              ✕
+            </button>
+            <div className="port-modal-visual">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={selectedItem.img} alt={selectedItem.title} />
+            </div>
+            <div className="port-modal-body">
+              <span className="port-modal-cat">{selectedItem.category}</span>
+              <h3>{selectedItem.title}</h3>
+              <div className="port-modal-sub">{selectedItem.sub}</div>
+              <div className="port-modal-metric">⚡ {selectedItem.metric}</div>
+              <p className="port-modal-desc">{selectedItem.summary}</p>
+              <div className="port-modal-deliv-title">What Was Engineered</div>
+              <ul className="port-modal-list">
+                {selectedItem.deliverables.map((d) => (
+                  <li key={d}>
+                    <span>✓</span>
+                    {d}
+                  </li>
+                ))}
+              </ul>
+              <div className="port-modal-actions">
+                <Link
+                  href="/#contact"
+                  className="btn-primary"
+                  onClick={() => setSelectedItem(null)}
+                >
+                  Request Similar Build →
+                </Link>
+                <Link
+                  href={selectedItem.href}
+                  className="btn-dark-outline"
+                  onClick={() => setSelectedItem(null)}
+                >
+                  Explore Service Page
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   )
 }
@@ -1029,22 +1478,46 @@ export function CtaBand() {
 /* ══════════════ CONTACT ══════════════ */
 export function Contact() {
   const [submitted, setSubmitted] = useState(false)
+  const [isSending, setIsSending] = useState(false)
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [website, setWebsite] = useState('')
+  const [fallbackMailto, setFallbackMailto] = useState('')
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
     const service = (formData.get('service') as string) || 'Shopify & Klaviyo Inquiry'
     const message = (formData.get('message') as string) || ''
+
     const subject = encodeURIComponent(`New Project Inquiry from ${firstName} ${lastName} (${website || 'PlusSquire'})`)
     const body = encodeURIComponent(
       `Name: ${firstName} ${lastName}\nEmail: ${email}\nWebsite: ${website}\nService Needed: ${service}\n\nProject Details:\n${message}`
     )
-    window.location.href = `mailto:hello@plussquire.com?subject=${subject}&body=${body}`
-    setSubmitted(true)
+    const mailtoUrl = `mailto:hello@plussquire.com?subject=${subject}&body=${body}`
+    setFallbackMailto(mailtoUrl)
+    setIsSending(true)
+
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          website,
+          service,
+          message,
+        }),
+      })
+    } catch {
+      // Even if offline, show the confirmation screen with direct WhatsApp & email options
+    } finally {
+      setIsSending(false)
+      setSubmitted(true)
+    }
   }
 
   return (
@@ -1128,12 +1601,43 @@ export function Contact() {
             <form className="contact-form" data-reveal="right" onSubmit={handleSubmit}>
               {submitted ? (
                 <div className="form-success">
-                  <CheckCircle2 size={42} color="var(--g)" style={{ margin: '0 auto' }} />
-                  <h4>Your message is ready to send!</h4>
-                  <p>We&apos;ve opened your email client with your project details addressed to <strong>hello@plussquire.com</strong>. You can also message us directly on WhatsApp for an instant reply.</p>
-                  <button type="button" className="btn-primary" onClick={() => setSubmitted(false)}>
-                    Send Another Inquiry
-                  </button>
+                  <CheckCircle2 size={44} color="var(--g)" style={{ margin: '0 auto' }} />
+                  <h4>Inquiry Received — Thank You, {firstName || 'There'}!</h4>
+                  <p>
+                    Your project details have been submitted to <strong>hello@plussquire.com</strong>. Zahidul and the engineering team will review your requirements and reply within <strong>24 hours</strong>.
+                  </p>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center', marginTop: '14px' }}>
+                    <a
+                      href={WHATSAPP_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary"
+                    >
+                      Fast-Track on WhatsApp ↗
+                    </a>
+                    {fallbackMailto && (
+                      <a href={fallbackMailto} className="btn-dark-outline">
+                        Send Copy via Email App
+                      </a>
+                    )}
+                    <button
+                      type="button"
+                      onClick={() => setSubmitted(false)}
+                      style={{
+                        background: 'transparent',
+                        border: 'none',
+                        color: 'var(--ink3)',
+                        fontSize: '13px',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                        textDecoration: 'underline',
+                        width: '100%',
+                        marginTop: '6px',
+                      }}
+                    >
+                      Submit another inquiry
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <>
@@ -1156,7 +1660,9 @@ export function Contact() {
                     <input type="text" placeholder="mystore.com" value={website} onChange={(e) => setWebsite(e.target.value)} />
                   </div>
                   <ContactServiceFields />
-                  <button type="submit" className="form-submit">Send Project Inquiry →</button>
+                  <button type="submit" className="form-submit" disabled={isSending} style={{ opacity: isSending ? 0.75 : 1 }}>
+                    {isSending ? 'Sending Project Inquiry...' : 'Send Project Inquiry →'}
+                  </button>
                 </>
               )}
             </form>

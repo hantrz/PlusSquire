@@ -2,7 +2,24 @@ import type { MetadataRoute } from 'next'
 import { SERVICES, SITE_URL } from './lib/site'
 import { INSIGHTS } from './lib/insights'
 
-const staticRoutes = ['', '/about', '/services', '/portfolio', '/insights', '/pricing', '/faq', '/case-studies', '/case-studies/dtc-skincare-growth-case-study', '/case-studies/luxury-spirits-growth-case-study', '/case-studies/7-day-flash-growth-case-study', '/privacy', '/terms']
+const staticRoutes = [
+  '',
+  '/about',
+  '/services',
+  '/portfolio',
+  '/insights',
+  '/pricing',
+  '/faq',
+  '/case-studies',
+  '/case-studies/dtc-skincare-growth-case-study',
+  '/case-studies/luxury-spirits-growth-case-study',
+  '/case-studies/7-day-flash-growth-case-study',
+  '/case-studies/dtc-fashion-klaviyo-flows-case-study',
+  '/case-studies/b2b-saas-onboarding-case-study',
+  '/case-studies/uk-retail-holiday-campaigns-case-study',
+  '/privacy',
+  '/terms',
+]
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()

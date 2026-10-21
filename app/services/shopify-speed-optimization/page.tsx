@@ -312,7 +312,15 @@ export default function ShopifySpeedOptimizationPage() {
           </div>
         </section>
 
-        <ServiceGallery tag="Real Results" title="Before and after, on a real store" sub="Mobile PageSpeed results, shared with permission." items={[{"label": "PageSpeed (mobile) before optimization", "alt": "Mobile PageSpeed score before optimization"}, {"label": "PageSpeed (mobile) after optimization", "alt": "Mobile PageSpeed score after optimization"}]} />
+        <ServiceGallery
+          tag="Real Results"
+          title="Before and after, on a real store"
+          sub="Mobile PageSpeed results, shared with permission."
+          items={[
+            { label: "PageSpeed (mobile) before & after optimization", alt: "Mobile PageSpeed score before and after optimization", src: "/images/services/shopify-speed-optimization/vitals-before-after.jpg" },
+            { label: "Staging QA & Core Web Vitals verification", alt: "Mobile PageSpeed score after optimization", src: "/images/services/shopify-speed-optimization/staging-qa-optimization.jpg" },
+          ]}
+        />
 
         <ServiceOffer tag="Free Speed Check" title="See what's slowing your store down" desc="Send us your store URL and we will run a speed check and tell you the top fixes, free." bullets={["Mobile PageSpeed and Core Web Vitals checked", "Your top 3 speed issues, explained simply", "No access to your store needed"]} ctaLabel="Get My Free Speed Check" href={contactHref('shopify-speed-optimization')} />
 

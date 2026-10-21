@@ -311,7 +311,17 @@ export default function EmailDesignPage() {
           </div>
         </section>
 
-        <ServiceGallery tag="Recent Work" title="Email designs we've shipped" sub="Shared with permission, with brand details hidden." items={[{"label": "Black Friday campaign (long-scroll mobile)", "alt": "Black Friday email design on mobile"}, {"label": "New arrival / product launch email", "alt": "Product launch email design"}, {"label": "Welcome email", "alt": "Welcome email design"}, {"label": "Same email in light and dark mode", "alt": "Email design shown in light and dark mode"}]} />
+        <ServiceGallery
+          tag="Recent Work"
+          title="Email designs we've shipped"
+          sub="Shared with permission, with brand details hidden."
+          items={[
+            { label: "Black Friday campaign (long-scroll mobile)", alt: "Black Friday email design on mobile", src: "/images/services/email-design/mobile-first-layout.jpg" },
+            { label: "New arrival / product launch email", alt: "Product launch email design", src: "/images/services/email-design/conversion-hierarchy.jpg" },
+            { label: "Welcome email", alt: "Welcome email design", src: "/images/services/email-design/brand-consistency.jpg" },
+            { label: "Same email in light and dark mode", alt: "Email design shown in light and dark mode", src: "/images/services/email-design/design-systems-hub.jpg" },
+          ]}
+        />
 
         <section className="edg-included">
           <div className="wrap">

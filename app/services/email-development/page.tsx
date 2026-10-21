@@ -312,7 +312,15 @@ export default function EmailDevelopmentPage() {
           </div>
         </section>
 
-        <ServiceGallery tag="Rendering Proof" title="The same email, in every inbox" sub="Real test results from a client template, shared with permission." items={[{"label": "Rendering test grid of one template across email clients", "alt": "Email rendering test results across email clients"}, {"label": "Light vs dark mode of the same email", "alt": "The same email in light and dark mode"}]} />
+        <ServiceGallery
+          tag="Rendering Proof"
+          title="The same email, in every inbox"
+          sub="Real test results from a client template, shared with permission."
+          items={[
+            { label: "Rendering test grid of one template across email clients", alt: "Email rendering test results across email clients", src: "/images/services/email-development/qa-testing-results.jpg" },
+            { label: "Light vs dark mode of the same email", alt: "The same email in light and dark mode", src: "/images/services/email-development/cross-client-compatibility.jpg" },
+          ]}
+        />
 
         <section className="edv-included">
           <div className="wrap">

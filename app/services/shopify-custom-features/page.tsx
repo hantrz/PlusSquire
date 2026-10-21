@@ -311,7 +311,15 @@ export default function ShopifyCustomFeaturesPage() {
 
         <ServiceUseCases tag="Popular Builds" title="Custom solutions we build most often" sub="Built into your theme, editable by your team, with no extra monthly app fee." items={[{"title": "Bundle & tiered discount builder", "desc": "Mix-and-match bundles and volume discounts that raise average order value."}, {"title": "Drawer cart with upsells", "desc": "A slide-out cart with a free-shipping progress bar, cross-sells and one-tap add-ons."}, {"title": "Product configurator or quiz", "desc": "Step-by-step sizing, matching or product-finder quizzes that guide shoppers to the right product."}, {"title": "B2B & wholesale order forms", "desc": "Quick-order forms and wholesale pricing displays, even without Shopify Plus."}]} />
 
-        <ServiceGallery tag="Editable By Your Team" title="Built to be edited without a developer" sub="Custom features show up in Shopify’s theme editor like any other section." items={[{"label": "Custom section in the Shopify theme editor", "alt": "Custom section settings in the Shopify theme editor"}, {"label": "The same feature live on a store", "alt": "Custom Shopify feature live on a store"}]} />
+        <ServiceGallery
+          tag="Editable By Your Team"
+          title="Built to be edited without a developer"
+          sub="Custom features show up in Shopify's theme editor like any other section."
+          items={[
+            { label: "Custom section in the Shopify theme editor", alt: "Custom section settings in the Shopify theme editor", src: "/images/services/shopify-custom-features/theme-editor-blocks.jpg" },
+            { label: "The same feature live on a store", alt: "Custom Shopify feature live on a store", src: "/images/services/shopify-custom-features/bespoke-features-showcase.jpg" },
+          ]}
+        />
 
         <ServiceOffer tag="Free Feasibility Check" title="Have an idea for a feature?" desc="Tell us what you want to build. We'll tell you if it can be done without a monthly app, how long it takes, and what it costs." bullets={["Your store URL", "What the feature should do", "Where it should appear in your store"]} ctaLabel="Check My Idea" href={contactHref('shopify-custom-features')} />
 

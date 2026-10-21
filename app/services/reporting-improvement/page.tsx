@@ -310,7 +310,15 @@ export default function ReportingImprovementPage() {
           </div>
         </section>
 
-        <ServiceGallery tag="Sample Report" title="What your monthly report looks like" sub="A real report with client details removed." items={[{"label": "Sample monthly report (anonymized)", "alt": "Sample monthly email performance report"}, {"label": "Reporting dashboard (Klaviyo or Looker Studio)", "alt": "Email reporting dashboard"}]} />
+        <ServiceGallery
+          tag="Sample Report"
+          title="What your monthly report looks like"
+          sub="A real report with client details removed."
+          items={[
+            { label: "Sample monthly report (anonymized)", alt: "Sample monthly email performance report", src: "/images/services/reporting-improvement/monthly-performance-reporting.jpg" },
+            { label: "Reporting dashboard (Klaviyo or Looker Studio)", alt: "Email reporting dashboard", src: "/images/services/reporting-improvement/hero-reporting-dashboard.jpg" },
+          ]}
+        />
 
         <section className="rpi-included">
           <div className="wrap">

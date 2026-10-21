@@ -316,7 +316,17 @@ export default function ShopifyThemeDevelopmentPage() {
           </div>
         </section>
 
-        <ServiceGallery tag="Recent Work" title="Stores we've built" sub="Shared with permission, with brand details hidden where requested." items={[{"label": "Store 1: desktop + mobile", "alt": "Custom Shopify store design on desktop and mobile"}, {"label": "Store 2: desktop + mobile", "alt": "Custom Shopify store design on desktop and mobile"}, {"label": "Store 3: desktop + mobile", "alt": "Custom Shopify store design on desktop and mobile"}, {"label": "PageSpeed score of a delivered store", "alt": "Google PageSpeed score of a delivered Shopify store"}]} />
+        <ServiceGallery
+          tag="Recent Work"
+          title="Stores we've built"
+          sub="Shared with permission, with brand details hidden where requested."
+          items={[
+            { label: "Store 1: desktop + mobile conversion UX", alt: "Custom Shopify store design on desktop and mobile", src: "/images/services/shopify-theme-development/conversion-ux.jpg" },
+            { label: "Store 2: custom page & collection templates", alt: "Custom Shopify store design on desktop and mobile", src: "/images/services/shopify-theme-development/page-templates.jpg" },
+            { label: "Store 3: mobile-first thumb-zone layout", alt: "Custom Shopify store design on desktop and mobile", src: "/images/services/shopify-theme-development/mobile-thumb-zone.jpg" },
+            { label: "PageSpeed score of a delivered store", alt: "Google PageSpeed score of a delivered Shopify store", src: "/images/services/shopify-theme-development/performance.jpg" },
+          ]}
+        />
 
         <section className="std-included">
           <div className="wrap">

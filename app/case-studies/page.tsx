@@ -55,7 +55,7 @@ const cases: CaseItem[] = [
     metrics: [{ val: '+42%', lbl: 'Email Revenue' }, { val: '3.8×', lbl: 'Flow ROI' }, { val: '58%', lbl: 'Open Rate' }],
     img: '/images/services/flow-setup/hero-flows-autopilot.jpg',
     featured: true,
-    href: '/#contact',
+    href: '/case-studies/dtc-fashion-klaviyo-flows-case-study',
   },
   {
     tag: 'SaaS · HubSpot & HTML Dev',
@@ -64,7 +64,7 @@ const cases: CaseItem[] = [
     metrics: [{ val: '−28%', lbl: 'Churn' }, { val: '+61%', lbl: 'Activation' }],
     img: '/images/services/email-development/hero-code-renders.jpg',
     featured: false,
-    href: '/#contact',
+    href: '/case-studies/b2b-saas-onboarding-case-study',
   },
   {
     tag: 'Retail · Promotional Campaigns',
@@ -73,7 +73,7 @@ const cases: CaseItem[] = [
     metrics: [{ val: '£92K', lbl: 'Revenue Generated' }, { val: '4.2%', lbl: 'Avg CTR' }],
     img: '/images/services/email-design/hero-pixel-perfect.jpg',
     featured: false,
-    href: '/#contact',
+    href: '/case-studies/uk-retail-holiday-campaigns-case-study',
   },
 ]
 
