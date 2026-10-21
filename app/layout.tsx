@@ -24,6 +24,14 @@ export const metadata: Metadata = {
   title: { default: defaultTitle, template: `%s | ${SITE_NAME}` },
   description: defaultDescription,
   alternates: { canonical: '/' },
+  icons: {
+    icon: [
+      { url: '/favicon.ico?v=2', sizes: 'any' },
+      { url: '/icon.png?v=2', type: 'image/png', sizes: '512x512' },
+    ],
+    shortcut: ['/favicon.ico?v=2'],
+    apple: [{ url: '/apple-icon.png?v=2', sizes: '180x180', type: 'image/png' }],
+  },
   openGraph: {
     type: 'website',
     url: '/',
