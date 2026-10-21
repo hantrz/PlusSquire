@@ -13,8 +13,8 @@ import { serviceMetadata } from '../../lib/seo'
 
 export const metadata: Metadata = serviceMetadata({
   slug: 'flow-setup',
-  title: "Klaviyo Flow Setup",
-  description: "Custom Klaviyo flows built for you: welcome series, browse and cart abandonment, post-purchase and win-back, with conditional logic, on-brand design and full testing before launch.",
+  title: "Klaviyo Flow Setup & Optimize",
+  description: "Custom Klaviyo flows built and continuously optimized for you: welcome series, browse and cart abandonment, post-purchase and win-back, with conditional logic, on-brand design and full testing before launch.",
   image: '/images/services/flow-setup/hero-flows-autopilot.jpg',
 })
 
@@ -169,7 +169,7 @@ export default function FlowSetupPage() {
         <section className="flw-hero">
           <div className="wrap flw-hero-grid">
             <div className="flw-hero-left" data-reveal="up">
-              <div className="section-tag">Klaviyo Flow Builds</div>
+              <div className="section-tag">Flow Setup &amp; Optimize</div>
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Automated flows that sell,<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>while you sleep.</em></h1>
               <p className="section-sub">Custom Klaviyo flow builds, welcome series, abandoned cart, post-purchase, and win-back sequences engineered to convert on autopilot.</p>
               <p style={{ fontSize: '14px', color: 'var(--ink3)', margin: '-18px 0 28px' }}>Using Mailchimp, Campaign Monitor or another platform? See <Link href="/services/email-automations" style={{ color: 'var(--g)', fontWeight: 700 }}>Email Automations →</Link></p>

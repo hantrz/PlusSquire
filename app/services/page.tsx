@@ -47,9 +47,9 @@ const serviceCategories = [
     icon: KlaviyoIcon,
     items: [
       { icon: Settings2,     title: 'Klaviyo Account Setup', desc: 'Full platform onboarding: list migration, integrations, DNS, and flow architecture.',                href: '/services/klaviyo-account-setup' },
-      { icon: Workflow,      title: 'Flow & Campaign Setup', desc: 'Custom Klaviyo flow builds: welcome series, abandoned cart, post-purchase, and win-back sequences engineered for revenue.', href: '/services/flow-setup' },
+      { icon: Workflow,      title: 'Flow Setup & Optimize', desc: 'Custom Klaviyo flow builds and continuous optimization: welcome series, abandoned cart, post-purchase, and win-back sequences engineered for revenue.', href: '/services/flow-setup' },
       { icon: SearchCheck,   title: 'Account Audit',      desc: 'Comprehensive review of your email program with a prioritised action plan.',                          href: '/services/account-audit' },
-      { icon: ClipboardList, title: 'Sign-Up Forms',      desc: 'High-converting pop-ups and embedded forms integrated with your platform.',                           href: '/services/sign-up-forms' },
+      { icon: ClipboardList, title: 'Sign-Up/Pop-Up Forms', desc: 'High-converting pop-ups and embedded sign-up forms integrated with your platform.',                 href: '/services/sign-up-forms' },
       { icon: Smartphone,    title: 'SMS Campaigns',      desc: 'SMS flows that drive urgency and recover lost revenue alongside your email program.',                 href: '/services/sms-campaigns' },
       { icon: BarChart3,     title: 'Reporting & Improvement', desc: 'Clear performance reporting paired with continuous testing and optimization to keep results improving month over month.', href: '/services/reporting-improvement' },
     ],
@@ -79,10 +79,10 @@ const svphNodes = [
   { title: 'Shopify Speed Optimization',      icon: Gauge,         href: '/services/shopify-speed-optimization', x: 86, y: 30 },
   { title: 'Shopify App & Custom Features',   icon: Puzzle,        href: '/services/shopify-custom-features', x: 86, y: 50 },
   { title: 'Klaviyo Account Setup & Audit',   icon: Settings2,     href: '/services/klaviyo-account-setup',  x: 86, y: 70 },
-  { title: 'Flow Setup',                      icon: Workflow,      href: '/services/flow-setup',  x: 66, y: 89 },
-  { title: 'Sign-Up Forms',                   icon: ClipboardList, href: '/services/sign-up-forms',  x: 34, y: 89 },
-  { title: 'SMS Campaigns',                   icon: Smartphone,    href: '/services/sms-campaigns',  x: 14, y: 70 },
-  { title: 'Email Campaigns',                 icon: Send,          href: '/services/email-campaigns',     x: 14, y: 50 },
+  { title: 'Flow Setup & Optimize',           icon: Workflow,      href: '/services/flow-setup',  x: 66, y: 89 },
+  { title: 'Sign-Up/Pop-Up Forms',            icon: ClipboardList, href: '/services/sign-up-forms',  x: 34, y: 89 },
+  { title: 'Email & SMS Campaigns',           icon: Send,          href: '/services/email-campaigns',  x: 14, y: 70 },
+  { title: 'Email Deliverability',            icon: ShieldCheck,   href: '/services/email-deliverability', x: 14, y: 50 },
   { title: 'Email Design & Development',      icon: Paintbrush,    href: '/services/email-design',     x: 14, y: 30 },
 ]
 

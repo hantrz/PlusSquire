@@ -170,7 +170,7 @@ export default function SignUpFormsPage() {
         <section className="suf-hero">
           <div className="wrap suf-hero-grid">
             <div className="suf-hero-left" data-reveal="up">
-              <div className="section-tag">Sign-Up Forms & Pop-Ups</div>
+              <div className="section-tag">Sign-Up/Pop-Up Forms</div>
               <h1 style={{ fontSize: 'clamp(32px,3.8vw,46px)' }}>Turn more visitors into subscribers,<br /><em style={{ color: 'var(--g)', fontStyle: 'normal' }}>without hurting the experience.</em></h1>
               <p className="section-sub">High-converting pop-ups and embedded forms, designed on-brand and integrated directly with your platform.</p>
               <div className="suf-btns">

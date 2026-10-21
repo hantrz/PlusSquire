@@ -36,9 +36,9 @@ const serviceCategories = [
     icon: KlaviyoIcon,
     items: [
       { icon: '⚙', label: 'Klaviyo Account Setup', href: '/services/klaviyo-account-setup' },
-      { icon: '⟲', label: 'Flow Setup', href: '/services/flow-setup' },
+      { icon: '⟲', label: 'Flow Setup & Optimize', href: '/services/flow-setup' },
       { icon: '⊘', label: 'Account Audit', href: '/services/account-audit' },
-      { icon: '⊕', label: 'Sign-Up Forms', href: '/services/sign-up-forms' },
+      { icon: '⊕', label: 'Sign-Up/Pop-Up Forms', href: '/services/sign-up-forms' },
       { icon: '◎', label: 'SMS Campaigns', href: '/services/sms-campaigns' },
       { icon: '▤', label: 'Reporting & Improvement', href: '/services/reporting-improvement' },
     ],

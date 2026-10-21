@@ -1721,7 +1721,7 @@ export function Footer() {
                 <li><Link href="/services/shopify-migration">Shopify Migration</Link></li>
                 <li><Link href="/services/klaviyo-account-setup">Klaviyo Account Setup</Link></li>
                 <li><Link href="/services/email-design">Email Design &amp; HTML Dev</Link></li>
-                <li><Link href="/services/flow-setup">Klaviyo Flow Setup</Link></li>
+                <li><Link href="/services/flow-setup">Flow Setup &amp; Optimize</Link></li>
                 <li><Link href="/services/email-deliverability">Email Deliverability</Link></li>
               </ul>
             </div>
