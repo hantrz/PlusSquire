@@ -2,9 +2,10 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
-import { Send } from 'lucide-react'
 
-function ShopifyIcon({ size = 16 }: { size?: number; strokeWidth?: number }) {
+import { Send, Zap, Wrench, Handshake } from 'lucide-react'
+
+function ShopifyIcon({ size = 16 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M15.337 23.979l7.216-1.561s-2.604-17.613-2.625-17.73c-.018-.116-.114-.192-.211-.192s-1.929-.136-1.929-.136-1.275-1.274-1.439-1.411c-.045-.037-.075-.057-.121-.074l-.914 21.104h.023zM11.71 11.305s-.81-.424-1.774-.424c-1.447 0-1.504.906-1.504 1.141 0 1.232 3.24 1.715 3.24 4.629 0 2.295-1.44 3.76-3.406 3.76-2.354 0-3.54-1.465-3.54-1.465l.646-2.086s1.245 1.066 2.28 1.066c.675 0 .975-.545.975-.932 0-1.619-2.654-1.694-2.654-4.359-.034-2.237 1.571-4.416 4.827-4.416 1.257 0 1.875.361 1.875.361l-.945 2.715-.02.01zM11.17.83c.136 0 .271.038.405.135-.984.465-2.064 1.639-2.508 3.992-.656.213-1.293.405-1.889.578C7.697 3.75 8.951.84 11.17.84V.83zm1.235 2.949v.135c-.754.232-1.583.484-2.394.736.466-1.777 1.333-2.645 2.085-2.971.193.501.309 1.176.309 2.1zm.539-2.234c.694.074 1.141.867 1.429 1.755-.349.114-.735.231-1.158.366v-.252c0-.752-.096-1.371-.271-1.871v.002zm2.992 1.289c-.02 0-.06.021-.078.021s-.289.075-.714.21c-.423-1.233-1.176-2.37-2.508-2.37h-.115C12.135.209 11.669 0 11.265 0 8.159 0 6.675 3.877 6.21 5.846c-1.194.365-2.063.636-2.16.674-.675.213-.694.232-.772.87-.075.462-1.83 14.063-1.83 14.063L15.009 24l.927-21.166z" />
@@ -12,7 +13,7 @@ function ShopifyIcon({ size = 16 }: { size?: number; strokeWidth?: number }) {
   )
 }
 
-function KlaviyoIcon({ size = 16 }: { size?: number; strokeWidth?: number }) {
+function KlaviyoIcon({ size = 16 }: { size?: number }) {
   return (
     <svg width={size} height={size * (45.4 / 68)} viewBox="0 0 68 45.4" fill="currentColor" aria-hidden="true">
       <path d="M68,45.4 L0,45.4 L0,0 L68,0 L53.6,22.7 L68,45.4 Z" />
@@ -20,46 +21,128 @@ function KlaviyoIcon({ size = 16 }: { size?: number; strokeWidth?: number }) {
   )
 }
 
-const serviceCategories = [
+type MegaMenuItem = {
+  icon: React.ReactNode
+  label: string
+  sub?: string
+  href: string
+}
+
+type MegaColumn = {
+  heading: string
+  icon: React.ComponentType<{ size?: number }>
+  items: MegaMenuItem[]
+}
+
+const megaMenuColumns: MegaColumn[] = [
   {
-    label: 'Shopify Engineering',
-    icon: ShopifyIcon,
-    items: [
-      { icon: '⬡', label: 'Shopify Theme Development', href: '/services/shopify-theme-development' },
-      { icon: '⇄', label: 'Shopify Migration', href: '/services/shopify-migration' },
-      { icon: '⚡', label: 'Shopify Speed Optimization', href: '/services/shopify-speed-optimization' },
-      { icon: '◫', label: 'Shopify App & Custom Features', href: '/services/shopify-custom-features' },
-    ],
-  },
-  {
-    label: 'Klaviyo Management',
+    heading: 'KLAVIYO MANAGEMENT',
     icon: KlaviyoIcon,
     items: [
-      { icon: '⚙', label: 'Klaviyo Account Setup', href: '/services/klaviyo-account-setup' },
-      { icon: '⟲', label: 'Flow Setup & Optimize', href: '/services/flow-setup' },
-      { icon: '⊘', label: 'Account Audit', href: '/services/account-audit' },
-      { icon: '⊕', label: 'Sign-Up/Pop-Up Forms', href: '/services/sign-up-forms' },
-      { icon: '◎', label: 'SMS Campaigns', href: '/services/sms-campaigns' },
-      { icon: '▤', label: 'Reporting & Improvement', href: '/services/reporting-improvement' },
+      {
+        icon: '⚙',
+        label: 'Klaviyo Account Setup',
+        sub: 'Full onboarding, integrations & list migration',
+        href: '/services/klaviyo-account-setup',
+      },
+      {
+        icon: '⟲',
+        label: 'Flow Setup & Optimize',
+        sub: 'Welcome, cart, browse & post-purchase flows',
+        href: '/services/flow-setup',
+      },
+      {
+        icon: '⊘',
+        label: 'Account Audit',
+        sub: '30+ point Klaviyo & retention audit',
+        href: '/services/account-audit',
+      },
+      {
+        icon: '⊕',
+        label: 'Sign-Up/Pop-Up Forms',
+        sub: 'High-converting pop-ups & data capture forms',
+        href: '/services/sign-up-forms',
+      },
+      {
+        icon: '◎',
+        label: 'SMS Campaigns',
+        sub: 'VIP SMS alerts & integrated automated flows',
+        href: '/services/sms-campaigns',
+      },
     ],
   },
   {
-    label: 'Email Marketing',
+    heading: 'EMAIL MARKETING',
     icon: Send,
     items: [
-      { icon: '✦', label: 'Email Design', href: '/services/email-design' },
-      { icon: '⌥', label: 'Email Development', href: '/services/email-development' },
-      { icon: '◈', label: 'Email Campaigns', href: '/services/email-campaigns' },
-      { icon: '⟳', label: 'Email Automations', href: '/services/email-automations' },
-      { icon: '✓', label: 'Email Deliverability', href: '/services/email-deliverability' },
+      {
+        icon: '✦',
+        label: 'Email Design',
+        sub: 'Mobile-first, on-brand Figma email layouts',
+        href: '/services/email-design',
+      },
+      {
+        icon: '⌥',
+        label: 'Email Development',
+        sub: 'Hand-coded HTML tested in 50+ email clients',
+        href: '/services/email-development',
+      },
+      {
+        icon: '✓',
+        label: 'Email Deliverability',
+        sub: 'SPF/DKIM/DMARC & primary inbox placement',
+        href: '/services/email-deliverability',
+      },
+      {
+        icon: '◈',
+        label: 'Email Campaigns',
+        sub: 'Full campaign strategy, copy, build & send',
+        href: '/services/email-campaigns',
+      },
+      {
+        icon: '⟳',
+        label: 'Email Automations',
+        sub: 'Lifecycle sequences on any ESP or platform',
+        href: '/services/email-automations',
+      },
     ],
   },
-]
-
-const resources = [
-  { label: 'Case Studies', href: '/case-studies' },
-  { label: 'Portfolio', href: '/portfolio' },
-  { label: 'Insights', href: '/insights' },
+  {
+    heading: 'SHOPIFY ENGINEERING',
+    icon: ShopifyIcon,
+    items: [
+      {
+        icon: '⬡',
+        label: 'Shopify Theme Development',
+        sub: 'Custom OS 2.0 storefronts built to convert',
+        href: '/services/shopify-theme-development',
+      },
+      {
+        icon: '⇄',
+        label: 'Shopify Migration',
+        sub: 'Zero-downtime platform move with SEO intact',
+        href: '/services/shopify-migration',
+      },
+      {
+        icon: <Zap size={13} strokeWidth={2.5} />,
+        label: 'Shopify Speed Optimization',
+        sub: 'Core Web Vitals & sub-2s load time fixes',
+        href: '/services/shopify-speed-optimization',
+      },
+      {
+        icon: '◫',
+        label: 'Shopify App & Custom Features',
+        sub: 'Bespoke sections, drawers & native liquid code',
+        href: '/services/shopify-custom-features',
+      },
+      {
+        icon: <Wrench size={13} strokeWidth={2.4} />,
+        label: 'Store Maintenance & Support',
+        sub: 'Ongoing bug fixes, section updates & sprints',
+        href: '/services/shopify-maintenance-support',
+      },
+    ],
+  },
 ]
 
 const about = [
@@ -176,58 +259,211 @@ export default function Navbar() {
           color: var(--gd);
         }
 
-        /* Services mega-menu: category list + hover flyout */
-        .services-dropdown {
-          left: 0; transform: translateX(0) translateY(-4px); min-width: 240px;
+        /* ══════════════ MAILSTORA-STYLE 3-COLUMN SERVICES MEGA MENU ══════════════ */
+        .nav-mega-li {
+          position: static !important;
         }
-        .nav-links > li:hover .services-dropdown {
-          transform: translateX(0) translateY(0);
+        .services-mega {
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-6px);
+          width: min(940px, calc(100vw - 40px));
+          background: #ffffff;
+          border: 1px solid rgba(15, 22, 35, 0.08);
+          border-radius: 22px;
+          padding: 0;
+          box-shadow: 0 28px 70px rgba(15, 22, 35, 0.14), 0 4px 16px rgba(15, 22, 35, 0.04);
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+          z-index: 99999;
+          transition: opacity .18s ease, visibility .18s ease, transform .18s cubic-bezier(.22,1,.36,1);
         }
-        .cat-row { position: relative; }
-        .cat-row > .cat-trigger {
-          display: flex; align-items: center; justify-content: space-between; gap: 14px;
-          padding: 10px 14px; border-radius: 9px; cursor: pointer;
-          color: var(--ink); font-size: 14.5px; font-weight: 600;
-          transition: background .14s, color .14s;
+        /* Seamless invisible hover bridge between navbar item and mega menu */
+        .services-mega::before {
+          content: '';
+          position: absolute;
+          top: -24px;
+          left: 0;
+          right: 0;
+          height: 28px;
         }
-        .cat-row:hover > .cat-trigger {
+        .nav-mega-li:hover .services-mega,
+        .services-mega:hover {
+          opacity: 1;
+          visibility: visible;
+          transform: translateX(-50%) translateY(0);
+          pointer-events: all;
+        }
+        /* Full-width top header section with top-to-bottom gradient */
+        .mega-top-bar {
+          background: linear-gradient(180deg, rgba(30, 166, 114, 0.09) 0%, rgba(30, 166, 114, 0.015) 100%);
+          border-top-left-radius: 21px;
+          border-top-right-radius: 21px;
+          padding: 18px 34px 14px;
+        }
+        .mega-top-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 28px;
+          align-items: center;
+        }
+        .mega-col-title {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          height: 24px;
+          font-size: 11.5px;
+          font-weight: 800;
+          letter-spacing: 0.09em;
+          text-transform: uppercase;
+          color: var(--g);
+          margin: 0;
+        }
+        .mega-col-title svg {
+          color: var(--g);
+          opacity: 0.95;
+        }
+        .mega-body {
+          padding: 14px 34px 20px;
+        }
+        .mega-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 28px;
+          align-items: stretch;
+        }
+        .mega-col {
+          display: flex;
+          flex-direction: column;
+        }
+        .mega-list {
+          display: flex;
+          flex-direction: column;
+          gap: 0;
+        }
+        .mega-link {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          height: 66px;
+          box-sizing: border-box;
+          padding: 9px 10px;
+          margin: 0 -8px;
+          border-radius: 10px;
+          text-decoration: none;
+          white-space: normal;
+          position: relative;
+          background: transparent;
+          border-bottom: 1px solid rgba(15, 22, 35, 0.05);
+          transition: background .18s ease, transform .15s ease, border-color .18s ease;
+        }
+        .mega-link:last-child {
+          border-bottom: none;
+        }
+        .mega-link:hover {
+          background: linear-gradient(90deg, rgba(30, 166, 114, 0.12) 0%, rgba(30, 166, 114, 0.02) 100%);
+          border-bottom-color: transparent;
+          transform: translateX(3px);
+        }
+        .mega-link-ico {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 26px;
+          height: 26px;
+          border-radius: 7px;
+          background: rgba(30, 166, 114, 0.08);
+          color: var(--g);
+          font-size: 13px;
+          font-weight: 700;
+          flex-shrink: 0;
+          margin-top: 1px;
+          transition: transform .22s cubic-bezier(.34,1.56,.64,1), background .18s ease, color .18s ease, box-shadow .18s ease;
+        }
+        .mega-link:hover .mega-link-ico {
+          transform: scale(1.22) rotate(-5deg);
+          background: var(--g);
+          color: #ffffff;
+          box-shadow: 0 4px 10px rgba(30, 166, 114, 0.35);
+        }
+        .mega-link-content {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+        }
+        .mega-link-title {
+          font-size: 14px;
+          font-weight: 700;
+          color: var(--ink);
+          line-height: 1.3;
+          transition: color .15s ease;
+        }
+        .mega-link:hover .mega-link-title {
+          color: var(--gd);
+        }
+        .mega-link-sub {
+          font-size: 12px;
+          font-weight: 500;
+          color: var(--ink3);
+          line-height: 1.35;
+        }
+
+        /* Full-width bottom footer bar across all columns */
+        .mega-bottom-bar {
+          margin-top: 24px;
+          padding-top: 16px;
+          border-top: 1px solid rgba(15, 22, 35, 0.08);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
+          flex-wrap: wrap;
+        }
+        .mega-bottom-link-wl {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          color: var(--ink);
+          font-size: 13.5px;
+          font-weight: 700;
+          text-decoration: none;
+          padding: 6px 12px;
+          border-radius: 8px;
+          background: rgba(15, 22, 35, 0.04);
+          transition: background .15s ease, color .15s ease;
+        }
+        .mega-bottom-link-wl:hover {
           background: var(--gl);
           color: var(--gd);
         }
-        .cat-label { display: flex; align-items: center; gap: 10px; }
-        .cat-label svg {
-          flex-shrink: 0; opacity: .85; color: var(--g);
-          transition: transform .18s ease, opacity .18s ease;
+        .mega-wl-ico {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--g);
+          transition: color .15s ease, transform .2s ease;
         }
-        .cat-row:hover .cat-label svg { transform: scale(1.15); opacity: 1; }
-        .cat-arrow { opacity: .45; font-size: 12px; }
-        .cat-row:hover .cat-arrow { opacity: .9; color: var(--gd); }
-        .cat-flyout {
-          position: absolute; top: 0; left: 100%; padding-left: 10px;
-          width: max-content;
-          opacity: 0; visibility: hidden; pointer-events: none;
-          transition: opacity .14s ease, visibility .14s ease;
+        .mega-bottom-link-wl:hover .mega-wl-ico {
+          color: var(--gd);
+          transform: scale(1.1);
         }
-        .cat-flyout-inner {
-          background: rgba(255, 255, 255, 0.98);
-          backdrop-filter: blur(20px);
-          border: 1px solid var(--border);
-          border-radius: 14px; padding: 8px; min-width: 250px; width: max-content;
-          box-shadow: 0 16px 40px rgba(15, 22, 35, 0.12);
+        .mega-bottom-link-all {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          color: var(--g);
+          font-size: 17.5px;
+          font-weight: 700;
+          text-decoration: none;
+          transition: color .15s ease, transform .15s ease;
         }
-        .cat-row:hover .cat-flyout {
-          opacity: 1; visibility: visible; pointer-events: all;
+        .mega-bottom-link-all:hover {
+          color: var(--gd);
+          transform: translateX(4px);
         }
-        .services-view-all {
-          border-top: 1px solid var(--border);
-          margin-top: 6px; padding-top: 6px;
-        }
-        .services-view-all a {
-          justify-content: center; font-weight: 700; color: var(--gd);
-        }
-        @media(max-width:1200px){
-          .cat-flyout { left: auto; right: 100%; padding-left: 0; padding-right: 10px; }
-        }
+
         .nav-right {
           display: flex; align-items: center; gap: 10px;
           justify-content: flex-end; justify-self: end; white-space: nowrap;
@@ -273,7 +509,7 @@ export default function Navbar() {
           text-decoration: none;
         }
         .mobile-menu a:hover { background: var(--gl); color: var(--gd); }
-        @media(max-width:900px){
+        @media(max-width:980px){
           .nav-links,.btn-nav-outline { display: none; }
           .hamburger { display: block; }
         }
@@ -286,33 +522,58 @@ export default function Navbar() {
           </Link>
 
           <ul className="nav-links">
-            <li>
+            <li className="nav-mega-li">
               <Link href="/services">
                 Services
                 <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2">
                   <polyline points="4 6 8 10 12 6" />
                 </svg>
               </Link>
-              <div className="dropdown services-dropdown">
-                {serviceCategories.map((cat) => (
-                  <div key={cat.label} className="cat-row">
-                    <div className="cat-trigger">
-                      <span className="cat-label"><cat.icon size={18} strokeWidth={2} />{cat.label}</span>
-                      <span className="cat-arrow">▸</span>
-                    </div>
-                    <div className="cat-flyout">
-                      <div className="cat-flyout-inner">
-                        {cat.items.map((s) => (
-                          <Link key={s.href} href={s.href}>
-                            {s.label}
-                          </Link>
-                        ))}
+
+              {/* 3-Column Services Mega Menu with top gradient header & bottom divider bar */}
+              <div className="services-mega">
+                {/* Full-width top header section with top-to-bottom subtle gradient */}
+                <div className="mega-top-bar">
+                  <div className="mega-top-grid">
+                    {megaMenuColumns.map((col) => (
+                      <div key={col.heading} className="mega-col-title">
+                        <col.icon size={15} />
+                        <span>{col.heading}</span>
                       </div>
-                    </div>
+                    ))}
                   </div>
-                ))}
-                <div className="services-view-all">
-                  <Link href="/services">View All Services →</Link>
+                </div>
+
+                <div className="mega-body">
+                  <div className="mega-grid">
+                    {megaMenuColumns.map((col) => (
+                      <div key={col.heading} className="mega-col">
+                        <div className="mega-list">
+                          {col.items.map((item) => (
+                            <Link key={item.href + item.label} href={item.href} className="mega-link">
+                              <span className="mega-link-ico">{item.icon}</span>
+                              <div className="mega-link-content">
+                                <span className="mega-link-title">{item.label}</span>
+                                {item.sub && <span className="mega-link-sub">{item.sub}</span>}
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Full-width bottom bar with divider */}
+                  <div className="mega-bottom-bar">
+                    <Link href="/pricing" className="mega-bottom-link-wl">
+                      <span className="mega-wl-ico"><Handshake size={16} strokeWidth={2.2} /></span>
+                      <span>White-Label for Agencies</span>
+                      <span style={{ fontSize: '11px', color: 'var(--ink4)', fontWeight: 500 }}>(Silent agency overflow support)</span>
+                    </Link>
+                    <Link href="/services" className="mega-bottom-link-all">
+                      <span>View all services →</span>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </li>

@@ -20,6 +20,11 @@ export default function ContactServiceFields() {
 
   useEffect(() => {
     const fromUrl = new URLSearchParams(window.location.search).get('service') || ''
+    if (fromUrl === 'whitelabel' || fromUrl === 'White-Label / Agency Overflow Partnership') {
+      setService('White-Label / Agency Overflow Partnership')
+      setSlug('whitelabel')
+      return
+    }
     const match = SERVICES.find((s) => s.slug === fromUrl)
     if (match) {
       setService(match.label)
